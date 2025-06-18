@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar and Hero Section</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Link to your CSS files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="democlasses.css">
+    <link rel="stylesheet" href="course_available.css">
+    <link rel="stylesheet" href="our_patners.css">
+    <link rel="stylesheet" href="ai_course.css"> 
+    <link rel="stylesheet" href="review.css">
+
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-left">
+            <!-- NOTE: Update the src to your actual logo file -->
+            <a href="#"><img src="img/logo.png" alt="Kratos Academy Logo" class="logo-image"></a>
+            <button class="programs-button">Programs <i class="fas fa-chevron-down icon-chevron"></i></button>
+        </div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#hero-section">Home</a></li>
+                <li><a href="#demo-classes-section">Demo Classes</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="contact us/contact_us.html">Contact us</a></li>
+            </ul>
+            <a href="#" class="nav-button-cta">Free Courses</a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+        <section class="hero-section" id="hero-section">
+            <div class="hero-content">
+                <h1>From <span class="highlight-word"> <font style="color: #5E259A;">Passion </font> <br> <svg viewBox="0 0 204 26">
+                        <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
+                    </svg>
+                </span> <br>to <span class="highlight-word">
+                   <font style="color: #51e751;"> Profession  </font>
+                    <svg viewBox="0 0 204 26">
+                        <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
+                    </svg>
+                </span></h1>
+                <p>We don't just teach—we help you thrive. Take charge of your career. Book your session today.</p>
+           
+                <!-- ============================================= -->
+                <!-- NEW: Container for Button and Star Rating -->
+                <!-- ============================================= -->
+                <div class="cta-container">
+                    <button class="booknow">
+                        Book Now <i class='fas fa-angle-right'></i>
+                    </button>
+                    <div class="star-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-number">4.5</span>
+                        <span class="rating-text">Star-ratings across platforms</span>
+                    </div>
+                </div>
+                <!-- ============================================= -->
+
+                <!-- Animated Stats Section -->
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <h2 class="counter" data-target="350">0+</h2>
+                        <p>Student Enrolled</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2 class="counter" data-target="10">0+</h2>
+                        <p>Top Instructors</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2 class="counter" data-target="99.9" data-suffix="%">0%</h2>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2 class="counter" data-target="160">0+</h2>
+                        <p>Placed Student</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- ============================================= -->
+<!--         DEMO CLASSES SECTION - START          -->
+<!-- ============================================= -->
+<section class="demo-classes-section" id="demo-classes-section">
+    <div class="section-header">
+        <div class="section-titles">
+            <h3>OUR DEMOCLASSES</h3>
+            <h2>Your first step to success</h2>
+        </div>
+        <div class="slider-nav">
+            <button id="scroll-left" class="nav-button"><i class="fas fa-chevron-left"></i></button>
+            <button id="scroll-right" class="nav-button"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div class="classes-slider" id="classes-slider">
+
+        <!-- Card 1: Finance -->
+        <div class="class-card">
+            <div class="card-content">
+                <div class="card-tag tag-finance">/Finance</div>
+                <h4 class="card-title">Demystifying Stock Valuation in minutes</h4>
+                <div class="instructor-info">
+                    <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
+                    <div class="instructor-details">
+                        <p class="instructor-name">Shiva Kumar Bavamala</p>
+                        <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
+                    </div>
+                </div>
+                <div class="class-meta">
+                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
+                    <p class="seats-left">LIMITED SEATS LEFT !</p>
+                </div>
+            </div>
+            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- End of Card 1 -->
+
+        <!-- Card 2: Technology -->
+        <div class="class-card">
+            <div class="card-content">
+                <div class="card-tag tag-tech">/Technology</div>
+                <h4 class="card-title">Container Security - DevSecOps</h4>
+                <div class="instructor-info">
+                    <img src="img/instructor2.png" alt="Dr. Prashant Kumar Dey" class="instructor-pic pic-tech">
+                    <div class="instructor-details">
+                        <p class="instructor-name">Dr. Prashant Kumar Dey</p>
+                        <p class="instructor-bio">Associate Program Director, Hero Vired<br>BMW | Google</p>
+                    </div>
+                </div>
+                <div class="class-meta">
+                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
+                    <p class="seats-left">LIMITED SEATS LEFT !</p>
+                </div>
+            </div>
+            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- End of Card 2 -->
+
+        <!-- Card 3: Data Science -->
+        <div class="class-card">
+            <div class="card-content">
+                <div class="card-tag tag-data">/Data Science</div>
+                <h4 class="card-title">Your First Data Bot: Step into Data Engineering</h4>
+                <div class="instructor-info">
+                    <img src="img/instructor3.png" alt="Shakul Malik" class="instructor-pic pic-data">
+                    <div class="instructor-details">
+                        <p class="instructor-name">Shakul Malik</p>
+                        <p class="instructor-bio">Full Stack Trainer | Ex- TCS | 10+ Years of Experience</p>
+                    </div>
+                </div>
+                <div class="class-meta">
+                    <p class="class-date"><i class="far fa-calendar-alt"></i> 12 June, 7:00 PM</p>
+                    <p class="seats-left">LIMITED SEATS LEFT !</p>
+                </div>
+            </div>
+            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!-- End of Card 3 -->
+
+        <!--Start of Card 4-->
+
+         <div class="class-card">
+            <div class="card-content">
+                <div class="card-tag tag-finance">/Finance</div>
+                <h4 class="card-title">Demystifying Stock Valuation in minutes</h4>
+                <div class="instructor-info">
+                    <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
+                    <div class="instructor-details">
+                        <p class="instructor-name">Shiva Kumar Bavamala</p>
+                        <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
+                    </div>
+                </div>
+                <div class="class-meta">
+                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
+                    <p class="seats-left">LIMITED SEATS LEFT !</p>
+                </div>
+            </div>
+            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <!--End of Card 4-->
+
+        <!--Start of Card 5-->
+         <div class="class-card">
+            <div class="card-content">
+                <div class="card-tag tag-finance">/Finance</div>
+                <h4 class="card-title">Demystifying Stock Valuation in minutes</h4>
+                <div class="instructor-info">
+                    <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
+                    <div class="instructor-details">
+                        <p class="instructor-name">Shiva Kumar Bavamala</p>
+                        <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
+                    </div>
+                </div>
+                <div class="class-meta">
+                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
+                    <p class="seats-left">LIMITED SEATS LEFT !</p>
+                </div>
+            </div>
+            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+         <!--End of Card 5-->
+
+
+           <!--Start of Card 6-->
+ <div class="class-card">
+            <div class="card-content">
+                <div class="card-tag tag-finance">/Finance</div>
+                <h4 class="card-title">Demystifying Stock Valuation in minutes</h4>
+                <div class="instructor-info">
+                    <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
+                    <div class="instructor-details">
+                        <p class="instructor-name">Shiva Kumar Bavamala</p>
+                        <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
+                    </div>
+                </div>
+                <div class="class-meta">
+                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
+                    <p class="seats-left">LIMITED SEATS LEFT !</p>
+                </div>
+            </div>
+            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+                 <!--End of Card 6-->
+
+
+    </div>
+</section>
+<!-- ============================================= -->
+<!--          DEMO CLASSES SECTION - END           -->
+<!-- ============================================= -->
+
+<!--Start Course Available-->
+
+<Section class="course_available" id="course_available">
+
+
+
+  <div class="container">
+        <p class="section-subtitle">DISCOVER YOUR TRUE POTENTIAL</p>
+        <h3 class="section-title">Your growth, our mission. High-impact learning starts here.</h3>
+
+
+        <div class="carousel-container">
+            <button class="carousel-arrow prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+
+            <div class="carousel-track">
+                <!-- Card 1: Financial Analysis -->
+                <div class="program-card">
+                    <div class="card-image-container">
+                        <img src="https://placehold.co/360x160/F3F4F6/e0e0e0?text=Financial+Graph" alt="A bull in front of a financial graph.">
+                        <span class="card-tag tag-orange">ASSURED INTERVIEWS</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-logos">
+                            <span class="logo-edx">edX</span>
+                            <span class="logo-columbia">COLUMBIA UNIVERSITY</span>
+                        </div>
+                        <p class="card-program-type">Postgraduate Program in</p>
+                        <h3 class="card-title">Financial Analysis, Valuation & Risk Management</h3>
+                        <div class="card-info">
+                            <span class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Duration: 7 months
+                            </span>
+                            <span class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                Apply by: June 14, 2025
+                            </span>
+                        </div>
+                        <div class="card-buttons">
+                            <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
+                            <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: DevOps -->
+                <div class="program-card">
+                    <div class="card-image-container">
+                        <img src="https://placehold.co/360x160/F3F4F6/e0e0e0?text=DevOps+Symbol" alt="DevOps infinity symbol.">
+                        <span class="card-tag tag-yellow">CAREER ASSISTANCE PROGRAM</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-logos">
+                            <span class="logo-microsoft">Microsoft</span>
+                        </div>
+                        <p class="card-program-type">Postgraduate Program in</p>
+                        <h3 class="card-title">Multi Cloud Architecture & DevOps</h3>
+                        <div class="card-info">
+                            <span class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Duration: 9 Months
+                            </span>
+                             <span class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                Apply by: June 14, 2025
+                            </span>
+                        </div>
+                        <div class="card-buttons">
+                            <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
+                            <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Leadership -->
+                <div class="program-card">
+                    <div class="card-image-container">
+                        <img src="https://placehold.co/360x160/F3F4F6/e0e0e0?text=Business+Team" alt="Silhouettes of three business professionals.">
+                        <span class="card-tag tag-blue">INSEAD EXCELLENCE, DELIVERED LIVE</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-logos">
+                            <span class="logo-insead">INSEAD</span>
+                        </div>
+                        <p class="card-program-type">Executive Program in</p>
+                        <h3 class="card-title">Strategy, Innovation & Leadership</h3>
+                         <div class="card-info">
+                            <span class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                Duration: 7 months
+                            </span>
+                             <span class="info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                Apply by: June 14, 2025
+                            </span>
+                        </div>
+                        <div class="card-buttons">
+                            <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
+                            <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-arrow next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </div>
+</Section>
+
+<!--End Section of Course Available-->
+
+
+<!--Start the code our partner-->
+  <section class="partner-section">
+        <h2 class="section-title">Our Partners</h2>
+
+        <div class="logo-slider">
+            <div class="logo-track">
+                
+                <!-- Slide Item 1 -->
+                <div class="slide-item">
+                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
+                    <p class="company-name">IBM</p>
+                </div>
+
+                <!-- Slide Item 2 -->
+                <div class="slide-item">
+                    <img src="img/partner/infosys.png" alt="Infosys Logo">
+                    <p class="company-name">Infosys</p>
+                </div>
+
+                <!-- Slide Item 3 -->
+                <div class="slide-item">
+                    <img src="img/partner/tcs.png" alt="TCS Logo">
+                    <p class="company-name">TCS</p>
+                </div>
+
+                <!-- Slide Item 4 -->
+                <div class="slide-item">
+                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
+                    <p class="company-name">IBM</p>
+                </div>
+
+                <!-- Slide Item 5 -->
+                <div class="slide-item">
+              <img src="img/partner/infosys.png" alt="Infosys Logo">
+                    <p class="company-name">Infosys</p>
+                </div>
+
+                <!-- Slide Item 6 -->
+                <div class="slide-item">
+                   <img src="img/partner/tcs.png" alt="TCS Logo">
+                    <p class="company-name">TCS</p>
+                </div>
+
+                <!-- == DUPLICATE SET FOR SEAMLESS LOOP == -->
+
+                <div class="slide-item">
+                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
+                    <p class="company-name">IBM</p>
+                </div>
+                <div class="slide-item">
+                   <img src="img/partner/infosys.png" alt="Infosys Logo">
+                    <p class="company-name">Infosys</p>
+                </div>
+                <div class="slide-item">
+                   <img src="img/partner/tcs.png" alt="TCS Logo">
+                    <p class="company-name">TCS</p>
+                </div>
+                <div class="slide-item">
+                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
+                    <p class="company-name">IBM</p>
+                </div>
+                <div class="slide-item">
+                    <img src="img/partner/infosys.png" alt="Infosys Logo">
+                    <p class="company-name">Infosys</p>
+                </div>
+                <div class="slide-item">
+                    <img src="img/partner/tcs.png" alt="TCS Logo">
+                    <p class="company-name">TCS</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- =============================================================== -->
+    <!-- SECTION 2: NEW SLIDER SCROLLING LEFT-TO-RIGHT                 -->
+    <!-- =============================================================== -->
+ 
+      
+
+        <!-- We add a new class 'ltr' (left-to-right) to target this with different CSS -->
+        <div class="logo-slider ltr">
+            <div class="logo-track">
+                
+                <!-- Slide Item 1 -->
+                <div class="slide-item">
+                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
+                    <p class="company-name">IBM</p>
+                </div>
+
+                <!-- Slide Item 2 -->
+                <div class="slide-item">
+                    <img src="img/partner/infosys.png" alt="Infosys Logo">
+                    <p class="company-name">Infosys</p>
+                </div>
+
+                <!-- Slide Item 3 -->
+                <div class="slide-item">
+                    <img src="img/partner/tcs.png" alt="TCS Logo">
+                    <p class="company-name">TCS</p>
+                </div>
+
+                <!-- Slide Item 4 -->
+                <div class="slide-item">
+                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
+                    <p class="company-name">IBM</p>
+                </div>
+
+                <!-- Slide Item 5 -->
+                <div class="slide-item">
+                    <img src="img/partner/infosys.png" alt="Infosys Logo">
+                    <p class="company-name">Infosys</p>
+                </div>
+
+                <!-- Slide Item 6 -->
+                <div class="slide-item">
+                    <img src="img/partner/tcs.png" alt="TCS Logo">
+                    <p class="company-name">TCS</p>
+                </div>
+
+                <!-- == DUPLICATE SET FOR SEAMLESS LOOP == -->
+
+                <div class="slide-item">
+                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
+                    <p class="company-name">IBM</p>
+                </div>
+                <div class="slide-item">
+                    <img src="img/partner/infosys.png" alt="Infosys Logo">
+                    <p class="company-name">Infosys</p>
+                </div>
+                <div class="slide-item">
+                    <img src="img/partner/tcs.png" alt="TCS Logo">
+                    <p class="company-name">TCS</p>
+                </div>
+                <div class="slide-item">
+                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
+                    <p class="company-name">IBM</p>
+                </div>
+                <div class="slide-item">
+                    <img src="img/partner/infosys.png" alt="Infosys Logo">
+                    <p class="company-name">Infosys</p>
+                </div>
+                <div class="slide-item">
+                    <img src="img/partner/tcs.png" alt="TCS Logo">
+                    <p class="company-name">TCS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<!---End of our patners-->
+
+
+<!--Start Ai courses code-->
+ <section class="ai-hero-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                
+                <h1 class="main-heading">AI Isn't Optional. It's Essential.</h1>
+            </div>
+
+            <!-- Main Grid Layout -->
+            <div class="ai-grid-container">
+                
+                <!-- Large Card on the Left -->
+                <div class="grid-card large-card">
+                    <div class="large-card-image">
+                        <!-- CHANGE THIS IMAGE PATH -->
+                        <img src="img/ai-face.png" alt="Futuristic AI-generated face profile">
+                    </div>
+                    <div class="large-card-content">
+                        <h3>The Future of Learning is AI-Driven</h3>
+                        <p>Education is evolving, and AI is at the heart of this transformation.</p>
+                    </div>
+                </div>
+
+                <!-- Wrapper for the 4 Small Cards on the Right -->
+                <div class="small-cards-wrapper">
+                    
+                    <!-- Card 1: AI Powered LMS -->
+                    <div class="grid-card">
+                        <img src="images/lms-dashboard.png" alt="LMS Dashboard" class="card-image-top">
+                        <h4>AI Powered LMS</h4>
+                        <p>Intelligent systems to track progress and optimize learning paths for efficiency.</p>
+                    </div>
+
+                    <!-- Card 2: AI-Driven Content -->
+                    <div class="grid-card">
+                        <h4>AI-Driven Content</h4>
+                        <p>Gain hands-on experience with TensorFlow, PyTorch, OpenAI, LLMs, Generative AI, and other industry-standard tools.</p>
+                        <div class="tech-icons">
+                            <img src="images/icon-tensorflow.svg" alt="TensorFlow" class="animated-icon">
+                            <img src="images/icon-pytorch.svg" alt="PyTorch" class="animated-icon">
+                            <img src="images/icon-openai.svg" alt="OpenAI" class="animated-icon">
+                            <img src="images/icon-llm.svg" alt="LLM" class="animated-icon">
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Gen AI Essentials Bootcamp -->
+                    <div class="grid-card">
+                        <h4>Gen AI Essentials Bootcamp</h4>
+                        <p>Integrated AI sessions across every program to future-proof your skills.</p>
+                        <img src="images/ai-bootcamp.png" alt="AI Bootcamp" class="card-image-bottom">
+                    </div>
+
+                    <!-- Card 4: Industry-Integrated AI Projects -->
+                    <div class="grid-card">
+                        <h4>Industry-Integrated AI Projects</h4>
+                        <p>Work on live AI-driven projects in predictive analytics, fraud detection, recommendation systems, and more.</p>
+                        <img src="images/ai-projects.png" alt="AI Projects" class="card-image-bottom">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================================= 
+         AI HERO SECTION END
+    ================================== -->
+
+
+
+
+
+
+
+    <!--Start Review Section-->
+
+  <section class="testimonial-section">
+    <div class="testimonial-container">
+        <!-- Left Side: Header Content -->
+        <div class="testimonial-header">
+            <p class="subtitle">TESTIMONIALS</p>
+            <h2>What Our<br>Students<br>Have To <span>Say</span></h2>
+            <p class="description">
+                Our students' success is a testament to the quality of education and training at Cloud World Institute. Here's what they have to say about their learning journey with us.
+            </p>
+        </div>
+
+        <!-- Right Side: The Slider -->
+        <div class="testimonial-slider-wrapper">
+            <div class="testimonial-cards-container">
+                <!-- Card 1 -->
+                <div class="testimonial-card">
+                    <p class="review-text">The quality of education and guidance is unmatched. I'm grateful for the valuable skills and knowledge I gained, which helped me secure a great job in the IT industry.</p>
+                    <div class="reviewer-info">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="name">Neha Desai</p>
+                        <p class="role">IT Professional</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="testimonial-card">
+                    <p class="review-text">The hands-on training and practical approach at Cloud World Institute helped me understand complex concepts easily. The curriculum is up-to-date, and the support for career growth is excellent!</p>
+                    <div class="reviewer-info">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="name">Priya Patel</p>
+                        <p class="role">Developer</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="testimonial-card">
+                    <p class="review-text">I joined Cloud World Institute to upskill in Cloud Computing, and it was the best decision. The courses are well-structured, and the trainers provide real-world insights.</p>
+                    <div class="reviewer-info">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="name">Ravi Kumar</p>
+                        <p class="role">Student</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination Dots -->
+            <div class="testimonial-dots"></div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dotsContainer = document.querySelector('.testimonial-dots');
+
+    if (cards.length === 0) return;
+
+    let currentIndex = 0;
+    const slideIntervalTime = 5000; // 5 seconds
+    let slideInterval;
+
+    // Create dots based on the number of cards
+    cards.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => {
+            goToSlide(index);
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function goToSlide(index) {
+        // Prevent running if already on the selected slide
+        if (currentIndex === index && document.querySelector('.testimonial-card.active')) return;
+
+        currentIndex = index;
+
+        // Update active classes for cards
+        cards.forEach((card, i) => {
+            if (i === currentIndex) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+
+        // Update active classes for dots
+        dots.forEach((dot, i) => {
+            if (i === currentIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+
+        // Reset the automatic sliding timer
+        resetInterval();
+    }
+
+    function nextSlide() {
+        const nextIndex = (currentIndex + 1) % cards.length;
+        goToSlide(nextIndex);
+    }
+
+    function startInterval() {
+        slideInterval = setInterval(nextSlide, slideIntervalTime);
+    }
+    
+    function resetInterval() {
+        clearInterval(slideInterval);
+        startInterval();
+    }
+
+    // Initialize the first slide
+    goToSlide(0);
+});
+</script>
+
+
+
+    <!--End the Review Section-->
+    <script>
+        console.log("AI Hero Section is loaded and ready!");
+    </script>
+<!--End Ai courses code-->
+    <!-- Script for Counter Animation   Hero section script-->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll('.counter');
+            const animationDuration = 2000; // 2 seconds
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounter(entry.target);
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, {
+                threshold: 0.5 // Start animation when 50% of the element is visible
+            });
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+
+            function startCounter(counter) {
+                const target = +counter.getAttribute('data-target');
+                const suffix = counter.getAttribute('data-suffix') || '+';
+                const isFloat = target % 1 !== 0;
+
+                let startTime = null;
+
+                const animate = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / animationDuration, 1);
+                    const currentVal = progress * target;
+                    
+                    if (isFloat) {
+                        counter.innerText = currentVal.toFixed(1) + suffix;
+                    } else {
+                        counter.innerText = Math.ceil(currentVal) + suffix;
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        counter.innerText = target + suffix;
+                    }
+                };
+                requestAnimationFrame(animate);
+            }
+        });
+    </script>
+
+</body>
+</html>

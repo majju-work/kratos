@@ -1,0 +1,228 @@
+.programs-section {
+    width: 100%;
+    padding: 60px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* TYPOGRAPHY */
+.section-subtitle {
+    color: #E55353;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+/* TABS NAVIGATION */
+.programs-tabs {
+    border: 1px solid #444;
+    border-radius: 999px;
+    display: inline-flex;
+    padding: 5px;
+    margin-bottom: 50px;
+}
+
+.tab-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-link.active {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.tab-link:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* CAROUSEL */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 25px;
+    overflow: hidden; /* For a real carousel, you'd use JS to handle scrolling */
+    width: 100%;
+}
+
+.carousel-arrow {
+    background-color: #1f1f1f;
+    border: 1px solid #444;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+.carousel-arrow:hover {
+    background-color: #333;
+}
+.carousel-arrow.prev {
+    left: -60px;
+}
+.carousel-arrow.next {
+    right: -60px;
+}
+
+/* PROGRAM CARD */
+.program-card {
+    background-color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: left;
+    color: #1C1C1C;
+    flex: 0 0 calc(33.333% - 17px); /* 17px is 2/3 of the 25px gap */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image-container {
+    position: relative;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #1C1C1C;
+}
+
+.tag-orange { background-color: #FCD34D; }
+.tag-yellow { background-color: #FEF08A; }
+.tag-blue { background-color: #A7F3D0; }
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-logos {
+    height: 24px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+.logo-edx { font-style: italic; font-size: 18px; margin-right: 8px; }
+.logo-columbia { letter-spacing: 0.5px; }
+.logo-microsoft { font-size: 16px; color: #444; }
+.logo-insead { color: #005C9E; letter-spacing: 1px; }
+
+.card-program-type {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 0 0 4px 0;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    line-height: 1.4;
+    flex-grow: 1; /* Pushes info and buttons to the bottom */
+}
+
+.card-info {
+    font-size: 14px;
+    color: #6B7280;
+    margin-bottom: 20px;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.info-item:first-child {
+    margin-bottom: 8px;
+}
+.card-info svg {
+    stroke: #6B7280;
+}
+
+
+/* CARD BUTTONS */
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #8B5CF6, #6366F1);
+    color: #ffffff;
+}
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #1F2937;
+    border: 1px solid #D1D5DB;
+}
+.btn-secondary:hover {
+    background-color: #F9FAFB;
+    border-color: #9CA3AF;
+}

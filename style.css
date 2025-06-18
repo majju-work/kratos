@@ -1,0 +1,17 @@
+/* --- IMPORTS --- */
+@import url('navbar.css');
+@import url('hero.css');
+@import url('democlasses.css');
+
+html {
+    /* This is the key property that enables smooth scrolling */
+    scroll-behavior: smooth;
+}
+
+/* --- GENERAL SETUP --- */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+  
+}

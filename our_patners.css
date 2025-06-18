@@ -1,0 +1,97 @@
+.partner-section {
+    padding: 60px 0;
+    background-color: #000000;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #ffffff; /* Changed to white to be visible on black background */
+    margin-bottom: 40px;
+}
+
+.logo-slider {
+    width: 100%;
+    height: 150px; 
+    background-color: transparent; 
+    border-top: 1px solid #333; /* Darker border for the theme */
+    border-bottom: 1px solid #333; /* Darker border for the theme */
+    overflow: hidden; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-track {
+    display: flex;
+    width: calc(250px * 12); 
+    /* The default animation will be right-to-left */
+    animation: scroll-right-to-left 25s linear infinite;
+}
+
+.logo-track:hover {
+    animation-play-state: paused;
+}
+
+.slide-item {
+    width: 250px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.slide-item img {
+    max-height: 70px;
+    max-width: 100%;
+    margin-bottom: 15px;
+    /* mix-blend-mode looks best on lighter backgrounds, consider removing or changing on black */
+    /* For a black background, a simple filter might look better */
+    filter: brightness(0.8) grayscale(50%);
+    transition: all 0.3s ease;
+}
+
+.slide-item:hover img {
+    filter: brightness(1) grayscale(0%);
+}
+
+.company-name {
+    font-size: 1rem;
+    color: #999; /* Lighter grey for better readability on black */
+    margin: 0;
+}
+
+
+/* --- ANIMATION KEYFRAMES --- */
+
+/* 1. KEYFRAME ANIMATION (Right to Left) - FOR THE FIRST SLIDER */
+@keyframes scroll-right-to-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-250px * 6));
+    }
+}
+
+/* 2. NEW KEYFRAME ANIMATION (Left to Right) - FOR THE SECOND SLIDER */
+@keyframes scroll-left-to-right {
+    from {
+        transform: translateX(calc(-250px * 6));
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+/* --- CSS RULE FOR THE SECOND SLIDER --- */
+
+/* This rule targets the slider that has the 'ltr' class we added in the HTML. */
+/* It overrides only the animation name, keeping all other styles like speed and timing. */
+.logo-slider.ltr .logo-track {
+    animation-name: scroll-left-to-right;
+}

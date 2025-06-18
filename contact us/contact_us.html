@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact_us.css">
+</head>
+<body>
+    
+
+<!--Start of Contact Us code-->
+
+ <!-- 1. Main Container -->
+    <div class="container">
+        
+        <!-- This new div holds the two-column layout -->
+        <div class="top-section">
+            <!-- Left Column: Contact Information -->
+            <div class="contact-info">
+                <div class="intro-section">
+                    <h2>Get in Touch with</h2>
+                    <h2>Kratos Academy</h2>
+                    <p>Thank you for your interest in Kratos Academy</p>
+                    <p>Please read below that best fits your needs and provide some brief information that will enable us to route your request to the appropriate person. We look forward to quickly responding to your inquiry.</p>
+                    <p>Do you have Questions?</p>
+                    <p>We really appreciate you taking the time to Get In Touch with us.</p>
+                    <p>We would love to hear from you!</p>
+                </div>
+                <hr>
+                <div class="info-boxes">
+                    <div class="box">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Contact</h3>
+                            <a href="tel:+919309700672">+91 9309700672</a><br>
+                            <a href="tel:+918624091917">+91 8624091917</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email ID</h3>
+                            <a href="mailto:info@cloudworld.co.in">info@cloudworld.co.in</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="query-section">
+                    <h3>Business related queries</h3>
+                    <a href="mailto:info@cloudworld.co.in">info@cloudworld.co.in</a>
+                </div>
+            </div>
+
+            <!-- Right Column: Contact Form -->
+            <div class="contact-form-wrapper">
+                <h2>Drop a message below!</h2>
+                <form id="contact-form">
+                    <div class="input-group">
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-group phone-group">
+                        <span class="country-flag">🇮🇳</span>
+                        <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" placeholder="Enter your email ID" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" name="message" placeholder="Your message (if any)"></textarea>
+                    </div>
+                    <button type="submit">Continue</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- This section is now a full-width row below the two columns -->
+        <div class="location-section">
+            <h3>Pune Office</h3>
+            <p class="address-text">
+                401, Cloud World Institute, ShreeTower, Solapur – Pune Hwy, Lohiya Nagar, Laxmi Vihar, Hadapsar, Pune, Maharashtra 411028, India.
+            </p>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.791552554714!2d73.9276058742886!3d18.50134248259892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c12e21155c03%3A0x7568af4496b05261!2sCloud%20World%20Institute!5e0!3m2!1sen!2sin!4v1672834567890!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for the form functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const contact = document.getElementById('contact').value.trim();
+                const email = document.getElementById('email').value.trim();
+                if (name === '' || contact === '' || email === '') {
+                    alert('Please fill in all required fields (Name, Contact Number, and Email).');
+                    return;
+                }
+                console.log('Form Submitted!');
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        });
+    </script>
+
+
+<!--Start of Contact Us code-->
+</body>
+</html>

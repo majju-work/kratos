@@ -1,0 +1,179 @@
+/* --- DEMO CLASSES SECTION --- */
+.demo-classes-section {
+    background-color: #000000; /* A very dark gray, not pure black */
+    color: white;
+    padding: 80px 8%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.section-titles h3 {
+    color: #ff4d4d; /* Bright red color */
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+}
+
+.section-titles h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.slider-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-button {
+    background-color: #222;
+    border: 1px solid #444;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #333;
+    border-color: #666;
+}
+
+/* --- SLIDER & CARDS --- */
+.classes-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px; /* Space for scrollbar if visible */
+    /* Hide scrollbar for a cleaner look */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.classes-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+.class-card {
+    flex: 0 0 350px; /* Each card has a fixed width of 350px */
+    background-color: #f8f9fa;
+    color: #1c1c1c; /* Dark text on light card */
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Subtle grid background */
+    background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 25px 25px;
+}
+
+.card-content {
+    padding: 25px;
+    flex-grow: 1; /* Pushes the button to the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    align-self: flex-start; /* Makes tag only as wide as its content */
+}
+
+.tag-finance { background-color: #fff0c7; border: 1px solid #f0c340; color: #333; }
+.tag-tech { background-color: #fefbe8; border: 1px solid #e0c800; color: #333; }
+.tag-data { background-color: #e8fef1; border: 1px solid #48e08d; color: #333; }
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 25px 0;
+    line-height: 1.4;
+    color: #1c1c1c;
+}
+
+.instructor-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.instructor-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 3px solid;
+}
+.pic-finance { border-color: #fff0c7; }
+.pic-tech { border-color: #fefbe8; }
+.pic-data { border-color: #e8fef1; }
+
+.instructor-name {
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.instructor-bio {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.class-meta {
+    margin-top: auto; /* Pushes this block down */
+}
+
+.class-date {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+.class-date .far {
+    margin-right: 8px;
+}
+
+.seats-left {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #444;
+    margin: 0;
+}
+
+.register-button {
+    display: block;
+    background: linear-gradient(90deg, #9b59b6, #8e44ad);
+    color: white;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.4);
+}
+
+.register-button .fas {
+    margin-left: 8px;
+}
