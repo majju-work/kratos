@@ -1,0 +1,397 @@
+.header {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    /* background-size: cover; Not needed for solid color */
+    /* background-position: center; Not needed for solid color */
+    background: #E0E2EE;
+    z-index: 1000; /* Ensure header is above other content if needed */
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 80px;
+    height: 100%; /* Ensure nav-bar takes full height of header */
+} 
+.nav-bar.title{
+color: crimson;
+font-size: 67px;
+font-weight: 600;
+}
+
+.nav-bar h2{
+position: absolute;
+margin-top: 50px;
+margin-left: 30px;
+color:orange ;
+
+font-size: 37px;
+font-weight:500;
+}
+nav
+{
+    position: sticky; top:0;
+}
+.menu li{
+list-style: none;
+display: inline-block;
+}
+.menu li a{
+text-decoration: none;
+color: gray;
+font-size: 20px;
+font-weight: 600;
+margin-left: 25px;
+transition: .4s ease;
+}
+.menu li a:hover{
+color:#f9ae65;
+padding: 6px 25px;
+border:4px solid #3c6d79
+}
+
+.name{
+text-align: center;
+font-size: 40px;
+background:white; 
+background-size: cover;
+background-clip: text;
+-webkit-background-clip:text;
+font-style: italic;
+color: transparent;
+
+/*background-image: url(banner2.avif);*/
+}
+
+
+/* --- Slider Styles --- */
+.slider { /* This is the div with class="slider" that wraps <figure> */
+    width: 100%;
+    height: 700px; /* Maintained original height */
+    overflow: hidden; /* CRUCIAL: Hides the overflowing parts of the figure */
+    position: relative; /* Good practice for positioning contexts */
+}
+
+figure { /* The element that moves */
+    position: relative;
+    left: 0;
+    width: 400%; /* 4 slides * 100% each */
+    height: 100%; /* Make figure take full height of its parent .slider */
+    animation: 10s slide infinite;
+    /* display: flex; /* Alternative for layout if not using float for slides */
+}
+
+.slide { /* Each individual slide */
+    position: relative; /* For absolute positioning of content like h1 inside */
+    width: 25%;     /* 100% / 4 slides */
+    height: 100%;   /* Make slide take full height of its parent figure */
+    float: left;    /* For the figure animation based on 'left' property */
+}
+
+.slide h1 { /* Text over slides */
+    position: absolute;
+    bottom: 50px; /* Example positioning */
+    left: 0;
+    font-size: 3em;
+    width: 100%;
+    text-align: center;
+    /* margin-top: 50px; /* Replaced by bottom/left for better control */
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 10; /* Ensure text is above image */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;   /* Image takes full height of its parent .slide */
+    object-fit: cover; /* Ensures image covers the area, might crop */
+    display: block; /* Removes potential extra space below inline images */
+}
+
+@keyframes slide {
+    0% { left: 0; }
+    10% { left: 0; }
+    20% { left: -100%; }
+    30% { left: -100%; }
+    40% { left: -200%; }
+    50% { left: -200%; }
+    55% { left: -300%; }
+    65% { left: -300%; }
+    66% { left: -200%; } /* Slides back */
+    74% { left: -200%; }
+    75% { left: -100%; } /* Slides back */
+    85% { left: -100%; }
+    90% { left: 0; }
+    100% { left: 0; } /* Changed from 1000% to 100% for standard animation end */
+}
+
+/* Content Styles (below slider) */
+.cd {
+    text-align: center;
+    color: #f9ae65;
+    font-size: 40px;
+}
+
+.de {
+    font-size: 20px;
+    line-height: 1.6; /* Improved readability */
+}
+
+.positionabout { /* Class for images like homes3.jpeg */
+    display: block; /* For margin auto to work if width is less than 100% */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%; /* Use max-width for responsiveness */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.bg1 {
+    background: #3c6d79;
+    width: 100%;
+    /* height: 100%; Removed, let content or min-height define it */
+    color: white;
+    padding-top: 1px; /* Prevents margin collapse if first child has margin-top */
+    padding-bottom: 1px; /* Prevents margin collapse if last child has margin-bottom */
+    text-align: center; /* Center inline content and text within block children */
+}
+/* Ensure block elements like p, ul, ol inside .bg1 are not text-aligned if they need to be left */
+.bg1 .de, .bg1 ol, .bg1 ul {
+    text-align: left; /* Override text-align:center from .bg1 if needed */
+    max-width: 800px; /* Example max-width for readability */
+    margin-left: auto; /* Center these blocks */
+    margin-right: auto;
+    padding-left: 20px; /* For list bullets if text-align left */
+    padding-right: 20px;
+}
+.bg1 > h2.cd { /* More specific for the h2 directly under .bg1 */
+    text-align: center;
+}
+.container123 { /* Renamed to avoid conflict with .container1 in header */
+    width: 100%;
+    min-height: 80vh; /* Use min-height */
+    background: #3c6b79;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0; /* Add some padding */
+}
+
+.card123 {
+    display: flex;
+    align-items: center; /* Should be stretch or similar if image height is fixed */
+    justify-content: center;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.image123 { /* Individual facility card */
+    width: 100px;
+    height: 500px;
+    margin: 10px;
+    border-radius: 50px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align text to bottom */
+    overflow: hidden; /* Changed from inherit, to clip content if needed */
+    transition: width 0.5s ease; /* Smooth transition for width */
+}
+
+.image123:hover {
+    width: 400px;
+    cursor: pointer;
+}
+
+.image123:nth-child(1) { background-image: url("standard\ villa\ room.jpg"); }
+.image123:nth-child(2) { background-image: url("room1.jpeg"); }
+.image123:nth-child(3) { background-image: url("room2.jpeg"); }
+.image123:nth-child(4) { background-image: url("room3.jpeg"); }
+.image123:nth-child(5) { background-image: url("room4.jpeg"); }
+.image123:nth-child(6) { background-image: url("room1.jpeg"); }
+
+.image123::before { /* Gradient overlay for text readability */
+    content: "";
+    position: absolute;
+    bottom: 0; /* Start from bottom */
+    left: 0;
+    height: 50%; /* Cover bottom half */
+    width: 100%;
+    background: linear-gradient(0deg, black 0%, rgba(0,0,0,0.8) 50%, transparent 100%);
+    /* border-bottom-left-radius: 50px; /* Match parent's radius */
+    /* border-bottom-right-radius: 50px; /* Match parent's radius */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image123:hover::before {
+    opacity: 1;
+}
+
+.image123 .about123 {
+    color: aliceblue;
+    position: relative; /* Changed from absolute to flow with pseudo-element */
+    z-index: 1; /* Ensure text is above ::before gradient */
+    width: calc(100% - 70px); /* Full width minus padding */
+    /* height: 38%; /* Let content define height */
+    padding: 0 35px 20px 35px; /* Add bottom padding */
+    transform: translateY(100%); /* Start off-screen */
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    text-align: center;
+}
+
+.image123:hover .about123 {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.facilitiesa {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    text-decoration: none; /* Remove underline from links */
+}
+.facilitiesa:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+.image123 .about123 ul {
+    padding-left: 0; /* Remove default ul padding */
+    list-style-position: inside; /* Bullets inside */
+}
+
+/* Featured Rooms Section */
+.mainroomp {
+    background-color: #3c6d79;
+    padding: 40px 20px; /* Increased padding */
+    font-family: Arial, sans-serif; /* Consistent font */
+}
+
+.main { /* Container for rooms grid */
+    max-width: 1200px; /* Wider container */
+    margin: auto;
+}
+
+.mainph { /* "Our Featured Rooms" title */
+    font-size: 50px;
+    word-break: break-word; /* Changed from break-all */
+    text-align: center; /* Ensure it's centered */
+    margin-bottom: 20px; /* Space below title */
+}
+.main > p { /* Paragraph below title */
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    margin: 8px -16px;
+    display: flex; /* Use flexbox for columns */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center columns if they don't fill row */
+}
+
+.column {
+    padding: 8px; /* From .row > .column */
+    width: 33.333%; /* Default for 3 columns */
+    display: flex; /* To make content take full height if needed */
+    flex-direction: column;
+}
+
+.content { /* Card content for each room */
+    background-color: white;
+    padding: 25px;
+    color: #333; /* Text color for content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make content fill column height */
+}
+.content h2 {
+    font-size: 1.5em;
+    color: #3c6d79;
+    margin-top: 0;
+}
+.content h3 {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+}
+.content p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    flex-grow: 1; /* Allow paragraph to take available space */
+    margin-bottom: 15px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background-color: #eef0ff;
+  color: #112244;
+}
+
+.container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fefcf6;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.card h2 {
+  font-size: 1.25em;
+  margin-top: 15px;
+  color: #1a2c4a;
+}
+
+.card p {
+  color: #2c3e50;
+  font-size: 0.95em;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 0.9em;
+}
+
+.footer-text {
+  font-weight: bold;
+}
+
+.footer-right {
+  font-style: italic;
+}
