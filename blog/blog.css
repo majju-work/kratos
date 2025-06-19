@@ -1,3 +1,166 @@
+html{
+scroll-behavior: smooth;
+}
+/* --- Main Navbar Container --- */
+.main-nav {
+    position: fixed;       /* This makes the navbar stick to the viewport */
+    top: 0;                /* Aligns it to the very top */
+    left: 0;               /* Aligns it to the left */
+    width: 100%;           /* Makes it span the full width of the screen */
+    z-index: 500;         /* Ensures it stays on top of all other content */
+   background-color:tranpernt;
+      height: 100px;   
+           backdrop-filter: blur(5px);
+    box-sizing: border-box;  /* Important: includes padding in the width calculation */
+
+    /* --- Original Flexbox and Layout Properties --- */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    border-bottom: 1px solid white;
+}
+
+/* --- Left & Right Sections --- */
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* --- Logo Section (Left) --- */
+.logo-image {
+    margin-top: 30px;
+    height: 100px;
+    width: auto;
+}
+
+/* --- "Programs" Button (Left) --- */
+.programs-button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease;
+}
+
+.programs-button:hover {
+    transform: scale(1.05);
+}
+
+.icon-chevron {
+    font-size: 0.8em;
+}
+
+/* --- Navigation Links (Right) --- */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 35px; 
+}
+
+.nav-links a {
+    color: #d1d1d1;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* --- "Free Courses" Button (Right) --- */
+.nav-button-cta {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button-cta:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* --- Hamburger Menu Toggle --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- NAVBAR RESPONSIVE STYLES --- */
+@media (max-width: 992px) {
+    .menu-toggle { display: flex; }
+    .nav-right {
+        position: absolute; top: 100px; left: 0; width: 100%;
+        background-color: #1c1c1c; flex-direction: column;
+        padding: 20px 0; gap: 20px;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path 0.4s ease-in-out;
+    }
+    .nav-right.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    .nav-links { flex-direction: column; gap: 25px; }
+    .programs-button { display: none; }
+    .logo-image { height: 80px; margin-top: 20px; }
+}
+
+@media (max-width: 480px) {
+    .main-nav { padding: 10px 20px; }
+    .logo-image { height: 70px; }
+}
 .header {
     height: 80px;
     width: 100%;
@@ -186,7 +349,7 @@ figure { /* The element that moves */
 }
 
 .image123 { /* Individual facility card */
-    width: 100px;
+    width: 170px;
     height: 500px;
     margin: 10px;
     border-radius: 50px;
@@ -210,7 +373,7 @@ figure { /* The element that moves */
 .image123:nth-child(3) { background-image: url("room2.jpeg"); }
 .image123:nth-child(4) { background-image: url("room3.jpeg"); }
 .image123:nth-child(5) { background-image: url("room4.jpeg"); }
-.image123:nth-child(6) { background-image: url("room1.jpeg"); }
+.image123:nth-child(6) { background-image: url("room3.webp"); }
 
 .image123::before { /* Gradient overlay for text readability */
     content: "";
@@ -395,3 +558,25 @@ footer {
 .footer-right {
   font-style: italic;
 }
+
+.top-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 25px;
+  cursor: pointer;
+  box-shadow: 0 12px 14px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+.top-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
