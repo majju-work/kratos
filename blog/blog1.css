@@ -1,66 +1,135 @@
+/* General Body Styles */
 body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background-color: #eef0ff;
-  color: #112244;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f0f4f8; /* A neutral background to highlight the card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
-.container {
-  padding: 40px 20px;
-  text-align: center;
+/* Card Container */
+.training-card {
+    width: 100%;
+    max-width: 1100px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; /* Optional: adds slightly rounded corners to the whole component */
+    overflow: hidden;
+}
+
+.top-bar {
+    height: 15px;
+    background-color: #0d2c4f;
+}
+
+.card-content {
+    display: flex;
+    background-color: #eef2ff; /* The light lavender background */
+}
+
+/* Left Column: Image */
+.image-column {
+    flex: 0 0 42%; /* Assigns a fixed 42% width to the image column */
+}
+
+.image-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the column without distortion */
+    display: block; /* Removes any extra space below the image */
+}
+
+/* Right Column: Text */
+.text-column {
+    flex: 1; /* Takes up the remaining space */
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom: 40px;
+    color: #0d2c4f;
+    font-size: 2.4rem;
+    line-height: 1.25;
+    margin: 0 0 1.5rem 0;
+    font-weight: 600;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
+.date-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    color: #4a5a70;
 }
 
-.card {
-  background-color: #fefcf6;
-  border: 2px solid #000000;
-  border-radius: 20px;
-  width: 300px;
-  padding: 20px;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+.calendar-icon {
+    width: 28px;
+    height: 28px;
+    background-color: #7f8b9a; /* Main grey color of the icon */
+    border-radius: 4px;
+    position: relative;
+    margin-right: 15px;
+    flex-shrink: 0;
+    /* Create grid pattern with CSS gradients */
+    background-image: 
+        linear-gradient(white 1px, transparent 1px),
+        linear-gradient(to right, white 1px, transparent 1px);
+    background-size: 6px 6px;
+    background-position: 3px 9px; /* Position the grid below the top bar */
 }
 
-.card img {
-  width: 100%;
-  border-radius: 20px;
-  object-fit: cover;
+.calendar-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background-color: #606d7b; /* Darker top bar of the icon */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
-.card h2 {
-  font-size: 1.25em;
-  margin-top: 15px;
-  color: #1a2c4a;
+.date-text {
+    font-size: 1.3rem;
 }
 
-.card p {
-  color: #2c3e50;
-  font-size: 0.95em;
+.text-column p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #4a5a70;
+    margin: 0;
 }
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  background-color: #000;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 0.9em;
+.text-column p u {
+    text-decoration-color: #4a5a70;
+    text-decoration-thickness: 1px;
 }
 
-.footer-text {
-  font-weight: bold;
-}
+/* Responsive Design for smaller screens */
+@media (max-width: 992px) {
+    .card-content {
+        flex-direction: column;
+    }
 
-.footer-right {
-  font-style: italic;
+    .image-column {
+        width: 100%;
+        max-height: 450px; /* Prevents the image from being too tall on mobile */
+    }
+
+    .text-column {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .text-column p {
+        font-size: 1rem;
+    }
 }

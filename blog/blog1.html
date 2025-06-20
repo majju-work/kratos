@@ -1,118 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resources for Parents</title>
-  <link rel="stylesheet" href="blog1.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudWorld DevOps Training</title>
+    <style>
+        /* General Body Styles */
+        body {
+            margin: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #f0f4f8; /* A neutral background to highlight the card */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        /* Card Container */
+        .training-card {
+            width: 100%;
+            max-width: 1100px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 4px; /* Optional: adds slightly rounded corners to the whole component */
+            overflow: hidden;
+        }
+
+        .top-bar {
+            height: 15px;
+            background-color: #0d2c4f;
+        }
+
+        .card-content {
+            display: flex;
+            background-color: #eef2ff; /* The light lavender background */
+        }
+
+        /* Left Column: Image */
+        .image-column {
+            flex: 0 0 42%; /* Assigns a fixed 42% width to the image column */
+        }
+
+        .image-column img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the column without distortion */
+            display: block; /* Removes any extra space below the image */
+        }
+
+        /* Right Column: Text */
+        .text-column {
+            flex: 1; /* Takes up the remaining space */
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #0d2c4f;
+            font-size: 2.4rem;
+            line-height: 1.25;
+            margin: 0 0 1.5rem 0;
+            font-weight: 600;
+        }
+
+        .date-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #4a5a70;
+        }
+
+        .calendar-icon {
+            width: 28px;
+            height: 28px;
+            background-color: #7f8b9a; /* Main grey color of the icon */
+            border-radius: 4px;
+            position: relative;
+            margin-right: 15px;
+            flex-shrink: 0;
+            /* Create grid pattern with CSS gradients */
+            background-image: 
+                linear-gradient(white 1px, transparent 1px),
+                linear-gradient(to right, white 1px, transparent 1px);
+            background-size: 6px 6px;
+            background-position: 3px 9px; /* Position the grid below the top bar */
+        }
+
+        .calendar-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 7px;
+            background-color: #606d7b; /* Darker top bar of the icon */
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .date-text {
+            font-size: 1.3rem;
+        }
+
+        .text-column p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #4a5a70;
+            margin: 0 0 1rem 0; /* Added bottom margin for spacing between paragraphs */
+        }
+        
+        .text-column p:last-child {
+            margin-bottom: 0; /* Remove margin from the very last element */
+        }
+
+        .text-column p u {
+            text-decoration-color: #4a5a70;
+            text-decoration-thickness: 1px;
+        }
+
+        /* ===== STYLES FOR NEW CONTENT ===== */
+
+        .text-column h2 {
+            color: #0d2c4f;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.3;
+        }
+
+        /* Remove redundant <strong> tag styling from h2 */
+        .text-column h2 strong {
+            font-weight: 600; /* Inherit parent's boldness */
+        }
+
+        .text-column ul, .text-column ol {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #4a5a70;
+            padding-left: 2rem; /* Adjust indentation */
+            margin: 1rem 0;
+        }
+
+        .text-column li {
+            margin-bottom: 1rem; /* Space between list items */
+        }
+
+        .text-column li strong {
+            color: #0d2c4f; /* Make the bolded part match the heading color */
+        }
+
+
+        /* Responsive Design for smaller screens */
+        @media (max-width: 992px) {
+            .card-content {
+                flex-direction: column;
+            }
+
+            .image-column {
+                width: 100%;
+                max-height: 450px; /* Prevents the image from being too tall on mobile */
+            }
+
+            .text-column {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .text-column h2 {
+                font-size: 1.5rem;
+            }
+
+            .text-column p, .text-column ul, .text-column ol {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="main-nav">
-    <div class="nav-left">
-      <a href="#"><img src="img/Logo.png" alt="Kratos Academy Logo" class="logo-image" /></a>
-      <button class="programs-button">Programs <i class="fas fa-chevron-down icon-chevron"></i></button>
+    <div class="training-card">
+        <div class="top-bar"></div>
+        <div class="card-content">
+            <div class="image-column">
+                <img src="room3.jpeg" alt="A man with a beard and tattoos, wearing an open black robe, leans against a glowing screen.">
+            </div>
+            <div class="text-column">
+                <h1>JOIN CLOUDWORLD FOR THE MOST COMPREHENSIVE DEVOPS TRAINING IN PUNE</h1>
+                <div class="date-info">
+                    <div class="calendar-icon"></div>
+                    <span class="date-text">07/02/2025</span>
+                </div>
+                <p>
+                    Are you looking to elevate your career in the dynamic world of DevOps? DevOps has become a crucial practice for modern IT organizations, blending software development (Dev) and IT operations (Ops) to drive collaboration and enhance productivity. Whether you’re just starting out in DevOps or looking to deepen your knowledge, Cloudworld offers the <u>best DevOps training in Pune</u> to help you unlock your career potential.
+                </p>
+
+                <!-- New Content Starts Here -->
+
+                <h2><strong>Why DevOps?</strong></h2>
+                <p>
+                    DevOps is much more than a buzzword—it’s a cultural shift that’s changing how software is developed and deployed. By automating processes, fostering collaboration, and ensuring continuous integration and delivery, DevOps empowers organizations to stay agile and competitive in a fast-paced environment. As a result, skilled DevOps professionals are in high demand across industries.
+                </p>
+
+                <h2><strong>CloudWorld: The Best DevOps Training Institute in Pune</strong></h2>
+                <p>
+                    If you’re looking for DevOps training in Pune, CloudWorld is the top choice for you. As one of the leading DevOps training institutes in Pune, we offer a comprehensive training program designed to help you master the most relevant skills. With experienced trainers and a curriculum that covers everything from the fundamentals to advanced DevOps concepts, CloudWorld ensures that you gain the expertise needed to succeed in the DevOps field.
+                </p>
+
+                <h2><strong>Why Choose CloudWorld for DevOps Training?</strong></h2>
+                <ol>
+                    <li>
+                        <strong>Thorough Curriculum:</strong> Our DevOps course in Pune covers all essential topics such as Continuous Integration (CI), Continuous Deployment (CD), Infrastructure as Code (IaC), monitoring, and key automation tools like Jenkins, Docker, Kubernetes, Ansible, and AWS.
+                    </li>
+                    <li>
+                        <strong>Hands-on Learning:</strong> We emphasize practical training in our DevOps classes in Pune. Students engage in real-time projects, solving industry-specific challenges, so you leave with hands-on experience and the confidence to tackle any task.
+                    </li>
+                    <li>
+                        <strong>Job Placement Support:</strong> One of the standout features of our DevOps classes in Pune with placement is the strong support we provide for job placement. We guide you through the resume-building process, prepare you for interviews, and help you connect with top companies in Pune.
+                    </li>
+                    <li>
+                        <strong>Learn from Industry Experts:</strong> Our instructors are seasoned professionals with years of experience in the field. By learning from these industry experts, you get insights into the latest trends, tools, and best practices used in DevOps.
+                    </li>
+                    <li>
+                        <strong>Flexible Learning Options:</strong> Whether you prefer online DevOps training in Pune or traditional classroom learning, CloudWorld offers flexible options to suit your learning style and schedule.
+                    </li>
+                </ol>
+
+                <h2><strong>What Makes CloudWorld the Best Choice?</strong></h2>
+                <ul>
+                    <li>
+                        <strong>Experienced Trainers:</strong> Our trainers bring a wealth of real-world experience to the table, sharing valuable insights and offering practical advice that goes beyond textbooks.
+                    </li>
+                    <li>
+                        <strong>Updated Curriculum:</strong> DevOps tools and methodologies are constantly evolving, and at CloudWorld, we ensure our curriculum remains current, offering training on the latest technologies and industry practices.
+                    </li>
+                    <li>
+                        <strong>Affordable Training:</strong> We believe that the best DevOps classes in Pune should be accessible to everyone. CloudWorld offers top-notch training at affordable rates, providing excellent value for money.
+                    </li>
+                    <li>
+                        <strong>Proven Success:</strong> Many of our students have gone on to secure jobs with leading IT companies. With a proven track record of success, CloudWorld is recognized as the best DevOps training institute in Pune.
+                    </li>
+                </ul>
+
+                <h2><strong>The Growing Demand for DevOps Professionals</strong></h2>
+                <p>
+                    As more companies adopt DevOps methodologies to streamline their software development processes, the need for skilled DevOps professionals continues to rise. Whether it’s working with cloud infrastructure, automating processes, or managing CI/CD pipelines, DevOps experts are in high demand. Pune, with its booming IT sector, offers countless job opportunities for talented DevOps engineers.
+                </p>
+                <p>
+                    By enrolling in DevOps training in Pune at CloudWorld, you’re investing in a future full of exciting career opportunities.
+                </p>
+
+                <h2><strong>Conclusion</strong></h2>
+                <p>
+                    If you’re ready to take the next step in your career, CloudWorld is the best DevOps training institute in Pune to help you get there. With expert instructors, a comprehensive curriculum, hands-on experience, and job placement assistance, CloudWorld offers the best training experience. Join our DevOps classes in Pune today and take the first step toward a rewarding career in the growing field of DevOps.
+                </p>
+
+                <h2><strong>Take the First Step Today!</strong></h2>
+                <p>
+                    Don’t wait any longer. Enroll in the DevOps course in Pune at CloudWorld today and start your journey to success. Get in touch with us for more information about course details, fees, and upcoming batches!
+                </p>
+                <p><strong>Most Comprehensive DevOps Training in Pune</strong></p>
+                <p><strong>CloudWorld – Empowering You for a Successful Career in DevOps</strong></p>
+
+                <!-- New Content Ends Here -->
+
+            </div>
+        </div>
     </div>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#demo">Demo Classes</a></li>
-        <li><a href="#blogs">Blogs</a></li>
-        <li><a href="#">Reviews</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-      <a href="#" class="nav-button-cta">Free Courses</a>
-    </div>
-    <button class="menu-toggle" aria-label="Toggle menu">
-      <i class="fas fa-bars"></i>
-    </button>
-  </nav>
-
-  <!-- Hero / Blog Categories -->
-  <section class="container123" id="hero">
-    <div class="card123">
-      <div class="image123" style="background-image: url('img/standard_villa_room.jpg');">
-        <div class="about123">
-          <h3><a class="facilitiesa" href="#blog-python">Python Blog</a></h3>
-          <ul>
-            <li>W3Schools Tips</li>
-            <li>Loops & Functions</li>
-            <li>Flask, Django</li>
-          </ul>
-        </div>
-      </div>
-      <div class="image123" style="background-image: url('img/room1.jpeg');">
-        <div class="about123">
-          <h3><a class="facilitiesa" href="#blog-java">Java Blog</a></h3>
-          <ul>
-            <li>OOP Concepts</li>
-            <li>Spring Boot</li>
-            <li>Android Basics</li>
-          </ul>
-        </div>
-      </div>
-      <div class="image123" style="background-image: url('img/room2.jpeg');">
-        <div class="about123">
-          <h3><a class="facilitiesa" href="#blog-gym">Gym</a></h3>
-          <ul>
-            <li>Fitness Tips</li>
-            <li>Routine Planning</li>
-            <li>Nutrition</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Content Sections -->
-  <section class="container" id="blogs">
-
-    <!-- Python Blog -->
-    <div class="blog-section" id="blog-python">
-      <h1>Python Blogs</h1>
-      <div class="cards">
-        <div class="card">
-          <img src="img/room1.jpeg" alt="Resource 1" />
-          <h2>Top AI Bootcamps</h2>
-          <p>Explore Python, ML, LLMs with 80% placement. Short-term, practical training in 2025.</p>
-        </div>
-        <div class="card">
-          <img src="img/room3.jpeg" alt="Resource 2" />
-          <h2>Python Libraries</h2>
-          <p>From NumPy to Pandas, discover tools powering data science in real-world projects.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Java Blog -->
-    <div class="blog-section" id="blog-java">
-      <h1>Java Blogs</h1>
-      <div class="cards">
-        <div class="card">
-          <img src="img/room4.jpeg" alt="Resource 3" />
-          <h2>Java for Beginners</h2>
-          <p>Understand Java fundamentals, OOP, and how to build basic apps with real examples.</p>
-        </div>
-        <div class="card">
-          <img src="img/room2.jpeg" alt="Resource 4" />
-          <h2>Spring Boot Essentials</h2>
-          <p>Learn backend development using Spring Boot and REST APIs for modern applications.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Scroll to Top Button -->
-  <button class="top-button" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-text">© 2025 Kratos Academy</div>
-    <div class="footer-right">Designed with ❤️ by Team Kratos</div>
-  </footer>
 
 </body>
 </html>
