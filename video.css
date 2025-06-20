@@ -1,0 +1,51 @@
+ .video-container {
+            position: relative;
+            height: 60vh; /* Your original height */
+            width: 70vw;  /* Your original width */
+            overflow: hidden;
+            border-radius: 8px; /* Added to match the button's rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Added a nice shadow */
+            left: 15%;
+        }
+
+        /* The video element itself, positioned in the background of its container */
+        .background-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover; /* Ensures the video covers the container without distortion */
+        }
+
+        /* REMOVED .overlay-content class, as it's no longer needed */
+
+        /* NEW: A container for the button area */
+        .button-area {
+            /* Adds space between the video and the button */
+            margin-top: 30px; 
+              margin-left: 40%;
+        }
+
+        /* Styling for the "Watch Now" button (Your original style is great) */
+        .watch-button {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .watch-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+        }

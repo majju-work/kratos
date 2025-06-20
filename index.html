@@ -26,8 +26,12 @@
     <link rel="stylesheet" href="ai_course.css"> 
     <link rel="stylesheet" href="review.css">
     <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="video.css">
 
-
+ <link rel="stylesheet" href="footer.css">
+    
+    <!-- FONT AWESOME CDN (Add this for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
       <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +42,7 @@
     <nav class="main-nav">
         <div class="nav-left">
             <!-- NOTE: Update the src to your actual logo file -->
-            <a href="#"><img src="img/logo.png" alt="Kratos Academy Logo" class="logo-image"></a>
+         <a href="#"><img src="img/logo.png" alt="Kratos Academy Logo" class="logo-image"></a>
             <button class="programs-button">Programs <i class="fas fa-chevron-down icon-chevron"></i></button>
         </div>
         <div class="nav-right">
@@ -55,63 +59,102 @@
         <button class="menu-toggle" aria-label="Toggle navigation menu">
             <i class="fas fa-bars"></i>
         </button>
-    </nav>
-    
-        <section class="hero-section" id="hero-section">
-            <div class="hero-content">
-                <h1>From <span class="highlight-word"> <font style="color: #5E259A;">Passion </font> <br> <svg viewBox="0 0 204 26">
-                        <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
-                    </svg>
-                </span> <br>to <span class="highlight-word">
-                   <font style="color: #51e751;"> Profession  </font>
-                    <svg viewBox="0 0 204 26">
-                        <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
-                    </svg>
-                </span></h1>
-                <p>We don't just teach—we help you thrive. Take charge of your career. Book your session today.</p>
-           
-                <!-- ============================================= -->
-                <!-- NEW: Container for Button and Star Rating -->
-                <!-- ============================================= -->
-                <div class="cta-container">
-                    <button class="booknow">
-                        Book Now <i class='fas fa-angle-right'></i>
-                    </button>
-                    <div class="star-rating">
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="rating-number">4.5</span>
-                        <span class="rating-text">Star-ratings across platforms</span>
-                    </div>
-                </div>
-                <!-- ============================================= -->
+    </nav> 
+<!-- ... (your existing head and body content) ... -->
 
-                <!-- Animated Stats Section -->
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <h2 class="counter" data-target="350">0+</h2>
-                        <p>Student Enrolled</p>
-                    </div>
-                    <div class="stat-item">
-                        <h2 class="counter" data-target="10">0+</h2>
-                        <p>Top Instructors</p>
-                    </div>
-                    <div class="stat-item">
-                        <h2 class="counter" data-target="99.9" data-suffix="%">0%</h2>
-                        <p>Satisfaction Rate</p>
-                    </div>
-                    <div class="stat-item">
-                        <h2 class="counter" data-target="160">0+</h2>
-                        <p>Placed Student</p>
-                    </div>
+<section class="hero-section" id="hero-section">
+    <div class="hero-content">
+        <h1>From <span class="highlight-word"> <font style="color: #5E259A;">Passion </font> <br> <svg viewBox="0 0 204 26">
+                <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
+            </svg>
+        </span> <br>to <span class="highlight-word">
+           <font style="color: #51e751;"> Profession  </font>
+            <svg viewBox="0 0 204 26">
+                <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
+            </svg>
+        </span></h1>
+        <p>We don't just teach—we help you thrive. Take charge of your <br>career. Book your session today.</p>
+   
+        <div class="cta-container">
+            <button class="booknow">
+                Book Now <i class='fas fa-angle-right'></i>
+            </button>
+            <div class="star-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
                 </div>
+                <span class="rating-number">4.5</span>
+                <span class="rating-text">Star-ratings across platforms</span>
             </div>
-        </section>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-item">
+                <h2 class="counter" data-target="350">0+</h2>
+                <p>Student Enrolled</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="10">0+</h2>
+                <p>Top Instructors</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="99.9" data-suffix="%">0%</h2>
+                <p>Satisfaction Rate</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="160">0+</h2>
+                <p>Placed Student</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIMPLIFIED SLIDER STRUCTURE FOR FADING EFFECT -->
+    <div class="hero-image-slider">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" alt="Students learning on laptops" class="slide">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Professional presenting in a meeting" class="slide">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Team collaborating on a project" class="slide">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Woman working on a design tablet" class="slide">
+        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Business professionals in a discussion" class="slide">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Data analytics on screen" class="slide">
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    const slides = document.querySelectorAll('.hero-image-slider .slide');
+    
+    // Exit if there are no slides on the page
+    if (slides.length === 0) {
+        return;
+    }
+
+    let currentSlideIndex = 0;
+
+    // Show the first slide initially
+    slides[currentSlideIndex].classList.add('active');
+
+    function showNextSlide() {
+        // Hide the current slide
+        slides[currentSlideIndex].classList.remove('active');
+
+        // Move to the next slide, and loop back to the start if at the end
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+
+        // Show the new current slide
+        slides[currentSlideIndex].classList.add('active');
+    }
+
+    // Change slide every 5 seconds (5000 milliseconds)
+    setInterval(showNextSlide, 5000);
+
+});
+</script> 
 
 <!-- ============================================= -->
 <!--         DEMO CLASSES SECTION - START          -->
@@ -133,8 +176,7 @@
         <!-- Card 1: Finance -->
         <div class="class-card">
             <div class="card-content">
-                <div class="card-tag tag-finance">/Finance</div>
-                <h4 class="card-title">Demystifying Stock Valuation in minutes</h4>
+              
                 <div class="instructor-info">
                     <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
                     <div class="instructor-details">
@@ -154,7 +196,7 @@
         <!-- Card 2: Technology -->
         <div class="class-card">
             <div class="card-content">
-                <div class="card-tag tag-tech">/Technology</div>
+                
                 <h4 class="card-title">Container Security - DevSecOps</h4>
                 <div class="instructor-info">
                     <img src="img/instructor2.png" alt="Dr. Prashant Kumar Dey" class="instructor-pic pic-tech">
@@ -175,7 +217,7 @@
         <!-- Card 3: Data Science -->
         <div class="class-card">
             <div class="card-content">
-                <div class="card-tag tag-data">/Data Science</div>
+                
                 <h4 class="card-title">Your First Data Bot: Step into Data Engineering</h4>
                 <div class="instructor-info">
                     <img src="img/instructor3.png" alt="Shakul Malik" class="instructor-pic pic-data">
@@ -197,8 +239,7 @@
 
          <div class="class-card">
             <div class="card-content">
-                <div class="card-tag tag-finance">/Finance</div>
-                <h4 class="card-title">Demystifying Stock Valuation in minutes</h4>
+              
                 <div class="instructor-info">
                     <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
                     <div class="instructor-details">
@@ -218,8 +259,7 @@
         <!--Start of Card 5-->
          <div class="class-card">
             <div class="card-content">
-                <div class="card-tag tag-finance">/Finance</div>
-                <h4 class="card-title">Demystifying Stock Valuation in minutes</h4>
+              
                 <div class="instructor-info">
                     <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
                     <div class="instructor-details">
@@ -240,8 +280,7 @@
            <!--Start of Card 6-->
  <div class="class-card">
             <div class="card-content">
-                <div class="card-tag tag-finance">/Finance</div>
-                <h4 class="card-title">Demystifying Stock Valuation in minutes</h4>
+              
                 <div class="instructor-info">
                     <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
                     <div class="instructor-details">
@@ -666,7 +705,125 @@
 </section>
 
 
+<!---Start the video -->
+   <main class="content-wrapper">
 
+        <section class="video-container">
+            <!-- The video is set to autoplay, loop, and be muted -->
+            <video class="background-video" autoplay loop muted playsinline>
+                <!-- IMPORTANT: Make sure this path is correct -->
+                <source src="video/local.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- The button is now in its own separate container, below the video -->
+        <div class="button-area">
+            <a href="#" class="watch-button">Watch Now ►</a><br><br>
+        </div>
+
+    </main>
+<script>
+    // Wait for the document to be fully loaded before running the script
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Find the button in the document
+    const watchButton = document.querySelector('.watch-button');
+
+    // Check if the button exists to prevent errors
+    if (watchButton) {
+        // Add a 'click' event listener to the button
+        watchButton.addEventListener('click', (event) => {
+            // event.preventDefault() stops the link from trying to navigate to "#"
+            event.preventDefault(); 
+            
+            // This is where you would add the action for the button.
+            alert("The 'Watch Now' button was clicked!");
+            
+            // Example of redirecting to another page:
+            // window.location.href = 'https://www.example.com';
+        });
+    }
+
+});
+</script>
+<!---End the vidoe code-->
+
+
+
+
+
+<!--Start Footer Code-->
+ <footer>
+        <div class="footer-container">
+            <!-- Top Dashed Line -->
+            <div class="dashed-line"></div>
+    
+            <!-- Top Navigation -->
+            <nav class="footer-nav-top">
+                <ul>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">In the News</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Learning Hub</a></li>
+                </ul>
+            </nav>
+    
+            <!-- Middle Section: Contact & Socials -->
+            <div class="footer-main">
+                <div class="contact-info">
+                    <a href="tel:18003093939"><i class="fa-solid fa-phone"></i> 18003093939</a>
+                    <a href="mailto:hello@herovired.com"><i class="fa-solid fa-envelope"></i> hello@Kratos.com</a>
+                    <a href="https://wa.me/your-whatsapp-number" target="_blank"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram" class="social-icon instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+    
+            <!-- Bottom Dashed Line -->
+            <div class="dashed-line"></div>
+    
+            <!-- Bottom Section: Links & Copyright -->
+            <div class="footer-bottom">
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy & Terms</a>
+                    <span>|</span>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="copyright">
+                    <!-- The year will be inserted here by JavaScript -->
+                    <p>© <span id="current-year"></span> Kratos. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <Script>
+        document.addEventListener('DOMContentLoaded', function() {
+  
+  // Find the span element where the year should be displayed
+  const yearSpan = document.getElementById('current-year');
+  
+  // Check if the element exists to avoid errors
+  if (yearSpan) {
+    // Get the current year from the Date object
+    const currentYear = new Date().getFullYear();
+    
+    // Set the text content of the span to the current year
+    yearSpan.textContent = currentYear;
+  }
+  
+});
+    </Script>
+
+
+<!--End Footer Code-->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.testimonial-card');
