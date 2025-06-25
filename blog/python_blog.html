@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>CloudWorld Python Training</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            background-color: #f0f2f5; /* A neutral background color */
+            cursor: pointer;
+        }
+        
+        /* ===== NAVIGATION BAR STYLES ===== */
+        .navbar {
+            background-color: #0d2c4f;
+            padding: 1rem 0;
+            position: sticky; /* Makes the navbar stick to the top */
+            top: 0;
+            z-index: 1000; /* Ensures it stays on top of other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* New style for the left side of the navbar */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem; /* Adds space between the back button and logo */
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: #eef2ff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover, .nav-menu .active a {
+            color: #fff;
+            border-bottom: 2px solid #a7bfff;
+        }
+        
+        /* ===== NEW SEARCH BAR STYLES ===== */
+        .search-form {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2px 5px;
+        }
+
+        .search-input {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            padding: 0.4rem;
+            font-size: 0.9rem;
+            width: 120px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .search-input::placeholder {
+            color: #a7bfff;
+        }
+
+        .search-input:focus {
+            width: 180px;
+        }
+
+        .search-button {
+            background: none;
+            border: none;
+            color: #eef2ff;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0 0.5rem;
+        }
+
+        .search-button:hover {
+            color: #fff;
+        }
+        /* ===== END OF SEARCH BAR STYLES ===== */
+
+
+        .menu-toggle {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .backbtn {
+            font-size: 3.5rem; /* Adjusted for better visibility */
+            margin-left: -200px;
+            padding: 60px;
+            margin-top: -80px;
+            color: #0d2c4f;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .backbtn:hover {
+            color: #4CAF50; /* Consistent hover color */
+        }
+
+        /* ===== MAIN CONTENT WRAPPER ===== */
+        .content-wrapper {
+            display: flex;
+            align-items: flex-start; /* Aligns items to the top */
+            gap: 2rem; /* Space between home button and card */
+            max-width: 1200px;
+            margin: 2rem auto; /* Centers the content and adds top/bottom space */
+            padding: 0 2rem;
+        }
+
+        /* ===== MAIN CONTENT STYLES ===== */
+        main {
+            padding: 0; /* Padding is now on the wrapper */
+            flex-grow: 1; /* Allows the main content to take remaining space */
+            min-width: 0; /* Prevents flexbox overflow issues */
+        }
+
+        .training-card {
+            max-width: 1200px; 
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden; 
+            margin-top: 0; /* Margin is now on the wrapper */
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column; 
+        }
+
+        /* Image now acts as a top banner */
+        .image-column {
+            width: 100%; 
+        }
+
+        .image-column img {
+            width: 100%;
+            height: auto; 
+            max-height: 400px; 
+            object-fit: cover; 
+            display: block; 
+        }
+
+        /* Text Column */
+        .text-column {
+            flex: 1;
+            padding: 2.5rem;
+            background-color: #eef2ff;
+        }
+
+        h1 {
+            color: #0d2c4f;
+            font-size: 2.4rem;
+            line-height: 1.25;
+            margin: 0 0 1.5rem 0;
+            font-weight: 600;
+        }
+
+        .date-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #4a5a70;
+        }
+
+        .calendar-icon {
+            width: 28px;
+            height: 28px;
+            background-color: #7f8b9a;
+            border-radius: 4px;
+            position: relative;
+            margin-right: 15px;
+            flex-shrink: 0;
+            background-image: 
+                linear-gradient(white 1px, transparent 1px),
+                linear-gradient(to right, white 1px, transparent 1px);
+            background-size: 6px 6px;
+            background-position: 3px 9px;
+        }
+
+        .calendar-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 7px;
+            background-color: #606d7b;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .date-text {
+            font-size: 1.3rem;
+        }
+
+        .text-column p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #4a5a70;
+            margin: 0 0 1rem 0;
+        }
+        
+        .text-column p:last-child {
+            margin-bottom: 0;
+        }
+
+        .text-column p u {
+            text-decoration-color: #4a5a70;
+            text-decoration-thickness: 1px;
+        }
+
+        .text-column h2 {
+            color: #0d2c4f;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.3;
+        }
+
+        .text-column h2 strong {
+            font-weight: 600;
+        }
+
+        .text-column ul, .text-column ol {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #4a5a70;
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        .text-column li {
+            margin-bottom: 1rem;
+        }
+
+        .text-column li strong {
+            color: #0d2c4f;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            /* Navbar responsiveness */
+            .menu-toggle {
+                display: block; /* Show hamburger menu */
+            }
+            .nav-menu {
+                display: none; /* Hide menu by default */
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 68px; /* Position below navbar */
+                left: 0;
+                background-color: #0d2c4f;
+            }
+            .nav-menu.show {
+                display: flex; /* Show menu when toggled */
+            }
+            .nav-menu li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid #1a3c5f;
+            }
+            .nav-menu a:hover, .nav-menu .active a {
+                background-color: #1a3c5f;
+                border-bottom: 1px solid #1a3c5f;
+            }
+
+            .search-form {
+                justify-content: center;
+                margin: 0.5rem auto;
+                padding: 0.5rem;
+                width: 80%;
+            }
+
+            /* Content responsiveness */
+            .content-wrapper {
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center items when stacked */
+                gap: 1.5rem;
+            }
+            .text-column {
+                padding: 2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .text-column h2 {
+                font-size: 1.5rem;
+            }
+            .text-column p, .text-column ul, .text-column ol {
+                font-size: 1rem;
+            }
+        }
+        
+        .top-button {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          background-color: #4CAF50; /* Green */
+          color: white;
+          border: none;
+          border-radius: 50px;
+          padding: 12px 20px;
+          font-size: 25px;
+          cursor: pointer;
+          box-shadow: 0 12px 14px rgba(0,0,0,0.2);
+          transition: background-color 0.3s ease, transform 0.3s ease;
+          z-index: 999;
+        }
+
+        .top-button:hover {
+          background-color: #45a049;
+          transform: translateY(-2px);
+        }
+
+        /* ===== STYLES FOR SEARCH HIGHLIGHT ===== */
+        .search-highlight {
+            background-color: #FFD43B; /* Bright yellow */
+            color: #0d2c4f; /* Dark text for contrast */
+            border-radius: 3px;
+            padding: 0 2px;
+        }
+        /* New style for the currently active highlight */
+        .active-highlight {
+            background-color: #ff9800; /* A distinct orange color */
+            outline: 2px solid #c00;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Anchor for the "Scroll to Top" button. -->
+    <div id="up_button"></div>
+
+    <!-- ===== NAVIGATION BAR HTML ===== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <div class="logo">
+                    <a href="">Kratos</a>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="python_blog.html">python</a></li>
+                <li><a href="java_blog.html">JAVA</a></li>
+                <li><a href="aws_blog.html">AWS</a></li>
+                <li><a href="devops.html">DevOps</a></li>
+                <li><a href="data_s_blog.html">Data science</a></li>
+                <li><a href="data_a.html">Data Analysis</a></li>
+                <!-- NEW SEARCH BAR -->
+                <li>
+                    <form class="search-form" action="#" method="get" onsubmit="return false;">
+                        <input type="text" placeholder="Search..." name="q" class="search-input">
+                        <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                    </form>
+                </li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT AREA - PYTHON BLOG 1 ===== -->
+    <div class="content-wrapper" id="python1">
+        <a href="blog.html#blog" class="backbtn"><i class="fa fa-home"></i></a>
+        <main>
+            <div class="training-card">
+                <div class="card-content">
+                    
+                    <!-- Item 1: Image -->
+                    <div class="image-column">
+                        <img src="https://placehold.co/1200x400/3776AB/FFD43B?text=Python&font=sans-serif" alt="Python logo with blue and yellow colors.">
+                    </div>
+
+                    <!-- Item 2: Text Content -->
+                    <div class="text-column">
+                        <h1>JOIN CLOUDWORLD FOR THE BEST PYTHON TRAINING IN PUNE</h1>
+                        <div class="date-info">
+                            <div class="calendar-icon"></div>
+                            <span class="date-text">12/11/2024</span>
+                        </div>
+                        
+                        <p>
+                            Are you looking to learn the world's most popular programming language? Python's simple syntax, vast libraries, and incredible versatility have made it the top choice for developers in web development, data science, automation, AI, and more. To master this powerful language, you need expert guidance. Cloudworld offers the <u>best Python training in Pune</u> to kickstart your programming journey.
+                        </p>
+
+                        <h2><strong>Why Learn Python?</strong></h2>
+                        <p>
+                            Python is often recommended as the first language for new programmers because it is easy to read and write. But its simplicity is deceptive; it's also powerful enough to be used by tech giants like Google, Netflix, and NASA. Learning Python opens up a massive range of career opportunities and is one of the most in-demand skills in the tech industry today.
+                        </p>
+
+                        <h2><strong>CloudWorld: Your Premier Destination for Python Training in Pune</strong></h2>
+                        <p>
+                            Searching for a "Python course in Pune"? CloudWorld is the definitive answer. We have designed a comprehensive, practical, and career-focused program that transforms beginners into confident Python developers, ready to tackle real-world challenges.
+                        </p>
+
+                        <h2><strong>Why Choose CloudWorld for Your Python Course?</strong></h2>
+                        <ol>
+                            <li>
+                                <strong>From Basics to Advanced:</strong> Our curriculum covers everything, from core concepts like data types, loops, and functions to advanced topics like object-oriented programming (OOP), file handling, and API integration.
+                            </li>
+                            <li>
+                                <strong>Hands-On Coding from Day One:</strong> Our Python classes in Pune emphasize practical learning. You will write code, solve problems, and build applications throughout the course, ensuring you learn by doing.
+                            </li>
+                            <li>
+                                <strong>Placement-Focused Training:</strong> We offer a Python course in Pune with placement support, including resume building, coding interview preparation, and connecting you with our network of top hiring companies.
+                            </li>
+                            <li>
+                                <strong>Learn from Industry Experts:</strong> Our instructors are experienced Python developers who share their practical knowledge and best practices, giving you an edge in the job market.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- ===== MAIN CONTENT AREA - PYTHON BLOG 2 ===== -->
+
+      <div class="content-wrapper" id="python2">
+       
+        <main >
+            <div class="training-card">
+                <div class="card-content">
+                    
+                    <!-- Item 1: Image -->
+                    <div class="image-column">
+                        <img src="https://placehold.co/1200x400/4B8BBE/FFFFFF?text=Python+Ecosystem&font=sans-serif" alt="A collection of Python library and framework logos.">
+                    </div>
+                    <!-- Item 2: Text Content -->
+                    <div class="text-column">
+                        <h1>A DEEP DIVE INTO THE PYTHON ECOSYSTEM: LIBRARIES & FRAMEWORKS</h1>
+                        <div class="date-info">
+                            <div class="calendar-icon"></div>
+                            <span class="date-text">15/11/2024</span>
+                        </div>
+                        
+                        <p>
+                            One of Python's greatest strengths is its massive ecosystem of libraries and frameworks that simplify complex tasks. At CloudWorld, our <u>Python classes in Pune</u> ensure you gain proficiency in the most important ones for your chosen career path.
+                        </p>
+
+                        <h2><strong>Exploring Python's Rich Toolkit</strong></h2>
+                        <p>
+                           Mastering these tools is what separates a good programmer from a great one. Our course gives you hands-on experience with the libraries that power modern applications.
+                        </p>
+
+                        <h2><strong>Key Libraries and Frameworks You Will Master:</strong></h2>
+                        <ul>
+                            <li>
+                                <strong>For Data Science & Analysis:</strong> You'll learn <strong>NumPy</strong> for numerical operations, <strong>Pandas</strong> for powerful data manipulation, and <strong>Matplotlib/Seaborn</strong> for data visualization. These are the foundational tools for any data role.
+                            </li>
+                            <li>
+                                <strong>For Web Development:</strong> We introduce you to <strong>Django</strong>, a high-level framework for rapid development of secure and maintainable websites, and <strong>Flask</strong>, a micro-framework for building smaller, more flexible web applications.
+                            </li>
+                            <li>
+                                <strong>For Automation:</strong> Learn how to automate repetitive tasks using Python's built-in modules and libraries like <strong>Selenium</strong> for web browser automation or <strong>Beautiful Soup</strong> for web scraping.
+                            </li>
+                            <li>
+                                <strong>For Machine Learning:</strong> Get an introduction to <strong>Scikit-learn</strong>, the go-to library for implementing machine learning algorithms, and understand how Python is used in the field of AI.
+                            </li>
+                        </ul>
+                        
+                         <h2><strong>Practical Application is Key</strong></h2>
+                        <p>
+                            In our training, you won't just learn what these libraries do; you'll use them to build full-fledged projects. Whether it's creating a web application with Django or analyzing a dataset with Pandas, you'll gain the practical skills employers demand.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== MAIN CONTENT AREA - PYTHON BLOG 3 ===== -->
+      <div class="content-wrapper" id="python3">
+        <main>
+            <div class="training-card">
+                <div class="card-content">
+                    
+                    <!-- Item 1: Image -->
+                    <div class="image-column">
+                        <img src="https://placehold.co/1200x400/003554/FFFFFF?text=Python+Career&font=sans-serif" alt="A career path for a Python developer.">
+                    </div>
+
+                    <!-- Item 2: Text Content -->
+                    <div class="text-column">
+                        <h1>LAUNCHING YOUR CAREER AS A PYTHON DEVELOPER</h1>
+                        <div class="date-info">
+                            <div class="calendar-icon"></div>
+                            <span class="date-text">20/11/2024</span>
+                        </div>
+                        
+                        <p>
+                            Learning Python is the first step; turning that knowledge into a rewarding career is the ultimate goal. CloudWorld's <u>Python course in Pune with placement</u> is specifically designed to bridge the gap between learning and earning, making you a top candidate in the job market.
+                        </p>
+
+                        <h2><strong>Your Career Path with Python</strong></h2>
+                        <p>
+                            Python's versatility opens up numerous career paths. With the skills you gain at CloudWorld, you can become a:
+                        </p>
+                        <ul>
+                            <li><strong>Python Developer:</strong> Building backend systems, web applications, and software.</li>
+                            <li><strong>Data Analyst/Scientist:</strong> Using Python to analyze data and build machine learning models.</li>
+                            <li><strong>Automation Engineer:</strong> Writing scripts to automate testing and operational tasks (a key DevOps skill).</li>
+                            <li><strong>Web Developer:</strong> Specializing in building websites and web services with Django or Flask.</li>
+                        </ul>
+
+                        <h2><strong>Building a Job-Winning Portfolio</strong></h2>
+                        <p>
+                           Employers want to see what you can build. Our project-based curriculum ensures you graduate with a strong portfolio of real-world applications.
+                        </p>
+                        <ol>
+                            <li><strong>Capstone Project:</strong> You'll build a significant project from scratch, such as a blog application, an e-commerce site, or a data analysis dashboard, showcasing your end-to-end development skills.</li>
+                            <li><strong>GitHub Profile:</strong> We'll teach you how to use Git and GitHub to manage your code and present your portfolio professionally.</li>
+                        </ol>
+
+                        <h2><strong>CloudWorld's Unmatched Placement Support</strong></h2>
+                        <p>
+                            Our career services are designed to give you a competitive advantage. We provide:
+                        </p>
+                        <ul>
+                            <li><strong>Coding Interview Prep:</strong> We conduct rigorous mock interviews focused on data structures, algorithms, and Python-specific questions.</li>
+                            <li><strong>Resume Building:</strong> Our experts help you craft a resume that highlights your projects and skills effectively.</li>
+                            <li><strong>Exclusive Job Network:</strong> Gain access to our network of corporate partners in Pune who are actively hiring Python developers.</li>
+                        </ul>
+                        <p>
+                            Enroll at CloudWorld today and take the first step toward becoming a professional Python developer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Stylish Top Button -->
+    <button class="top-button" onclick="document.getElementById('up_button').scrollIntoView({ behavior: 'smooth' });">
+      ↑
+    </button>
+   
+    <!-- ===== JAVASCRIPT FOR MOBILE MENU ===== -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    </script>
+
+    <!-- ===== JAVASCRIPT FOR SEARCH, HIGHLIGHT, AND "GO TO NEXT" (UPDATED) ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('.search-input');
+            const contentWrappers = document.querySelectorAll('.content-wrapper');
+            
+            // Store original HTML to reset content and remove highlights
+            const originalContent = new Map();
+            contentWrappers.forEach(wrapper => {
+                originalContent.set(wrapper, wrapper.innerHTML);
+            });
+
+            // State variables to track highlights
+            let highlightedElements = [];
+            let currentHighlightIndex = -1;
+
+            const performSearch = () => {
+                const query = searchInput.value.trim();
+                
+                // Clear previous search state
+                highlightedElements.forEach(el => el.classList.remove('active-highlight'));
+                highlightedElements = [];
+                currentHighlightIndex = -1;
+
+                // Restore original content for all cards before starting a new search
+                contentWrappers.forEach(wrapper => {
+                    wrapper.innerHTML = originalContent.get(wrapper);
+                });
+
+                if (query === "") {
+                    // If search is cleared, just show all wrappers and we're done
+                    contentWrappers.forEach(wrapper => {
+                        wrapper.style.display = 'flex';
+                    });
+                    return;
+                }
+
+                const regex = new RegExp(query, 'gi');
+
+                contentWrappers.forEach(wrapper => {
+                    const wrapperText = wrapper.textContent;
+                    const matchFound = wrapperText.toLowerCase().includes(query.toLowerCase());
+
+                    wrapper.style.display = matchFound ? 'flex' : 'none';
+
+                    if (matchFound) {
+                        const textElements = wrapper.querySelectorAll('h1, h2, p, li, strong, u');
+                        textElements.forEach(element => {
+                            element.innerHTML = element.innerHTML.replace(regex, match => `<mark class="search-highlight">${match}</mark>`);
+                        });
+                    }
+                });
+                
+                // After highlighting, collect all the new highlighted elements
+                highlightedElements = document.querySelectorAll('.search-highlight');
+            };
+
+            const goToNextHighlight = () => {
+                if (highlightedElements.length === 0) return;
+
+                // Remove the active class from the previous element
+                if (currentHighlightIndex > -1) {
+                    highlightedElements[currentHighlightIndex].classList.remove('active-highlight');
+                }
+
+                // Move to the next index, cycling back to the start if at the end
+                currentHighlightIndex++;
+                if (currentHighlightIndex >= highlightedElements.length) {
+                    currentHighlightIndex = 0;
+                }
+                
+                const nextElement = highlightedElements[currentHighlightIndex];
+                
+                // Add the active class to the new element and scroll to it
+                nextElement.classList.add('active-highlight');
+                nextElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center', // Aligns the element to the center of the viewport
+                    inline: 'nearest'
+                });
+            };
+
+            if (searchInput && contentWrappers.length > 0) {
+                // Perform search as the user types
+                searchInput.addEventListener('input', performSearch);
+                
+                // Handle Enter key press to cycle through results
+                searchInput.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                        event.preventDefault(); // Prevent form submission
+                        goToNextHighlight();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

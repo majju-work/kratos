@@ -322,7 +322,7 @@ figure { /* The element that moves */
 /* Ensure block elements like p, ul, ol inside .bg1 are not text-aligned if they need to be left */
 .bg1 .de, .bg1 ol, .bg1 ul {
     text-align: left; /* Override text-align:center from .bg1 if needed */
-    max-width: 800px; /* Example max-width for readability */
+    max-width: 10px; /* Example max-width for readability */
     margin-left: auto; /* Center these blocks */
     margin-right: auto;
     padding-left: 20px; /* For list bullets if text-align left */
@@ -380,7 +380,7 @@ figure { /* The element that moves */
 .image123:nth-child(3) { background-image: url("room2.jpeg"); }
 .image123:nth-child(4) { background-image: url("room3.jpeg"); }
 .image123:nth-child(5) { background-image: url("room4.jpeg"); }
-.image123:nth-child(6) { background-image: url("room3.webp"); }
+.image123:nth-child(6) { background-image: url("room4.jpeg"); }
 
 .image123::before { /* Gradient overlay for text readability */
     content: "";
@@ -565,6 +565,23 @@ footer {
 
 .footer-right {
   font-style: italic;
+}
+.more-text {
+  display: none; /* Hide the extra text by default */
+}
+
+.read-more-btn {
+  background-color: #112244;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+.read-more-btn:hover {
+  background-color:#eef2ff;
 }
 
 .top-button {
