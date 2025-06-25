@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Engineering Timeline</title>
+    <style>
+    :root {
+        /* UPDATED: New AWS-themed color palette */
+        --body-bg: #F2F3F3;          /* AWS Light Gray Background */
+        --card-bg: #FFFFFF;          /* White Cards */
+        --heading-color: #232F3E;     /* AWS Charcoal Heading Color */
+        --text-color: #545B64;        /* AWS Gray Text */
+        --accent-color: #FF9900;      /* AWS Orange for accents */
+        
+        --line-bg-color: rgba(255, 153, 0, 0.2);
+        --line-fill-color: var(--accent-color);
+        --dot-color: rgba(255, 153, 0, 0.4);
+        --dot-active-color: var(--accent-color);
+        --accent-blue: #007bff;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 80px 20px 40px 20px;
+        background-color: var(--body-bg);
+        color: var(--text-color);
+    }
+    
+    body.modal-open {
+        overflow: hidden;
+    }
+
+    .home-button-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    
+    .back-to-home { 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 6px;
+        padding: 8px 16px; 
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0; 
+        border-radius: 6px; 
+        text-decoration: none; 
+        font-size: 14px; 
+        font-weight: 500;
+        color: #333; 
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .back-to-home:hover { 
+        background-color: #f8f8f8; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    }
+
+    .main-container { max-width: 800px; margin: 0 auto; }
+
+    .header-container { text-align: center; margin-bottom: 20px; }
+    #main-header-text { 
+        font-size: 2.5em; font-weight: 700; 
+        color: var(--heading-color);
+        text-shadow: none;
+    }
+
+    .toggle-switch-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+    .toggle-label {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--heading-color);
+        user-select: none;
+    }
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+    .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+    input:checked + .slider {
+        background-color: var(--accent-color);
+    }
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+    
+    .timeline { position: relative; width: 100%; margin: 0 auto; padding: 40px 0; }
+    .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--line-bg-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
+    .timeline::before { content: ''; position: absolute; width: 4px; background-color: var(--line-fill-color); top: 0; left: 50%; margin-left: -2px; border-radius: 2px; height: var(--line-height, 0); transition: height 0.2s ease-out; }
+    
+    .timeline-marker {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        top: var(--marker-position, 0px);
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 3px 15px rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: top 0.2s ease-out;
+        color: var(--accent-color);
+    }
+    .timeline-marker svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .timeline ul { list-style: none; padding: 0; margin: 0; }
+    .timeline-item {
+        padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 50%; }
+    .timeline-item.is-visible { opacity: 1; transform: translateY(0); }
+
+    .timeline-item::after { 
+        content: ''; position: absolute; width: 14px; height: 14px;
+        background-color: var(--dot-color); top: 35px; border-radius: 50%; z-index: 1;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .timeline-item:nth-child(odd)::after { right: -7px; }
+    .timeline-item:nth-child(even)::after { left: -7px; }
+    .timeline-item.is-visible::after { background-color: var(--dot-active-color); transform: scale(1.3); }
+    
+    .timeline-content { 
+        padding: 25px; 
+        background: var(--card-bg);
+        border-radius: 12px; 
+        box-shadow: 0 6px 30px rgba(35, 47, 62, 0.08);
+        position: relative; text-align: left;
+        border: 1px solid #E2E8F0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 45px rgba(35, 47, 62, 0.12);
+    }
+    
+    .content-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .logo-container {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        color: var(--accent-color);
+    }
+    .logo-container svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .timeline-content h3 {
+        margin: 0;
+        font-size: 1.6em;
+        font-weight: 600;
+        color: var(--heading-color);
+    }
+
+    .description { font-size: 1.05em; line-height: 1.6; margin: 0 0 15px 0; color: var(--text-color); }
+    .link-wrapper { text-align: left; margin-top: 20px; }
+    .timeline-link { font-size: 0.95em; font-weight: 600; color: var(--accent-color); text-decoration: none; transition: opacity 0.2s ease; cursor: pointer; }
+    .timeline-link:hover { opacity: 0.8; }
+    
+    .timeline-item .timeline-content > * { opacity: 0; transform: translateY(15px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+    .timeline-item.is-visible .timeline-content > * { opacity: 1; transform: translateY(0); }
+    .timeline-item.is-visible .timeline-content .content-header { transition-delay: 0.2s; }
+    .timeline-item.is-visible .timeline-content .description { transition-delay: 0.3s; }
+    .timeline-item.is-visible .timeline-content .link-wrapper { transition-delay: 0.4s; }
+
+
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0s 0.3s linear; z-index: 1000; }
+    .modal-overlay.visible { opacity: 1; visibility: visible; transition-delay: 0s; }
+    
+    .modal-content { 
+        background-color: white; padding: 30px; border-radius: 12px; 
+        width: 90%; max-width: 500px; 
+        transform: translateY(-30px) scale(0.95);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+        max-height: 85vh;
+    }
+    .modal-overlay.visible .modal-content { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #dee2e6; padding-bottom: 15px; margin-bottom: 20px; }
+    #modal-title { font-size: 1.5em; color: var(--heading-color); margin: 0; }
+    .close-modal { font-size: 1.8em; font-weight: bold; color: #adb5bd; cursor: pointer; line-height: 1; transition: color 0.2s; }
+    .close-modal:hover { color: #495057; }
+    
+    #modal-body { overflow-y: auto; padding-right: 15px; }
+    #modal-body ul { list-style: none; padding: 0; margin: 0; }
+    .modal-accordion-item { background-color: #f7f9fc; border: 1px solid #e9ecef; border-radius: 8px; margin-bottom: 10px; position: relative; padding-left: 25px; overflow: hidden; }
+    .modal-accordion-item::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 6px; background-color: var(--accent-blue); border-radius: 8px 0 0 8px; }
+    .modal-accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 15px 15px 0; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--heading-color); }
+    .modal-accordion-toggle { display: inline-block; width: 8px; height: 8px; border-right: 2px solid var(--heading-color); border-bottom: 2px solid var(--heading-color); transform: rotate(45deg); transition: transform 0.3s ease; }
+    .modal-accordion-item.open .modal-accordion-toggle { transform: rotate(-135deg); }
+    .modal-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 15px 0 0; color: #6c757d; font-size: 0.95rem; line-height: 1.6; }
+    .modal-accordion-item.open .modal-accordion-body { max-height: 200px; padding: 0 15px 15px 0; }
+    
+    #modal-body::-webkit-scrollbar { width: 8px; }
+    #modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+</style>
+</head>
+<body>
+
+    <div class="home-button-container">
+        <!-- THIS IS THE CORRECTED LINE -->
+        <a href="index.html" class="back-to-home"><span>←</span> Back to Home</a>
+    </div>
+
+    <div class="main-container">
+        <div class="header-container">
+            <h1 id="main-header-text">AWS Cloud Engineering</h1>
+        </div>
+        
+        <div class="toggle-switch-container">
+            <span class="toggle-label">Foundational</span>
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle">
+                <span class="slider"></span>
+            </label>
+            <span class="toggle-label">DevOps & Advanced</span>
+        </div>
+
+        <div id="language-display"></div>
+    </div>
+
+    <div id="topics-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Relevant Topics</h3>
+                <span class="close-modal">×</span>
+            </div>
+            <div id="modal-body"><ul></ul></div>
+        </div>
+    </div>
+
+    <script>
+        const modeToggle = document.getElementById('mode-toggle');
+        const languageDisplay = document.getElementById('language-display');
+        const modal = document.getElementById('topics-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBodyList = document.querySelector('#modal-body ul');
+        const closeModalBtn = document.querySelector('.close-modal');
+        
+        // --- UPDATED: New data object with AWS topics and icons ---
+        const data = {
+            foundational: [
+                { name: 'IAM (Identity & Access)', desc: "Securely manage access to AWS services by creating users, groups, and roles with specific permissions.", linkText: 'Explore Security >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777z"/><path d="M13.5 10.5L21 3"/></svg>`,
+                  topics: [
+                    { title: 'Users, Groups, & Roles', details: 'Users are individuals, Groups are collections of users, and Roles are assumable identities with specific permissions, ideal for services or temporary access.' },
+                    { title: 'IAM Policies & Permissions', details: 'Use JSON-based policies to define fine-grained permissions (Allow/Deny) for actions on specific AWS resources.' },
+                    { title: 'Multi-Factor Authentication (MFA)', details: 'Add an extra layer of security for your root account and individual IAM users to protect against unauthorized access.' },
+                    { title: 'Best Practices', details: 'Follow the principle of least privilege, never use the root account for daily tasks, and regularly rotate access keys.' }
+                  ]
+                },
+                { name: 'VPC (Virtual Private Cloud)', desc: "Provision a logically isolated section of the AWS Cloud where you can launch resources in a virtual network.", linkText: 'Understand Networking >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>`,
+                  topics: [
+                    { title: 'Subnets (Public & Private)', details: 'Divide your VPC into subnets. Public subnets have a route to the internet via an Internet Gateway, while private subnets do not.' },
+                    { title: 'Route Tables & Gateways', details: 'Route tables control traffic flow. An Internet Gateway (IGW) allows public traffic, and a NAT Gateway lets private instances access the internet.' },
+                    { title: 'Security Groups & NACLs', details: 'Security Groups act as a stateful firewall for instances, while Network Access Control Lists (NACLs) are a stateless firewall for subnets.' },
+                    { title: 'VPC Peering & Endpoints', details: 'Connect VPCs together privately using peering. Use VPC endpoints to access AWS services without traversing the public internet.' }
+                  ]
+                },
+                { name: 'EC2 (Elastic Compute Cloud)', desc: "The core service for scalable computing capacity, providing virtual servers (instances) in the cloud.", linkText: 'Launch Servers >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>`,
+                  topics: [
+                    { title: 'Instance Types & AMIs', details: 'Choose from a wide variety of instance types optimized for different workloads (compute, memory, etc.). AMIs (Amazon Machine Images) are templates for your instances.' },
+                    { title: 'Elastic Block Store (EBS)', details: 'EBS provides persistent block-level storage volumes for use with EC2 instances, like virtual hard drives.' },
+                    { title: 'Auto Scaling Groups & ELB', details: 'Automatically adjust the number of EC2 instances based on demand with Auto Scaling. Distribute traffic across instances using an Elastic Load Balancer (ELB).' },
+                    { title: 'Key Pairs & SSH', details: 'Securely connect to your Linux instances using a key pair, which consists of a public key stored on the instance and a private key you control.' }
+                  ]
+                },
+                { name: 'S3 (Simple Storage Service)', desc: "Industry-leading object storage for any amount of data, offering scalability, availability, and performance.", linkText: 'Learn Storage >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5"/><path d="M22 10.5c0 .8-.5 1.5-1.1 1.5s-1.1-.7-1.1-1.5.5-1.5 1.1-1.5 1.1.7 1.1 1.5z"/></svg>`,
+                  topics: [
+                    { title: 'Buckets & Objects', details: 'Data is stored in buckets, which are globally unique containers. Inside buckets, you store data as objects, which consist of the data, a key, and metadata.' },
+                    { title: 'Storage Classes', details: 'Optimize costs by choosing the right storage class, from S3 Standard for frequent access to Glacier Deep Archive for long-term retention.' },
+                    { title: 'Versioning & Lifecycle Policies', details: 'Protect against accidental deletions with versioning. Automate moving objects to cheaper storage classes with lifecycle policies.' },
+                    { title: 'Static Website Hosting', details: 'Configure an S3 bucket to serve a static website, providing a highly available and low-cost hosting solution.' }
+                  ]
+                }
+            ],
+            advanced: [
+                { name: 'Lambda & Serverless', desc: "Run code without provisioning or managing servers. Pay only for the compute time you consume.", linkText: 'Go Serverless >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18l6-12 6 12"/><path d="M10 14h3.5"/></svg>`,
+                  topics: [
+                    { title: 'Function as a Service (FaaS)', details: 'Lambda is the core of FaaS. You upload your code as a function, and Lambda handles all the infrastructure to run and scale it.' },
+                    { title: 'Event-Driven Architecture', details: 'Trigger Lambda functions from over 200 AWS services (like S3 uploads, API Gateway requests) or custom applications.' },
+                    { title: 'API Gateway', details: 'Create, publish, and secure APIs at any scale. API Gateway can act as a "front door" for applications to access your Lambda functions.' },
+                    { title: 'Serverless Application Model (SAM)', details: 'Use this open-source framework to build and deploy serverless applications on AWS more easily, with a simplified YAML syntax.' }
+                  ]
+                },
+                { name: 'Containers (ECS & EKS)', desc: "Run and manage Docker containers at scale using AWS's managed orchestration services.", linkText: 'Orchestrate Containers >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
+                  topics: [
+                    { title: 'ECS (Elastic Container Service)', details: 'A highly scalable, high-performance container orchestration service that is deeply integrated with the AWS ecosystem. Supports EC2 and Fargate launch types.' },
+                    { title: 'EKS (Elastic Kubernetes Service)', details: 'A managed service to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane.' },
+                    { title: 'Fargate', details: 'A serverless compute engine for containers. With Fargate, you no longer have to provision and manage servers for your containers.' },
+                    { title: 'ECR (Elastic Container Registry)', details: 'A fully-managed Docker container registry that makes it easy to store, manage, and deploy Docker container images.' }
+                  ]
+                },
+                { name: 'Infrastructure as Code', desc: "Manage and provision your cloud infrastructure using code and automation with CloudFormation or Terraform.", linkText: 'Automate Infrastructure >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+                  topics: [
+                    { title: 'CloudFormation', details: 'AWS\'s native IaC service. Define your resources in YAML or JSON templates, and CloudFormation provisions and configures them for you in a repeatable way.' },
+                    { title: 'Terraform', details: 'A popular open-source IaC tool from HashiCorp. It uses a declarative configuration language (HCL) and supports multiple cloud providers, including AWS.' },
+                    { title: 'Stacks & State Management', details: 'CloudFormation manages resources as a single unit called a stack. Terraform maintains a state file to track your managed infrastructure.' },
+                    { title: 'Declarative vs. Imperative', details: 'Understand the declarative approach ("what I want") of IaC tools versus an imperative approach ("how to do it") of scripting.' }
+                  ]
+                },
+                { name: 'Monitoring & Logging', desc: "Gain visibility into the performance of your applications and infrastructure with CloudWatch and CloudTrail.", linkText: 'Observe Your Stack >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.06 12.06c.01.01 0 .01 0 0L2 12l5.66-7a8 8 0 0 1 8.68 0L22 12l-5.66 7a8 8 0 0 1-8.68 0L2 12z"/><circle cx="12" cy="12" r="3"/></svg>`,
+                  topics: [
+                    { title: 'CloudWatch Metrics & Alarms', details: 'Collect and track metrics for your AWS resources. Set alarms to automatically notify you or take action when a threshold is breached.' },
+                    { title: 'CloudWatch Logs', details: 'Centralize logs from all your systems, applications, and AWS services. Search and filter logs for troubleshooting and analysis.' },
+                    { title: 'CloudTrail', details: 'Record all API calls made in your AWS account. CloudTrail provides a history of events for security analysis and operational troubleshooting.' },
+                    { title: 'Dashboards', details: 'Create custom dashboards in CloudWatch to get a unified operational view of your AWS resources and applications with graphs and metrics.' }
+                  ]
+                }
+            ]
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        modeToggle.addEventListener('change', () => {
+            // UPDATED: Switch between AWS categories
+            if (modeToggle.checked) {
+                createTimeline('advanced');
+            } else {
+                createTimeline('foundational');
+            }
+        });
+
+        languageDisplay.addEventListener('click', (e) => {
+            const link = e.target.closest('.timeline-link');
+            if (link) {
+                openModal(link.dataset.type, link.dataset.index);
+            }
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        
+        modalBodyList.addEventListener('click', (e) => {
+            const header = e.target.closest('.modal-accordion-header');
+            if (header) {
+                const item = header.parentElement;
+                item.classList.toggle('open');
+            }
+        });
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        function createTimeline(type) {
+            const timelineData = data[type];
+            languageDisplay.innerHTML = ''; 
+            const timelineDiv = document.createElement('div');
+            timelineDiv.className = 'timeline';
+
+            const markerElement = document.createElement('div');
+            markerElement.className = 'timeline-marker';
+            markerElement.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13.1818L9.83333 18L19 7" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            timelineDiv.appendChild(markerElement);
+
+            const listElement = document.createElement('ul');
+            timelineData.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'timeline-item';
+                listItem.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="content-header">
+                            <div class="logo-container">
+                                ${item.logo || ''}
+                            </div>
+                            <h3>${item.name}</h3>
+                        </div>
+                        <p class="description">${item.desc}</p>
+                        <div class="link-wrapper">
+                            <a class="timeline-link" data-type="${type}" data-index="${index}">${item.linkText}</a>
+                        </div>
+                    </div>
+                `;
+                listElement.appendChild(listItem);
+                observer.observe(listItem);
+            });
+            timelineDiv.appendChild(listElement);
+            languageDisplay.appendChild(timelineDiv);
+            
+            handleScrollAnimations(); 
+        }
+
+        function openModal(type, index) {
+            const item = data[type][index];
+            modalTitle.textContent = `Key Topics for ${item.name}`;
+            modalBodyList.innerHTML = '';
+            
+            item.topics.forEach(topic => {
+                const li = document.createElement('li');
+                li.className = 'modal-accordion-item';
+                li.innerHTML = `
+                    <div class="modal-accordion-header">
+                        <span>${topic.title}</span>
+                        <span class="modal-accordion-toggle"></span>
+                    </div>
+                    <div class="modal-accordion-body">
+                        ${topic.details}
+                    </div>
+                `;
+                modalBodyList.appendChild(li);
+            });
+            modal.classList.add('visible');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modal.classList.remove('visible');
+            document.body.classList.remove('modal-open');
+        }
+
+        function handleScrollAnimations() {
+            const timeline = document.querySelector('.timeline');
+            if (!timeline) return;
+            
+            const marker = timeline.querySelector('.timeline-marker');
+            const timelineRect = timeline.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            const startPoint = timelineRect.top + window.scrollY;
+            const endPoint = timelineRect.bottom + window.scrollY - viewportHeight;
+            
+            const scrollY = window.scrollY;
+            
+            let progress = (scrollY - startPoint) / (endPoint - startPoint);
+            progress = Math.max(0, Math.min(1, progress));
+
+            const lineHeight = progress * timelineRect.height;
+            timeline.style.setProperty('--line-height', `${lineHeight}px`);
+            
+            if (marker) {
+                marker.style.setProperty('--marker-position', `${lineHeight}px`);
+            }
+        }
+
+        // Initial load
+        createTimeline('foundational');
+    </script>
+</body>
+</html>

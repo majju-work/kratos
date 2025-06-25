@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Learning Path</title>
+    <style>
+    :root {
+        /* UPDATED: New DevOps-themed color palette */
+        --body-bg: #F9FAFB;          /* Clean Light Gray Background */
+        --card-bg: #FFFFFF;          /* White Cards */
+        --heading-color: #111827;     /* Professional Dark Charcoal */
+        --text-color: #374151;        /* Readable Gray Text */
+        --accent-color: #3B82F6;      /* Modern Vibrant Blue for accents */
+        
+        --line-bg-color: rgba(59, 130, 246, 0.2);
+        --line-fill-color: var(--accent-color);
+        --dot-color: rgba(59, 130, 246, 0.4);
+        --dot-active-color: var(--accent-color);
+        --accent-blue: #007bff;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 80px 20px 40px 20px;
+        background-color: var(--body-bg);
+        color: var(--text-color);
+    }
+    
+    body.modal-open {
+        overflow: hidden;
+    }
+
+    .home-button-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    
+    .back-to-home { 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 6px;
+        padding: 8px 16px; 
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0; 
+        border-radius: 6px; 
+        text-decoration: none; 
+        font-size: 14px; 
+        font-weight: 500;
+        color: #333; 
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .back-to-home:hover { 
+        background-color: #f8f8f8; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    }
+
+    .main-container { max-width: 800px; margin: 0 auto; }
+
+    .header-container { text-align: center; margin-bottom: 20px; }
+    #main-header-text { 
+        font-size: 2.5em; font-weight: 700; 
+        color: var(--heading-color);
+        text-shadow: none;
+    }
+
+    .toggle-switch-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+    .toggle-label {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--heading-color);
+        user-select: none;
+    }
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+    .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+    input:checked + .slider {
+        background-color: var(--accent-color);
+    }
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+    
+    .timeline { position: relative; width: 100%; margin: 0 auto; padding: 40px 0; }
+    .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--line-bg-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
+    .timeline::before { content: ''; position: absolute; width: 4px; background-color: var(--line-fill-color); top: 0; left: 50%; margin-left: -2px; border-radius: 2px; height: var(--line-height, 0); transition: height 0.2s ease-out; }
+    
+    .timeline-marker {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        top: var(--marker-position, 0px);
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 3px 15px rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: top 0.2s ease-out;
+        color: var(--accent-color);
+    }
+    .timeline-marker svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .timeline ul { list-style: none; padding: 0; margin: 0; }
+    .timeline-item {
+        padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 50%; }
+    .timeline-item.is-visible { opacity: 1; transform: translateY(0); }
+
+    .timeline-item::after { 
+        content: ''; position: absolute; width: 14px; height: 14px;
+        background-color: var(--dot-color); top: 35px; border-radius: 50%; z-index: 1;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .timeline-item:nth-child(odd)::after { right: -7px; }
+    .timeline-item:nth-child(even)::after { left: -7px; }
+    .timeline-item.is-visible::after { background-color: var(--dot-active-color); transform: scale(1.3); }
+    
+    .timeline-content { 
+        padding: 25px; 
+        background: var(--card-bg);
+        border-radius: 12px; 
+        box-shadow: 0 6px 30px rgba(17, 24, 39, 0.08);
+        position: relative; text-align: left;
+        border: 1px solid #E5E7EB;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 45px rgba(17, 24, 39, 0.12);
+    }
+    
+    .content-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .logo-container {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        color: var(--accent-color);
+    }
+    .logo-container svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .timeline-content h3 {
+        margin: 0;
+        font-size: 1.6em;
+        font-weight: 600;
+        color: var(--heading-color);
+    }
+
+    .description { font-size: 1.05em; line-height: 1.6; margin: 0 0 15px 0; color: var(--text-color); }
+    .link-wrapper { text-align: left; margin-top: 20px; }
+    .timeline-link { font-size: 0.95em; font-weight: 600; color: var(--accent-color); text-decoration: none; transition: opacity 0.2s ease; cursor: pointer; }
+    .timeline-link:hover { opacity: 0.8; }
+    
+    .timeline-item .timeline-content > * { opacity: 0; transform: translateY(15px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+    .timeline-item.is-visible .timeline-content > * { opacity: 1; transform: translateY(0); }
+    .timeline-item.is-visible .timeline-content .content-header { transition-delay: 0.2s; }
+    .timeline-item.is-visible .timeline-content .description { transition-delay: 0.3s; }
+    .timeline-item.is-visible .timeline-content .link-wrapper { transition-delay: 0.4s; }
+
+
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0s 0.3s linear; z-index: 1000; }
+    .modal-overlay.visible { opacity: 1; visibility: visible; transition-delay: 0s; }
+    
+    .modal-content { 
+        background-color: white; padding: 30px; border-radius: 12px; 
+        width: 90%; max-width: 500px; 
+        transform: translateY(-30px) scale(0.95);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+        max-height: 85vh;
+    }
+    .modal-overlay.visible .modal-content { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #dee2e6; padding-bottom: 15px; margin-bottom: 20px; }
+    #modal-title { font-size: 1.5em; color: var(--heading-color); margin: 0; }
+    .close-modal { font-size: 1.8em; font-weight: bold; color: #adb5bd; cursor: pointer; line-height: 1; transition: color 0.2s; }
+    .close-modal:hover { color: #495057; }
+    
+    #modal-body { overflow-y: auto; padding-right: 15px; }
+    #modal-body ul { list-style: none; padding: 0; margin: 0; }
+    .modal-accordion-item { background-color: #f7f9fc; border: 1px solid #e9ecef; border-radius: 8px; margin-bottom: 10px; position: relative; padding-left: 25px; overflow: hidden; }
+    .modal-accordion-item::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 6px; background-color: var(--accent-blue); border-radius: 8px 0 0 8px; }
+    .modal-accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 15px 15px 0; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--heading-color); }
+    .modal-accordion-toggle { display: inline-block; width: 8px; height: 8px; border-right: 2px solid var(--heading-color); border-bottom: 2px solid var(--heading-color); transform: rotate(45deg); transition: transform 0.3s ease; }
+    .modal-accordion-item.open .modal-accordion-toggle { transform: rotate(-135deg); }
+    .modal-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 15px 0 0; color: #6c757d; font-size: 0.95rem; line-height: 1.6; }
+    .modal-accordion-item.open .modal-accordion-body { max-height: 200px; padding: 0 15px 15px 0; }
+    
+    #modal-body::-webkit-scrollbar { width: 8px; }
+    #modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+</style>
+</head>
+<body>
+
+    <div class="home-button-container">
+        <a href="index.html" class="back-to-home"><span>←</span> Back to Home</a>
+    </div>
+
+    <div class="main-container">
+        <div class="header-container">
+            <h1 id="main-header-text">DevOps Learning Path</h1>
+        </div>
+        
+        <div class="toggle-switch-container">
+            <span class="toggle-label">Core Concepts & Tools</span>
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle">
+                <span class="slider"></span>
+            </label>
+            <span class="toggle-label">CI/CD, Containers & Cloud</span>
+        </div>
+
+        <div id="language-display"></div>
+    </div>
+
+    <div id="topics-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Relevant Topics</h3>
+                <span class="close-modal">×</span>
+            </div>
+            <div id="modal-body"><ul></ul></div>
+        </div>
+    </div>
+
+    <script>
+        const modeToggle = document.getElementById('mode-toggle');
+        const languageDisplay = document.getElementById('language-display');
+        const modal = document.getElementById('topics-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBodyList = document.querySelector('#modal-body ul');
+        const closeModalBtn = document.querySelector('.close-modal');
+        
+        // --- UPDATED: New data object for DevOps Learning Path ---
+        const data = {
+            core_concepts: [
+                { name: 'Linux & Shell Scripting', desc: "The foundational operating system for most servers. Mastering the command line is non-negotiable.", linkText: 'Explore the Terminal >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>`,
+                  topics: [
+                    { title: 'Command Line Basics', details: 'Learn essential commands like ls, cd, cp, mv, rm, and grep. Understand file permissions and user management.' },
+                    { title: 'Shell Scripting (Bash)', details: 'Automate repetitive tasks by writing scripts. Learn about variables, loops, conditional statements, and functions in Bash.' },
+                    { title: 'System Administration', details: 'Understand process management (ps, top), package management (apt, yum), and service management (systemd).' },
+                    { title: 'Text Manipulation Tools', details: 'Master powerful tools like sed, awk, and regular expressions (regex) for parsing log files and manipulating text data.' }
+                  ]
+                },
+                { name: 'Networking Fundamentals', desc: "Understand how computers and services communicate over networks, a core skill for troubleshooting.", linkText: 'Learn Networking >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M12 2v20"></path><path d="M2 12h20"></path><path d="M12 2c-3.14 2.8-5 7.52-5 10s1.86 7.2 5 10c3.14-2.8 5-7.52 5-10s-1.86-7.2-5-10z"></path></svg>`,
+                  topics: [
+                    { title: 'TCP/IP Model', details: 'Understand the layers of the TCP/IP suite and how protocols like HTTP, HTTPS, TCP, UDP, and IP work together.' },
+                    { title: 'DNS (Domain Name System)', details: 'Learn how DNS resolves human-readable domain names into IP addresses, and how to troubleshoot DNS issues.' },
+                    { title: 'Firewalls & Security Groups', details: 'Understand how firewalls and cloud security groups control inbound and outbound network traffic to secure your infrastructure.' },
+                    { title: 'Load Balancers & Proxies', details: 'Learn how load balancers distribute traffic across multiple servers and how reverse proxies can improve security and performance.' }
+                  ]
+                },
+                { name: 'Version Control with Git', desc: "The standard for tracking changes in code and configuration, enabling collaboration and history.", linkText: 'Master Git >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>`,
+                  topics: [
+                    { title: 'Core Concepts', details: 'Understand repositories, commits, branches, and merges. Master commands like `git add`, `git commit`, `git push`, and `git pull`.' },
+                    { title: 'Branching Strategies', details: 'Learn common strategies like GitFlow or Trunk-Based Development to manage features, releases, and hotfixes in a team environment.' },
+                    { title: 'Handling Merge Conflicts', details: 'Develop the skill to identify and resolve conflicts that occur when merging branches with competing changes.' },
+                    { title: 'Git Hosting (GitHub/GitLab)', details: 'Utilize platforms like GitHub or GitLab for code hosting, pull/merge requests, and integrating with CI/CD pipelines.' }
+                  ]
+                },
+                { name: 'Infrastructure as Code', desc: "Manage and provision your infrastructure through machine-readable definition files, not manual configuration.", linkText: 'Automate Everything >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>`,
+                  topics: [
+                    { title: 'Configuration Management (Ansible)', details: 'Use tools like Ansible to automate the configuration of existing servers, ensuring they are in a desired state.' },
+                    { title: 'Provisioning (Terraform)', details: 'Use tools like Terraform to create, manage, and version new infrastructure resources (servers, databases, networks) on any cloud.' },
+                    { title: 'Declarative vs. Imperative', details: 'Understand the difference: declarative tools (Terraform) define the desired end state, while imperative tools (Ansible) define the steps to get there.' },
+                    { title: 'State Management', details: 'Learn how Terraform uses a state file to keep track of the resources it manages, which is crucial for plan and apply cycles.' }
+                  ]
+                }
+            ],
+            cicd_containers: [
+                { name: 'CI/CD Pipelines', desc: "Automate the process of building, testing, and deploying your software, from code commit to production.", linkText: 'Build the Pipeline >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
+                  topics: [
+                    { title: 'Continuous Integration (CI)', details: 'The practice of frequently merging code changes into a central repository, after which automated builds and tests are run.' },
+                    { title: 'Continuous Delivery/Deployment (CD)', details: 'Continuous Delivery is automatically releasing to a pre-production environment. Continuous Deployment releases all the way to production.' },
+                    { title: 'Pipeline as Code (Jenkins/GitLab CI)', details: 'Define your build, test, and deploy pipelines in a configuration file (like Jenkinsfile or .gitlab-ci.yml) that is versioned with your code.' },
+                    { title: 'Artifact Management', details: 'Use repositories like Nexus or Artifactory to store and version the compiled artifacts (e.g., JAR files, Docker images) produced by your CI process.' }
+                  ]
+                },
+                { name: 'Containerization with Docker', desc: "Package applications and their dependencies into isolated, lightweight units called containers.", linkText: 'Master Containers >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12v-1.39c0-1-1.34-1.47-2.1-1.07l-3.32 1.9V8.89c0-1-1.34-1.47-2.1-1.07l-2.6 1.5c-.45.26-1.15.26-1.6 0l-2.6-1.5c-.76-.4-2.1.07-2.1 1.07v2.53l-3.32-1.9c-.76-.4-2.1.07-2.1 1.07V12l11 6.35z"/><path d="M12 12v10"/><path d="M2 12v5.5a3 3 0 003 3h14a3 3 0 003-3V12"/></svg>`,
+                  topics: [
+                    { title: 'Dockerfile & Images', details: 'Write a Dockerfile to define the steps for building a container image. Images are the read-only templates for your containers.' },
+                    { title: 'Containers & Volumes', details: 'Run containers from images. Use volumes to persist data outside the container\'s lifecycle, essential for databases and stateful applications.' },
+                    { title: 'Docker Compose', details: 'Define and run multi-container applications (like an app server and a database) with a single YAML configuration file.' },
+                    { title: 'Container Registries (ECR/Docker Hub)', details: 'Push your custom-built images to a central registry to store, manage, and share them for deployment.' }
+                  ]
+                },
+                { name: 'Container Orchestration', desc: "Automate the deployment, scaling, and management of containerized applications with Kubernetes.", linkText: 'Scale with Kubernetes >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"></path><path d="M8.28 15.72a4 4 0 010-5.44l1.41-1.42a2 2 0 012.83 0l1.42 1.42a4 4 0 010 5.44l-1.42 1.42a2 2 0 01-2.83 0l-1.41-1.42z"></path></svg>`,
+                  topics: [
+                    { title: 'Kubernetes Architecture', details: 'Understand the core components: the control plane (API server, scheduler) and worker nodes (kubelet, pods).' },
+                    { title: 'Core Objects', details: 'Learn to define and manage key objects like Pods (smallest deployable unit), Deployments (manage replica sets), and Services (expose pods).' },
+                    { title: 'Configuration & Storage', details: 'Use ConfigMaps and Secrets to manage application configuration. Use Persistent Volumes (PV) and Claims (PVC) for stateful storage.' },
+                    { title: 'Helm & Package Management', details: 'Use Helm charts to define, install, and upgrade even the most complex Kubernetes applications as reusable packages.' }
+                  ]
+                },
+                { name: 'Cloud & Monitoring', desc: "Leverage a major cloud provider and implement robust monitoring to ensure reliability and performance.", linkText: 'Observe & Operate >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h4v4h-4v-4zM12 10h4v4h-4v-4zM6 10h4v4H6v-4z"/><path d="M6 10V8c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2"/><path d="M6 14v2c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-2"/></svg>`,
+                  topics: [
+                    { title: 'Major Cloud Provider (AWS/GCP/Azure)', details: 'Gain deep knowledge of the core services (compute, storage, networking, IAM) of at least one major cloud provider.' },
+                    { title: 'Monitoring (Prometheus)', details: 'Implement a time-series database and monitoring system like Prometheus to collect metrics from your applications and infrastructure.' },
+                    { title: 'Visualization (Grafana)', details: 'Use Grafana to connect to Prometheus and other data sources to build powerful, interactive dashboards for visualizing metrics and logs.' },
+                    { title: 'Logging & Tracing', details: 'Set up centralized logging (e.g., ELK Stack, Loki) and distributed tracing (e.g., Jaeger) to get full observability into your systems.' }
+                  ]
+                }
+            ]
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        modeToggle.addEventListener('change', () => {
+            // UPDATED: Switch between DevOps categories
+            if (modeToggle.checked) {
+                createTimeline('cicd_containers');
+            } else {
+                createTimeline('core_concepts');
+            }
+        });
+
+        languageDisplay.addEventListener('click', (e) => {
+            const link = e.target.closest('.timeline-link');
+            if (link) {
+                openModal(link.dataset.type, link.dataset.index);
+            }
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        
+        modalBodyList.addEventListener('click', (e) => {
+            const header = e.target.closest('.modal-accordion-header');
+            if (header) {
+                const item = header.parentElement;
+                item.classList.toggle('open');
+            }
+        });
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        function createTimeline(type) {
+            const timelineData = data[type];
+            languageDisplay.innerHTML = ''; 
+            const timelineDiv = document.createElement('div');
+            timelineDiv.className = 'timeline';
+
+            const markerElement = document.createElement('div');
+            markerElement.className = 'timeline-marker';
+            markerElement.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13.1818L9.83333 18L19 7" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            timelineDiv.appendChild(markerElement);
+
+            const listElement = document.createElement('ul');
+            timelineData.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'timeline-item';
+                listItem.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="content-header">
+                            <div class="logo-container">
+                                ${item.logo || ''}
+                            </div>
+                            <h3>${item.name}</h3>
+                        </div>
+                        <p class="description">${item.desc}</p>
+                        <div class="link-wrapper">
+                            <a class="timeline-link" data-type="${type}" data-index="${index}">${item.linkText}</a>
+                        </div>
+                    </div>
+                `;
+                listElement.appendChild(listItem);
+                observer.observe(listItem);
+            });
+            timelineDiv.appendChild(listElement);
+            languageDisplay.appendChild(timelineDiv);
+            
+            handleScrollAnimations(); 
+        }
+
+        function openModal(type, index) {
+            const item = data[type][index];
+            modalTitle.textContent = `Key Topics for ${item.name}`;
+            modalBodyList.innerHTML = '';
+            
+            item.topics.forEach(topic => {
+                const li = document.createElement('li');
+                li.className = 'modal-accordion-item';
+                li.innerHTML = `
+                    <div class="modal-accordion-header">
+                        <span>${topic.title}</span>
+                        <span class="modal-accordion-toggle"></span>
+                    </div>
+                    <div class="modal-accordion-body">
+                        ${topic.details}
+                    </div>
+                `;
+                modalBodyList.appendChild(li);
+            });
+            modal.classList.add('visible');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modal.classList.remove('visible');
+            document.body.classList.remove('modal-open');
+        }
+
+        function handleScrollAnimations() {
+            const timeline = document.querySelector('.timeline');
+            if (!timeline) return;
+            
+            const marker = timeline.querySelector('.timeline-marker');
+            const timelineRect = timeline.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            const startPoint = timelineRect.top + window.scrollY;
+            const endPoint = timelineRect.bottom + window.scrollY - viewportHeight;
+            
+            const scrollY = window.scrollY;
+            
+            let progress = (scrollY - startPoint) / (endPoint - startPoint);
+            progress = Math.max(0, Math.min(1, progress));
+
+            const lineHeight = progress * timelineRect.height;
+            timeline.style.setProperty('--line-height', `${lineHeight}px`);
+            
+            if (marker) {
+                marker.style.setProperty('--marker-position', `${lineHeight}px`);
+            }
+        }
+
+        // Initial load
+        createTimeline('core_concepts');
+    </script>
+</body>
+</html>

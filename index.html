@@ -3,593 +3,885 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar and Hero Section</title>
-    
-    <!-- Google Fonts -->
+    <title>Kratos Academy - From Passion to Profession</title>
+
+    <!-- === CSS LINKS (Consolidated & Corrected) === -->
+
+    <!-- Google Fonts (Combined into one request for efficiency) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons (Latest version) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Link to your CSS files -->
+
+    <!-- Intl Tel Input CSS (For the phone number field in the popup) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
+
+
+    <!-- intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
+
+      <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Your Custom Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="hero.css">
     <link rel="stylesheet" href="democlasses.css">
     <link rel="stylesheet" href="course_available.css">
     <link rel="stylesheet" href="our_patners.css">
-    <link rel="stylesheet" href="ai_course.css"> 
+    <link rel="stylesheet" href="ai_course.css">
     <link rel="stylesheet" href="review.css">
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="video.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="student_story.css">
 
- <link rel="stylesheet" href="footer.css">
-    
-    <!-- FONT AWESOME CDN (Add this for icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Inline Styles (Moved from body to head for proper structure) -->
+    <style>
+        /* General Body Styles */
+        body {
+            background-color: #000000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        body.popup-open {
+            overflow: hidden;
+        }
+
+        /* --- Demo Classes Section Styles --- */
+        .demo-classes-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px 20px;
+        }
+
+        .demo-classes-section .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .demo-classes-section .section-titles h3 { color: #E53935; font-size: 1rem; font-weight: 600; letter-spacing: 1px; margin: 0; }
+        .demo-classes-section .section-titles h2 { font-size: 2.5rem; font-weight: 700; margin: 5px 0 0 0; color: #fff; }
+        .demo-classes-section .slider-nav .nav-button { background-color: #222; color: #fff; border: 1px solid #444; border-radius: 50%; width: 40px; height: 40px; font-size: 1rem; cursor: pointer; margin-left: 10px; }
+        .demo-classes-section .classes-slider { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; }
+        .demo-classes-section .classes-slider::-webkit-scrollbar { display: none; }
+        .demo-classes-section .class-card { background-color: #f0f0f0; color: #111; border-radius: 12px; min-width: 350px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+        .demo-classes-section .card-content { padding: 25px; flex-grow: 1; }
+        .demo-classes-section .card-title { color: #111; font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; }
+        .demo-classes-section .instructor-info { display: flex; align-items: center; margin-bottom: 20px; }
+        .demo-classes-section .instructor-pic { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover; }
+        .demo-classes-section .instructor-name { font-weight: 600; margin: 0; color: #111; }
+        .demo-classes-section .instructor-bio { font-size: 0.85rem; color: #555; margin: 3px 0 0 0; }
+        .demo-classes-section .class-meta { border-top: 1px solid #ddd; padding-top: 15px; font-size: 0.9rem; color: #333; }
+        .demo-classes-section .class-meta p { margin: 0 0 8px 0; }
+        .demo-classes-section .seats-left { font-weight: 600; color: #d32f2f; }
+        .demo-classes-section .register-button { background-color: #8E44AD; color: #fff; text-align: center; padding: 15px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: background-color 0.3s ease; display: block; }
+        .demo-classes-section .register-button:hover { background-color: #7b2a9d; }
+
+        /* --- Popup Modal Styles --- */
+        .hidden { display: none !important; }
+        #registration-popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.75); display: flex; justify-content: center; align-items: center; z-index: 1000; padding: 20px; box-sizing: border-box; }
+        #registration-popup-modal { max-width: 950px; width: 100%; border-radius: 10px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); animation: fadeIn 0.4s ease-out; overflow: hidden; display: flex; }
+        #popup-details-container { width: 58%; padding: 45px; background-color: #151418; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAABNJREFUGFdjZGBg+M+ABYwKMAIAAjABdSAxCSsAAAAASUVORK5CYII='); color: #ffffff; box-sizing: border-box; }
+        #popup-title { font-size: 1.8rem; font-weight: 600; margin-top: 0; margin-bottom: 30px; line-height: 1.4; }
+        .popup-instructor { display: flex; align-items: center; margin-bottom: 40px; }
+        #popup-instructor-img { width: 60px; height: 60px; border-radius: 8px; margin-right: 20px; object-fit: cover; }
+        #popup-instructor-name { font-size: 1.1rem; font-weight: 600; margin: 0; }
+        #popup-instructor-bio { font-size: 0.9rem; color: #ddd; line-height: 1.5; margin: 5px 0 0 0; }
+        #popup-highlights { list-style: none; padding: 0; margin: 0; }
+        #popup-highlights li { margin-bottom: 20px; font-size: 0.95rem; padding-left: 28px; position: relative; line-height: 1.5; color: #e0e0e0; }
+        #popup-highlights li::before { content: '✦'; position: absolute; left: 0; top: 3px; color: #A971F6; font-size: 1rem; }
+        #popup-form-container { width: 42%; padding: 40px; background-color: #fff; color: #111; position: relative; box-sizing: border-box; }
+        #close-popup-btn { position: absolute; top: 15px; right: 20px; background: transparent; border: none; color: #aaa; font-size: 2rem; font-weight: 300; cursor: pointer; line-height: 1; padding: 0; }
+        #close-popup-btn:hover { color: #333; }
+        #form-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: bold; margin: 0 0 20px 0; color: #000; }
+        .progress-bar { width: 100%; height: 3px; background-color: #e0e0e0; position: relative; border-radius: 3px; }
+        .progress-bar::after { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 15%; background-color: #111; border-radius: 3px; }
+        #registration-form .form-group { margin-bottom: 18px; position: relative; }
+        #registration-form input { width: 100%; padding: 14px 15px; border: 1px solid #dcdcdc; border-radius: 8px; font-size: 1rem; box-sizing: border-box; color: #333; }
+        #registration-form input::placeholder { color: #aaa; }
+        .submit-btn { width: 100%; padding: 16px; border: none; border-radius: 8px; background: linear-gradient(to right, #9d64f1, #573ea8); color: white; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: filter 0.2s ease; margin-top: 10px; }
+        .submit-btn:hover { filter: brightness(1.15); }
+        .form-disclaimer { text-align: center; font-size: 0.8rem; color: #888; margin-top: 20px; }
+        .form-disclaimer a { color: #7044ab; text-decoration: none; }
+        .form-disclaimer a:hover { text-decoration: underline; }
+
+        /* Styles for intl-tel-input */
+        .iti {
+            width: 100%;
+        }
+        .iti__tel-input {
+            width: 100% !important;
+            padding-top: 14px !important;
+            padding-bottom: 14px !important;
+            padding-left: 95px !important; 
+            height: auto;
+            line-height: normal;
+            border-radius: 8px !important;
+            border: 1px solid #dcdcdc !important;
+            box-sizing: border-box;
+        }
+        .iti--separate-dial-code .iti__selected-flag {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            background-color: #f7f7f7;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @media (max-width: 900px) { #registration-popup-modal { flex-direction: column; max-height: 90vh; overflow-y: auto; } #popup-details-container, #popup-form-container { width: 100%; } }
+
+        /* === ADDED: NAVBAR DROPDOWN STYLES TO FIX THE ISSUE === */
+        .programs-container {
+            position: relative;
+            display: inline-block; /* Establishes a positioning context */
+        }
+
+        .programs-dropdown {
+            display: none; /* Hidden until the .show class is added */
+            position: absolute; /* Positioned relative to .programs-container */
+            background-color: #ffffff; /* White background */
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1001; /* Ensure it appears above other elements */
+            border-radius: 10px;
+            padding: 10px 0;
+            margin-top: 10px; /* Space between button and dropdown */
+            top: 100%; /* Position it right below the button */
+            left: 0;
+        }
+
+        /* This class is toggled by JavaScript to show the dropdown */
+        .programs-container.show .programs-dropdown {
+            display: block;
+        }
+        
+        /* Links inside the dropdown */
+        .programs-dropdown a {
+            color: black; /* Dark text for readability on white background */
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block; /* Makes the entire area clickable */
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            transition: background-color 0.2s;
+        }
+
+        /* Hover effect for dropdown links */
+        .programs-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Chevron icon styling */
+        .icon-chevron {
+            transition: transform 0.3s ease;
+        }
+
+        /* Rotate the chevron icon when the dropdown is open */
+        .programs-container.show .icon-chevron {
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 <body>
 
+    <!-- ============================================= -->
+    <!--              NAVIGATION BAR                   -->
+    <!-- ============================================= -->
     <nav class="main-nav">
         <div class="nav-left">
-            <!-- NOTE: Update the src to your actual logo file -->
-         <a href="#"><img src="img/logo.png" alt="Kratos Academy Logo" class="logo-image"></a>
-            <button class="programs-button">Programs <i class="fas fa-chevron-down icon-chevron"></i></button>
+            <a href="#"><img src="img/logo.png" alt="Kratos Academy Logo" class="logo-image"></a>
+            <div class="programs-container">
+                <button class="programs-button">Programs <i class="fas fa-chevron-down icon-chevron"></i></button>
+                <div class="programs-dropdown">
+                    <a href="Java.html">Java</a>
+                    <a href="python.html">Python</a>
+                    <a href="Data Science.html">Data Science</a>
+                    <a href="AWS.html">AWS</a>
+                     <a href="Devops.html">Devops</a>
+                     <a href="Data Analyst.html">Data Analaytis</a>
+                    
+                </div>
+            </div>
         </div>
         <div class="nav-right">
             <ul class="nav-links">
                 <li><a href="#hero-section">Home</a></li>
                 <li><a href="#demo-classes-section">Demo Classes</a></li>
-                <li><a href="blog/blog.html" target="_self">Blogs</a></li>  
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="blog/blog.html" target="_self">Blogs</a></li>
+                <li><a href="#review">Reviews</a></li>
+                <li><a href="about_us.html">About Us</a></li>
                 <li><a href="contact us/contact_us.html">Contact us</a></li>
-            </ul>
-            <a href="#" class="nav-button-cta">Free Courses</a>
+            </ul> 
+            <a href="https://www.youtube.com/@CloudWorld-gm5gz" class="nav-button-cta"  target="_blank">Free Courses</a>
         </div>
         <button class="menu-toggle" aria-label="Toggle navigation menu">
             <i class="fas fa-bars"></i>
         </button>
-    </nav> 
-<!-- ... (your existing head and body content) ... -->
+    </nav>
 
-<section class="hero-section" id="hero-section">
-    <div class="hero-content">
-        <h1>From <span class="highlight-word"> <font style="color: #5E259A;">Passion </font> <br> <svg viewBox="0 0 204 26">
-                <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
-            </svg>
-        </span> <br>to <span class="highlight-word">
-           <font style="color: #51e751;"> Profession  </font>
-            <svg viewBox="0 0 204 26">
-                <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
-            </svg>
-        </span></h1>
-        <p>We don't just teach—we help you thrive. Take charge of your <br>career. Book your session today.</p>
-   
-        <div class="cta-container">
-            <button class="booknow">
-                Book Now <i class='fas fa-angle-right'></i>
-            </button>
-            <div class="star-rating">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+    <!-- ============================================= -->
+    <!--                 HERO SECTION                  -->
+    <!-- ============================================= -->
+    <section class="hero-section" id="hero-section">
+        <div class="hero-content">
+            <h1>From <span class="highlight-word"> <font style="color: #5E259A;">Passion </font> <br> <svg viewBox="0 0 204 26">
+                    <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
+                </svg>
+            </span> <br>to <span class="highlight-word">
+               <font style="color: #51e751;"> Profession  </font>
+                <svg viewBox="0 0 204 26">
+                    <path d="M3.01842 12.3355C42.0647 -5.46243 147.334 1.15651 200.982 23.036"/>
+                </svg>
+            </span></h1>
+            <p>We don't just teach—we help you thrive. Take charge of your <br>career. Book your session today.</p>
+       
+            <div class="cta-container">
+                <button class="booknow">
+                    Book Now <i class='fas fa-angle-right'></i>
+                </button>
+                <div class="star-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="rating-number">4.5</span>
+                    <span class="rating-text">Star-ratings across platforms</span>
                 </div>
-                <span class="rating-number">4.5</span>
-                <span class="rating-text">Star-ratings across platforms</span>
             </div>
-        </div>
-
-        <div class="stats-container">
-            <div class="stat-item">
-                <h2 class="counter" data-target="350">0+</h2>
-                <p>Student Enrolled</p>
-            </div>
-            <div class="stat-item">
-                <h2 class="counter" data-target="10">0+</h2>
-                <p>Top Instructors</p>
-            </div>
-            <div class="stat-item">
-                <h2 class="counter" data-target="99.9" data-suffix="%">0%</h2>
-                <p>Satisfaction Rate</p>
-            </div>
-            <div class="stat-item">
-                <h2 class="counter" data-target="160">0+</h2>
-                <p>Placed Student</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- SIMPLIFIED SLIDER STRUCTURE FOR FADING EFFECT -->
-    <div class="hero-image-slider">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" alt="Students learning on laptops" class="slide">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Professional presenting in a meeting" class="slide">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Team collaborating on a project" class="slide">
-        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Woman working on a design tablet" class="slide">
-        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Business professionals in a discussion" class="slide">
-        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Data analytics on screen" class="slide">
-    </div>
-</section>
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-
-    const slides = document.querySelectorAll('.hero-image-slider .slide');
     
-    // Exit if there are no slides on the page
-    if (slides.length === 0) {
-        return;
-    }
-
-    let currentSlideIndex = 0;
-
-    // Show the first slide initially
-    slides[currentSlideIndex].classList.add('active');
-
-    function showNextSlide() {
-        // Hide the current slide
-        slides[currentSlideIndex].classList.remove('active');
-
-        // Move to the next slide, and loop back to the start if at the end
-        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-
-        // Show the new current slide
-        slides[currentSlideIndex].classList.add('active');
-    }
-
-    // Change slide every 5 seconds (5000 milliseconds)
-    setInterval(showNextSlide, 5000);
-
-});
-</script> 
-
-<!-- ============================================= -->
-<!--         DEMO CLASSES SECTION - START          -->
-<!-- ============================================= -->
-<section class="demo-classes-section" id="demo-classes-section">
-    <div class="section-header">
-        <div class="section-titles">
-            <h3>OUR DEMOCLASSES</h3>
-            <h2>Your first step to success</h2>
-        </div>
-        <div class="slider-nav">
-            <button id="scroll-left" class="nav-button"><i class="fas fa-chevron-left"></i></button>
-            <button id="scroll-right" class="nav-button"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </div>
-
-    <div class="classes-slider" id="classes-slider">
-
-        <!-- Card 1: Finance -->
-        <div class="class-card">
-            <div class="card-content">
-              
-                <div class="instructor-info">
-                    <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
-                    <div class="instructor-details">
-                        <p class="instructor-name">Shiva Kumar Bavamala</p>
-                        <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
-                    </div>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h2 class="counter" data-target="350">0+</h2>
+                    <p>Student Enrolled</p>
                 </div>
-                <div class="class-meta">
-                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
-                    <p class="seats-left">LIMITED SEATS LEFT !</p>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="10">0+</h2>
+                    <p>Top Instructors</p>
                 </div>
-            </div>
-            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <!-- End of Card 1 -->
-
-        <!-- Card 2: Technology -->
-        <div class="class-card">
-            <div class="card-content">
-                
-                <h4 class="card-title">Container Security - DevSecOps</h4>
-                <div class="instructor-info">
-                    <img src="img/instructor2.png" alt="Dr. Prashant Kumar Dey" class="instructor-pic pic-tech">
-                    <div class="instructor-details">
-                        <p class="instructor-name">Dr. Prashant Kumar Dey</p>
-                        <p class="instructor-bio">Associate Program Director, Hero Vired<br>BMW | Google</p>
-                    </div>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="99.9" data-suffix="%">0%</h2>
+                    <p>Satisfaction Rate</p>
                 </div>
-                <div class="class-meta">
-                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
-                    <p class="seats-left">LIMITED SEATS LEFT !</p>
-                </div>
-            </div>
-            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <!-- End of Card 2 -->
-
-        <!-- Card 3: Data Science -->
-        <div class="class-card">
-            <div class="card-content">
-                
-                <h4 class="card-title">Your First Data Bot: Step into Data Engineering</h4>
-                <div class="instructor-info">
-                    <img src="img/instructor3.png" alt="Shakul Malik" class="instructor-pic pic-data">
-                    <div class="instructor-details">
-                        <p class="instructor-name">Shakul Malik</p>
-                        <p class="instructor-bio">Full Stack Trainer | Ex- TCS | 10+ Years of Experience</p>
-                    </div>
-                </div>
-                <div class="class-meta">
-                    <p class="class-date"><i class="far fa-calendar-alt"></i> 12 June, 7:00 PM</p>
-                    <p class="seats-left">LIMITED SEATS LEFT !</p>
-                </div>
-            </div>
-            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <!-- End of Card 3 -->
-
-        <!--Start of Card 4-->
-
-         <div class="class-card">
-            <div class="card-content">
-              
-                <div class="instructor-info">
-                    <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
-                    <div class="instructor-details">
-                        <p class="instructor-name">Shiva Kumar Bavamala</p>
-                        <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
-                    </div>
-                </div>
-                <div class="class-meta">
-                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
-                    <p class="seats-left">LIMITED SEATS LEFT !</p>
-                </div>
-            </div>
-            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <!--End of Card 4-->
-
-        <!--Start of Card 5-->
-         <div class="class-card">
-            <div class="card-content">
-              
-                <div class="instructor-info">
-                    <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
-                    <div class="instructor-details">
-                        <p class="instructor-name">Shiva Kumar Bavamala</p>
-                        <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
-                    </div>
-                </div>
-                <div class="class-meta">
-                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
-                    <p class="seats-left">LIMITED SEATS LEFT !</p>
-                </div>
-            </div>
-            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
-        </div>
-         <!--End of Card 5-->
-
-
-           <!--Start of Card 6-->
- <div class="class-card">
-            <div class="card-content">
-              
-                <div class="instructor-info">
-                    <img src="img/instructor1.png" alt="Shiva Kumar Bavamala" class="instructor-pic pic-finance">
-                    <div class="instructor-details">
-                        <p class="instructor-name">Shiva Kumar Bavamala</p>
-                        <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
-                    </div>
-                </div>
-                <div class="class-meta">
-                    <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
-                    <p class="seats-left">LIMITED SEATS LEFT !</p>
-                </div>
-            </div>
-            <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
-        </div>
-                 <!--End of Card 6-->
-
-
-    </div>
-</section>
-<!-- ============================================= -->
-<!--          DEMO CLASSES SECTION - END           -->
-<!-- ============================================= -->
-
-<!--Start Course Available-->
-
-<Section class="course_available" id="course_available">
-
-
-
-  <div class="container">
-        <p class="section-subtitle">DISCOVER YOUR TRUE POTENTIAL</p>
-        <h3 class="section-title">Your growth, our mission. High-impact learning starts here.</h3>
-
-
-        <div class="carousel-container">
-            <button class="carousel-arrow prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-
-            <div class="carousel-track">
-                <!-- Card 1: Financial Analysis -->
-                <div class="program-card">
-                    <div class="card-image-container">
-                        <img src="https://placehold.co/360x160/F3F4F6/e0e0e0?text=Financial+Graph" alt="A bull in front of a financial graph.">
-                        <span class="card-tag tag-orange">ASSURED INTERVIEWS</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-logos">
-                            <span class="logo-edx">edX</span>
-                            <span class="logo-columbia">COLUMBIA UNIVERSITY</span>
-                        </div>
-                        <p class="card-program-type">Postgraduate Program in</p>
-                        <h3 class="card-title">Financial Analysis, Valuation & Risk Management</h3>
-                        <div class="card-info">
-                            <span class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                Duration: 7 months
-                            </span>
-                            <span class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                Apply by: June 14, 2025
-                            </span>
-                        </div>
-                        <div class="card-buttons">
-                            <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
-                            <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: DevOps -->
-                <div class="program-card">
-                    <div class="card-image-container">
-                        <img src="https://placehold.co/360x160/F3F4F6/e0e0e0?text=DevOps+Symbol" alt="DevOps infinity symbol.">
-                        <span class="card-tag tag-yellow">CAREER ASSISTANCE PROGRAM</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-logos">
-                            <span class="logo-microsoft">Microsoft</span>
-                        </div>
-                        <p class="card-program-type">Postgraduate Program in</p>
-                        <h3 class="card-title">Multi Cloud Architecture & DevOps</h3>
-                        <div class="card-info">
-                            <span class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                Duration: 9 Months
-                            </span>
-                             <span class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                Apply by: June 14, 2025
-                            </span>
-                        </div>
-                        <div class="card-buttons">
-                            <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
-                            <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Leadership -->
-                <div class="program-card">
-                    <div class="card-image-container">
-                        <img src="https://placehold.co/360x160/F3F4F6/e0e0e0?text=Business+Team" alt="Silhouettes of three business professionals.">
-                        <span class="card-tag tag-blue">INSEAD EXCELLENCE, DELIVERED LIVE</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-logos">
-                            <span class="logo-insead">INSEAD</span>
-                        </div>
-                        <p class="card-program-type">Executive Program in</p>
-                        <h3 class="card-title">Strategy, Innovation & Leadership</h3>
-                         <div class="card-info">
-                            <span class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                Duration: 7 months
-                            </span>
-                             <span class="info-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                Apply by: June 14, 2025
-                            </span>
-                        </div>
-                        <div class="card-buttons">
-                            <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
-                            <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <button class="carousel-arrow next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
-        </div>
-    </div>
-</Section>
-
-<!--End Section of Course Available-->
-
-
-<!--Start the code our partner-->
-  <section class="partner-section">
-        <h2 class="section-title">Our Partners</h2>
-
-        <div class="logo-slider">
-            <div class="logo-track">
-                
-                <!-- Slide Item 1 -->
-                <div class="slide-item">
-                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
-                    <p class="company-name">IBM</p>
-                </div>
-
-                <!-- Slide Item 2 -->
-                <div class="slide-item">
-                    <img src="img/partner/infosys.png" alt="Infosys Logo">
-                    <p class="company-name">Infosys</p>
-                </div>
-
-                <!-- Slide Item 3 -->
-                <div class="slide-item">
-                    <img src="img/partner/tcs.png" alt="TCS Logo">
-                    <p class="company-name">TCS</p>
-                </div>
-
-                <!-- Slide Item 4 -->
-                <div class="slide-item">
-                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
-                    <p class="company-name">IBM</p>
-                </div>
-
-                <!-- Slide Item 5 -->
-                <div class="slide-item">
-              <img src="img/partner/infosys.png" alt="Infosys Logo">
-                    <p class="company-name">Infosys</p>
-                </div>
-
-                <!-- Slide Item 6 -->
-                <div class="slide-item">
-                   <img src="img/partner/tcs.png" alt="TCS Logo">
-                    <p class="company-name">TCS</p>
-                </div>
-
-                <!-- == DUPLICATE SET FOR SEAMLESS LOOP == -->
-
-                <div class="slide-item">
-                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
-                    <p class="company-name">IBM</p>
-                </div>
-                <div class="slide-item">
-                   <img src="img/partner/infosys.png" alt="Infosys Logo">
-                    <p class="company-name">Infosys</p>
-                </div>
-                <div class="slide-item">
-                   <img src="img/partner/tcs.png" alt="TCS Logo">
-                    <p class="company-name">TCS</p>
-                </div>
-                <div class="slide-item">
-                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
-                    <p class="company-name">IBM</p>
-                </div>
-                <div class="slide-item">
-                    <img src="img/partner/infosys.png" alt="Infosys Logo">
-                    <p class="company-name">Infosys</p>
-                </div>
-                <div class="slide-item">
-                    <img src="img/partner/tcs.png" alt="TCS Logo">
-                    <p class="company-name">TCS</p>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="160">0+</h2>
+                    <p>Placed Student</p>
                 </div>
             </div>
         </div>
-
-    <!-- =============================================================== -->
-    <!-- SECTION 2: NEW SLIDER SCROLLING LEFT-TO-RIGHT                 -->
-    <!-- =============================================================== -->
- 
-      
-
-        <!-- We add a new class 'ltr' (left-to-right) to target this with different CSS -->
-        <div class="logo-slider ltr">
-            <div class="logo-track">
-                
-                <!-- Slide Item 1 -->
-                <div class="slide-item">
-                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
-                    <p class="company-name">IBM</p>
-                </div>
-
-                <!-- Slide Item 2 -->
-                <div class="slide-item">
-                    <img src="img/partner/infosys.png" alt="Infosys Logo">
-                    <p class="company-name">Infosys</p>
-                </div>
-
-                <!-- Slide Item 3 -->
-                <div class="slide-item">
-                    <img src="img/partner/tcs.png" alt="TCS Logo">
-                    <p class="company-name">TCS</p>
-                </div>
-
-                <!-- Slide Item 4 -->
-                <div class="slide-item">
-                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
-                    <p class="company-name">IBM</p>
-                </div>
-
-                <!-- Slide Item 5 -->
-                <div class="slide-item">
-                    <img src="img/partner/infosys.png" alt="Infosys Logo">
-                    <p class="company-name">Infosys</p>
-                </div>
-
-                <!-- Slide Item 6 -->
-                <div class="slide-item">
-                    <img src="img/partner/tcs.png" alt="TCS Logo">
-                    <p class="company-name">TCS</p>
-                </div>
-
-                <!-- == DUPLICATE SET FOR SEAMLESS LOOP == -->
-
-                <div class="slide-item">
-                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
-                    <p class="company-name">IBM</p>
-                </div>
-                <div class="slide-item">
-                    <img src="img/partner/infosys.png" alt="Infosys Logo">
-                    <p class="company-name">Infosys</p>
-                </div>
-                <div class="slide-item">
-                    <img src="img/partner/tcs.png" alt="TCS Logo">
-                    <p class="company-name">TCS</p>
-                </div>
-                <div class="slide-item">
-                    <img src="img/partner/IBM Logo.png" alt="IBM Logo">
-                    <p class="company-name">IBM</p>
-                </div>
-                <div class="slide-item">
-                    <img src="img/partner/infosys.png" alt="Infosys Logo">
-                    <p class="company-name">Infosys</p>
-                </div>
-                <div class="slide-item">
-                    <img src="img/partner/tcs.png" alt="TCS Logo">
-                    <p class="company-name">TCS</p>
-                </div>
-            </div>
+    
+        <div class="hero-image-slider">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80" alt="Students learning on laptops" class="slide">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Professional presenting in a meeting" class="slide">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Team collaborating on a project" class="slide">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Woman working on a design tablet" class="slide">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Business professionals in a discussion" class="slide">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Data analytics on screen" class="slide">
         </div>
     </section>
 
 
 
-<!---End of our patners-->
+    <!--=============================================-->
+    <!-- End Hero Section-->
+    <!--==============================================-->
 
 
-<!--Start Ai courses code-->
- <section class="ai-hero-section">
+<!--==================================================-->
+    <!-- Start code Pop up box-->
+ <!--===================================================-->  
+ 
+ 
+ 
+    <div class="popup-overlay" id="appointmentPopupOverlay">
+        <div class="popup-container">
+            <div class="popup-left">
+                <div>
+                    <h2>Turn Your Career Goals into Reality</h2>
+                    <ul>
+                        <li><span class="icon">✨</span> Get clarity on your career goals in minutes</li>
+                        <li><span class="icon">✨</span> Explore programs tailored to your ambitions</li>
+                        <li><span class="icon">✨</span> Make your next move with experts</li>
+                    </ul>
+                </div>
+                <div class="popup-left-image-container">
+                    <img src="https://via.placeholder.com/250x250.png?text=Your+Image+Here" alt="Career Counsellor">
+                </div>
+            </div>
+            <div class="popup-right">
+                <a href="#" class="popup-close-btn" id="closePopupBtn">×</a>
+                <h3>Talk to Our Counsellor</h3>
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <select id="topic" name="topic" required>
+                            <option value="" disabled selected>Your Topic of Interest</option>
+                            <option value="data-science">Data Science</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="digital-marketing">Digital Marketing</option>
+                            <option value="cyber-security">Cyber Security</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Enter Name" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="phone-input-group">
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Appointment</button>
+                    <p class="terms-text">
+                        By filling this form, you agree to our <a href="#" target="_blank">Terms and Conditions</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const popupOverlay = document.getElementById('appointmentPopupOverlay');
+            const closePopupBtn = document.getElementById('closePopupBtn');
+            const appointmentForm = document.getElementById('appointmentForm');
+            const phoneInput = document.querySelector("#phone");
+
+            const iti = window.intlTelInput(phoneInput, {
+                initialCountry: "in",
+                separateDialCode: true,
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
+                preferredCountries: ['in', 'us', 'gb', 'ca', 'au'],
+                nationalMode: false,
+                formatOnDisplay: true,
+                placeholderNumberType: "MOBILE"
+            });
+
+            function showPopup() {
+                if (popupOverlay) popupOverlay.classList.add('active');
+            }
+            function hidePopup() {
+                if (popupOverlay) popupOverlay.classList.remove('active');
+            }
+
+            setTimeout(showPopup, 10000);
+
+            if (closePopupBtn) closePopupBtn.addEventListener('click', function(e) { e.preventDefault(); hidePopup(); });
+            if (popupOverlay) popupOverlay.addEventListener('click', function(e) { if (e.target === popupOverlay) hidePopup(); });
+
+            if (appointmentForm) {
+                appointmentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (iti.isValidNumber()) {
+                        const topic = document.getElementById('topic').value;
+                        const name = document.getElementById('name').value;
+                        const fullMobileNumber = iti.getNumber();
+
+                        console.log('Appointment Details:', { topic, name, fullMobileNumber });
+                        alert('Thank you! Your appointment request has been submitted (check console for details).');
+                        hidePopup();
+                        appointmentForm.reset();
+                        iti.setCountry("in");
+                    } else {
+                        alert('Please enter a valid phone number.');
+                        console.log("Phone number validation error code:", iti.getValidationError());
+                    }
+                });
+            }
+        });
+    </script>
+
+
+<!-- ============================================= -->
+
+<!------End Code Pop up message-->
+<!-- ============================================= -->
+
+
+<!-- ============================================= -->
+    <!--            Start  DEMO CLASSES SECTION             -->
+    <!-- ============================================= -->
+    <section class="demo-classes-section" id="demo-classes-section">
+        <div class="section-header">
+            <div class="section-titles">
+                <h3>OUR DEMOCLASSES</h3>
+                <h2>Your first step to success</h2>
+            </div>
+            <div class="slider-nav">
+                <button id="scroll-left" class="nav-button"><i class="fas fa-chevron-left"></i></button>
+                <button id="scroll-right" class="nav-button"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="classes-slider" id="classes-slider">
+            <div class="class-card">
+                <div class="card-content">
+                    <h4 class="card-title">Investing Masterclass</h4>
+                    <div class="instructor-info">
+                        <img src="https://i.imgur.com/xTf2OaQ.png" alt="Shiva Kumar Bavamala" class="instructor-pic">
+                        <div class="instructor-details">
+                            <p class="instructor-name">Shiva Kumar Bavamala</p>
+                            <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
+                        </div>
+                    </div>
+                    <div class="class-meta">
+                        <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
+                        <p class="seats-left">LIMITED SEATS LEFT !</p>
+                    </div>
+                </div>
+                <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="class-card">
+                <div class="card-content">
+                    <h4 class="card-title">Container Security - DevSecOps</h4>
+                    <div class="instructor-info">
+                        <img src="https://i.imgur.com/dK5QZ5A.png" alt="Dr. Prashant Kumar Dey" class="instructor-pic">
+                        <div class="instructor-details">
+                            <p class="instructor-name">Dr. Prashant Kumar Dey</p>
+                            <p class="instructor-bio">Associate Program Director, Hero Vired<br>BMW | Google</p>
+                        </div>
+                    </div>
+                    <div class="class-meta">
+                        <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
+                        <p class="seats-left">LIMITED SEATS LEFT !</p>
+                    </div>
+                </div>
+                <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="class-card">
+                <div class="card-content">
+                    <h4 class="card-title">Your First Data Bot: Step into Data Engineering</h4>
+                    <div class="instructor-info">
+                        <img src="https://i.imgur.com/8Qp4Z0G.png" alt="Shakul Malik" class="instructor-pic">
+                        <div class="instructor-details">
+                            <p class="instructor-name">Shakul Malik</p>
+                            <p class="instructor-bio">Full Stack Trainer | Ex- TCS | 10+ Years of Experience</p>
+                        </div>
+                    </div>
+                    <div class="class-meta">
+                        <p class="class-date"><i class="far fa-calendar-alt"></i> 12 June, 7:00 PM</p>
+                        <p class="seats-left">LIMITED SEATS LEFT !</p>
+                    </div>
+                </div>
+                <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!--            POPUP MODAL FOR DEMOS              -->
+    <!-- ============================================= -->
+    <div id="registration-popup-overlay" class="hidden">
+        <div id="registration-popup-modal">
+            <div id="popup-details-container">
+                <h2 id="popup-title">Playing to Win - Business Strategy Insights - Asian Paints</h2>
+                <div class="popup-instructor">
+                    <img id="popup-instructor-img" src="https://i.imgur.com/gI2YgYw.png" alt="Rajiv Bajaj">
+                    <div>
+                        <p id="popup-instructor-name">Rajiv Bajaj</p>
+                        <p id="popup-instructor-bio">CA, MBA (ISB), 28+ yrs experience<br>Consulting, Business Strategy, M&A<br>Accenture Roland-berger</p>
+                    </div>
+                </div>
+                <ul id="popup-highlights">
+                    <li>Asian Paints Palette Blending Technology, Customer-Centricity, and Achieving Superior Business Outcomes</li>
+                    <li>Asian Paint’s Game-Changing Strategy of Changing Paints Industry Structure</li>
+                    <li>Asian Paint’s Strategies that Lead to High Return on Capital and Shareholder Value</li>
+                </ul>
+            </div>
+            <div id="popup-form-container">
+                <button id="close-popup-btn">×</button>
+                <div id="form-header">
+                    <h2>Book a Free Live Class</h2>
+                    <div class="progress-bar"></div>
+                </div>
+                <form id="registration-form" onsubmit="event.preventDefault(); alert('Form Submitted!');">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Enter Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Enter Contact Number" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Next</button>
+                </form>
+                <p class="form-disclaimer">By filling this form, you agree to our <a href="#">Terms and Conditions</a></p>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!--Demo Classe End code-->
+
+   <!--===========================================================-->
+    <!--Start Course Available-->
+    <!--===========================================================-->
+ <!--===========================================================-->
+    <!--Start Course Available-->
+    <!--===========================================================-->
+    <section class="course_available" id="course_available">
+
         <div class="container">
-            <!-- Section Header -->
-            <div class="section-header">
+            <p class="section-subtitle">DISCOVER YOUR TRUE POTENTIAL</p>
+            <h3 class="section-title">Your growth, our mission. High-impact learning starts here.</h3>
+
+            <div class="carousel-container">
+                <button class="carousel-arrow prev" aria-label="Previous slide">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+
+                <!-- The Viewport for clipping the scrolling content -->
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <!-- Card 1: Financial Analysis -->
+                        <div class="program-card">
+                            <div class="card-image-container">
+                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=Financial+Graph" alt="A bull in front of a financial graph.">
+                                <span class="card-tag tag-orange">ASSURED INTERVIEWS</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-logos">
+                                    <!-- <span class="logo-edx">edX</span> -->
+                                    <span class="logo-columbia">JAVA</span>
+                                </div>
+                                <p class="card-program-type">Postgraduate Program in</p>
+                                <h3 class="card-title">Financial Analysis, Valuation & Risk Management</h3>
+                                <div class="card-info">
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        Duration: 7 months
+                                    </span>
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        Apply by: June 14, 2025
+                                    </span>
+                                </div>
+                                <div class="card-buttons">
+                                    <a href="https://drive.google.com/uc?export=download&id=16D1WexcVNGuZ2o2e3LBke_n6DXm94qsH">
+                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
+                                    </a>
+
+                                    <a href="Java.html">
+                                    <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: DevOps -->
+                        <div class="program-card">
+                            <div class="card-image-container">
+                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=DevOps+Symbol" alt="DevOps infinity symbol.">
+                                <span class="card-tag tag-yellow">CAREER ASSISTANCE</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-logos">
+                                    <span class="logo-microsoft">Python</span>
+                                </div>
+                                <p class="card-program-type">Postgraduate Program in</p>
+                                <h3 class="card-title">Multi Cloud Architecture & DevOps</h3>
+                                <div class="card-info">
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        Duration: 9 Months
+                                    </span>
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        Apply by: June 14, 2025
+                                    </span>
+                                </div>
+                                <div class="card-buttons">
+                                    <a href="https://drive.google.com/uc?export=download&id=18_0fSD-FiN2ZJPW21scBP65uQsMFmq83">
+                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
+                                            </a>
+
+
+                                    <a href="python.html">
+                                    <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Leadership -->
+                        <div class="program-card">
+                            <div class="card-image-container">
+                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=Business+Team" alt="Silhouettes of three business professionals.">
+                                <span class="card-tag tag-blue">INSEAD EXCELLENCE</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-logos">
+                                    <span class="logo-insead">Data Science</span>
+                                </div>
+                                <p class="card-program-type">Executive Program in</p>
+                                <h3 class="card-title">Strategy, Innovation & Leadership</h3>
+                                <div class="card-info">
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        Duration: 7 months
+                                    </span>
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        Apply by: June 14, 2025
+                                    </span>
+                                </div>
+                                <div class="card-buttons">
+
+                                    <a href="https://drive.google.com/uc?export=download&id=1nYLhZXgfdr2KZNDdc8Rmpyir31lldp74">
+                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
+                                        </a>
+
+                                    <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Data Science -->
+                        <div class="program-card">
+                            <div class="card-image-container">
+                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=Data+Science" alt="Abstract data visualization.">
+                                <span class="card-tag tag-orange">TOP-RATED PROGRAM</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-logos">
+                                    <span class="logo-caltech">AWS</span>
+                                </div>
+                                <p class="card-program-type">Professional Certificate Program in</p>
+                                <h3 class="card-title">Data Science for Business Leaders</h3>
+                                <div class="card-info">
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        Duration: 8 Months
+                                    </span>
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        Apply by: July 1, 2025
+                                    </span>
+                                </div>
+                                <div class="card-buttons">
+
+                                    <a href="https://drive.google.com/uc?export=download&id=1g4zV-9J28Hlo3cmG4RVYClu6VnrECa3Y">
+                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
+                                    </a>
+
+                                    <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Product Management -->
+                        <div class="program-card">
+                            <div class="card-image-container">
+                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=Product+Mgmt" alt="Product roadmap illustration.">
+                                <span class="card-tag tag-yellow">BESTSELLER</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-logos">
+                                    <span class="logo-wharton">Devopps</span>
+                                </div>
+                                <p class="card-program-type">Executive Program in</p>
+                                <h3 class="card-title">Product Management & Innovation</h3>
+                                <div class="card-info">
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        Duration: 6 Months
+                                    </span>
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        Apply by: Aug 15, 2025
+                                    </span>
+                                </div>
+                                <div class="card-buttons">
+
+                                    <a href="https://drive.google.com/uc?export=download&id=16D1WexcVNGuZ2o2e3LBke_n6DXm94qsH">
+                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
+                                    </a>
+
+                                    <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Cybersecurity -->
+                        <div class="program-card">
+                            <div class="card-image-container">
+                                <img src="img/JAVA.png" alt="Digital lock and key for cybersecurity.">
+                                <span class="card-tag tag-blue">EXPERT LED</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-logos">
+                                    <span class="logo-mit">Data Analaytis</span>
+                                </div>
+                                <p class="card-program-type">Professional Certificate in</p>
+                                <h3 class="card-title">Cybersecurity Strategy & Risk Management</h3>
+                                <div class="card-info">
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        Duration: 10 Months
+                                    </span>
+                                    <span class="info-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                        Apply by: Sep 1, 2025
+                                    </span>
+                                </div>
+                                <div class="card-buttons">
+
+                                    <a href="https://drive.google.com/uc?export=download&id=1nYLhZXgfdr2KZNDdc8Rmpyir31lldp74">
+                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
+                                    </a>
+
+                                    <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <button class="carousel-arrow next" aria-label="Next slide">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!--===========================================================-->
+    <!--End Course Available-->
+    <!--===========================================================-->
+
+
+    <!-- ============================================= -->
+    <!--          JAVASCRIPT FOR CAROUSEL              -->
+    <!-- ============================================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.carousel-track');
+            const prevButton = document.querySelector('.carousel-arrow.prev');
+            const nextButton = document.querySelector('.carousel-arrow.next');
+            
+            if (!track || !prevButton || !nextButton) {
+                console.error("Carousel elements not found.");
+                return;
+            }
+
+            // Function to update the state of the arrow buttons
+            const updateArrows = () => {
+                const scrollLeft = track.scrollLeft;
+                const maxScrollLeft = track.scrollWidth - track.clientWidth;
+
+                // Use a small tolerance for floating point comparisons
+                prevButton.disabled = scrollLeft <= 1;
+                nextButton.disabled = scrollLeft >= maxScrollLeft - 1;
+            };
+
+            // Event listener for the "Next" button
+            nextButton.addEventListener('click', () => {
+                const card = track.querySelector('.program-card');
+                if (!card) return;
                 
+                const cardWidth = card.offsetWidth;
+                const gap = parseInt(window.getComputedStyle(track).gap, 10) || 0;
+                const scrollAmount = cardWidth + gap;
+
+                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            // Event listener for the "Previous" button
+            prevButton.addEventListener('click', () => {
+                const card = track.querySelector('.program-card');
+                if (!card) return;
+
+                const cardWidth = card.offsetWidth;
+                const gap = parseInt(window.getComputedStyle(track).gap, 10) || 0;
+                const scrollAmount = cardWidth + gap;
+                
+                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            
+            // Update arrows whenever the track is scrolled
+            track.addEventListener('scroll', updateArrows);
+            
+            // Also check on window resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(updateArrows, 100);
+            });
+
+            // Initial check to set the correct arrow state on page load
+            // Use a small timeout to ensure layout is fully calculated
+            setTimeout(updateArrows, 100);
+        });
+    </script>
+
+    <!-- ============================================= -->
+    <!--               OUR PARTNERS SECTION            -->
+    <!-- ============================================= -->
+    <section class="partner-section">
+        <h2 class="section-title">Our Partners</h2>
+        <div class="logo-slider">
+            <div class="logo-track">
+                <div class="slide-item"><img src="img/partner/IBM Logo.png" alt="IBM Logo"><p class="company-name">IBM</p></div>
+                <div class="slide-item"><img src="img/partner/infosys.png" alt="Infosys Logo"><p class="company-name">Infosys</p></div>
+                <div class="slide-item"><img src="img/partner/tcs.png" alt="TCS Logo"><p class="company-name">TCS</p></div>
+                <div class="slide-item"><img src="img/partner/IBM Logo.png" alt="IBM Logo"><p class="company-name">IBM</p></div>
+                <div class="slide-item"><img src="img/partner/infosys.png" alt="Infosys Logo"><p class="company-name">Infosys</p></div>
+                <div class="slide-item"><img src="img/partner/tcs.png" alt="TCS Logo"><p class="company-name">TCS</p></div>
+                <!-- Duplicates for seamless loop -->
+                <div class="slide-item"><img src="img/partner/IBM Logo.png" alt="IBM Logo"><p class="company-name">IBM</p></div>
+                <div class="slide-item"><img src="img/partner/infosys.png" alt="Infosys Logo"><p class="company-name">Infosys</p></div>
+                <div class="slide-item"><img src="img/partner/tcs.png" alt="TCS Logo"><p class="company-name">TCS</p></div>
+                <div class="slide-item"><img src="img/partner/IBM Logo.png" alt="IBM Logo"><p class="company-name">IBM</p></div>
+                <div class="slide-item"><img src="img/partner/infosys.png" alt="Infosys Logo"><p class="company-name">Infosys</p></div>
+                <div class="slide-item"><img src="img/partner/tcs.png" alt="TCS Logo"><p class="company-name">TCS</p></div>
+            </div>
+        </div>
+        <div class="logo-slider ltr">
+            <div class="logo-track">
+                <div class="slide-item"><img src="img/partner/IBM Logo.png" alt="IBM Logo"><p class="company-name">IBM</p></div>
+                <div class="slide-item"><img src="img/partner/infosys.png" alt="Infosys Logo"><p class="company-name">Infosys</p></div>
+                <div class="slide-item"><img src="img/partner/tcs.png" alt="TCS Logo"><p class="company-name">TCS</p></div>
+                <div class="slide-item"><img src="img/partner/IBM Logo.png" alt="IBM Logo"><p class="company-name">IBM</p></div>
+                <div class="slide-item"><img src="img/partner/infosys.png" alt="Infosys Logo"><p class="company-name">Infosys</p></div>
+                <div class="slide-item"><img src="img/partner/tcs.png" alt="TCS Logo"><p class="company-name">TCS</p></div>
+                <!-- Duplicates for seamless loop -->
+                <div class="slide-item"><img src="img/partner/IBM Logo.png" alt="IBM Logo"><p class="company-name">IBM</p></div>
+                <div class="slide-item"><img src="img/partner/infosys.png" alt="Infosys Logo"><p class="company-name">Infosys</p></div>
+                <div class="slide-item"><img src="img/partner/tcs.png" alt="TCS Logo"><p class="company-name">TCS</p></div>
+                <div class="slide-item"><img src="img/partner/IBM Logo.png" alt="IBM Logo"><p class="company-name">IBM</p></div>
+                <div class="slide-item"><img src="img/partner/infosys.png" alt="Infosys Logo"><p class="company-name">Infosys</p></div>
+                <div class="slide-item"><img src="img/partner/tcs.png" alt="TCS Logo"><p class="company-name">TCS</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!--                 Start AI SECTION                   -->
+    <!-- ============================================= -->
+    <section class="ai-hero-section">
+        <div class="container">
+            <div class="section-header">
                 <h1 class="main-heading">AI Isn't Optional. It's Essential.</h1>
             </div>
-
-            <!-- Main Grid Layout -->
             <div class="ai-grid-container">
-                
-                <!-- Large Card on the Left -->
                 <div class="grid-card large-card">
                     <div class="large-card-image">
-                        <!-- CHANGE THIS IMAGE PATH -->
                         <img src="img/ai-face.png" alt="Futuristic AI-generated face profile">
                     </div>
                     <div class="large-card-content">
@@ -597,18 +889,12 @@
                         <p>Education is evolving, and AI is at the heart of this transformation.</p>
                     </div>
                 </div>
-
-                <!-- Wrapper for the 4 Small Cards on the Right -->
                 <div class="small-cards-wrapper">
-                    
-                    <!-- Card 1: AI Powered LMS -->
                     <div class="grid-card">
                         <img src="images/lms-dashboard.png" alt="LMS Dashboard" class="card-image-top">
                         <h4>AI Powered LMS</h4>
                         <p>Intelligent systems to track progress and optimize learning paths for efficiency.</p>
                     </div>
-
-                    <!-- Card 2: AI-Driven Content -->
                     <div class="grid-card">
                         <h4>AI-Driven Content</h4>
                         <p>Gain hands-on experience with TensorFlow, PyTorch, OpenAI, LLMs, Generative AI, and other industry-standard tools.</p>
@@ -619,147 +905,176 @@
                             <img src="images/icon-llm.svg" alt="LLM" class="animated-icon">
                         </div>
                     </div>
-
-                    <!-- Card 3: Gen AI Essentials Bootcamp -->
                     <div class="grid-card">
                         <h4>Gen AI Essentials Bootcamp</h4>
                         <p>Integrated AI sessions across every program to future-proof your skills.</p>
                         <img src="images/ai-bootcamp.png" alt="AI Bootcamp" class="card-image-bottom">
                     </div>
-
-                    <!-- Card 4: Industry-Integrated AI Projects -->
                     <div class="grid-card">
                         <h4>Industry-Integrated AI Projects</h4>
                         <p>Work on live AI-driven projects in predictive analytics, fraud detection, recommendation systems, and more.</p>
                         <img src="images/ai-projects.png" alt="AI Projects" class="card-image-bottom">
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
-    <!-- ================================= 
-         AI HERO SECTION END
-    ================================== -->
+    <!-- ============================================= -->
+    <!--                 End AI SECTION                   -->
+    <!-- ============================================= -->
 
 
 
 
+     <!-- ============================================= -->
+    <!--                 Start Student Successs story                   -->
+    <!-- ============================================= -->
 
+        <section class="transition-stories-section">
+        <h3 class="section-subtitle">Transition Stories</h3>
+        <h2 class="section-title">Our Learners who made it!</h2>
 
-
-    <!--Start Review Section-->
-
-  <section class="testimonial-section">
-    <div class="testimonial-container">
-        <!-- Left Side: Header Content -->
-        <div class="testimonial-header">
-            <p class="subtitle">TESTIMONIALS</p>
-            <h2>What Our<br>Students<br>Have To <span>Say</span></h2>
-            <p class="description">
-                Our students' success is a testament to the quality of education and training at Cloud World Institute. Here's what they have to say about their learning journey with us.
-            </p>
-        </div>
-
-        <!-- Right Side: The Slider -->
-        <div class="testimonial-slider-wrapper">
-            <div class="testimonial-cards-container">
-                <!-- Card 1 -->
-                <div class="testimonial-card">
-                    <p class="review-text">The quality of education and guidance is unmatched. I'm grateful for the valuable skills and knowledge I gained, which helped me secure a great job in the IT industry.</p>
-                    <div class="reviewer-info">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="name">Neha Desai</p>
-                        <p class="role">IT Professional</p>
-                    </div>
+        <div class="stories-grid">
+            <!-- Story Card 1 -->
+            <div class="story-card">
+                <div class="student-placeholder-circle">
+                    <span class="student-name-in-circle">Shashank</span>
                 </div>
-                <!-- Card 2 -->
-                <div class="testimonial-card">
-                    <p class="review-text">The hands-on training and practical approach at Cloud World Institute helped me understand complex concepts easily. The curriculum is up-to-date, and the support for career growth is excellent!</p>
-                    <div class="reviewer-info">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="name">Priya Patel</p>
-                        <p class="role">Developer</p>
+                <h3 class="student-name">Shashank</h3>
+                <div class="placement-badge">
+                    <div class="company-info">
+                        <img src="https://via.placeholder.com/24/333/FFFFFF?text=F" alt="Company Icon" class="company-icon">
+                        <span class="company-name-text">Fitelo</span>
                     </div>
+                    <p class="hike-details">30% hike <i class="fas fa-chart-line"></i></p>
                 </div>
-                <!-- Card 3 -->
-                <div class="testimonial-card">
-                    <p class="review-text">I joined Cloud World Institute to upskill in Cloud Computing, and it was the best decision. The courses are well-structured, and the trainers provide real-world insights.</p>
-                    <div class="reviewer-info">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="name">Ravi Kumar</p>
-                        <p class="role">Student</p>
-                    </div>
-                </div>
+                <p class="student-role">Data Analyst</p>
             </div>
-            <!-- Pagination Dots -->
-            <div class="testimonial-dots"></div>
+
+            <!-- Story Card 2 -->
+            <div class="story-card">
+                <div class="student-placeholder-circle">
+                     <span class="student-name-in-circle">Aniket</span>
+                </div>
+                <h3 class="student-name">Aniket</h3>
+                <div class="placement-badge">
+                    <div class="company-info">
+                        <img src="https://via.placeholder.com/24/007bff/FFFFFF/?text=AB" alt="Company Icon" class="company-icon">
+                        <span class="company-name-text">Aditya Birla</span>
+                    </div>
+                    <p class="hike-details">67% hike <i class="fas fa-chart-line"></i></p>
+                </div>
+                <p class="student-role">Business Analyst</p>
+            </div>
+
+            <!-- Story Card 3 -->
+            <div class="story-card">
+                <div class="student-placeholder-circle">
+                    <span class="student-name-in-circle">Pratibha</span>
+                </div>
+                <h3 class="student-name">Pratibha</h3>
+                <div class="placement-badge">
+                     <div class="company-info">
+                        <img src="https://via.placeholder.com/24/dc3545/FFFFFF/?text=JM" alt="Company Icon" class="company-icon">
+                        <span class="company-name-text">JM Financial</span>
+                    </div>
+                    <p class="hike-details">20% hike <i class="fas fa-chart-line"></i></p>
+                </div>
+                <p class="student-role">Senior Associate</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const storyCards = document.querySelectorAll('.story-card');
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            storyCards.forEach(card => observer.observe(card));
+        });
+    </script>
 
 
-<!---Start the video -->
-   <main class="content-wrapper">
 
+
+    
+
+     <!-- ============================================= -->
+    <!--                 End Student Success stroy                   -->
+    <!-- ============================================= -->
+
+
+    <!-- ============================================= -->
+    <!--              TESTIMONIALS SECTION             -->
+    <!-- ============================================= -->
+    <section class="testimonial-section" id="review">
+        <div class="testimonial-container">
+            <div class="testimonial-header">
+                <p class="subtitle">TESTIMONIALS</p>
+                <h2>What Our<br>Students<br>Have To <span>Say</span></h2>
+                <p class="description">Our students' success is a testament to the quality of education and training at Cloud World Institute. Here's what they have to say about their learning journey with us.</p>
+            </div>
+            <div class="testimonial-slider-wrapper">
+                <div class="testimonial-cards-container">
+                    <div class="testimonial-card">
+                        <p class="review-text">The quality of education and guidance is unmatched. I'm grateful for the valuable skills and knowledge I gained, which helped me secure a great job in the IT industry.</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="name">Neha Desai</p>
+                            <p class="role">IT Professional</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="review-text">The hands-on training and practical approach at Cloud World Institute helped me understand complex concepts easily. The curriculum is up-to-date, and the support for career growth is excellent!</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="name">Priya Patel</p>
+                            <p class="role">Developer</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="review-text">I joined Cloud World Institute to upskill in Cloud Computing, and it was the best decision. The courses are well-structured, and the trainers provide real-world insights.</p>
+                        <div class="reviewer-info">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="name">Ravi Kumar</p>
+                            <p class="role">Student</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!--                 VIDEO SECTION                 -->
+    <!-- ============================================= -->
+    <main class="content-wrapper">
         <section class="video-container">
-            <!-- The video is set to autoplay, loop, and be muted -->
             <video class="background-video" autoplay loop muted playsinline>
-                <!-- IMPORTANT: Make sure this path is correct -->
                 <source src="video/local.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </section>
-
-        <!-- The button is now in its own separate container, below the video -->
         <div class="button-area">
             <a href="#" class="watch-button">Watch Now ►</a><br><br>
         </div>
-
     </main>
-<script>
-    // Wait for the document to be fully loaded before running the script
-document.addEventListener('DOMContentLoaded', () => {
 
-    // Find the button in the document
-    const watchButton = document.querySelector('.watch-button');
-
-    // Check if the button exists to prevent errors
-    if (watchButton) {
-        // Add a 'click' event listener to the button
-        watchButton.addEventListener('click', (event) => {
-            // event.preventDefault() stops the link from trying to navigate to "#"
-            event.preventDefault(); 
-            
-            // This is where you would add the action for the button.
-            alert("The 'Watch Now' button was clicked!");
-            
-            // Example of redirecting to another page:
-            // window.location.href = 'https://www.example.com';
-        });
-    }
-
-});
-</script>
-<!---End the vidoe code-->
-
-
-
-
-
-<!--Start Footer Code-->
- <footer>
+    <!-- ============================================= -->
+    <!--                   FOOTER                      -->
+    <!-- ============================================= -->
+    <footer>
         <div class="footer-container">
-            <!-- Top Dashed Line -->
             <div class="dashed-line"></div>
-    
-            <!-- Top Navigation -->
             <nav class="footer-nav-top">
                 <ul>
                     <li><a href="#">Blogs</a></li>
@@ -771,12 +1086,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <li><a href="#">Learning Hub</a></li>
                 </ul>
             </nav>
-    
-            <!-- Middle Section: Contact & Socials -->
             <div class="footer-main">
                 <div class="contact-info">
                     <a href="tel:18003093939"><i class="fa-solid fa-phone"></i> 18003093939</a>
-                    <a href="mailto:hello@herovired.com"><i class="fa-solid fa-envelope"></i> hello@Kratos.com</a>
+                    <a href="mailto:hello@kratos.com"><i class="fa-solid fa-envelope"></i> hello@Kratos.com</a>
                     <a href="https://wa.me/your-whatsapp-number" target="_blank"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
                 </div>
                 <div class="social-icons">
@@ -785,11 +1098,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="#" aria-label="YouTube" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
-    
-            <!-- Bottom Dashed Line -->
             <div class="dashed-line"></div>
-    
-            <!-- Bottom Section: Links & Copyright -->
             <div class="footer-bottom">
                 <div class="footer-links-bottom">
                     <a href="#">Privacy Policy & Terms</a>
@@ -797,157 +1106,171 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="#">Sitemap</a>
                 </div>
                 <div class="copyright">
-                    <!-- The year will be inserted here by JavaScript -->
                     <p>© <span id="current-year"></span> Kratos. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <Script>
-        document.addEventListener('DOMContentLoaded', function() {
-  
-  // Find the span element where the year should be displayed
-  const yearSpan = document.getElementById('current-year');
-  
-  // Check if the element exists to avoid errors
-  if (yearSpan) {
-    // Get the current year from the Date object
-    const currentYear = new Date().getFullYear();
+    <!-- === JAVASCRIPT LIBRARIES & SCRIPTS === -->
     
-    // Set the text content of the span to the current year
-    yearSpan.textContent = currentYear;
-  }
-  
-});
-    </Script>
+    <!-- Intl Tel Input JS (must be loaded before our custom script) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"></script>
 
-
-<!--End Footer Code-->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.testimonial-card');
-    const dotsContainer = document.querySelector('.testimonial-dots');
-
-    if (cards.length === 0) return;
-
-    let currentIndex = 0;
-    const slideIntervalTime = 5000; // 5 seconds
-    let slideInterval;
-
-    // Create dots based on the number of cards
-    cards.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        dot.addEventListener('click', () => {
-            goToSlide(index);
-        });
-        dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll('.dot');
-
-    function goToSlide(index) {
-        // Prevent running if already on the selected slide
-        if (currentIndex === index && document.querySelector('.testimonial-card.active')) return;
-
-        currentIndex = index;
-
-        // Update active classes for cards
-        cards.forEach((card, i) => {
-            if (i === currentIndex) {
-                card.classList.add('active');
-            } else {
-                card.classList.remove('active');
-            }
-        });
-
-        // Update active classes for dots
-        dots.forEach((dot, i) => {
-            if (i === currentIndex) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-
-        // Reset the automatic sliding timer
-        resetInterval();
-    }
-
-    function nextSlide() {
-        const nextIndex = (currentIndex + 1) % cards.length;
-        goToSlide(nextIndex);
-    }
-
-    function startInterval() {
-        slideInterval = setInterval(nextSlide, slideIntervalTime);
-    }
-    
-    function resetInterval() {
-        clearInterval(slideInterval);
-        startInterval();
-    }
-
-    // Initialize the first slide
-    goToSlide(0);
-});
-</script>
-
-
-
-    <!--End the Review Section-->
+    <!-- CONSOLIDATED PAGE SCRIPTS -->
     <script>
-        console.log("AI Hero Section is loaded and ready!");
-    </script>
-<!--End Ai courses code-->
-    <!-- Script for Counter Animation   Hero section script-->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const counters = document.querySelectorAll('.counter');
-            const animationDuration = 2000; // 2 seconds
+        document.addEventListener('DOMContentLoaded', () => {
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        startCounter(entry.target);
-                        observer.unobserve(entry.target); // Animate only once
+            // --- 1. NAVBAR DROPDOWN SCRIPT ---
+            const programsButton = document.querySelector('.programs-button');
+            const programsContainer = document.querySelector('.programs-container');
+            if (programsButton && programsContainer) {
+                programsButton.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    programsContainer.classList.toggle('show');
+                });
+                window.addEventListener('click', function(event) {
+                    if (programsContainer.classList.contains('show')) {
+                        programsContainer.classList.remove('show');
                     }
                 });
-            }, {
-                threshold: 0.5 // Start animation when 50% of the element is visible
-            });
-
-            counters.forEach(counter => {
-                observer.observe(counter);
-            });
-
-            function startCounter(counter) {
-                const target = +counter.getAttribute('data-target');
-                const suffix = counter.getAttribute('data-suffix') || '+';
-                const isFloat = target % 1 !== 0;
-
-                let startTime = null;
-
-                const animate = (currentTime) => {
-                    if (!startTime) startTime = currentTime;
-                    const progress = Math.min((currentTime - startTime) / animationDuration, 1);
-                    const currentVal = progress * target;
-                    
-                    if (isFloat) {
-                        counter.innerText = currentVal.toFixed(1) + suffix;
-                    } else {
-                        counter.innerText = Math.ceil(currentVal) + suffix;
-                    }
-
-                    if (progress < 1) {
-                        requestAnimationFrame(animate);
-                    } else {
-                        counter.innerText = target + suffix;
-                    }
-                };
-                requestAnimationFrame(animate);
             }
+
+            // --- 2. HERO SECTION IMAGE SLIDER ---
+            const heroSlides = document.querySelectorAll('.hero-image-slider .slide');
+            if (heroSlides.length > 0) {
+                let currentHeroSlideIndex = 0;
+                heroSlides[currentHeroSlideIndex].classList.add('active');
+                
+                function showNextHeroSlide() {
+                    heroSlides[currentHeroSlideIndex].classList.remove('active');
+                    currentHeroSlideIndex = (currentHeroSlideIndex + 1) % heroSlides.length;
+                    heroSlides[currentHeroSlideIndex].classList.add('active');
+                }
+                setInterval(showNextHeroSlide, 5000);
+            }
+            
+            // --- 3. HERO SECTION COUNTER ANIMATION ---
+            const counters = document.querySelectorAll('.counter');
+            if (counters.length > 0) {
+                const animationDuration = 2000;
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            startCounter(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                counters.forEach(counter => observer.observe(counter));
+                
+                function startCounter(counter) {
+                    const target = +counter.getAttribute('data-target');
+                    const suffix = counter.getAttribute('data-suffix') || '+';
+                    const isFloat = target % 1 !== 0;
+                    let startTime = null;
+
+                    const animate = (currentTime) => {
+                        if (!startTime) startTime = currentTime;
+                        const progress = Math.min((currentTime - startTime) / animationDuration, 1);
+                        const currentVal = progress * target;
+                        counter.innerText = isFloat ? currentVal.toFixed(1) + suffix : Math.ceil(currentVal) + suffix;
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            counter.innerText = target + suffix;
+                        }
+                    };
+                    requestAnimationFrame(animate);
+                }
+            }
+
+            // --- 4. DEMO CLASSES POPUP AND SLIDER ---
+            const slider = document.getElementById('classes-slider');
+            const scrollLeftBtn = document.getElementById('scroll-left');
+            const scrollRightBtn = document.getElementById('scroll-right');
+            const registerButtons = document.querySelectorAll('.register-button');
+            const popupOverlay = document.getElementById('registration-popup-overlay');
+            const closeBtn = document.getElementById('close-popup-btn');
+
+            if (slider && scrollLeftBtn && scrollRightBtn) {
+                const scrollAmount = 370;
+                scrollLeftBtn.addEventListener('click', () => slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+                scrollRightBtn.addEventListener('click', () => slider.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
+            }
+            
+            if (popupOverlay && registerButtons.length > 0) {
+                const openPopup = () => {
+                    popupOverlay.classList.remove('hidden');
+                    document.body.classList.add('popup-open');
+                };
+                const closePopup = () => {
+                    popupOverlay.classList.add('hidden');
+                    document.body.classList.remove('popup-open');
+                };
+                registerButtons.forEach(button => button.addEventListener('click', e => { e.preventDefault(); openPopup(); }));
+                if (closeBtn) closeBtn.addEventListener('click', closePopup);
+                popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
+                document.addEventListener('keydown', e => { if (e.key === 'Escape' && !popupOverlay.classList.contains('hidden')) closePopup(); });
+            }
+
+            const phoneInputField = document.querySelector("#phone");
+            if (phoneInputField) {
+                window.intlTelInput(phoneInputField, {
+                    initialCountry: "in",
+                    preferredCountries: ["in", "us", "gb", "ae"],
+                    separateDialCode: true,
+                });
+            }
+            
+            // --- 5. TESTIMONIAL SLIDER SCRIPT ---
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            const dotsContainer = document.querySelector('.testimonial-dots');
+            if (testimonialCards.length > 0 && dotsContainer) {
+                let currentIndex = 0;
+                let slideInterval;
+                
+                testimonialCards.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    dotsContainer.appendChild(dot);
+                });
+
+                const dots = dotsContainer.querySelectorAll('.dot');
+                
+                function goToSlide(index) {
+                    if (currentIndex === index && document.querySelector('.testimonial-card.active')) return;
+                    currentIndex = index;
+                    testimonialCards.forEach((card, i) => card.classList.toggle('active', i === currentIndex));
+                    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+                    resetInterval();
+                }
+
+                function nextSlide() { goToSlide((currentIndex + 1) % testimonialCards.length); }
+                function startInterval() { slideInterval = setInterval(nextSlide, 5000); }
+                function resetInterval() { clearInterval(slideInterval); startInterval(); }
+                
+                goToSlide(0);
+            }
+
+            // --- 6. VIDEO BUTTON SCRIPT ---
+            const watchButton = document.querySelector('.watch-button');
+            if (watchButton) {
+                watchButton.addEventListener('click', (event) => {
+                    event.preventDefault(); 
+                    alert("The 'Watch Now' button was clicked!");
+                });
+            }
+
+            // --- 7. FOOTER YEAR SCRIPT ---
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
         });
     </script>
 

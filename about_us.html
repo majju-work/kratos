@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Hero Vired</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ================================= 
+           GLOBAL STYLES & VARIABLES
+        ================================== */
+        :root {
+            --color-primary-dark: #3a1010;
+            --color-primary-light: #5c1818;
+            --color-highlight: #e23e57; 
+            --color-accent-soft: #fde4d6; 
+            --color-background: #fffaf5;
+            --color-text-dark: #333333;
+            --color-text-light: #666666;
+            --color-white: #ffffff;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+
+            --color-wc-pink-highlight: #e74c86; 
+            --color-wc-blue-underline: #3b73b9; 
+            --color-wc-icon-bg-green: #e0f2f1;  
+            --color-wc-icon-bg-red: #ffebee;      
+            --color-wc-icon-bg-blue: #e3f2fd;     
+            --color-wc-dot-pattern1: #60d39433; 
+            --color-wc-dot-pattern2: #e74c8633; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text-dark);
+        }
+
+        /* Helper for animated fade-in */
+        .timeline-card, .pioneer-card, .milestone-card,
+        .new-timeline-item .new-timeline-content,
+        .why-choose-card { 
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .timeline-card.visible, .pioneer-card.visible, .milestone-card.visible,
+        .new-timeline-item.visible .new-timeline-content,
+        .why-choose-card.visible { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* ================================= 
+           1. HERO BANNER SECTION 
+        ================================== */
+        .hero-banner {
+            background: linear-gradient(to right, var(--color-primary-dark), var(--color-primary-light));
+            color: var(--color-white);
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 500px;
+            padding: 60px 8%;
+            overflow: hidden;
+        }
+        .banner-content {
+            max-width: 55%;
+            z-index: 2;
+        }
+        .main-quote {
+            font-family: var(--font-heading);
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .highlight-text {
+            color: #e8863b;
+            display: block;
+        }
+        .quote-author {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+        .description-text {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 550px;
+        }
+        .banner-image {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 550px;
+            z-index: 1;
+        }
+        .banner-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ================================= 
+           GENERAL SECTION STYLING
+        ================================== */
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--color-primary-dark);
+        }
+        .highlight-title { 
+            color: var(--color-highlight);
+        }
+        .vision-section, .pioneers-section, .milestones-section, .why-choose-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative; 
+        }
+
+        .vision-section::before, .vision-section::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            background-image: radial-gradient(var(--color-highlight, 0.5) 1px, transparent 1px);
+            background-size: 15px 15px;
+            width: 150px;
+            height: 100px;
+        }
+        .vision-section::before { top: 60px; left: 20px; }
+        .vision-section::after { bottom: 60px; right: 20px; }
+
+        /* ================================= 
+           2. NEW VISION TIMELINE SECTION STYLES
+        ================================== */
+        .new-vision-timeline .timeline-container { 
+            position: relative;
+            max-width: 900px; 
+            margin: 0 auto;
+            padding-left: 80px; 
+        }
+        .new-vision-timeline .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 30px; 
+            top: 15px;  
+            bottom: 15px; 
+            width: 3px;
+            background-color: var(--color-accent-soft);
+            z-index: 0;
+        }
+        .new-timeline-item {
+            position: relative;
+            margin-bottom: 50px; 
+            padding-left: 0; 
+        }
+        .new-timeline-item:last-child { margin-bottom: 0; }
+        .new-timeline-icon {
+            position: absolute;
+            left: -50px; 
+            top: 0; 
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-white);
+            border: 3px solid var(--color-highlight);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; 
+            box-shadow: 0 0 0 5px var(--color-background); 
+        }
+        .new-timeline-icon img { width: 28px; height: 28px; }
+        .new-timeline-content {
+            background-color: var(--color-white);
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+            position: relative; 
+            margin-left: 30px; 
+        }
+        .new-timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 22px; 
+            left: -12px; 
+            width: 0; height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-right: 12px solid var(--color-white); 
+            filter: drop-shadow(-2px 0px 1px rgba(0,0,0,0.03)); 
+        }
+        .new-timeline-content h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--color-primary-dark);
+        }
+        .new-timeline-content p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* ================================= 
+           3. PIONEERS SECTION 
+        ================================== */
+        .featured-pioneer-card { display: flex; background-color: var(--color-white); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 40px; }
+        .featured-pioneer-card img { width: 40%; object-fit: cover; }
+        .pioneer-content { padding: 30px; }
+        .pioneer-content h3 { font-family: var(--font-heading); margin-bottom: 20px; font-size: 24px; }
+        .pioneer-content ul { list-style-type: none; }
+        .pioneer-content li { padding-left: 25px; position: relative; margin-bottom: 15px; color: var(--color-text-light); }
+        .pioneer-content li::before { content: '★'; position: absolute; left: 0; color: #ffc107; }
+        .pioneer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .pioneer-card { background: var(--color-white); padding: 20px; text-align: center; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .pioneer-card img { height: 60px; margin-bottom: 15px; object-fit: contain; }
+
+        /* ================================= 
+           4. MILESTONES
+        ================================== */
+        .milestone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .milestone-card { background: var(--color-white); padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center; }
+        .rating-card .stars { color: #ffc107; font-size: 24px; margin: 10px 0 5px; }
+        .media-card img, .rating-card img { height: 40px; object-fit: contain; margin-bottom: 15px; }
+
+        /* ================================= 
+           WHY CHOOSE SECTION (Was section 7, now section 5)
+        ================================== */
+        .why-choose-section {
+            overflow: hidden; 
+        }
+        .why-choose-section .section-title {
+            position: relative; 
+            padding-bottom: 20px; 
+            margin-bottom: 70px; 
+        }
+        .why-choose-section .section-title .highlight-wc-pink {
+            color: var(--color-wc-pink-highlight);
+        }
+        .why-choose-section .section-title::after { 
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 100px; 
+            height: 6px;
+            background-color: var(--color-wc-blue-underline);
+            border-radius: 3px;
+        }
+
+        .why-choose-section::before { 
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 120px; 
+            height: 120px; 
+            background-image: radial-gradient(var(--color-wc-dot-pattern1) 1.5px, transparent 1.5px);
+            background-size: 18px 18px;
+            z-index: -1;
+            opacity: 0.8;
+        }
+        .why-choose-section::after { 
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            background-image: radial-gradient(var(--color-wc-dot-pattern2) 1.5px, transparent 1.5px);
+            background-size: 18px 18px;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .why-choose-card {
+            background-color: var(--color-white);
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .why-choose-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-shrink: 0;
+        }
+        .why-choose-icon-wrapper.icon-bg-green { background-color: var(--color-wc-icon-bg-green); }
+        .why-choose-icon-wrapper.icon-bg-red   { background-color: var(--color-wc-icon-bg-red);   }
+        .why-choose-icon-wrapper.icon-bg-blue  { background-color: var(--color-wc-icon-bg-blue);  }
+        
+        .why-choose-icon-wrapper img {
+            width: 40px; 
+            height: 40px;
+        }
+        .why-choose-card h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            color: var(--color-text-dark);
+            margin-bottom: 15px;
+        }
+        .why-choose-card p {
+            font-size: 15px;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+
+        /* ==============================
+        Review css start
+        /* ========================
+
+
+
+ /* --- Main Section Layout --- */
+        .testimonial-section {
+            padding: 80px 20px; /* Adjusted padding for better responsiveness */
+            position: relative;
+            overflow: hidden; /* Important for preventing horizontal scroll with scaling */
+        }
+
+        .testimonial-container {
+            display: grid;
+            /* Two columns: left for text, right for slider */
+            grid-template-columns: 1fr 1.2fr;
+            align-items: center;
+            gap: 40px; /* Reduced gap slightly */
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative; /* Needed for z-index context */
+        }
+
+        /* On smaller screens, stack the columns */
+        @media (max-width: 992px) {
+            .testimonial-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px; /* Increased gap when stacked */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-section {
+                padding: 60px 15px;
+            }
+        }
+
+
+        /* --- Left Side: Header Content --- */
+        .testimonial-header {
+            /* z-index allows the slider to overlap this text */
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-header .subtitle {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #888;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+        }
+
+        .testimonial-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem); /* Adjusted responsive font size */
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0 0 20px; /* Reduced margin */
+            color: #000000;
+        }
+
+        /* The blue brush-stroke underline on "Say" */
+        .testimonial-header h2 span {
+            position: relative;
+            color: #ff0000; /* Make the word "Say" pure white */
+        }
+        .testimonial-header h2 span::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: -10%;
+            right: -10%;
+            height: 12px; /* Adjusted height */
+            background-color: #4A69FF; /* Blue color */
+            border-radius: 6px; /* Adjusted border-radius */
+            transform: rotate(-2.5deg);
+            z-index: -1; /* Place it behind the text */
+        }
+
+        .testimonial-header .description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #817f7f;
+            max-width: 450px; /* Slightly increased max-width */
+        }
+
+        @media (max-width: 992px) {
+            .testimonial-header .description {
+                margin: 0 auto 30px auto; /* Add bottom margin when stacked */
+                max-width: 500px; /* Allow a bit wider description in stacked view */
+            }
+        }
+        @media (max-width: 768px) {
+            .testimonial-header h2 {
+                 margin-bottom: 15px;
+            }
+            .testimonial-header .description {
+                font-size: 0.95rem;
+            }
+        }
+
+
+        /* --- Right Side: Slider --- */
+        .testimonial-slider-wrapper {
+            /* z-index makes this part sit ON TOP of the header */
+            position: relative;
+            z-index: 2;
+            width: 100%; /* Ensure it takes full width of its grid cell */
+        }
+
+        .testimonial-cards-container {
+            position: relative;
+            min-height: 350px; /* Adjusted min-height to fit content */
+            width: 100%;
+            overflow: hidden; /* Hide parts of cards that are outside during transition */
+        }
+
+        .testimonial-card {
+            background-color: #1f1f1f; /* Dark gray card background */
+            border-radius: 20px; /* Slightly reduced border-radius */
+            padding: 30px; /* Adjusted padding */
+            width: 100%;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            
+            /* These properties stack the cards and prepare them for animation */
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+            /* Animation state for INACTIVE cards */
+            opacity: 0;
+            transform: scale(0.9) translateY(30px); /* Adjusted transform for a bit more pop */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            pointer-events: none; /* Inactive cards are not clickable */
+        }
+
+        /* State for the ACTIVE card */
+        .testimonial-card.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        /* Decorative dots on the active card */
+        .testimonial-card.active::before {
+            content: '';
+            position: absolute;
+            top: 20px; /* Adjusted position */
+            right: 20px; /* Adjusted position */
+            width: 80px; /* Adjusted size */
+            height: 80px; /* Adjusted size */
+            background-image: radial-gradient(#00c6a7 1px, transparent 1px); /* Adjusted dot size */
+            background-size: 8px 8px; /* Adjusted spacing */
+            opacity: 0.15; /* Slightly adjusted opacity */
+            z-index: 0;
+        }
+
+        .review-text, .reviewer-info {
+            position: relative;
+            z-index: 1; /* Ensure text is above the dot pattern */
+        }
+
+        .review-text {
+            font-size: 1.05rem; /* Slightly adjusted font size */
+            line-height: 1.6; /* Adjusted line-height */
+            margin: 0 0 25px 0; /* Adjusted margin */
+            color: #c0c0c0;
+            min-height: 80px; /* Ensure a minimum height for text consistency */
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1rem; /* Adjusted star size */
+            margin-bottom: 12px; /* Adjusted margin */
+        }
+        .stars i {
+            margin-right: 3px; /* Space between stars */
+        }
+
+        .name {
+            font-size: 1.1rem; /* Adjusted name size */
+            font-weight: 600;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .role {
+            color: #a0a0a0;
+            margin: 4px 0 0 0;
+            font-size: 0.85rem; /* Adjusted role size */
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 25px;
+            }
+            .review-text {
+                font-size: 1rem;
+                min-height: 70px;
+            }
+            .testimonial-cards-container {
+                min-height: 380px; /* May need adjustment based on content */
+            }
+        }
+        @media (max-width: 480px) {
+             .testimonial-cards-container {
+                min-height: 420px; /* May need further adjustment for very small screens */
+            }
+             .review-text {
+                font-size: 0.95rem;
+            }
+        }
+
+
+        /* --- Pagination Dots --- */
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Adjusted gap */
+            margin-top: 30px; /* Adjusted margin */
+        }
+
+        .testimonial-dots .dot {
+            width: 8px; /* Adjusted size */
+            height: 8px; /* Adjusted size */
+            border-radius: 50%;
+            background-color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+        }
+
+        .testimonial-dots .dot.active {
+            background-color: #4A69FF; /* Active dot color */
+            transform: scale(1.3); /* Make active dot slightly larger */
+        }
+
+
+        /* ========================End Review code =======================*/
+
+
+
+        /* ================================= 
+           RESPONSIVE DESIGN 
+        ================================== */
+        @media (max-width: 992px) {
+            .banner-content { max-width: 100%; text-align: center; }
+            .banner-image { display: none; }
+            .main-quote { font-size: 40px; }
+            .featured-pioneer-card { flex-direction: column; }
+            .featured-pioneer-card img { width: 100%; height: 250px; }
+        }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 28px; }
+            .why-choose-section .section-title { font-size: 28px; } 
+            
+            .new-vision-timeline .timeline-container { padding-left: 65px; }
+            .new-vision-timeline .timeline-container::before { left: 20px; }
+            .new-timeline-icon { left: -40px; width: 50px; height: 50px; }
+            .new-timeline-icon img { width: 24px; height: 24px; }
+            .new-timeline-content { margin-left: 20px; padding: 20px; }
+            .new-timeline-content::before { top: 19px; }
+            .new-timeline-content h3 { font-size: 18px; }
+            .new-timeline-content p { font-size: 14px; }
+
+            .why-choose-grid {
+                grid-template-columns: 1fr; 
+            }
+             .why-choose-section::before, .why-choose-section::after { 
+                width: 80px; 
+                height: 80px;
+                background-size: 15px 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            .new-vision-timeline .timeline-container { padding-left: 55px; }
+            .new-vision-timeline .timeline-container::before { left: 15px; }
+            .new-timeline-icon { left: -32px; width: 40px; height: 40px; border-width: 2px; }
+            .new-timeline-icon img { width: 18px; height: 18px; }
+            .new-timeline-content { margin-left: 15px; }
+            .new-timeline-content::before { top: 14px; left: -10px; border-top-width: 10px; border-bottom-width: 10px; border-right-width: 10px; }
+            
+            .why-choose-card { padding: 25px 20px; }
+            .why-choose-icon-wrapper { width: 70px; height: 70px; margin-bottom: 20px;}
+            .why-choose-icon-wrapper img { width: 35px; height: 35px; }
+            .why-choose-card h3 { font-size: 18px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-banner">
+         <div class="banner-content">
+            <h1 class="main-quote">
+                We create those who will
+                <span class="highlight-text">create the future</span>
+            </h1>
+            <p class="quote-author">- Lt. Shri Brijmohan Lall Munjal</p>
+            <p class="description-text">
+                Part of the rich legacy of the Hero Group, we aim to transform education by creating programs delivered by leading industry practitioners.
+            </p>
+        </div>
+        <div class="banner-image">
+            <img src="img.png" alt="Lt. Shri Brijmohan Lall Munjal">
+        </div>
+    </header>
+
+    <main>
+        <!-- VISION TIMELINE SECTION -->
+        <section class="vision-section new-vision-timeline"> 
+            <h2 class="section-title">Building tomorrow: <span class="highlight-title">Our Vision for the future</span></h2>
+            <div class="timeline-container"> 
+                <div class="new-timeline-item"> 
+                    <div class="new-timeline-icon"> <img src="images/mission-icon.svg" alt="Mission Icon"> </div>
+                    <div class="new-timeline-content"> 
+                        <h3>Mission</h3>
+                        <p>We're here to equip our learners with the knowledge, skills, and expertise they need to find success.</p>
+                    </div>
+                </div>
+                <div class="new-timeline-item"> 
+                    <div class="new-timeline-icon"> <img src="images/vision-icon.svg" alt="Vision Icon"> </div>
+                    <div class="new-timeline-content"> 
+                        <h3>Vision</h3>
+                        <p>We create highly skilled professionals not only for the present, but also for the yet-to-be created jobs of the future.</p>
+                    </div>
+                </div>
+                <div class="new-timeline-item"> 
+                     <div class="new-timeline-icon"> <img src="images/impact-icon.svg" alt="Impact Icon"> </div>
+                    <div class="new-timeline-content"> 
+                        <h3>Impact</h3>
+                        <p>25000 Learning hours, 3000+ Enrollments and 200+ Success Stories. We're here to make a difference.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PIONEERS SECTION -->
+        <section class="pioneers-section">
+            <h2 class="section-title">The Hero Group: <span class="highlight-title">Education Pioneers since 1965</span></h2>
+            <div class="featured-pioneer-card">
+                <img src="images/bml-university.jpg" alt="BML Munjal University">
+                <div class="pioneer-content">
+                    <h3>BML Munjal University</h3>
+                    <ul>
+                        <li>Grade A NAAC accredited.</li>
+                        <li>Ranked 6th nationally for the best Academia-Industry alliance.</li>
+                        <li>School of Management ranked #72 in NIRF Ranking 2023.</li>
+                        <li>Certified as 'Great Place to Work'.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pioneer-grid">
+                <div class="pioneer-card"> <img src="images/logo-raman-munjal.png" alt="Raman Munjal Vidya Mandir Logo"> <p>School founded in 1992, with an aim to impart quality education in rural areas.</p> </div>
+                <div class="pioneer-card"> <img src="images/logo-green-medows.png" alt="Green Medows School Logo"> <p>Well-established school founded in 2010 with a focus on value based high quality education.</p> </div>
+                <div class="pioneer-card"> <img src="images/logo-bcm.png" alt="BCM School Logo"> <p>A chain of schools established with a mission to provide a holistic, all-round development of the child.</p> </div>
+            </div>
+        </section>
+
+        <!-- MILESTONES SECTION -->
+        <section class="milestones-section">
+            <h2 class="section-title">Achieving new <span class="highlight-title">milestones</span></h2>
+            <div class="milestone-grid">
+                <div class="milestone-card rating-card"> <img src="images/logo-trustpilot.svg" alt="Trustpilot"> <div class="stars">★★★★☆</div> <span>(Rated 4 Stars)</span> </div>
+                <div class="milestone-card rating-card"> <img src="images/logo-google.svg" alt="Google Reviews"> <div class="stars">★★★★☆</div> <span>(Rated 4.3 Stars)</span> </div>
+                <div class="milestone-card rating-card"> <img src="images/logo-shiksha.svg" alt="Shiksha"> <div class="stars">★★★★☆</div> <span>(Rated 4 Stars)</span> </div>
+                <div class="milestone-card media-card"> <img src="images/logo-times-of-india.svg" alt="The Times of India"> <p>Most Admired Company to look out for 2024</p> </div>
+                <div class="milestone-card media-card"> <img src="images/logo-entrepreneur.svg" alt="Entrepreneur"> <p>Entrepreneur India Start-up of the Year 2023</p> </div>
+                <div class="milestone-card media-card"> <img src="images/logo-siliconindia.svg" alt="Silicon India"> <p>10 Most Promising Brands in Digital Learning-2023</p> </div>
+            </div>
+        </section>
+        
+        <!-- WHY CHOOSE SECTION -->
+        <section class="why-choose-section">
+            <h2 class="section-title">
+                Why Choose <span class="highlight-wc-pink">Kratos</span> Institute?
+            </h2>
+            <div class="why-choose-grid">
+                <div class="why-choose-card">
+                    <div class="why-choose-icon-wrapper icon-bg-green">
+                        <img src="images/icon-curriculum.svg" alt="Industry-Relevant Curriculum Icon">
+                    </div>
+                    <h3>Industry-Relevant Curriculum</h3>
+                    <p>Stay ahead in the IT sector with courses designed to align with current trends and technologies in DevOps, Cloud Computing, and beyond.</p>
+                </div>
+                <div class="why-choose-card">
+                    <div class="why-choose-icon-wrapper icon-bg-red">
+                        <img src="images/icon-leaders.svg" alt="Industry Leaders Icon">
+                    </div>
+                    <h3>Learning from Industry Leaders</h3>
+                    <p>Our programs are led by IT experts who bring real-world experience and deep insights, ensuring you receive practical and impactful training.</p>
+                </div>
+                <div class="why-choose-card">
+                    <div class="why-choose-icon-wrapper icon-bg-blue">
+                        <img src="images/icon-career.svg" alt="Career Advancement Icon">
+                    </div>
+                    <h3>Career Advancement Opportunities</h3>
+                    <p>Leverage our programs to boost your career prospects with certifications, skill-building, and networking opportunities tailored to the evolving IT landscape.</p>
+                </div>
+            </div>
+        </section>
+        
+
+
+
+        <!--Start Review Section-->
+<section class="testimonial-section">
+    <div class="testimonial-container">
+        <!-- Left Side: Header Content -->
+        <div class="testimonial-header">
+            <p class="subtitle">TESTIMONIALS</p>
+            <h2>What Our<br>Students<br>Have To <span>Say</span></h2>
+            <p class="description">
+                Our students' success is a testament to the quality of education and training at Cloud World Institute. Here's what they have to say about their learning journey with us.
+            </p>
+        </div>
+
+        <!-- Right Side: The Slider -->
+        <div class="testimonial-slider-wrapper">
+            <div class="testimonial-cards-container">
+                <!-- Card 1 -->
+                <div class="testimonial-card">
+                    <p class="review-text">The quality of education and guidance is unmatched. I'm grateful for the valuable skills and knowledge I gained, which helped me secure a great job in the IT industry.</p>
+                    <div class="reviewer-info">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="name">Neha Desai</p>
+                        <p class="role">IT Professional</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="testimonial-card">
+                    <p class="review-text">The hands-on training and practical approach at Cloud World Institute helped me understand complex concepts easily. The curriculum is up-to-date, and the support for career growth is excellent!</p>
+                    <div class="reviewer-info">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="name">Priya Patel</p>
+                        <p class="role">Developer</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="testimonial-card">
+                    <p class="review-text">I joined Cloud World Institute to upskill in Cloud Computing, and it was the best decision. The courses are well-structured, and the trainers provide real-world insights.</p>
+                    <div class="reviewer-info">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="name">Ravi Kumar</p>
+                        <p class="role">Student</p>
+                    </div>
+                </div>
+                 <!-- Card 4 (Added for more variety) -->
+                <div class="testimonial-card">
+                    <p class="review-text">The flexible learning schedule and dedicated mentors made my learning experience smooth and effective. Highly recommended for anyone looking to advance their career.</p>
+                    <div class="reviewer-info">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <!-- 4 stars -->
+                        </div>
+                        <p class="name">Anjali Sharma</p>
+                        <p class="role">Cloud Engineer</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination Dots -->
+            <div class="testimonial-dots"></div>
+        </div>
+    </div>
+</section>
+<!--End the Review Section--->
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cardsContainer = document.querySelector('.testimonial-cards-container');
+        const cards = document.querySelectorAll('.testimonial-card');
+        const dotsContainer = document.querySelector('.testimonial-dots');
+
+        if (!cardsContainer || cards.length === 0 || !dotsContainer) {
+            console.warn('Testimonial slider elements not found. Slider will not initialize.');
+            return;
+        }
+
+        let currentIndex = 0;
+        const slideIntervalTime = 5000; // 5 seconds
+        let slideInterval;
+        const dots = []; // To store created dot elements
+
+        // Create dots based on the number of cards
+        cards.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.setAttribute('data-index', index); // Helpful for debugging
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetInterval(); // Reset interval on manual dot click
+            });
+            dotsContainer.appendChild(dot);
+            dots.push(dot); // Store the dot
+        });
+
+        function updateSliderHeight() {
+            if (cards.length > 0 && cards[currentIndex]) {
+                // Ensure the active card is fully visible before getting its height
+                // This might be more reliable after transitions complete, but for now:
+                const activeCard = cards[currentIndex];
+                // Temporarily make it visible to get height if it's not already
+                const wasInvisible = activeCard.style.opacity === '0';
+                if(wasInvisible) {
+                    activeCard.style.position = 'relative'; // to take space
+                    activeCard.style.opacity = '1'; // temporarily show
+                }
+                
+                const cardHeight = activeCard.offsetHeight;
+                cardsContainer.style.minHeight = `${cardHeight}px`;
+
+                if(wasInvisible) { // revert if changed
+                     activeCard.style.position = 'absolute';
+                     activeCard.style.opacity = '0';
+                }
+                 // If it's already the active card in the DOM, ensure its opacity is 1
+                if (activeCard.classList.contains('active')) {
+                    activeCard.style.opacity = '1';
+                }
+
+            } else {
+                 cardsContainer.style.minHeight = `350px`; // Default fallback
+            }
+        }
+
+
+        function goToSlide(index) {
+            if (index < 0 || index >= cards.length) {
+                console.warn(`Attempted to go to invalid slide index: ${index}`);
+                return;
+            }
+
+            // No need to run if already on the selected slide AND it's already visually active
+            // The original check was `currentIndex === index && document.querySelector('.testimonial-card.active')`
+            // which could be problematic if the `active` class wasn't perfectly synced.
+            // A simpler check: if we're trying to go to the current index, and it's already visually active, do nothing.
+            if (currentIndex === index && cards[index].classList.contains('active')) {
+                 // Ensure height is correct even if we don't change slide
+                updateSliderHeight();
+                return;
+            }
+
+            currentIndex = index;
+
+            // Update active classes for cards
+            cards.forEach((card, i) => {
+                if (i === currentIndex) {
+                    card.classList.add('active');
+                    // card.style.opacity = '1'; // Handled by CSS .active
+                    // card.style.transform = 'scale(1) translateY(0)'; // Handled by CSS .active
+                } else {
+                    card.classList.remove('active');
+                    // card.style.opacity = '0'; // Handled by CSS
+                    // card.style.transform = 'scale(0.95) translateY(20px)'; // Handled by CSS
+                }
+            });
+
+            // Update active classes for dots
+            dots.forEach((dot, i) => {
+                if (i === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+
+            updateSliderHeight();
+        }
+
+        function nextSlide() {
+            const nextIndex = (currentIndex + 1) % cards.length;
+            goToSlide(nextIndex);
+        }
+
+        function startInterval() {
+            // Clear any existing interval before starting a new one
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, slideIntervalTime);
+        }
+        
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+
+        // Initialize the first slide
+        if (cards.length > 0) {
+            goToSlide(0); // Set initial slide
+            startInterval(); // Start automatic sliding
+        }
+
+        // Optional: Pause slider on mouse hover
+        if (cardsContainer) {
+            cardsContainer.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            cardsContainer.addEventListener('mouseleave', () => {
+                startInterval();
+            });
+        }
+         // Recalculate height on window resize, especially for responsive text
+        window.addEventListener('resize', updateSliderHeight);
+    });
+</script>
+
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("About Us page fully loaded and ready.");
+
+            const animatedElements = document.querySelectorAll(
+                '.timeline-card, .pioneer-card, .milestone-card, .new-timeline-item, .why-choose-card' /* Removed .leader-profile */
+            );
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 
+            });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,3 +1,8 @@
+body {
+    background-color: #333; /* Added for context, can be anything */
+    font-family: sans-serif; /* A generic font for the example */
+}
+
 footer {
     background-color: #121212;
     /* This adds the subtle noise texture seen in the image */
@@ -84,8 +89,27 @@ footer {
 }
 
 .contact-info a:hover {
-    color: #ffffff;
+    color: #ffffff; /* Make text slightly brighter on hover */
 }
+
+/* --- NEW STYLES FOR CONTACT ICON HOVERS --- */
+.contact-info a i {
+    transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+.contact-link-phone:hover i {
+    color: #4CAF50; /* A nice green for the phone icon */
+}
+
+.contact-link-mail:hover i {
+    color: #007BFF; /* A standard blue for the mail icon */
+}
+
+.contact-link-whatsapp:hover i {
+    color: #25D366; /* Official WhatsApp green */
+}
+/* --- END OF NEW STYLES --- */
+
 
 /* Social Media Icons */
 .social-icons {
