@@ -1,0 +1,115 @@
+
+
+/* New wrapper for the whole section */
+.blog-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will center the h1 and the container */
+    width: 100%;
+    padding: 40px 0;
+}
+
+/* Updated H1 styling */
+h1 {
+    text-align: center;
+    /* Changed color to be visible on dark background */
+    color: #cccccc;
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* Main Container for the panels */
+.container {
+    display: flex;
+    /* KEY CHANGE: Changed flex direction to stack items vertically */
+    flex-direction: column;
+    width: 90%;
+    max-width: 900px; /* Constrain width on large screens */
+    height: 80vh; /* Set a total height for the container */
+    gap: 10px; /* This now creates vertical space */
+}
+
+/* Individual Panel Styling */
+.panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* The height is now controlled by the flex property */
+    border-radius: 50px;
+    color: #e8c46c;
+    cursor: pointer;
+
+    /* flex: 1 makes all panels share height equally at the start */
+    flex: 1;
+    
+    position: relative;
+    overflow: hidden;
+    
+    /* The same transition now animates the height (flex-basis) */
+    transition: flex 0.7s cubic-bezier(0.05, 0.65, 0.25, 0.95);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Dark overlay effect on each panel (No changes needed here) */
+.panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50px;
+    z-index: 1;
+    transition: background-color 0.5s ease;
+}
+
+/* Text elements inside the panel (No changes needed here) */
+.panel h3, .panel p {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+}
+
+.panel h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.panel p {
+    font-size: 16px;
+    font-weight: 400;
+    max-width: 90%;
+}
+
+/* --- HOVER STATE --- */
+
+/* This now makes the hovered panel expand its HEIGHT */
+.panel:hover {
+    flex: 5; /* Expanded state */
+}
+
+/* Make overlay slightly more transparent on hover (No changes needed) */
+.panel:hover::before {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* When a panel is hovered, make its text visible (No changes needed) */
+.panel:hover h3,
+.panel:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}

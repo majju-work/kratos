@@ -15,12 +15,12 @@
         </div>
         <div class="nav-right">
             <ul class="nav-links">
-                <li><a href="#hero-section">Home</a></li>
-                <li><a href="#demo-classes-section">Demo Classes</a></li>
-                <li><a href="blog/blog.html" target="_self">Blogs</a></li>  
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="contact us/contact_us.html">Contact us</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#demo-classes-section">Demo Classes</a></li>
+                <li><a href="blog.html" target="_self">Blogs</a></li>  
+                <li><a href="../index.html#review">Reviews</a></li>
+                <li><a href="../about_us.html">About Us</a></li>
+                <li><a href="../contact us/contact_us.html">Contact us</a></li>
             </ul>
             <a href="#" class="nav-button-cta">Free Courses</a>
         </div>
@@ -344,6 +344,18 @@
   ↑
 </button>
    
- 
+    <!-- JAVASCRIPT FOR HAMBURGER MENU -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navRight = document.querySelector('.nav-right');
+
+            if (menuToggle && navRight) {
+                menuToggle.addEventListener('click', function () {
+                    navRight.classList.toggle('active');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

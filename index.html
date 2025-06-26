@@ -25,6 +25,12 @@
       <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
     <!-- Your Custom Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
@@ -36,6 +42,7 @@
     <link rel="stylesheet" href="review.css">
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="video.css">
+     <link rel="stylesheet" href="images_hover.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="popup.css">
     <link rel="stylesheet" href="student_story.css">
@@ -244,9 +251,8 @@
             <p>We don't just teach—we help you thrive. Take charge of your <br>career. Book your session today.</p>
        
             <div class="cta-container">
-                <button class="booknow">
-                    Book Now <i class='fas fa-angle-right'></i>
-                </button>
+                 <button id="openPopupBtn" class="book-appointment-button">Book Appointment  <i class='fas fa-angle-right'></i></button>
+             
                 <div class="star-rating">
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -349,57 +355,89 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Get references to all necessary elements
             const popupOverlay = document.getElementById('appointmentPopupOverlay');
             const closePopupBtn = document.getElementById('closePopupBtn');
+            const openPopupBtn = document.getElementById('openPopupBtn');
             const appointmentForm = document.getElementById('appointmentForm');
             const phoneInput = document.querySelector("#phone");
+
+            // ======== JAVASCRIPT LOGIC CHANGE (FIXED) ========
+            let popupTimer;
+            let userHasInteracted = false; // Flag to track user interaction
 
             const iti = window.intlTelInput(phoneInput, {
                 initialCountry: "in",
                 separateDialCode: true,
                 utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js",
-                preferredCountries: ['in', 'us', 'gb', 'ca', 'au'],
-                nationalMode: false,
-                formatOnDisplay: true,
-                placeholderNumberType: "MOBILE"
+                preferredCountries: ['in', 'us', 'gb', 'ca', 'au']
             });
 
             function showPopup() {
-                if (popupOverlay) popupOverlay.classList.add('active');
+                popupOverlay.classList.add('active');
             }
+
             function hidePopup() {
-                if (popupOverlay) popupOverlay.classList.remove('active');
+                popupOverlay.classList.remove('active');
             }
 
-            setTimeout(showPopup, 10000);
+            // SET THE AUTOMATIC POPUP TIMER
+            popupTimer = setTimeout(() => {
+                // ONLY show the popup if the user has NOT interacted yet
+                if (!userHasInteracted) {
+                    showPopup();
+                }
+            }, 10000);
 
-            if (closePopupBtn) closePopupBtn.addEventListener('click', function(e) { e.preventDefault(); hidePopup(); });
-            if (popupOverlay) popupOverlay.addEventListener('click', function(e) { if (e.target === popupOverlay) hidePopup(); });
+            // EVENT LISTENER FOR THE "Book Appointment" BUTTON
+            openPopupBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                userHasInteracted = true; // Mark that user has interacted
+                clearTimeout(popupTimer); // Cancel the pending auto-popup
+                showPopup();
+            });
 
-            if (appointmentForm) {
-                appointmentForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    if (iti.isValidNumber()) {
-                        const topic = document.getElementById('topic').value;
-                        const name = document.getElementById('name').value;
-                        const fullMobileNumber = iti.getNumber();
+            // EVENT LISTENER FOR THE 'x' CLOSE BUTTON
+            closePopupBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                userHasInteracted = true; // Mark that user has interacted
+                hidePopup();
+            });
 
-                        console.log('Appointment Details:', { topic, name, fullMobileNumber });
-                        alert('Thank you! Your appointment request has been submitted (check console for details).');
-                        hidePopup();
-                        appointmentForm.reset();
-                        iti.setCountry("in");
-                    } else {
-                        alert('Please enter a valid phone number.');
-                        console.log("Phone number validation error code:", iti.getValidationError());
-                    }
-                });
-            }
+            // EVENT LISTENER TO CLOSE WHEN CLICKING ON THE OVERLAY
+            popupOverlay.addEventListener('click', function(e) {
+                if (e.target === popupOverlay) {
+                    userHasInteracted = true; // Mark that user has interacted
+                    hidePopup();
+                }
+            });
+
+            // =======================================================
+
+            // Event listener for form submission
+            appointmentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (iti.isValidNumber()) {
+                    const formData = {
+                        topic: document.getElementById('topic').value,
+                        name: document.getElementById('name').value,
+                        fullMobileNumber: iti.getNumber()
+                    };
+                    console.log('Appointment Details:', formData);
+                    alert('Thank you! Your appointment request has been submitted.');
+                    
+                    hidePopup();
+                    appointmentForm.reset();
+                    iti.setCountry("in");
+                } else {
+                    alert('Please enter a valid phone number.');
+                }
+            });
         });
     </script>
 
@@ -1068,6 +1106,60 @@
             <a href="#" class="watch-button">Watch Now ►</a><br><br>
         </div>
     </main>
+
+    <!-- ============================================= -->
+    <!--                End VIDEO SECTION                 -->
+    <!-- ============================================= -->
+
+
+<!-- ============================================= -->
+    <!--          Start code Images hover              -->
+    <!-- ============================================= -->
+
+    <!-- New wrapper to center the title and container together -->
+    <div class="blog-section">
+
+        <h1>Let's Check-Out our Latest Blogs</h1>
+
+        <!-- This container now ONLY holds the panels -->
+        <div class="container">
+            <!-- Panel 1 -->
+            <div class="panel" style="background-image: url('blog/room1.jpg');">
+                <h3>Python Blog</h3>
+                <p>JOIN CLOUDWORLD FOR THE BEST PYTHON TRAINING IN PUNE</p>
+            </div>
+            <!-- Panel 2 -->
+           <div class="panel" style="background-image: url('blog/room1.jpg');">
+                <h3>Java Blog</h3>
+                <p>JOIN CLOUDWORLD FOR THE BEST JAVA FULL STACK TRAINING IN PUNE</p>
+            </div>
+            <!-- Panel 3 -->
+           <div class="panel" style="background-image: url('blog/room1.jpg');">
+                <h3>AWS Blog</h3>
+                <p>JOIN CLOUDWORLD FOR THE BEST AWS TRAINING IN PUNE</p>
+            </div>
+            <!-- Panel 4 -->
+          <div class="panel" style="background-image: url('blog/room1.jpg');">
+                <h3>DevOps Blog</h3>
+                <p>JOIN CLOUDWORLD FOR THE MOST COMPREHENSIVE DEVOPS TRAINING IN PUNE</p>
+            </div>
+            <!-- Panel 5 -->
+           <div class="panel" style="background-image: url('blog/room1.jpg');">
+                <h3>Data Scientist</h3>
+                <p>JOIN CLOUDWORLD FOR THE BEST DATA SCIENTIST TRAINING IN PUNE</p>
+            </div>
+            <!-- Panel 6 -->
+            <div class="panel" style="background-image: url('blog/room1.jpg');">
+                <h3>Data Analyst</h3>
+                <p>JOIN CLOUDWORLD FOR THE BEST DATA ANALYST TRAINING IN PUNE</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================= -->
+    <!--           End code Images hover               -->
+    <!-- ============================================= -->
+
 
     <!-- ============================================= -->
     <!--                   FOOTER                      -->
