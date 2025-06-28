@@ -1,7 +1,4 @@
-.scroll-target {
-  padding-top: 80px;    /* Creates space for the navbar */
-  margin-top: -200px;   /* Pulls the section's content back into place */
-}
+
 
 /* --- Main Navbar Container --- */
 .main-nav {
