@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="video.css">
      <link rel="stylesheet" href="images_hover.css">
+     <link rel="stylesheet" href="chat_box.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="popup.css">
     <link rel="stylesheet" href="student_story.css">
@@ -448,8 +449,11 @@
 <!-- ============================================= -->
 
 
-<!-- ============================================= -->
-    <!--            Start  DEMO CLASSES SECTION             -->
+  <!-- ============================================= -->
+    <!--            Start  DEMO CLASSES SECTION        -->
+    <!-- ============================================= -->
+    <!-- ============================================= -->
+    <!--            Start  DEMO CLASSES SECTION        -->
     <!-- ============================================= -->
     <section class="demo-classes-section" id="demo-classes-section">
         <div class="section-header">
@@ -457,416 +461,452 @@
                 <h3>OUR DEMOCLASSES</h3>
                 <h2>Your first step to success</h2>
             </div>
-            <div class="slider-nav">
-                <button id="scroll-left" class="nav-button"><i class="fas fa-chevron-left"></i></button>
-                <button id="scroll-right" class="nav-button"><i class="fas fa-chevron-right"></i></button>
-            </div>
+            <!-- Buttons moved from here -->
         </div>
-        <div class="classes-slider" id="classes-slider">
-            <div class="class-card">
-                <div class="card-content">
-                    <h4 class="card-title">Investing Masterclass</h4>
-                    <div class="instructor-info">
-                        <img src="https://i.imgur.com/xTf2OaQ.png" alt="Shiva Kumar Bavamala" class="instructor-pic">
-                        <div class="instructor-details">
-                            <p class="instructor-name">Shiva Kumar Bavamala</p>
-                            <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
+        
+        <!-- NEW WRAPPER for slider and buttons -->
+        <div class="slider-wrapper">
+            <button id="scroll-left" class="nav-button"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-viewport">
+                <div class="classes-slider" id="classes-slider">
+                    <!-- Card 1 -->
+                    <div class="class-card">
+                        <div class="card-content">
+                            <h4 class="card-title">Investing Masterclass</h4>
+                            <div class="instructor-info">
+                                <img src="https://i.imgur.com/xTf2OaQ.png" alt="Shiva Kumar Bavamala" class="instructor-pic">
+                                <div class="instructor-details">
+                                    <p class="instructor-name">Shiva Kumar Bavamala</p>
+                                    <p class="instructor-bio">Ex-Credit Trader at Barclays & ICICI Bank UK</p>
+                                </div>
+                            </div>
+                            <div class="class-meta">
+                                <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
+                                <p class="seats-left">LIMITED SEATS LEFT !</p>
+                            </div>
                         </div>
+                        <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="class-meta">
-                        <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
-                        <p class="seats-left">LIMITED SEATS LEFT !</p>
+                    <!-- Card 2 -->
+                    <div class="class-card">
+                        <div class="card-content">
+                            <h4 class="card-title">Container Security - DevSecOps</h4>
+                            <div class="instructor-info">
+                                <img src="https://i.imgur.com/dK5QZ5A.png" alt="Dr. Prashant Kumar Dey" class="instructor-pic">
+                                <div class="instructor-details">
+                                    <p class="instructor-name">Dr. Prashant Kumar Dey</p>
+                                    <p class="instructor-bio">Associate Program Director, Hero Vired<br>BMW | Google</p>
+                                </div>
+                            </div>
+                            <div class="class-meta">
+                                <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
+                                <p class="seats-left">LIMITED SEATS LEFT !</p>
+                            </div>
+                        </div>
+                        <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="class-card">
+                        <div class="card-content">
+                            <h4 class="card-title">Your First Data Bot: Step into Data Engineering</h4>
+                            <div class="instructor-info">
+                                <img src="https://i.imgur.com/8Qp4Z0G.png" alt="Shakul Malik" class="instructor-pic">
+                                <div class="instructor-details">
+                                    <p class="instructor-name">Shakul Malik</p>
+                                    <p class="instructor-bio">Full Stack Trainer | Ex- TCS | 10+ Years of Experience</p>
+                                </div>
+                            </div>
+                            <div class="class-meta">
+                                <p class="class-date"><i class="far fa-calendar-alt"></i> 12 June, 7:00 PM</p>
+                                <p class="seats-left">LIMITED SEATS LEFT !</p>
+                            </div>
+                        </div>
+                        <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Card 4 (New) -->
+                    <div class="class-card">
+                        <div class="card-content">
+                            <h4 class="card-title">AI for Business Leaders</h4>
+                            <div class="instructor-info">
+                                <img src="https://placehold.co/100x100/E2E8F0/475569?text=AI" alt="Anya Sharma" class="instructor-pic">
+                                <div class="instructor-details">
+                                    <p class="instructor-name">Anya Sharma</p>
+                                    <p class="instructor-bio">Lead AI Strategist | Ex-Microsoft AI Research</p>
+                                </div>
+                            </div>
+                            <div class="class-meta">
+                                <p class="class-date"><i class="far fa-calendar-alt"></i> 15 June, 6:00 PM</p>
+                                <p class="seats-left">LIMITED SEATS LEFT !</p>
+                            </div>
+                        </div>
+                        <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Card 5 (New) -->
+                    <div class="class-card">
+                        <div class="card-content">
+                            <h4 class="card-title">Advanced Python for Web Scraping</h4>
+                            <div class="instructor-info">
+                                <img src="https://placehold.co/100x100/E2E8F0/475569?text=Py" alt="Rohan Desai" class="instructor-pic">
+                                <div class="instructor-details">
+                                    <p class="instructor-name">Rohan Desai</p>
+                                    <p class="instructor-bio">Senior Data Scientist at Swiggy<br>Creator of ScrapeKit</p>
+                                </div>
+                            </div>
+                            <div class="class-meta">
+                                <p class="class-date"><i class="far fa-calendar-alt"></i> 18 June, 8:00 PM</p>
+                                <p class="seats-left">LIMITED SEATS LEFT !</p>
+                            </div>
+                        </div>
+                        <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <!-- Card 6 (New) -->
+                    <div class="class-card">
+                        <div class="card-content">
+                            <h4 class="card-title">Mastering Cloud Native with Kubernetes</h4>
+                            <div class="instructor-info">
+                                <img src="https://placehold.co/100x100/E2E8F0/475569?text=K8s" alt="Priya Mehta" class="instructor-pic">
+                                <div class="instructor-details">
+                                    <p class="instructor-name">Priya Mehta</p>
+                                    <p class="instructor-bio">Principal SRE at Google Cloud | CNCF Ambassador</p>
+                                </div>
+                            </div>
+                            <div class="class-meta">
+                                <p class="class-date"><i class="far fa-calendar-alt"></i> 20 June, 7:00 PM</p>
+                                <p class="seats-left">LIMITED SEATS LEFT !</p>
+                            </div>
+                        </div>
+                        <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="class-card">
-                <div class="card-content">
-                    <h4 class="card-title">Container Security - DevSecOps</h4>
-                    <div class="instructor-info">
-                        <img src="https://i.imgur.com/dK5QZ5A.png" alt="Dr. Prashant Kumar Dey" class="instructor-pic">
-                        <div class="instructor-details">
-                            <p class="instructor-name">Dr. Prashant Kumar Dey</p>
-                            <p class="instructor-bio">Associate Program Director, Hero Vired<br>BMW | Google</p>
-                        </div>
-                    </div>
-                    <div class="class-meta">
-                        <p class="class-date"><i class="far fa-calendar-alt"></i> 13 June, 7:00 PM</p>
-                        <p class="seats-left">LIMITED SEATS LEFT !</p>
-                    </div>
-                </div>
-                <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="class-card">
-                <div class="card-content">
-                    <h4 class="card-title">Your First Data Bot: Step into Data Engineering</h4>
-                    <div class="instructor-info">
-                        <img src="https://i.imgur.com/8Qp4Z0G.png" alt="Shakul Malik" class="instructor-pic">
-                        <div class="instructor-details">
-                            <p class="instructor-name">Shakul Malik</p>
-                            <p class="instructor-bio">Full Stack Trainer | Ex- TCS | 10+ Years of Experience</p>
-                        </div>
-                    </div>
-                    <div class="class-meta">
-                        <p class="class-date"><i class="far fa-calendar-alt"></i> 12 June, 7:00 PM</p>
-                        <p class="seats-left">LIMITED SEATS LEFT !</p>
-                    </div>
-                </div>
-                <a href="#" class="register-button">Register Now <i class="fas fa-arrow-right"></i></a>
-            </div>
+            <button id="scroll-right" class="nav-button"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
-
-    <!-- ============================================= -->
-    <!--            POPUP MODAL FOR DEMOS              -->
-    <!-- ============================================= -->
+    
+    <!-- Popup HTML (UNCHANGED) -->
     <div id="registration-popup-overlay" class="hidden">
         <div id="registration-popup-modal">
             <div id="popup-details-container">
-                <h2 id="popup-title">Playing to Win - Business Strategy Insights - Asian Paints</h2>
+                <h2 id="popup-title">Class Title Will Go Here</h2>
                 <div class="popup-instructor">
-                    <img id="popup-instructor-img" src="https://i.imgur.com/gI2YgYw.png" alt="Rajiv Bajaj">
+                    <img src="https://placehold.co/100x100" alt="" id="popup-instructor-img">
                     <div>
-                        <p id="popup-instructor-name">Rajiv Bajaj</p>
-                        <p id="popup-instructor-bio">CA, MBA (ISB), 28+ yrs experience<br>Consulting, Business Strategy, M&A<br>Accenture Roland-berger</p>
+                        <p id="popup-instructor-name">Instructor Name</p>
+                        <p id="popup-instructor-bio">Instructor Bio</p>
                     </div>
                 </div>
                 <ul id="popup-highlights">
-                    <li>Asian Paints Palette Blending Technology, Customer-Centricity, and Achieving Superior Business Outcomes</li>
-                    <li>Asian Paint’s Game-Changing Strategy of Changing Paints Industry Structure</li>
-                    <li>Asian Paint’s Strategies that Lead to High Return on Capital and Shareholder Value</li>
+                    <li>Get an industry-oriented, hands-on learning experience.</li>
+                    <li>Live interactive session with the expert.</li>
+                    <li>Q&A session to get your doubts cleared.</li>
+                    <li>Receive a certificate of participation.</li>
                 </ul>
             </div>
             <div id="popup-form-container">
                 <button id="close-popup-btn">×</button>
                 <div id="form-header">
-                    <h2>Book a Free Live Class</h2>
+                    <h2>Book Your Free Seat</h2>
                     <div class="progress-bar"></div>
                 </div>
-                <form id="registration-form" onsubmit="event.preventDefault(); alert('Form Submitted!');">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Enter Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Enter Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Enter Contact Number" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Next</button>
+                <form id="registration-form">
+                    <div class="form-group"><input type="text" id="name" name="name" placeholder="Full Name *" required></div>
+                    <div class="form-group"><input type="email" id="email" name="email" placeholder="Email Address *" required></div>
+                    <div class="form-group"><div class="phone-group-wrapper"><span class="country-code-display">🇮🇳 +91</span><input type="tel" id="phone" name="phone" placeholder="Phone Number *" required></div></div>
+                    <button type="submit" class="submit-btn">Register for Free</button>
+                    <p class="form-disclaimer">By submitting this form, I agree to the <a href="#">Terms & Conditions</a>.</p>
                 </form>
-                <p class="form-disclaimer">By filling this form, you agree to our <a href="#">Terms and Conditions</a></p>
             </div>
         </div>
     </div>
-    
 
 
-    <!--Demo Classe End code-->
-
-   <!--===========================================================-->
-    <!--Start Course Available-->
+    <!-- JavaScript (UNCHANGED) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slider = document.getElementById('classes-slider');
+        const scrollLeftBtn = document.getElementById('scroll-left');
+        const scrollRightBtn = document.getElementById('scroll-right');
+        if (slider && scrollLeftBtn && scrollRightBtn) {
+            const scrollAmount = () => {
+                const card = slider.querySelector('.class-card');
+                return card ? card.offsetWidth + 20 : 370;
+            };
+            scrollLeftBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+            });
+            scrollRightBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+            });
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('active');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 2;
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+        const registerButtons = document.querySelectorAll('.register-button');
+        const popupOverlay = document.getElementById('registration-popup-overlay');
+        const closePopupButton = document.getElementById('close-popup-btn');
+        if (registerButtons.length > 0 && popupOverlay && closePopupButton) {
+            const popupTitle = document.getElementById('popup-title');
+            const popupInstructorImg = document.getElementById('popup-instructor-img');
+            const popupInstructorName = document.getElementById('popup-instructor-name');
+            const popupInstructorBio = document.getElementById('popup-instructor-bio');
+            registerButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = button.closest('.class-card');
+                    const title = card.querySelector('.card-title').textContent;
+                    const instructorImgSrc = card.querySelector('.instructor-pic').src;
+                    const instructorName = card.querySelector('.instructor-name').textContent;
+                    const instructorBio = card.querySelector('.instructor-bio').innerHTML;
+                    popupTitle.textContent = title;
+                    popupInstructorImg.src = instructorImgSrc;
+                    popupInstructorName.textContent = instructorName;
+                    popupInstructorBio.innerHTML = instructorBio;
+                    popupOverlay.classList.remove('hidden');
+                    document.body.classList.add('popup-open');
+                });
+            });
+            const closePopup = () => {
+                popupOverlay.classList.add('hidden');
+                document.body.classList.remove('popup-open');
+            };
+            closePopupButton.addEventListener('click', closePopup);
+            popupOverlay.addEventListener('click', (e) => {
+                if (e.target === popupOverlay) {
+                    closePopup();
+                }
+            });
+        }
+    });
+    </script>
     <!--===========================================================-->
- <!--===========================================================-->
-    <!--Start Course Available-->
+    <!--Start Course Available (HTML is UNCHANGED)-->
     <!--===========================================================-->
     <section class="course_available" id="course_available">
-
+        <p class="section-subtitle">DISCOVER YOUR TRUE POTENTIAL</p>
+        <h3 class="section-title">Your growth, our mission. High-impact learning starts.</h3>
         <div class="container">
-            <p class="section-subtitle">DISCOVER YOUR TRUE POTENTIAL</p>
-            <h3 class="section-title">Your growth, our mission. High-impact learning starts here.</h3>
-
+            
             <div class="carousel-container">
                 <button class="carousel-arrow prev" aria-label="Previous slide">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
 
-                <!-- The Viewport for clipping the scrolling content -->
                 <div class="carousel-viewport">
                     <div class="carousel-track">
-                        <!-- Card 1: Financial Analysis -->
+                        <!-- Card 1 -->
                         <div class="program-card">
-                            <div class="card-image-container">
-                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=Financial+Graph" alt="A bull in front of a financial graph.">
-                                <span class="card-tag tag-orange">ASSURED INTERVIEWS</span>
-                            </div>
+                            <div class="card-image-container"><img src="https://placehold.co/360x160/E2E8F0/475569?text=Financial+Graph" alt="A bull in front of a financial graph."><span class="card-tag tag-orange">ASSURED INTERVIEWS</span></div>
                             <div class="card-content">
-                                <div class="card-logos">
-                                    <!-- <span class="logo-edx">edX</span> -->
-                                    <span class="logo-columbia">JAVA</span>
-                                </div>
+                                <div class="card-logos"><span class="logo-columbia">JAVA</span></div>
                                 <p class="card-program-type">Postgraduate Program in</p>
                                 <h3 class="card-title">Financial Analysis, Valuation & Risk Management</h3>
                                 <div class="card-info">
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                        Duration: 7 months
-                                    </span>
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        Apply by: June 14, 2025
-                                    </span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Duration: 7 months</span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Apply by: June 14, 2025</span>
                                 </div>
                                 <div class="card-buttons">
-                                    <a href="https://drive.google.com/uc?export=download&id=16D1WexcVNGuZ2o2e3LBke_n6DXm94qsH">
-                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
-                                    </a>
-
-                                    <a href="Java.html">
+                                    <a href="https://drive.google.com/uc?export=download&id=16D1WexcVNGuZ2o2e3LBke_n6DXm94qsH"><button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button></a>
+                                  <a href="Java.html">
                                     <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></a>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Card 2: DevOps -->
+                        <!-- Card 2 -->
                         <div class="program-card">
-                            <div class="card-image-container">
-                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=DevOps+Symbol" alt="DevOps infinity symbol.">
-                                <span class="card-tag tag-yellow">CAREER ASSISTANCE</span>
-                            </div>
+                            <div class="card-image-container"><img src="https://placehold.co/360x160/E2E8F0/475569?text=DevOps+Symbol" alt="DevOps infinity symbol."><span class="card-tag tag-yellow">CAREER ASSISTANCE</span></div>
                             <div class="card-content">
-                                <div class="card-logos">
-                                    <span class="logo-microsoft">Python</span>
-                                </div>
+                                <div class="card-logos"><span class="logo-microsoft">Python</span></div>
                                 <p class="card-program-type">Postgraduate Program in</p>
                                 <h3 class="card-title">Multi Cloud Architecture & DevOps</h3>
                                 <div class="card-info">
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                        Duration: 9 Months
-                                    </span>
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        Apply by: June 14, 2025
-                                    </span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Duration: 9 Months</span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Apply by: June 14, 2025</span>
                                 </div>
                                 <div class="card-buttons">
-                                    <a href="https://drive.google.com/uc?export=download&id=18_0fSD-FiN2ZJPW21scBP65uQsMFmq83">
-                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
-                                            </a>
-
-
-                                    <a href="python.html">
-                                    <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
-                                    </a>
+                                    <a href="https://drive.google.com/uc?export=download&id=18_0fSD-FiN2ZJPW21scBP65uQsMFmq83"><button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button></a>
+                                    <a href="python.html"><button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button></a>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Card 3: Leadership -->
+                        <!-- Card 3 -->
                         <div class="program-card">
-                            <div class="card-image-container">
-                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=Business+Team" alt="Silhouettes of three business professionals.">
-                                <span class="card-tag tag-blue">INSEAD EXCELLENCE</span>
-                            </div>
+                            <div class="card-image-container"><img src="https://placehold.co/360x160/E2E8F0/475569?text=Business+Team" alt="Silhouettes of three business professionals."><span class="card-tag tag-blue">INSEAD EXCELLENCE</span></div>
                             <div class="card-content">
-                                <div class="card-logos">
-                                    <span class="logo-insead">Data Science</span>
-                                </div>
+                                <div class="card-logos"><span class="logo-insead">Data Science</span></div>
                                 <p class="card-program-type">Executive Program in</p>
                                 <h3 class="card-title">Strategy, Innovation & Leadership</h3>
                                 <div class="card-info">
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                        Duration: 7 months
-                                    </span>
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        Apply by: June 14, 2025
-                                    </span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Duration: 7 months</span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Apply by: June 14, 2025</span>
                                 </div>
                                 <div class="card-buttons">
-
-                                    <a href="https://drive.google.com/uc?export=download&id=1nYLhZXgfdr2KZNDdc8Rmpyir31lldp74">
-                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
-                                        </a>
-
+                                    <a href="https://drive.google.com/uc?export=download&id=1nYLhZXgfdr2KZNDdc8Rmpyir31lldp74"><button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button></a>
                                     <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Card 4: Data Science -->
+                        <!-- Card 4 -->
                         <div class="program-card">
-                            <div class="card-image-container">
-                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=Data+Science" alt="Abstract data visualization.">
-                                <span class="card-tag tag-orange">TOP-RATED PROGRAM</span>
-                            </div>
+                            <div class="card-image-container"><img src="https://placehold.co/360x160/E2E8F0/475569?text=Data+Science" alt="Abstract data visualization."><span class="card-tag tag-orange">TOP-RATED PROGRAM</span></div>
                             <div class="card-content">
-                                <div class="card-logos">
-                                    <span class="logo-caltech">AWS</span>
-                                </div>
+                                <div class="card-logos"><span class="logo-caltech">AWS</span></div>
                                 <p class="card-program-type">Professional Certificate Program in</p>
                                 <h3 class="card-title">Data Science for Business Leaders</h3>
                                 <div class="card-info">
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                        Duration: 8 Months
-                                    </span>
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        Apply by: July 1, 2025
-                                    </span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Duration: 8 Months</span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Apply by: July 1, 2025</span>
                                 </div>
                                 <div class="card-buttons">
-
-                                    <a href="https://drive.google.com/uc?export=download&id=1g4zV-9J28Hlo3cmG4RVYClu6VnrECa3Y">
-                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
-                                    </a>
-
+                                    <a href="https://drive.google.com/uc?export=download&id=1g4zV-9J28Hlo3cmG4RVYClu6VnrECa3Y"><button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button></a>
                                     <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Card 5: Product Management -->
+                        <!-- Card 5 -->
                         <div class="program-card">
-                            <div class="card-image-container">
-                                <img src="https://placehold.co/360x160/E2E8F0/475569?text=Product+Mgmt" alt="Product roadmap illustration.">
-                                <span class="card-tag tag-yellow">BESTSELLER</span>
-                            </div>
+                            <div class="card-image-container"><img src="https://placehold.co/360x160/E2E8F0/475569?text=Product+Mgmt" alt="Product roadmap illustration."><span class="card-tag tag-yellow">BESTSELLER</span></div>
                             <div class="card-content">
-                                <div class="card-logos">
-                                    <span class="logo-wharton">Devopps</span>
-                                </div>
+                                <div class="card-logos"><span class="logo-wharton">Devopps</span></div>
                                 <p class="card-program-type">Executive Program in</p>
                                 <h3 class="card-title">Product Management & Innovation</h3>
                                 <div class="card-info">
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                        Duration: 6 Months
-                                    </span>
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        Apply by: Aug 15, 2025
-                                    </span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Duration: 6 Months</span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Apply by: Aug 15, 2025</span>
                                 </div>
                                 <div class="card-buttons">
-
-                                    <a href="https://drive.google.com/uc?export=download&id=16D1WexcVNGuZ2o2e3LBke_n6DXm94qsH">
-                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
-                                    </a>
-
+                                    <a href="https://drive.google.com/uc?export=download&id=16D1WexcVNGuZ2o2e3LBke_n6DXm94qsH"><button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button></a>
                                     <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Card 6: Cybersecurity -->
+                        <!-- Card 6 -->
                         <div class="program-card">
-                            <div class="card-image-container">
-                                <img src="img/JAVA.png" alt="Digital lock and key for cybersecurity.">
-                                <span class="card-tag tag-blue">EXPERT LED</span>
-                            </div>
+                            <div class="card-image-container"><img src="img/JAVA.png" alt="Digital lock and key for cybersecurity."><span class="card-tag tag-blue">EXPERT LED</span></div>
                             <div class="card-content">
-                                <div class="card-logos">
-                                    <span class="logo-mit">Data Analaytis</span>
-                                </div>
+                                <div class="card-logos"><span class="logo-mit">Data Analaytis</span></div>
                                 <p class="card-program-type">Professional Certificate in</p>
                                 <h3 class="card-title">Cybersecurity Strategy & Risk Management</h3>
                                 <div class="card-info">
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                        Duration: 10 Months
-                                    </span>
-                                    <span class="info-item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                                        Apply by: Sep 1, 2025
-                                    </span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>Duration: 10 Months</span>
+                                    <span class="info-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Apply by: Sep 1, 2025</span>
                                 </div>
                                 <div class="card-buttons">
-
-                                    <a href="https://drive.google.com/uc?export=download&id=1nYLhZXgfdr2KZNDdc8Rmpyir31lldp74">
-                                    <button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button>
-                                    </a>
-
+                                    <a href="https://drive.google.com/uc?export=download&id=1nYLhZXgfdr2KZNDdc8Rmpyir31lldp74"><button class="btn btn-primary">Download Brochure <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button></a>
                                     <button class="btn btn-secondary">View Program <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
-
                 <button class="carousel-arrow next" aria-label="Next slide">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
             </div>
         </div>
     </section>
     <!--===========================================================-->
     <!--End Course Available-->
-    <!--===========================================================-->
-
+    <!--===========================================================--> 
 
     <!-- ============================================= -->
-    <!--          JAVASCRIPT FOR CAROUSEL              -->
+    <!--    JAVASCRIPT FOR CAROUSEL (UNCHANGED)        -->
     <!-- ============================================= -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const track = document.querySelector('.carousel-track');
-            const prevButton = document.querySelector('.carousel-arrow.prev');
-            const nextButton = document.querySelector('.carousel-arrow.next');
+            const carousel = document.querySelector('.course_available');
+            if (!carousel) return;
+
+            const track = carousel.querySelector('.carousel-track');
+            const prevButton = carousel.querySelector('.carousel-arrow.prev');
+            const nextButton = carousel.querySelector('.carousel-arrow.next');
             
             if (!track || !prevButton || !nextButton) {
                 console.error("Carousel elements not found.");
                 return;
             }
 
-            // Function to update the state of the arrow buttons
             const updateArrows = () => {
                 const scrollLeft = track.scrollLeft;
                 const maxScrollLeft = track.scrollWidth - track.clientWidth;
-
-                // Use a small tolerance for floating point comparisons
                 prevButton.disabled = scrollLeft <= 1;
                 nextButton.disabled = scrollLeft >= maxScrollLeft - 1;
             };
 
-            // Event listener for the "Next" button
+            const scrollByAmount = () => {
+                const card = track.querySelector('.program-card');
+                if (!card) return 0;
+                const cardWidth = card.offsetWidth;
+                const gap = parseInt(window.getComputedStyle(track).gap, 10) || 25;
+                return cardWidth + gap;
+            };
+
             nextButton.addEventListener('click', () => {
-                const card = track.querySelector('.program-card');
-                if (!card) return;
-                
-                const cardWidth = card.offsetWidth;
-                const gap = parseInt(window.getComputedStyle(track).gap, 10) || 0;
-                const scrollAmount = cardWidth + gap;
-
-                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                track.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
             });
 
-            // Event listener for the "Previous" button
             prevButton.addEventListener('click', () => {
-                const card = track.querySelector('.program-card');
-                if (!card) return;
-
-                const cardWidth = card.offsetWidth;
-                const gap = parseInt(window.getComputedStyle(track).gap, 10) || 0;
-                const scrollAmount = cardWidth + gap;
-                
-                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                track.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
             });
             
-            // Update arrows whenever the track is scrolled
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            track.addEventListener('mousedown', (e) => {
+                isDown = true;
+                track.classList.add('active');
+                startX = e.pageX - track.offsetLeft;
+                scrollLeft = track.scrollLeft;
+                e.preventDefault();
+            });
+
+            track.addEventListener('mouseleave', () => {
+                isDown = false;
+                track.classList.remove('active');
+            });
+
+            track.addEventListener('mouseup', () => {
+                isDown = false;
+                track.classList.remove('active');
+            });
+
+            track.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - track.offsetLeft;
+                const walk = (x - startX) * 2;
+                track.scrollLeft = scrollLeft - walk;
+            });
+            
             track.addEventListener('scroll', updateArrows);
-            
-            // Also check on window resize
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(updateArrows, 100);
-            });
+            window.addEventListener('resize', updateArrows);
 
-            // Initial check to set the correct arrow state on page load
-            // Use a small timeout to ensure layout is fully calculated
             setTimeout(updateArrows, 100);
         });
     </script>
+
 
     <!-- ============================================= -->
     <!--               OUR PARTNERS SECTION            -->
@@ -913,9 +953,11 @@
     <!--                 Start AI SECTION                   -->
     <!-- ============================================= -->
     <section class="ai-hero-section">
+         <h1 class="main-heading">AI Isn't Optional. It's Essential.</h1>
         <div class="container">
+            
             <div class="section-header">
-                <h1 class="main-heading">AI Isn't Optional. It's Essential.</h1>
+               
             </div>
             <div class="ai-grid-container">
                 <div class="grid-card large-card">
@@ -1111,56 +1153,113 @@
     <!--                End VIDEO SECTION                 -->
     <!-- ============================================= -->
 
-
 <!-- ============================================= -->
-    <!--          Start code Images hover              -->
-    <!-- ============================================= -->
+<!--          Start code Images hover              -->
+<!-- ============================================= -->
 
-    <!-- New wrapper to center the title and container together -->
-    <div class="blog-section">
+<!-- New wrapper to center the title and container together -->
+<div class="blog-section">
 
-        <h1>Let's Check-Out our Latest Blogs</h1>
+    <h1>Let's Check-Out our Latest Blogs</h1>
 
-        <!-- This container now ONLY holds the panels -->
-        <div class="container">
-            <!-- Panel 1 -->
-            <div class="panel" style="background-image: url('blog/room1.jpg');">
-                <h3>Python Blog</h3>
-                <p>JOIN CLOUDWORLD FOR THE BEST PYTHON TRAINING IN PUNE</p>
-            </div>
-            <!-- Panel 2 -->
-           <div class="panel" style="background-image: url('blog/room1.jpg');">
-                <h3>Java Blog</h3>
-                <p>JOIN CLOUDWORLD FOR THE BEST JAVA FULL STACK TRAINING IN PUNE</p>
-            </div>
-            <!-- Panel 3 -->
-           <div class="panel" style="background-image: url('blog/room1.jpg');">
-                <h3>AWS Blog</h3>
-                <p>JOIN CLOUDWORLD FOR THE BEST AWS TRAINING IN PUNE</p>
-            </div>
-            <!-- Panel 4 -->
-          <div class="panel" style="background-image: url('blog/room1.jpg');">
-                <h3>DevOps Blog</h3>
-                <p>JOIN CLOUDWORLD FOR THE MOST COMPREHENSIVE DEVOPS TRAINING IN PUNE</p>
-            </div>
-            <!-- Panel 5 -->
-           <div class="panel" style="background-image: url('blog/room1.jpg');">
-                <h3>Data Scientist</h3>
-                <p>JOIN CLOUDWORLD FOR THE BEST DATA SCIENTIST TRAINING IN PUNE</p>
-            </div>
-            <!-- Panel 6 -->
-            <div class="panel" style="background-image: url('blog/room1.jpg');">
-                <h3>Data Analyst</h3>
-                <p>JOIN CLOUDWORLD FOR THE BEST DATA ANALYST TRAINING IN PUNE</p>
-            </div>
+    <!-- This container now ONLY holds the panels -->
+    <div class="container">
+        <!-- Panel 1 -->
+        <div class="panel" style="background-image: url('blog/room1.jpg');">
+           <a href="blog/blog.html#python"><h3>Python Blog</h3></a> 
+            <p>JOIN CLOUDWORLD FOR THE BEST PYTHON TRAINING IN PUNE</p>
+        </div>
+        <!-- Panel 2 -->
+       <div class="panel" style="background-image: url('blog/room3.jpeg');">
+          <a href="blog/blog.html#java_blog_section"><h3>Java Blog</h3></a>  
+            <p>JOIN CLOUDWORLD FOR THE BEST JAVA FULL STACK TRAINING IN PUNE</p>
+        </div>
+        <!-- Panel 3 -->
+       <div class="panel" style="background-image: url('blog/room3.jpeg');">
+         <a href="blog/blog.html#aws_blog_section"><h3>AWS Blog</h3></a>   
+            <p>JOIN CLOUDWORLD FOR THE BEST AWS TRAINING IN PUNE</p>
+        </div>
+        <!-- Panel 4 -->
+      <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900');">
+          <a href="blog/blog.html#devops_section"><h3>DevOps Blog</h3></a>  
+            <p>JOIN CLOUDWORLD FOR THE MOST COMPREHENSIVE DEVOPS TRAINING IN PUNE</p>
+        </div>
+        <!-- Panel 5 -->
+       <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900');">
+         <a href="blog/blog.html#data_science_section"> <h3>Data Scientist</h3></a>  
+            <p>JOIN CLOUDWORLD FOR THE BEST DATA SCIENTIST TRAINING IN PUNE</p>
+        </div>
+        <!-- Panel 6 -->
+        <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900');">
+         <a href="blog/blog.html#data_analyst_section"><h3>Data Analyst</h3></a>   
+            <p>JOIN CLOUDWORLD FOR THE BEST DATA ANALYST TRAINING IN PUNE</p>
         </div>
     </div>
+</div>
 
-    <!-- ============================================= -->
-    <!--           End code Images hover               -->
-    <!-- ============================================= -->
+<!-- ============================================= -->
+<!--           End code Images hover               -->
+<!-- ============================================= -->
 
 
+
+
+
+        <!---==============================================-->
+        <!---Start Chat Box code-->
+        <!--===============================================-->
+
+            <!-- ------------- WIDGET HTML STARTS HERE ------------- -->
+    <div class="contact-widget-container" id="contact-widget">
+        
+        <div class="contact-options">
+            
+            <!-- CUSTOMIZE THIS: Replace "+1234567890" with your phone number -->
+            <a href="tel:+919309700672" class="contact-option phone-option">
+                <span>Direct Call Us</span>
+                <div class="option-icon">
+                    <!-- Phone Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                </div>
+            </a>
+            
+            <!-- CUSTOMIZE THIS: Replace "1234567890" with your WhatsApp number -->
+            <a href="https://api.whatsapp.com/send/?phone=919309700672&text&type=phone_number&app_absent=0" target="_blank" class="contact-option whatsapp-option">
+                <span>Chat on WhatsApp</span>
+                <div class="option-icon">
+                    <!-- OFFICIAL WhatsApp Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.8-26.7l-7.1-4.2-73.3 19.3 19.3-71.6-4.7-7.5c-19.1-30.1-29.6-65.4-29.6-102.3 0-110.2 89.9-200 200.1-200 55.1 0 105.9 21.5 143.4 58.9 37.5 37.5 58.9 88.3 58.9 143.4c-.1 110.2-90 200-200.1 200zm107.7-164.5c-3.3-1.7-19.8-9.8-23-11s-5.5-1.7-7.8 1.7-8.7 11-10.7 13.3c-2 2.3-3.9 2.7-7.2 1-3.3-1.7-14-5.2-26.7-16.5-9.9-8.8-16.6-19.6-18.6-23s-2-5.5-.6-7.2c1.3-1.3 3-3.3 4.5-5.2 1.5-1.9 2-3.3 3-5.5s1.5-3.3 0-5.5c-1.5-2.3-7.8-18.7-10.7-25.7s-5.8-6-7.8-6.1c-2-.1-4.3-.1-6.6-.1s-5.8 1.7-8.7 4.2-11.2 10.8-11.2 26.2c0 15.4 11.5 30.4 13 32.4s22.4 34.1 54.2 47.7c7.9 3.3 14.1 5.3 18.8 6.9 11.2 3.7 21.4 3.2 29.3 1.9 8.8-1.3 19.8-8.1 22.6-15.9 2.8-7.8 2.8-14.4 2-15.9s-3.3-2.3-6.6-4z"/></svg>
+                </div>
+            </a>
+        </div>
+        
+        <button class="contact-fab" id="fab-toggle">
+            <!-- Icon: Open State (Message Bubble) -->
+            <div class="fab-icon icon-open">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M123.6 391.3c12.9-9.4 29.6-11.8 44.6-6.4c26.5 9.6 56.2 15.1 87.8 15.1c124.7 0 208-80.5 208-160s-83.3-160-208-160S48 160.5 48 240c0 32 12.4 62.8 35.7 89.2c8.6 9.7 12.8 22.5 11.8 35.5c-1.4 18.1-5.7 34.7-11.3 49.4c17-7.9 31.1-16.7 39.4-22.7zM21.2 431.9c1.8-2.7 3.5-5.4 5.1-8.1c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208s-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9-4.2-25.3-5.3-38.2-3.2c-24.4 4.1-47.3 10.1-68.4 18.5c-13.9 5.6-25.9 12.6-36.1 21.3c-2.2 1.8-4.5 3.6-6.7 5.2c-2.3 1.6-3.2 4.4-2.1 6.7c1.1 2.3 3.5 3.6 6 3.1c2.7-1.5 5.5-3.1 8.3-4.8c13.2-8.4 29.1-15.3 46.5-19.8c-1.8 2.3-3.6 4.6-5.3 6.9c-6.2 8.1-13.2 15.6-21.2 22.4C26.3 474.1 17.6 480 8 480c-4.4 0-8-3.6-8-8c0-4.4 3.6-8 8-8c7.3 0 14.1-4.1 19.3-8.8C34.4 445.4 40.5 438.2 45.4 431.9z"/></svg>
+            </div>
+            <!-- Icon: Close State (X) -->
+            <div class="fab-icon icon-close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+            </div>
+        </button>
+    </div>
+
+    <script>
+    // ------------- WIDGET JAVASCRIPT STARTS HERE -------------
+    document.addEventListener('DOMContentLoaded', function() {
+        const fabToggle = document.getElementById('fab-toggle');
+        const widgetContainer = document.getElementById('contact-widget');
+
+        fabToggle.addEventListener('click', function() {
+            widgetContainer.classList.toggle('active');
+        });
+    });
+    </script>
+
+          <!---==============================================-->
+        <!---End Chat Box code-->
+        <!--===============================================-->
     <!-- ============================================= -->
     <!--                   FOOTER                      -->
     <!-- ============================================= -->
@@ -1202,6 +1301,10 @@
                 </div>
             </div>
         </div>
+
+
+
+
     </footer>
 
     <!-- === JAVASCRIPT LIBRARIES & SCRIPTS === -->

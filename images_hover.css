@@ -1,33 +1,32 @@
-
-
-/* New wrapper for the whole section */
+/* New wrapper for the whole section - UPDATED FOR TOP-CENTER TITLE */
 .blog-section {
     display: flex;
+    /* KEY: This stacks the title and panels vertically. */
     flex-direction: column;
-    align-items: center; /* This will center the h1 and the container */
+    /* KEY: This centers the title and panels horizontally. */
+    align-items: center; 
     width: 100%;
-    padding: 40px 0;
+    padding: 50px 0;
+    background-color: #000000; 
 }
 
-/* Updated H1 styling */
-h1 {
+/* H1 styling for the top-centered title */
+ h1 {
     text-align: center;
-    /* Changed color to be visible on dark background */
     color: #cccccc;
     font-weight: 400;
     font-size: 2.5rem;
+    /* This adds space between the title and the panels below it. */
     margin-bottom: 30px;
 }
 
 /* Main Container for the panels */
 .container {
     display: flex;
-    /* KEY CHANGE: Changed flex direction to stack items vertically */
-    flex-direction: column;
-    width: 90%;
-    max-width: 900px; /* Constrain width on large screens */
-    height: 80vh; /* Set a total height for the container */
-    gap: 10px; /* This now creates vertical space */
+    /* 'flex-direction: row;' is the default, creating the horizontal row of panels. */
+    width: 100vw;
+    height: 60vh;
+    gap: 10px; 
 }
 
 /* Individual Panel Styling */
@@ -36,18 +35,17 @@ h1 {
     background-position: center;
     background-repeat: no-repeat;
     
-    /* The height is now controlled by the flex property */
     border-radius: 50px;
     color: #e8c46c;
     cursor: pointer;
 
-    /* flex: 1 makes all panels share height equally at the start */
-    flex: 1;
+    /* flex: 1 makes panels share WIDTH equally */
+    flex: 1; 
     
     position: relative;
     overflow: hidden;
     
-    /* The same transition now animates the height (flex-basis) */
+    /* This transition now animates the WIDTH (flex-basis) */
     transition: flex 0.7s cubic-bezier(0.05, 0.65, 0.25, 0.95);
     
     display: flex;
@@ -57,8 +55,11 @@ h1 {
     text-align: center;
     padding: 20px;
 }
+a{
+        color: #e8c46c;
+}
 
-/* Dark overlay effect on each panel (No changes needed here) */
+/* Dark overlay effect on each panel */
 .panel::before {
     content: '';
     position: absolute;
@@ -66,13 +67,13 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    /* background-color: rgba(0, 0, 0, 0.7); */
     border-radius: 50px;
     z-index: 1;
     transition: background-color 0.5s ease;
 }
 
-/* Text elements inside the panel (No changes needed here) */
+/* Text elements inside the panel */
 .panel h3, .panel p {
     position: relative;
     z-index: 2;
@@ -82,7 +83,7 @@ h1 {
     transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
 }
 
-.panel h3 {
+.panel  h3 {
     font-size: 28px;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -97,17 +98,17 @@ h1 {
 
 /* --- HOVER STATE --- */
 
-/* This now makes the hovered panel expand its HEIGHT */
+/* This makes the hovered panel expand its WIDTH */
 .panel:hover {
     flex: 5; /* Expanded state */
 }
 
-/* Make overlay slightly more transparent on hover (No changes needed) */
+/* Make overlay slightly more transparent on hover */
 .panel:hover::before {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* When a panel is hovered, make its text visible (No changes needed) */
+/* When a panel is hovered, make its text visible */
 .panel:hover h3,
 .panel:hover p {
     opacity: 1;
