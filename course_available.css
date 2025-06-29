@@ -1,18 +1,20 @@
-   /*===========================================================*/
+       /*===========================================================*/
         /* Course Available Section Styles                           */
         /*===========================================================*/
-
         .course_available {
             width: 100%;
-            padding: 60px 0;
-            overflow: hidden; /* Prevents horizontal scroll on the main page */
+            padding: 100px 0;
+            box-sizing: border-box;
+        }
+        .course_available p.section-subtitle,
+        .course_available h3.section-title {
+            text-align: center;
         }
 
         .course_available .container {
-            max-width: 1290px;
+            max-width: 1310px;
             margin: 0 auto;
             padding: 0 20px;
-            text-align: center;
         }
 
         /* TYPOGRAPHY */
@@ -39,13 +41,14 @@
             }
         }
 
-        /* CAROUSEL WRAPPER */
+        /* CAROUSEL WRAPPER -- THIS IS WHERE THE CHANGE IS MADE */
         .course_available .carousel-container {
             position: relative;
             display: flex;
             align-items: center;
-            /* Give space for arrows to live outside the viewport */
-            margin: 0 50px;
+            /* === CHANGE FOR 3-CARD LAYOUT === */
+            max-width: 1130px; /* (3 * 360px card) + (2 * 25px gap) = 1130px */
+            margin: 0 auto;      /* Center the new, smaller container */
         }
 
         /* The Viewport clips the track */
@@ -58,26 +61,24 @@
         .course_available .carousel-track {
             display: flex;
             gap: 25px;
-            /* IMPORTANT: This allows for native touch/trackpad scrolling */
             overflow-x: scroll; 
-            /* Hide the scrollbar visually */
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            cursor: grab;
+            user-select: none;
+        }
+        .course_available .carousel-track.active {
+            cursor: grabbing;
         }
         .course_available .carousel-track::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
+            display: none;
         }
 
-        /* PROGRAM CARD - THIS IS THE KEY FIX */
+        /* PROGRAM CARD */
         .course_available .program-card {
-            /* 
-             * By setting a fixed width, we ensure the total width of the track
-             * is greater than the viewport, allowing it to scroll.
-             * flex-shrink: 0 prevents the card from shrinking.
-            */
             flex: 0 0 360px;
             width: 360px; 
-            
             background-color: #ffffff;
             border-radius: 12px;
             overflow: hidden;
@@ -88,9 +89,9 @@
             border: 1px solid #e0e0e0;
         }
         
-        @media (max-width: 480px) {
+        /* On smaller screens, allow one card to be shown with some peeking */
+        @media (max-width: 768px) {
              .course_available .program-card {
-                /* On very small screens, make cards slightly smaller */
                 flex: 0 0 300px;
                 width: 300px;
              }
@@ -114,19 +115,15 @@
             z-index: 10;
             transition: background-color 0.3s, opacity 0.3s;
         }
-
         .course_available .carousel-arrow:hover:not(:disabled) {
             background-color: #000000;
         }
-
         .course_available .carousel-arrow.prev {
             left: -58px; 
         }
-
         .course_available .carousel-arrow.next {
             right: -58px; 
         }
-
         .course_available .carousel-arrow:disabled {
             opacity: 0.3;
             cursor: not-allowed;
@@ -136,9 +133,9 @@
         @media (max-width: 768px) {
             .course_available .carousel-container {
                 margin: 0;
+                max-width: none; /* Reset max-width on mobile */
             }
             .course_available .carousel-arrow {
-                /* Move arrows slightly inside on mobile for easier tapping */
                 top: 45%;
                 background-color: rgba(42, 42, 42, 0.8);
             }
@@ -146,129 +143,28 @@
             .course_available .carousel-arrow.next { right: 10px; }
         }
 
-
-        .course_available .card-image-container {
-            position: relative;
-        }
-
-        .course_available .card-image-container img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .course_available .card-tag {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #1C1C1C;
-        }
-
+        /* Unchanged Card-Specific CSS */
+        .course_available .card-image-container { position: relative; }
+        .course_available .card-image-container img { width: 100%; height: 160px; object-fit: cover; display: block; }
+        .course_available .card-tag { position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; color: #1C1C1C; }
         .course_available .tag-orange { background-color: #FCD34D; }
         .course_available .tag-yellow { background-color: #FEF08A; }
         .course_available .tag-blue { background-color: #A7F3D0; }
-
-        .course_available .card-content {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .course_available .card-logos {
-            height: 24px;
-            margin-bottom: 16px;
-            font-weight: 700;
-            font-size: 12px;
-            color: #555;
-            display: flex;
-            align-items: center;
-        }
-
-        .course_available .logo-edx { font-style: italic; font-size: 18px; margin-right: 8px; }
+        .course_available .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .course_available .card-logos { height: 24px; margin-bottom: 16px; font-weight: 700; font-size: 12px; color: #555; display: flex; align-items: center; }
         .course_available .logo-columbia { letter-spacing: 0.5px; }
         .course_available .logo-microsoft { font-size: 16px; color: #444; }
         .course_available .logo-insead { color: #005C9E; letter-spacing: 1px; }
         .course_available .logo-caltech, .course_available .logo-wharton, .course_available .logo-mit { font-size: 14px; color: #444; }
-
-        .course_available .card-program-type {
-            font-size: 14px;
-            color: #6B7280;
-            margin: 0 0 4px 0;
-        }
-
-        .course_available .card-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 0 0 16px 0;
-            line-height: 1.4;
-            flex-grow: 1; 
-            min-height: 50px; 
-        }
-
-        .course_available .card-info {
-            font-size: 14px;
-            color: #6B7280;
-            margin-bottom: 20px;
-        }
-
-        .course_available .info-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .course_available .info-item:first-child {
-            margin-bottom: 8px;
-        }
-
-        .course_available .card-info svg {
-            stroke: #6B7280;
-        }
-
-        .course_available .card-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: auto;
-        }
-
-        .course_available .btn {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid transparent;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .course_available .btn-primary {
-            background: linear-gradient(to right, #8B5CF6, #6366F1);
-            color: #ffffff;
-        }
-
-        .course_available .btn-primary:hover {
-            opacity: 0.9;
-        }
-
-        .course_available .btn-secondary {
-            background-color: #ffffff;
-            color: #1F2937;
-            border: 1px solid #D1D5DB;
-        }
-
-        .course_available .btn-secondary:hover {
-            background-color: #F9FAFB;
-            border-color: #9CA3AF;
-        }
+        .course_available .card-program-type { font-size: 14px; color: #6B7280; margin: 0 0 4px 0; }
+        .course_available .card-title { font-size: 18px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.4; flex-grow: 1; min-height: 50px; }
+        .course_available .card-info { font-size: 14px; color: #6B7280; margin-bottom: 20px; }
+        .course_available .info-item { display: flex; align-items: center; gap: 8px; }
+        .course_available .info-item:first-child { margin-bottom: 8px; }
+        .course_available .card-info svg { stroke: #6B7280; }
+        .course_available .card-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+        .course_available .btn { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid transparent; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .course_available .btn-primary { background: linear-gradient(to right, #8B5CF6, #6366F1); color: #ffffff; }
+        .course_available .btn-primary:hover { opacity: 0.9; }
+        .course_available .btn-secondary { background-color: #ffffff; color: #1F2937; border: 1px solid #D1D5DB; }
+        .course_available .btn-secondary:hover { background-color: #F9FAFB; border-color: #9CA3AF; }
