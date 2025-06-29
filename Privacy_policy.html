@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy - Kratos Academy</title>
+  
+  <!-- === FONT & ICON LINKS === -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <style>
+    /* ================================== */
+    /* ====== NAVIGATION BAR STYLES ===== */
+    /* ================================== */
+
+    /* --- Main Navbar Container --- */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 500;
+        background-color:#002349;
+        height: 100px;   
+        backdrop-filter: blur(5px);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+        border-bottom: 1px solid white;
+    }
+
+    /* --- Left & Right Sections --- */
+    .nav-left, .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* --- Logo Section (Left) --- */
+    .logo-image {
+        margin-top: 30px;
+        height: 100px;
+        width: auto;
+    }
+
+    /* --- "Programs" Button (Left) --- */
+    .programs-button {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 24px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: transform 0.2s ease;
+    }
+
+    .programs-button:hover {
+        transform: scale(1.05);
+    }
+
+    .icon-chevron {
+        font-size: 0.8em;
+    }
+
+    /* --- Navigation Links (Right) --- */
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 35px; 
+    }
+
+    .nav-links a {
+        color: #d1d1d1;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 400;
+        padding-bottom: 5px;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover {
+        color: #fff;
+    }
+
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+    }
+
+    /* --- "Free Courses" Button (Right) --- */
+    .nav-button-cta {
+        background-color: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        border-radius: 50px;
+        padding: 10px 25px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-button-cta:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
+    /* --- Hamburger Menu Toggle --- */
+    .menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        color: white;
+        font-size: 28px;
+    }
+
+    /* --- NAVBAR RESPONSIVE STYLES --- */
+    @media (max-width: 992px) {
+        .menu-toggle { display: block; }
+        .nav-right {
+            position: absolute; 
+            top: 100px;
+            left: 0; 
+            width: 100%;
+            background-color: rgba(28, 28, 28, 0.95); 
+            flex-direction: column;
+            padding: 20px 0; 
+            gap: 20px;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: clip-path 0.4s ease-in-out, backdrop-filter 0.4s;
+            backdrop-filter: blur(10px);
+        }
+        .nav-right.active { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+        .nav-links { flex-direction: column; gap: 25px; width: 100%; text-align: center; }
+        .nav-links li { width: 100%; }
+        .programs-button { display: none; }
+        .logo-image { height: 80px; margin-top: 10px; margin-left: -20px;}
+    }
+    @media (max-width: 480px) {
+        .main-nav { padding: 10px 20px; }
+        .logo-image { height: 70px; }
+    }
+
+    /* ================================== */
+    /* === PAGE CONTENT & TEXT STYLES ==== */
+    /* ================================== */
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.7;
+        color: #333;
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        padding-top: 100px; /* Push content below fixed navbar */
+    }
+
+    .content-container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 20px 40px;
+        background-color:#ecf0f1;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .content-container h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+
+    .last-updated {
+        text-align: center;
+        color: #7f8c8d;
+        font-style: italic;
+        margin-bottom: 40px;
+    }
+
+    .content-container h2 {
+        color: #34495e;
+        border-bottom: 2px solid #e0e4e5;
+        padding-bottom: 8px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .content-container h3 {
+        color: #34495e;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .content-container p,
+    .content-container li {
+        text-align: justify;
+        color: #555;
+        margin-bottom: 1em;
+    }
+
+    .content-container a {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .content-container a:hover {
+        text-decoration: underline;
+    }
+
+    .content-container ul,
+    .content-container ol {
+        padding-left: 40px;
+    }
+
+    .content-container ul li {
+        list-style-type: disc;
+    }
+    
+    .content-container ol li {
+        list-style-type: decimal;
+    }
+
+    .content-container strong {
+        color: #2c3e50;
+    }
+    
+    /* ================================= 
+       FOOTER STYLES (Added)
+    ================================== */
+    footer {
+        background-color: #121212;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTIxMjEyIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMzMDMwMzAiPjwvcmVjdD4KPC9zdmc+');
+        color: #e0e0e0;
+        padding: 20px 0;
+        font-family: 'Poppins', sans-serif;
+    }
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 25px;
+    }
+    .dashed-line {
+        border-top: 2px dashed #3a3a3a;
+        margin: 25px 0;
+    }
+    .footer-nav-top ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .footer-nav-top ul li {
+        position: relative;
+        padding: 0 20px;
+    }
+    .footer-nav-top ul li:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: -7.5px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 16px;
+        width: 1px;
+        background-color: #3a3a3a;
+    }
+    .footer-nav-top ul li a {
+        color: #e0e0e0;
+        text-decoration: none;
+        font-size: 15px;
+        transition: text-decoration 0.3s;
+    }
+    .footer-nav-top ul li a:hover {
+        text-decoration: underline;
+    }
+    .footer-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+    .footer-main .contact-info {
+        display: flex;
+        gap: 35px;
+        flex-wrap: wrap;
+    }
+    footer .contact-info a {
+        color: #e0e0e0;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        transition: color 0.3s;
+    }
+    footer .contact-info a:hover {
+        color: #ffffff;
+    }
+    footer .contact-info a i {
+        transition: color 0.3s ease;
+    }
+    .social-icons {
+        display: flex;
+        gap: 20px;
+    }
+    .social-icon {
+        color: #ffffff;
+        font-size: 24px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .social-icon:hover {
+        transform: scale(1.15);
+    }
+    .social-icon.instagram:hover { color: #E1306C; }
+    .social-icon.linkedin:hover { color: #0A66C2; }
+    .social-icon.youtube:hover { color: #FF0000; }
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #a0a0a0;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .footer-links-bottom {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .footer-links-bottom a {
+        color: #a0a0a0;
+        text-decoration: none;
+        transition: text-decoration 0.3s;
+    }
+    .footer-links-bottom a:hover {
+        text-decoration: underline;
+    }
+    .copyright p {
+        margin: 0;
+    }
+    @media (max-width: 992px) {
+        .footer-main, .footer-bottom {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .social-icons {
+            margin-top: 15px;
+        }
+    }
+  </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="index.html"><img src="img/logo.png" alt="Kratos Academy Logo" class="logo-image"></a>
+            <button class="programs-button">Programs <i class="fas fa-chevron-down icon-chevron"></i></button>
+        </div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                 <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#demo-classes-section">Demo Classes</a></li>
+                <li><a href="blog.html" target="_self">Blogs</a></li>  
+                <li><a href="index.html#review">Reviews</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="contact_us.html">Contact us</a></li>
+            </ul>
+            <a href="#" class="nav-button-cta">Free Courses</a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Main Content for Privacy Policy -->
+    <main class="content-container">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Effective date: October 26, 2023</p>
+
+        <h2>1. Introduction</h2>
+        <p>Welcome to <strong>Cloud World Institute</strong>.</p>
+        <p>Cloud World Institute (“us”, “we”, or “our”) operates cloudworld.co.in (hereinafter referred to as “<strong>Service</strong>”).</p>
+        <p>Our Privacy Policy governs your visit to cloudworld.co.in, and explains how we collect, safeguard and disclose information that results from your use of our Service.</p>
+        <p>We use your data to provide and improve Service. By using Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.</p>
+        <p>Our Terms and Conditions (“Terms”) govern all use of our Service and together with the Privacy Policy constitutes your agreement with us (“agreement”).</p>
+
+        <h2>2. Definitions</h2>
+        <p><strong>SERVICE</strong> means the cloudworld.co.in website operated by Cloud World Institute.</p>
+        <p><strong>PERSONAL DATA</strong> means data about a living individual who can be identified from those data (or from those and other information either in our possession or likely to come into our possession).</p>
+        <p><strong>USAGE DATA</strong> is data collected automatically either generated by the use of Service or from Service infrastructure itself (for example, the duration of a page visit).</p>
+        <p><strong>COOKIES</strong> are small files stored on your device (computer or mobile device).</p>
+        <p><strong>DATA CONTROLLER</strong> means a natural or legal person who (either alone or jointly or in common with other persons) determines the purposes for which and the manner in which any personal data are, or are to be, processed. For the purpose of this Privacy Policy, we are a Data Controller of your data.</p>
+        <p><strong>DATA PROCESSORS (OR SERVICE PROVIDERS)</strong> means any natural or legal person who processes the data on behalf of the Data Controller. We may use the services of various Service Providers in order to process your data more effectively.</p>
+        <p><strong>DATA SUBJECT</strong> is any living individual who is the subject of Personal Data.</p>
+        <p><strong>THE USER</strong> is the individual using our Service. The User corresponds to the Data Subject, who is the subject of Personal Data.</p>
+
+        <h2>3. Information Collection and Use</h2>
+        <p>We collect several different types of information for various purposes to provide and improve our Service to you.</p>
+
+        <h2>4. Types of Data Collected</h2>
+        <h3>Personal Data</h3>
+        <p>While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you (“Personal Data”). Personally identifiable information may include, but is not limited to:</p>
+        <ul>
+            <li>Email address</li>
+            <li>First name and last name</li>
+            <li>Phone number</li>
+            <li>Address, Country, State, Province, ZIP/Postal code, City</li>
+            <li>Cookies and Usage Data</li>
+        </ul>
+        <p>We may use your Personal Data to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any, or all, of these communications from us by following the unsubscribe link.</p>
+        
+        <h3>Usage Data</h3>
+        <p>We may also collect information that your browser sends whenever you visit our Service or when you access Service by or through any device (“Usage Data”). This Usage Data may include information such as your computer’s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data. When you access Service with a device, this Usage Data may include information such as the type of device you use, your device unique ID, the IP address of your device, your device operating system, the type of Internet browser you use, unique device identifiers and other diagnostic data.</p>
+        
+        <h3>Tracking Cookies Data</h3>
+        <p>We use cookies and similar tracking technologies to track the activity on our Service and we hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Other tracking technologies are also used such as beacons, tags and scripts to collect and track information and to improve and analyze our Service. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
+        <p>Examples of Cookies we use:</p>
+        <ul>
+            <li><strong>Session Cookies:</strong> We use Session Cookies to operate our Service.</li>
+            <li><strong>Preference Cookies:</strong> We use Preference Cookies to remember your preferences and various settings.</li>
+            <li><strong>Security Cookies:</strong> We use Security Cookies for security purposes.</li>
+            <li><strong>Advertising Cookies:</strong> Advertising Cookies are used to serve you with advertisements that may be relevant to you and your interests.</li>
+        </ul>
+
+        <h3>Other Data</h3>
+        <p>While using our Service, we may also collect the following information: sex, age, date of birth, place of birth, passport details, citizenship, registration at place of residence and actual address, telephone number (work, mobile), details of documents on education, qualification, professional training, employment agreements, NDA agreements, information on bonuses and compensation, information on marital status, family members, social security (or other taxpayer identification) number, office location and other data.</p>
+
+        <h2>5. Use of Data</h2>
+        <p>Cloud World Institute uses the collected data for various purposes:</p>
+        <ul>
+            <li>To provide and maintain our Service;</li>
+            <li>To notify you about changes to our Service;</li>
+            <li>To allow you to participate in interactive features of our Service when you choose to do so;</li>
+            <li>To provide customer support;</li>
+            <li>To gather analysis or valuable information so that we can improve our Service;</li>
+            <li>To monitor the usage of our Service;</li>
+            <li>To detect, prevent and address technical issues;</li>
+            <li>To fulfil any other purpose for which you provide it;</li>
+            <li>To carry out our obligations and enforce our rights arising from any contracts entered into between you and us, including for billing and collection;</li>
+            <li>To provide you with notices about your account and/or subscription, including expiration and renewal notices, email-instructions, etc.;</li>
+            <li>To provide you with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless you have opted not to receive such information;</li>
+            <li>In any other way we may describe when you provide the information;</li>
+            <li>For any other purpose with your consent.</li>
+        </ul>
+
+        <h2>6. Retention of Data</h2>
+        <p>We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies. We will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period, except when this data is used to strengthen the security or to improve the functionality of our Service, or we are legally obligated to retain this data for longer time periods.</p>
+
+        <h2>7. Transfer of Data</h2>
+        <p>Your information, including Personal Data, may be transferred to – and maintained on – computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction. If you are located outside India and choose to provide information to us, please note that we transfer the data, including Personal Data, to India and process it there. Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer. Cloud World Institute will take all the steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organisation or a country unless there are adequate controls in place including the security of your data and other personal information.</p>
+
+        <h2>8. Disclosure of Data</h2>
+        <p>We may disclose personal information that we collect, or you provide:</p>
+        <ul>
+            <li><strong>Disclosure for Law Enforcement.</strong> Under certain circumstances, we may be required to disclose your Personal Data if required to do so by law or in response to valid requests by public authorities.</li>
+            <li><strong>Business Transaction.</strong> If we or our subsidiaries are involved in a merger, acquisition or asset sale, your Personal Data may be transferred.</li>
+            <li><strong>Other cases. We may disclose your information also:</strong>
+                <ul>
+                    <li>To our subsidiaries and affiliates;</li>
+                    <li>To contractors, service providers, and other third parties we use to support our business;</li>
+                    <li>To fulfill the purpose for which you provide it;</li>
+                    <li>For the purpose of including your company’s logo on our website;</li>
+                    <li>For any other purpose disclosed by us when you provide the information;</li>
+                    <li>With your consent in any other cases;</li>
+                    <li>If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of the Company, our customers, or others.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>9. Security of Data</h2>
+        <p>The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
+        
+        <h2>10. Your Data Protection Rights Under General Data Protection Regulation (GDPR)</h2>
+        <p>If you are a resident of the European Union (EU) and European Economic Area (EEA), you have certain data protection rights, covered by GDPR. We aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data. If you wish to be informed what Personal Data we hold about you and if you want it to be removed from our systems, please email us at <a href="mailto:info@cloudworld.co.in">info@cloudworld.co.in</a>.</p>
+        <p>In certain circumstances, you have the following data protection rights:</p>
+        <ol>
+            <li>the right to access, update or to delete the information we have on you;</li>
+            <li>the right of rectification. You have the right to have your information rectified if that information is inaccurate or incomplete;</li>
+            <li>the right to object. You have the right to object to our processing of your Personal Data;</li>
+            <li>the right of restriction. You have the right to request that we restrict the processing of your personal information;</li>
+            <li>the right to data portability. You have the right to be provided with a copy of your Personal Data in a structured, machine-readable and commonly used format;</li>
+            <li>the right to withdraw consent. You also have the right to withdraw your consent at any time where we rely on your consent to process your personal information;</li>
+        </ol>
+        <p>Please note that we may ask you to verify your identity before responding to such requests. Please note, we may not able to provide Service without some necessary data. You have the right to complain to a Data Protection Authority about our collection and use of your Personal Data. For more information, please contact your local data protection authority in the European Economic Area (EEA).</p>
+
+        <h2>11. Your Data Protection Rights under the California Privacy Protection Act (CalOPPA)</h2>
+        <p>CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy. The law’s reach stretches well beyond California to require a person or company in the United States (and conceivable the world) that operates websites collecting personally identifiable information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals with whom it is being shared, and to comply with this policy.</p>
+        <p>According to CalOPPA we agree to the following:</p>
+        <ul>
+            <li>users can visit our site anonymously;</li>
+            <li>our Privacy Policy link includes the word “Privacy”, and can easily be found on the home page of our website;</li>
+            <li>users will be notified of any privacy policy changes on our Privacy Policy Page;</li>
+            <li>users are able to change their personal information by emailing us at <a href="mailto:info@cloudworld.co.in">info@cloudworld.co.in</a>.</li>
+        </ul>
+        <p><strong>Our Policy on “Do Not Track” Signals:</strong> We honor Do Not Track signals and do not track, plant cookies, or use advertising when a Do Not Track browser mechanism is in place. Do Not Track is a preference you can set in your web browser to inform websites that you do not want to be tracked. You can enable or disable Do Not Track by visiting the Preferences or Settings page of your web browser.</p>
+
+        <h2>12. Your Data Protection Rights under the California Consumer Privacy Act (CCPA)</h2>
+        <p>If you are a California resident, you are entitled to learn what data we collect about you, ask to delete your data and not to sell (share) it. To exercise your data protection rights, you can make certain requests and ask us:</p>
+        <ol>
+            <li><strong>What personal information we have about you.</strong> If you make this request, we will return to you:
+                <ul>
+                    <li>The categories of personal information we have collected about you.</li>
+                    <li>The categories of sources from which we collect your personal information.</li>
+                    <li>The business or commercial purpose for collecting or selling your personal information.</li>
+                    <li>The categories of third parties with whom we share personal information.</li>
+                    <li>The specific pieces of personal information we have collected about you.</li>
+                    <li>A list of categories of personal information that we have sold, along with the category of any other company we sold it to. If we have not sold your personal information, we will inform you of that fact.</li>
+                    <li>A list of categories of personal information that we have disclosed for a business purpose, along with the category of any other company we shared it with.</li>
+                </ul>
+                <p>Please note, you are entitled to ask us to provide you with this information up to two times in a rolling twelve-month period. When you make this request, the information provided may be limited to the personal information we collected about you in the previous 12 months.</p>
+            </li>
+            <li><strong>To delete your personal information.</strong> If you make this request, we will delete the personal information we hold about you as of the date of your request from our records and direct any service providers to do the same. In some cases, deletion may be accomplished through de-identification of the information. If you choose to delete your personal information, you may not be able to use certain functions that require your personal information to operate.</li>
+            <li><strong>To stop selling your personal information.</strong> We don’t sell or rent your personal information to any third parties for any purpose. We do not sell your personal information for monetary consideration. However, under some circumstances, a transfer of personal information to a third party, or within our family of companies, without monetary consideration may be considered a “sale” under California law. You are the only owner of your Personal Data and can request disclosure or deletion at any time.</li>
+        </ol>
+        <p>To exercise your California data protection rights described above, please send your request(s) by email: <a href="mailto:info@cloudworld.co.in">info@cloudworld.co.in</a>.</p>
+
+        <h2>13. Service Providers</h2>
+        <p>We may employ third party companies and individuals to facilitate our Service (“Service Providers”), provide Service on our behalf, perform Service-related services or assist us in analysing how our Service is used. These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
+
+        <h2>14. Analytics</h2>
+        <p>We may use third-party Service Providers to monitor and analyze the use of our Service.</p>
+
+        <h2>15. CI/CD tools</h2>
+        <p>We may use third-party Service Providers to automate the development process of our Service.</p>
+
+        <h2>16. Behavioral Remarketing</h2>
+        <p>We may use remarketing services to advertise on third party websites to you after you visited our Service. We and our third-party vendors use cookies to inform, optimise and serve ads based on your past visits to our Service.</p>
+
+        <h2>17. Links to Other Sites</h2>
+        <p>Our Service may contain links to other sites that are not operated by us. If you click a third party link, you will be directed to that third party’s site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p>
+
+        <h2>18. Children’s Privacy</h2>
+        <p>Our Services are not intended for use by children under the age of 18 (“Child” or “Children”). We do not knowingly collect personally identifiable information from Children under 18. If you become aware that a Child has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from Children without verification of parental consent, we take steps to remove that information from our servers.</p>
+
+        <h2>19. Changes to This Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update “effective date” at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+
+        <h2>20. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us by email: <a href="mailto:info@cloudworld.co.in">info@cloudworld.co.in</a>.</p>
+    </main>
+
+    <!-- FOOTER (Added) -->
+    <footer>
+        <div class="footer-container">
+            <div class="dashed-line"></div>
+            <nav class="footer-nav-top">
+                <ul>
+                    <li><a href="blog.html">Blogs</a></li>
+                    <li><a href="index.html#review">Reviews</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">In the News</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="contact_us.html">Contact us</a></li>
+                    <li><a href="#">Learning Hub</a></li>
+                </ul>
+            </nav>
+            <div class="footer-main">
+                <div class="contact-info">
+                    <a href="tel:18003093939"><i class="fa-solid fa-phone"></i> 18003093939</a>
+                    <a href="mailto:hello@kratos.com"><i class="fa-solid fa-envelope"></i> hello@Kratos.com</a>
+                    <a href="https://wa.me/your-whatsapp-number" target="_blank"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram" class="social-icon instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="dashed-line"></div>
+            <div class="footer-bottom">
+                <div class="footer-links-bottom">
+                    <a href="tearm_condition.html">Terms and Conditions</a>&
+                    <a href="Privacy_policy.html">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#">Sitemap</a>
+                </div>
+                <div class="copyright">
+                    <p>© <span id="current-year"></span> Kratos. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // JavaScript for mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navRight = document.querySelector('.nav-right');
+            if(menuToggle && navRight) {
+                menuToggle.addEventListener('click', () => {
+                    navRight.classList.toggle('active');
+                });
+            }
+
+            // JavaScript for Footer Year
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
