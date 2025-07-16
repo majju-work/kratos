@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- === FONT & ICON LINKS (Updated for footer compatibility) === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <title>CloudWorld Java Training</title>
     <style>
         /* General Body Styles */
@@ -373,6 +379,136 @@
             background-color: #ff9800; /* A distinct orange color */
             outline: 2px solid #c00;
         }
+
+        /* ================================= 
+           FOOTER STYLES (Added)
+        ================================== */
+        footer {
+            background-color: #121212;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTIxMjEyIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMzMDMwMzAiPjwvcmVjdD4KPC9zdmc+');
+            color: #e0e0e0;
+            padding: 20px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        .dashed-line {
+            border-top: 2px dashed #3a3a3a;
+            margin: 25px 0;
+        }
+        .footer-nav-top ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .footer-nav-top ul li {
+           position: relative;
+           padding: 0 20px;
+        }
+        .footer-nav-top ul li:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -7.5px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 16px;
+            width: 1px;
+            background-color: #3a3a3a;
+        }
+        .footer-nav-top ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 15px;
+            transition: text-decoration 0.3s;
+        }
+        .footer-nav-top ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .contact-info {
+            display: flex;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+        .contact-info a {
+            color: #e0e0e0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #ffffff;
+        }
+        .contact-info a i {
+            transition: color 0.3s ease;
+        }
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+        .social-icon {
+            color: #ffffff;
+            font-size: 24px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.15);
+        }
+        .social-icon.instagram:hover { color: #E1306C; }
+        .social-icon.linkedin:hover { color: #0A66C2; }
+        .social-icon.youtube:hover { color: #FF0000; }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #a0a0a0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-links-bottom {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .footer-links-bottom a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+        .footer-links-bottom a:hover {
+            text-decoration: underline;
+        }
+        .copyright p {
+            margin: 0;
+        }
+        @media (max-width: 992px) {
+            .footer-main, .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .social-icons {
+                margin-top: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -575,6 +711,47 @@
       ↑
     </button>
    
+    <!-- ============================================= -->
+    <!--              FOOTER (Added)                   -->
+    <!-- ============================================= -->
+    <footer>
+        <div class="footer-container">
+            <div class="dashed-line"></div>
+            <nav class="footer-nav-top">
+                <ul>
+                    <li><a href="../blog/blog.html">Blogs</a></li>
+                    <li><a href="../index.html#review">Reviews</a></li>
+                  
+                    <li><a href="../about_us.html">About Us</a></li>
+                    <li><a href="contact_us.html">Contact us</a></li>
+                  
+                </ul>
+            </nav>
+            <div class="footer-main">
+                <div class="contact-info">
+                    <a href="tel:18003093939"><i class="fa-solid fa-phone"></i> 18003093939</a>
+                    <a href="mailto:hello@kratos.com"><i class="fa-solid fa-envelope"></i> hello@Kratos.com</a>
+                    <a href="https://wa.me/your-whatsapp-number" target="_blank"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram" class="social-icon instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="dashed-line"></div>
+            <div class="footer-bottom">
+                <div class="footer-links-bottom">
+                   <a href="../tearm_condition.html">Terms and Conditions</a>&
+                    <a href="../Privacy_policy.html">Privacy Policy</a>
+                </div>
+                <div class="copyright">
+                    <p>© <span id="current-year"></span> Kratos. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- ===== JAVASCRIPT FOR MOBILE MENU ===== -->
     <script>
         const menuToggle = document.getElementById('menu-toggle');
@@ -585,7 +762,7 @@
         });
     </script>
 
-    <!-- ===== JAVASCRIPT FOR SEARCH, HIGHLIGHT, AND "GO TO NEXT" (UPDATED) ===== -->
+    <!-- ===== JAVASCRIPT FOR SEARCH, HIGHLIGHT, AND FOOTER (UPDATED) ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.querySelector('.search-input');
@@ -678,6 +855,12 @@
                         goToNextHighlight();
                     }
                 });
+            }
+
+            // --- FOOTER YEAR SCRIPT (Added) ---
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
             }
         });
     </script>
