@@ -267,7 +267,7 @@
 
     <div class="main-container">
         <div class="header-container">
-            <h1 id="main-header-text">Java Full Stack</h1>
+            <h1 id="main-header-text">DevOps & SRE</h1>
         </div>
         
         <div class="toggle-switch-container">
@@ -303,7 +303,7 @@
         // --- UPDATED: New data object with Java Full Stack topics and icons ---
         const data = {
             frontend: [
-                { name: 'HTML & CSS', desc: 'The building blocks of the web for structure and style.', linkText: 'Explore Fundamentals >', 
+                { name: 'Your Showstopper Month: 12 Corporate-Level Capstone Projects', desc: 'End your journey with a hands-on capstone marathon—real projects, real tools, real cloud!', 
                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>`,
                   topics: [
                     { title: 'Semantic HTML5', details: 'Using tags like <article>, <footer>, and <header> gives meaning to content, which improves SEO and accessibility for screen readers.' },
@@ -337,45 +337,51 @@
                 ]},
             ],
             backend: [
-                { name: 'Core Java', desc: "The essential foundation of the Java platform, covering syntax, OOP, and the JDK.", linkText: 'Learn the Basics >',
+                { name: 'Month 1 ', desc: "AWS Cloud Wizardry", linkText: 'Learn the Basics >',
                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
                   topics: [
-                    { title: 'JVM, JRE & JDK', details: 'Understand the difference between the Java Virtual Machine (runs code), Java Runtime Environment (provides libraries), and Java Development Kit (provides tools to write code).' },
-                    { title: 'Object-Oriented Programming', details: 'Master the core principles of OOP: Encapsulation (bundling data and methods), Inheritance (creating new classes from existing ones), and Polymorphism (designing objects to share behaviors).' },
-                    { title: 'Collections Framework', details: 'Effectively use essential data structures like List for ordered elements, Set for unique elements, and Map for key-value pairs.' },
-                    { title: 'Java 8+ Features', details: 'Utilize modern features like Lambda Expressions for concise code, the Stream API for powerful data processing, and the Optional class to handle null values safely.' }
+                    { title: 'AWS Solutions Architect Associate (SAA)', details: 'Design scalable, resilient and secure cloud architectures: VPC, S3, RDS, IAM, Lambda, CloudFront.' },
+                    { title: 'AWS SysOps Administrator Associate', details: 'Operational automation, CloudWatch, CloudFormation, blue/green deployments, provisioning, security controls.' },
+                    { title: 'Mini-Projects', details: 'Launch auto-scaling apps, real-time monitoring dashboards.' },
+                    
                 ]},
-                { name: 'Spring Boot', desc: 'The leading framework for creating stand-alone, production-grade Java applications with ease.', linkText: 'Explore Spring >',
+                { name: 'Month 2', desc: 'Container Engineering.', linkText: 'Explore Spring >',
                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/><path d="M12 2a10 10 0 00-2.93 19.07A10 10 0 0012 2z"/></svg>`,
                   topics: [
-                    { title: 'Dependency Injection & IoC', details: 'Learn the core principle of Spring, Inversion of Control (IoC), where the framework manages object creation and their dependencies.' },
-                    { title: 'RESTful APIs with @RestController', details: 'Build powerful web services that communicate using JSON. Use annotations like @GetMapping and @PostMapping to handle HTTP requests.' },
-                    { title: 'Spring Data JPA', details: 'Vastly simplify database access by defining repository interfaces. Spring automatically implements them, reducing boilerplate code.' },
-                    { title: 'Spring Security', details: 'Secure your application with robust authentication and authorization mechanisms, protecting endpoints and resources.' }
+                    { title: 'Docker Certified Associate', details: 'Multi-stage builds, registries, scanning, networking, Compose, Swarm.' },
+                    { title: 'Kubernetes CKA & CKAD', details: 'Production cluster management, Helm, RBAC, secrets, persistent volumes, application rollout/rollback, chaos engineering.' },
+                    { title: 'Mini-Projects', details: 'Secure microservice pipelines, Kubernetes self-healing apps.' },
+                    
                 ]},
-                { name: 'Maven & Gradle', desc: 'The two leading build automation tools for managing project dependencies and the build lifecycle.', linkText: 'Understand Builds >',
+                { name: 'Month 3', desc: 'DevOps Automation', linkText: 'Understand Builds >',
                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
                   topics: [
-                    { title: 'pom.xml & build.gradle', details: 'Understand the core project configuration files for Maven (pom.xml) and Gradle (build.gradle) where you define project metadata and dependencies.' },
-                    { title: 'Dependency Management', details: 'Learn how to declare third-party libraries your project needs and let the build tool automatically download and manage their versions.' },
-                    { title: 'Build Lifecycles', details: 'Master the standard phases like `compile`, `test`, and `package` to automate the process of building your application artifact (JAR/WAR file).' },
-                    { title: 'Plugins', details: 'Extend the functionality of your build process with plugins for tasks like code generation, code analysis, and deployment.' }
+                    { title: 'Jenkins (CI/CD Guru)', details: 'Advanced Pipelines, rollback/promotion flows, integrated security checks.' },
+                    { title: 'GitLab CI / GitHub Actions', details: 'Multi-cloud deploys, dynamic environments, GitOps rollouts, parallel pipelines.' },
+                    { title: 'Mini-Projects', details: 'Multi-cloud deploy pipeline, full Git-driven artifact promotion.' },
+                   
                 ]},
-                { name: 'JPA & Hibernate', desc: 'The standard API for object-relational mapping (ORM), with Hibernate as its most popular implementation.', linkText: 'Master Databases >',
+                { name: 'Month 4', desc: 'Infrastructure as Code & Automation', linkText: 'Master Databases >',
                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
                   topics: [
-                    { title: 'Entity Mapping (@Entity)', details: 'Annotate plain Java objects (POJOs) with `@Entity` to map them directly to database tables, bridging the gap between object-oriented code and relational databases.' },
-                    { title: 'Repository Pattern', details: 'Implement data access layers using the repository pattern (often with Spring Data JPA) to abstract away the underlying data storage details.' },
-                    { title: 'JPQL / HQL', details: 'Write database queries using the Java Persistence Query Language (JPQL), an object-oriented query language, instead of raw SQL.' },
-                    { title: 'Transactions (@Transactional)', details: 'Ensure data consistency by wrapping sequences of database operations in a transaction. The `@Transactional` annotation in Spring makes this effortless.' }
+                    { title: 'Terraform Associate', details: 'HCL modules, zero-downtime rollouts, remote state, DR, cloud-agnostic infra.' },
+                    { title: 'Ansible Automation', details: 'Idempotent config, dynamic inventories, patch management, continuous compliance.' },
+                    { title: 'Mini-Projects', details: 'Multi-cloud IaC portfolio, auto-patcher for production fleets.' },
+      
                 ]},
-                { name: 'JUnit & Mockito', desc: 'The standard frameworks for unit testing Java applications and creating mock objects for dependencies.', linkText: 'Improve Code Quality >',
+                { name: 'Month 5', desc: 'Corporate Observability', linkText: 'Improve Code Quality >',
                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`,
                   topics: [
-                    { title: 'Writing Test Cases (@Test)', details: 'Use the `@Test` annotation from JUnit to mark methods as test cases that should be executed by the test runner.' },
-                    { title: 'Assertions', details: 'Verify that your code behaves as expected using assertion methods (e.g., `assertEquals`, `assertTrue`) to check for correct outcomes.' },
-                    { title: 'Mocking Dependencies', details: 'Use Mockito to create mock (fake) objects for the dependencies of the class you are testing, allowing you to isolate and test your code in a controlled environment.' },
-                    { title: 'Test-Driven Development (TDD)', details: 'Practice the "Red-Green-Refactor" cycle: write a failing test, write the minimal code to make it pass, and then refactor the code while keeping the test green.' }
+                    { title: 'Prometheus Certified Associate', details: 'PromQL, exporters, advanced alerting, custom dashboards, SLI/SLO tracking.' },
+                    { title: 'Loki, Tempo, Alloy stack', details: 'Centralized logging, distributed tracing, unified telemetry.' },
+                    { title: 'Mini-Projects', details: 'Trace-root cause pipeline, business-metric Grafana boards' }
+                ]},
+                { name: 'Month 6 (Weeks 21-24)', desc: 'Cloud-Native Security & Edge', linkText: 'Improve Code Quality >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`,
+                  topics: [
+                    { title: 'DevSecOps', details: 'Secure-by-design pipelines, vulnerability scans, secrets vaults, automated audits.' },
+                    { title: 'Serverless & Innovation', details: 'Multi-cloud Lambda, event-driven workflows, auto-scaling, serverless CI/CD.' },
+                    { title: 'Mini-Projects', details: 'Secure serverless CI/CD, event-driven end-to-end workflow.' },   
                 ]}
             ]
         };
