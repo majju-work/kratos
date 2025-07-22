@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Kratos Academy</title>
-    
-    <!-- === FONT & ICON LINKS (Consolidated) === -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 43336831bcc9628e43332c8c4edca2c93bd1c926
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -20,12 +14,9 @@
     <link rel="stylesheet" href="chat_box.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<<<<<<< HEAD
-=======
 
->>>>>>> 43336831bcc9628e43332c8c4edca2c93bd1c926
     <style>
-        /* ================================= 
+        /* =================================
            1. NAVBAR STYLES
         ================================== */
         .main-nav {
@@ -145,27 +136,27 @@
             .menu-toggle { display: block; }
         }
 
-        /* ================================= 
+        /* =================================
            2. ABOUT US PAGE STYLES
         ================================== */
         :root {
             --color-primary-dark: #3a1010;
             --color-primary-light: #5c1818;
-            --color-highlight: #e23e57; 
-            --color-accent-soft: #fde4d6; 
+            --color-highlight: #e23e57;
+            --color-accent-soft: #fde4d6;
             --color-background: #fffaf5;
             --color-text-dark: #333333;
             --color-text-light: #666666;
             --color-white: #ffffff;
             --font-heading: 'Montserrat', sans-serif;
             --font-body: 'Roboto', sans-serif;
-            --color-wc-pink-highlight: #e74c86; 
-            --color-wc-blue-underline: #3b73b9; 
-            --color-wc-icon-bg-green: #e0f2f1;  
-            --color-wc-icon-bg-red: #ffebee;      
-            --color-wc-icon-bg-blue: #e3f2fd;     
-            --color-wc-dot-pattern1: #60d39433; 
-            --color-wc-dot-pattern2: #e74c8633; 
+            --color-wc-pink-highlight: #e74c86;
+            --color-wc-blue-underline: #3b73b9;
+            --color-wc-icon-bg-green: #e0f2f1;
+            --color-wc-icon-bg-red: #ffebee;
+            --color-wc-icon-bg-blue: #e3f2fd;
+            --color-wc-dot-pattern1: #60d39433;
+            --color-wc-dot-pattern2: #e74c8633;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -175,14 +166,14 @@
         }
         .timeline-card, .pioneer-card, .milestone-card,
         .new-timeline-item .new-timeline-content,
-        .why-choose-card { 
+        .why-choose-card {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .timeline-card.visible, .pioneer-card.visible, .milestone-card.visible,
         .new-timeline-item.visible .new-timeline-content,
-        .why-choose-card.visible { 
+        .why-choose-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -209,7 +200,7 @@
             padding: 80px 5%;
             max-width: 1200px;
             margin: 0 auto;
-            position: relative; 
+            position: relative;
         }
         .vision-section::before, .vision-section::after {
             content: ''; position: absolute; z-index: -1;
@@ -291,7 +282,7 @@
             .testimonial-container { grid-template-columns: 1fr; text-align: center; gap: 50px; }
         }
         @media (max-width: 768px) {
-            .section-title, .why-choose-section .section-title { font-size: 28px; } 
+            .section-title, .why-choose-section .section-title { font-size: 28px; }
             .new-vision-timeline .timeline-container { padding-left: 65px; }
             .new-vision-timeline .timeline-container::before { left: 20px; }
             .new-timeline-icon { left: -40px; width: 50px; height: 50px; }
@@ -315,8 +306,8 @@
             .why-choose-icon-wrapper img { width: 35px; height: 35px; }
             .why-choose-card h3 { font-size: 18px; }
         }
-        
-        /* ================================= 
+
+        /* =================================
            3. FOOTER STYLES (Added)
         ================================== */
         footer {
@@ -357,36 +348,32 @@
     </style>
 </head>
 <body>
-    
-    <!-- NAVIGATION BAR -->
+
     <nav class="main-nav">
         <div class="nav-left">
             <a href="index.html"><img src="../img/logo.png" alt="Kratos Academy Logo" class="logo-image"></a>
             <div class="programs-container">
                 <button class="programs-button">Programs <i class="fas fa-chevron-down icon-chevron"></i></button>
                 <div class="programs-dropdown">
-                    <a href="Java.html">Java</a> <a href="python.html">Python</a> <a href="Data Science.html">Data Science</a> <a href="AWS.html">AWS</a> <a href="Devops.html">Devops</a> <a href="Data Analyst.html">Data Analyst</a>
+                    <a href="Java.html">Java</a>
+                    <a href="python.html">Python</a>
+                    <a href="Data Science.html">Data Science</a>
+                    <a href="AWS.html">AWS</a>
+                    <a href="Devops.html">Devops</a>
+                    <a href="Data Analyst.html">Data Analyst</a>
                 </div>
             </div>
         </div>
         <div class="nav-right">
             <ul class="nav-links">
-<<<<<<< HEAD
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../index.html#demo-classes-section">Demo Classes</a></li>
-                <li><a href="../blog/blog.html" target="_self">Blogs</a></li>
-                <li><a href="../index.html#review">Reviews</a></li>
-                <li><a href="../about_us.html">About Us</a></li>
-                <li><a href="../contact_us.html">Contact us</a></li>
-=======
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#demo-classes-section">Demo Classes</a></li>
                 <li><a href="blog/blog.html" target="_self">Blogs</a></li>
                 <li><a href="index.html#review">Reviews</a></li>
                 <li><a href="about_us.html">About Us</a></li>
-                <li><a href="contact us/contact_us.html">Contact us</a></li>
->>>>>>> 43336831bcc9628e43332c8c4edca2c93bd1c926
-            </ul> 
+                <li><a href="contact_us.html">Contact us</a></li>
+
+                </ul>
             <a href="https://www.youtube.com/@CloudWorld-gm5gz" class="nav-button-cta"  target="_blank">Free Courses</a>
         </div>
         <button class="menu-toggle" aria-label="Toggle navigation menu"> <i class="fas fa-bars"></i> </button>
@@ -399,31 +386,30 @@
             <p class="quote-author">- Lt. Shri Brijmohan Lall Munjal</p>
             <p class="description-text"> Part of the rich legacy of the Hero Group, we aim to transform education by creating programs delivered by leading industry practitioners. </p>
         </div>
-        <div class="banner-image"> <img src="img.png" alt="Lt. Shri Brijmohan Lall Munjal"> </div>
+        <div class="banner-image"> <img src="img.png" alt="Lt. Shri Brijmohan Lunjal"> </div>
     </header>
 
     <main>
-        <!-- VISION TIMELINE SECTION -->
-        <section class="vision-section new-vision-timeline"> 
+        <section class="vision-section new-vision-timeline">
             <h2 class="section-title">Building tomorrow: <span class="highlight-title">Our Vision for the future</span></h2>
-            <div class="timeline-container"> 
-                <div class="new-timeline-item"> 
+            <div class="timeline-container">
+                <div class="new-timeline-item">
                     <div class="new-timeline-icon"> <img src="images/mission-icon.svg" alt="Mission Icon"> </div>
-                    <div class="new-timeline-content"> 
+                    <div class="new-timeline-content">
                         <h3>Mission</h3>
                         <p>We're here to equip our learners with the knowledge, skills, and expertise they need to find success.</p>
                     </div>
                 </div>
-                <div class="new-timeline-item"> 
+                <div class="new-timeline-item">
                     <div class="new-timeline-icon"> <img src="images/vision-icon.svg" alt="Vision Icon"> </div>
-                    <div class="new-timeline-content"> 
+                    <div class="new-timeline-content">
                         <h3>Vision</h3>
                         <p>We create highly skilled professionals not only for the present, but also for the yet-to-be created jobs of the future.</p>
                     </div>
                 </div>
-                <div class="new-timeline-item"> 
+                <div class="new-timeline-item">
                      <div class="new-timeline-icon"> <img src="images/impact-icon.svg" alt="Impact Icon"> </div>
-                    <div class="new-timeline-content"> 
+                    <div class="new-timeline-content">
                         <h3>Impact</h3>
                         <p>25000 Learning hours, 3000+ Enrollments and 200+ Success Stories. We're here to make a difference.</p>
                     </div>
@@ -431,7 +417,6 @@
             </div>
         </section>
 
-        <!-- PIONEERS SECTION -->
         <section class="pioneers-section">
             <h2 class="section-title">The Hero Group: <span class="highlight-title">Education Pioneers since 1965</span></h2>
             <div class="featured-pioneer-card">
@@ -453,7 +438,6 @@
             </div>
         </section>
 
-        <!-- MILESTONES SECTION -->
         <section class="milestones-section">
             <h2 class="section-title">Achieving new <span class="highlight-title">milestones</span></h2>
             <div class="milestone-grid">
@@ -465,8 +449,7 @@
                 <div class="milestone-card media-card"> <img src="images/logo-siliconindia.svg" alt="Silicon India"> <p>10 Most Promising Brands in Digital Learning-2023</p> </div>
             </div>
         </section>
-        
-        <!-- WHY CHOOSE SECTION -->
+
         <section class="why-choose-section">
             <h2 class="section-title"> Why Choose <span class="highlight-wc-pink">Kratos</span> Institute? </h2>
             <div class="why-choose-grid">
@@ -484,8 +467,7 @@
                 </div>
             </div>
         </section>
-        
-        <!-- REVIEW SECTION -->
+
         <section class="testimonial-section">
             <div class="testimonial-container">
                 <div class="testimonial-header">
@@ -512,343 +494,177 @@
                             <p class="review-text">I joined Cloud World Institute to upskill in Cloud Computing, and it was the best decision. The courses are well-structured, and the trainers provide real-world insights.</p>
                             <div class="reviewer-info">
                                 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                                <p class="name">Ravi Kumar</p><p class="role">Student</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-card">
-                            <p class="review-text">The flexible learning schedule and dedicated mentors made my learning experience smooth and effective. Highly recommended for anyone looking to advance their career.</p>
-                            <div class="reviewer-info">
-                                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
-                                <p class="name">Anjali Sharma</p><p class="role">Cloud Engineer</p>
+                                <p class="name">Rohan Sharma</p><p class="role">Cloud Engineer</p>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-dots"></div>
+                    <div class="testimonial-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
                 </div>
             </div>
- 
         </section>
 
-            <!-- Pagination Dots -->
-            <div class="testimonial-dots"></div>
-        </div>
-    </div>
-</section>
-<!--End the Review Section--->
-
-
-
-        <!---==============================================-->
-        <!---Start Chat Box code-->
-        <!--===============================================-->
-
-            <!-- ------------- WIDGET HTML STARTS HERE ------------- -->
-    <div class="contact-widget-container" id="contact-widget">
-        
-        <div class="contact-options">
-            
-            <!-- CUSTOMIZE THIS: Replace "+1234567890" with your phone number -->
-            <a href="tel:+919309700672" class="contact-option phone-option">
-                <span>Direct Call Us</span>
-                <div class="option-icon">
-                    <!-- Phone Icon SVG -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-                </div>
-            </a>
-            
-            <!-- CUSTOMIZE THIS: Replace "1234567890" with your WhatsApp number -->
-            <a href="https://api.whatsapp.com/send/?phone=919309700672&text&type=phone_number&app_absent=0" target="_blank" class="contact-option whatsapp-option">
-                <span>Chat on WhatsApp</span>
-                <div class="option-icon">
-                    <!-- OFFICIAL WhatsApp Icon SVG -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.8-26.7l-7.1-4.2-73.3 19.3 19.3-71.6-4.7-7.5c-19.1-30.1-29.6-65.4-29.6-102.3 0-110.2 89.9-200 200.1-200 55.1 0 105.9 21.5 143.4 58.9 37.5 37.5 58.9 88.3 58.9 143.4c-.1 110.2-90 200-200.1 200zm107.7-164.5c-3.3-1.7-19.8-9.8-23-11s-5.5-1.7-7.8 1.7-8.7 11-10.7 13.3c-2 2.3-3.9 2.7-7.2 1-3.3-1.7-14-5.2-26.7-16.5-9.9-8.8-16.6-19.6-18.6-23s-2-5.5-.6-7.2c1.3-1.3 3-3.3 4.5-5.2 1.5-1.9 2-3.3 3-5.5s1.5-3.3 0-5.5c-1.5-2.3-7.8-18.7-10.7-25.7s-5.8-6-7.8-6.1c-2-.1-4.3-.1-6.6-.1s-5.8 1.7-8.7 4.2-11.2 10.8-11.2 26.2c0 15.4 11.5 30.4 13 32.4s22.4 34.1 54.2 47.7c7.9 3.3 14.1 5.3 18.8 6.9 11.2 3.7 21.4 3.2 29.3 1.9 8.8-1.3 19.8-8.1 22.6-15.9 2.8-7.8 2.8-14.4 2-15.9s-3.3-2.3-6.6-4z"/></svg>
-                </div>
-            </a>
-        </div>
-        
-        <button class="contact-fab" id="fab-toggle">
-            <!-- Icon: Open State (Message Bubble) -->
-            <div class="fab-icon icon-open">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M123.6 391.3c12.9-9.4 29.6-11.8 44.6-6.4c26.5 9.6 56.2 15.1 87.8 15.1c124.7 0 208-80.5 208-160s-83.3-160-208-160S48 160.5 48 240c0 32 12.4 62.8 35.7 89.2c8.6 9.7 12.8 22.5 11.8 35.5c-1.4 18.1-5.7 34.7-11.3 49.4c17-7.9 31.1-16.7 39.4-22.7zM21.2 431.9c1.8-2.7 3.5-5.4 5.1-8.1c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208s-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9-4.2-25.3-5.3-38.2-3.2c-24.4 4.1-47.3 10.1-68.4 18.5c-13.9 5.6-25.9 12.6-36.1 21.3c-2.2 1.8-4.5 3.6-6.7 5.2c-2.3 1.6-3.2 4.4-2.1 6.7c1.1 2.3 3.5 3.6 6 3.1c2.7-1.5 5.5-3.1 8.3-4.8c13.2-8.4 29.1-15.3 46.5-19.8c-1.8 2.3-3.6 4.6-5.3 6.9c-6.2 8.1-13.2 15.6-21.2 22.4C26.3 474.1 17.6 480 8 480c-4.4 0-8-3.6-8-8c0-4.4 3.6-8 8-8c7.3 0 14.1-4.1 19.3-8.8C34.4 445.4 40.5 438.2 45.4 431.9z"/></svg>
-            </div>
-            <!-- Icon: Close State (X) -->
-            <div class="fab-icon icon-close">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
-            </div>
-        </button>
-    </div>
-
-    <script>
-    // ------------- WIDGET JAVASCRIPT STARTS HERE -------------
-    document.addEventListener('DOMContentLoaded', function() {
-        const fabToggle = document.getElementById('fab-toggle');
-        const widgetContainer = document.getElementById('contact-widget');
-
-        fabToggle.addEventListener('click', function() {
-            widgetContainer.classList.toggle('active');
-        });
-    });
-    </script>
-
-          <!---==============================================-->
-        <!---End Chat Box code-->
-        <!--===============================================-->
-
-
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const cardsContainer = document.querySelector('.testimonial-cards-container');
-        const cards = document.querySelectorAll('.testimonial-card');
-        const dotsContainer = document.querySelector('.testimonial-dots');
-
-        if (!cardsContainer || cards.length === 0 || !dotsContainer) {
-            console.warn('Testimonial slider elements not found. Slider will not initialize.');
-            return;
-        }
-
-        let currentIndex = 0;
-        const slideIntervalTime = 5000; // 5 seconds
-        let slideInterval;
-        const dots = []; // To store created dot elements
-
-        // Create dots based on the number of cards
-        cards.forEach((_, index) => {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            dot.setAttribute('data-index', index); // Helpful for debugging
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                resetInterval(); // Reset interval on manual dot click
-            });
-            dotsContainer.appendChild(dot);
-            dots.push(dot); // Store the dot
-        });
-
-        function updateSliderHeight() {
-            if (cards.length > 0 && cards[currentIndex]) {
-                // Ensure the active card is fully visible before getting its height
-                // This might be more reliable after transitions complete, but for now:
-                const activeCard = cards[currentIndex];
-                // Temporarily make it visible to get height if it's not already
-                const wasInvisible = activeCard.style.opacity === '0';
-                if(wasInvisible) {
-                    activeCard.style.position = 'relative'; // to take space
-                    activeCard.style.opacity = '1'; // temporarily show
-                }
-                
-                const cardHeight = activeCard.offsetHeight;
-                cardsContainer.style.minHeight = `${cardHeight}px`;
-
-                if(wasInvisible) { // revert if changed
-                     activeCard.style.position = 'absolute';
-                     activeCard.style.opacity = '0';
-                }
-                 // If it's already the active card in the DOM, ensure its opacity is 1
-                if (activeCard.classList.contains('active')) {
-                    activeCard.style.opacity = '1';
-                }
-
-            } else {
-                 cardsContainer.style.minHeight = `350px`; // Default fallback
-            }
-        }
-
-
-        function goToSlide(index) {
-            if (index < 0 || index >= cards.length) {
-                console.warn(`Attempted to go to invalid slide index: ${index}`);
-                return;
-            }
-
-            // No need to run if already on the selected slide AND it's already visually active
-            // The original check was `currentIndex === index && document.querySelector('.testimonial-card.active')`
-            // which could be problematic if the `active` class wasn't perfectly synced.
-            // A simpler check: if we're trying to go to the current index, and it's already visually active, do nothing.
-            if (currentIndex === index && cards[index].classList.contains('active')) {
-                 // Ensure height is correct even if we don't change slide
-                updateSliderHeight();
-                return;
-            }
-
-            currentIndex = index;
-
-            // Update active classes for cards
-            cards.forEach((card, i) => {
-                if (i === currentIndex) {
-                    card.classList.add('active');
-                    // card.style.opacity = '1'; // Handled by CSS .active
-                    // card.style.transform = 'scale(1) translateY(0)'; // Handled by CSS .active
-                } else {
-                    card.classList.remove('active');
-                    // card.style.opacity = '0'; // Handled by CSS
-                    // card.style.transform = 'scale(0.95) translateY(20px)'; // Handled by CSS
-                }
-            });
-
-            // Update active classes for dots
-            dots.forEach((dot, i) => {
-                if (i === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-
-            updateSliderHeight();
-        }
-
-        function nextSlide() {
-            const nextIndex = (currentIndex + 1) % cards.length;
-            goToSlide(nextIndex);
-        }
-
-        function startInterval() {
-            // Clear any existing interval before starting a new one
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, slideIntervalTime);
-        }
-        
-        function resetInterval() {
-            clearInterval(slideInterval);
-            startInterval();
-        }
-
-        // Initialize the first slide
-        if (cards.length > 0) {
-            goToSlide(0); // Set initial slide
-            startInterval(); // Start automatic sliding
-        }
-
-        // Optional: Pause slider on mouse hover
-        if (cardsContainer) {
-            cardsContainer.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            cardsContainer.addEventListener('mouseleave', () => {
-                startInterval();
-            });
-        }
-         // Recalculate height on window resize, especially for responsive text
-        window.addEventListener('resize', updateSliderHeight);
-    });
-</script>
-
     </main>
-    
-    <!-- FOOTER (Added) -->
+
+    <br>
+    <br>
+    <br>
+
     <footer>
         <div class="footer-container">
             <div class="dashed-line"></div>
-            <nav class="footer-nav-top">
+            <div class="footer-nav-top">
                 <ul>
-                    <li><a href="blog/blog.html">Blogs</a></li>
-                    <li><a href="index.html#review">Reviews</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">In the News</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about_us.html">About Us</a></li>
-                    <li><a href="contact_us.html">Contact us</a></li>
-                    <li><a href="#">Learning Hub</a></li>
+                    <li><a href="Java.html">Programs</a></li>
+                    <li><a href="blog/blog.html">Blogs</a></li>
+                    <li><a href="contact_us.html">Contact Us</a></li>
                 </ul>
-            </nav>
+            </div>
+            <div class="dashed-line"></div>
             <div class="footer-main">
                 <div class="contact-info">
-                    <a href="tel:18003093939"><i class="fa-solid fa-phone"></i> 18003093939</a>
-                    <a href="mailto:hello@kratos.com"><i class="fa-solid fa-envelope"></i> hello@Kratos.com</a>
-                    <a href="https://wa.me/your-whatsapp-number" target="_blank"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+                    <a href="mailto:info@kratosacademy.com"><i class="fas fa-envelope"></i> info@kratosacademy.com</a>
+                    <a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 98765 43210</a>
+                    <a href="https://maps.app.goo.gl/yourlocation" target="_blank"><i class="fas fa-map-marker-alt"></i> Delhi, India</a>
                 </div>
                 <div class="social-icons">
-                    <a href="#" aria-label="Instagram" class="social-icon instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" aria-label="YouTube" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://instagram.com/kratosacademy" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/kratosacademy" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://youtube.com/kratosacademy" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="dashed-line"></div>
             <div class="footer-bottom">
+                <div class="copyright"> <p>&copy; 2025 Kratos Academy. All rights reserved.</p> </div>
                 <div class="footer-links-bottom">
-                    <a href="tearm_condition.html">Terms and Conditions</a>&
-                    <a href="Privacy_policy.html">Privacy Policy</a>
-                    <span>|</span>
-                    <a href="#">Sitemap</a>
-                </div>
-                <div class="copyright">
-                    <p>© <span id="current-year"></span> Kratos. All rights reserved.</p>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- 1. NAVBAR DROPDOWN SCRIPT ---
-            const programsButton = document.querySelector('.programs-button');
-            const programsContainer = document.querySelector('.programs-container');
-            if (programsButton && programsContainer) {
-                programsButton.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    programsContainer.classList.toggle('show');
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-                window.addEventListener('click', function(event) {
-                    if (programsContainer.classList.contains('show')) {
-                        programsContainer.classList.remove('show');
-                    }
-                });
-            }
-
-            // --- 2. ABOUT US PAGE ANIMATIONS ---
-            const animatedElements = document.querySelectorAll(
-                '.timeline-card, .pioneer-card, .milestone-card, .new-timeline-item, .why-choose-card'
-            );
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            animatedElements.forEach(el => observer.observe(el));
-
-            // --- 3. TESTIMONIAL SLIDER ---
-            const cardsContainer = document.querySelector('.testimonial-cards-container');
-            const cards = document.querySelectorAll('.testimonial-card');
-            const dotsContainer = document.querySelector('.testimonial-dots');
-            if (cardsContainer && cards.length > 0 && dotsContainer) {
-                let currentIndex = 0;
-                let slideInterval = setInterval(nextSlide, 5000);
-                
-                cards.forEach((_, index) => {
-                    const dot = document.createElement('span');
-                    dot.classList.add('dot');
-                    dot.addEventListener('click', () => goToSlide(index));
-                    dotsContainer.appendChild(dot);
-                });
-                const dots = dotsContainer.querySelectorAll('.dot');
-                
-                function goToSlide(index) {
-                    if (currentIndex === index && document.querySelector('.testimonial-card.active')) return;
-                    currentIndex = index;
-                    const activeCard = cards[currentIndex];
-                    const cardHeight = activeCard.offsetHeight;
-                    cardsContainer.style.minHeight = `${cardHeight}px`;
-                    cards.forEach((card, i) => card.classList.toggle('active', i === currentIndex));
-                    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-                    resetInterval();
-                }
-                function nextSlide() { goToSlide((currentIndex + 1) % cards.length); }
-                function resetInterval() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 5000); }
-                
-                goToSlide(0);
-                window.addEventListener('resize', () => goToSlide(currentIndex));
-            }
-            
-            // --- 4. FOOTER YEAR SCRIPT (Added) ---
-            const yearSpan = document.getElementById('current-year');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
-            }
+            });
         });
+
+        // Navbar programs dropdown functionality
+        const programsContainer = document.querySelector('.programs-container');
+        const programsButton = document.querySelector('.programs-button');
+
+        if (programsButton) {
+            programsButton.addEventListener('click', () => {
+                programsContainer.classList.toggle('show');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!programsContainer.contains(e.target) && !programsButton.contains(e.target)) {
+                    programsContainer.classList.remove('show');
+                }
+            });
+        }
+
+        // Testimonial Slider
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const testimonialDotsContainer = document.querySelector('.testimonial-dots');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            testimonialCards.forEach((card, i) => {
+                card.classList.remove('active');
+                if (i === index) {
+                    card.classList.add('active');
+                }
+            });
+            updateDots(index);
+        }
+
+        function updateDots(index) {
+            if (testimonialDotsContainer) {
+                const dots = testimonialDotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.remove('active');
+                    if (i === index) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % testimonialCards.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + testimonialCards.length) % testimonialCards.length;
+            showSlide(currentSlide);
+        }
+
+        if (testimonialCards.length > 0) {
+            showSlide(currentSlide); // Initialize first slide
+            // Add event listeners to dots
+            if (testimonialDotsContainer) {
+                testimonialDotsContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('dot')) {
+                        const slideIndex = parseInt(e.target.dataset.slide);
+                        if (!isNaN(slideIndex)) {
+                            currentSlide = slideIndex;
+                            showSlide(currentSlide);
+                        }
+                    }
+                });
+            }
+            // Optional: Auto-advance slides
+            setInterval(nextSlide, 5000);
+        }
+
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of the item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: Unobserve after visible if you only want the animation to happen once
+                    // observer.unobserve(entry.target);
+                } else {
+                    // Optional: Remove 'visible' class if you want animation to re-trigger on scroll back up
+                    // entry.target.classList.remove('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-card, .pioneer-card, .milestone-card, .new-timeline-item .new-timeline-content, .why-choose-card').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Mobile menu toggle (if you implement a full mobile menu)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active'); // You would need to add CSS for .nav-links.active to show/hide
+            });
+        }
     </script>
 </body>
 </html>

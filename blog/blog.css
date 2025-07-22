@@ -55,7 +55,7 @@
         .programs-button {
             /* === NEW NAVBAR THEME === */
             background-color: #9b59b6;
-            color: #fff;
+            color: #000000;
             border: none;
             border-radius: 50px;
             padding: 12px 24px;
@@ -91,7 +91,7 @@
 
         .nav-links a {
             /* === NEW NAVBAR THEME === */
-            color: #b4a5d2;
+            color: #000000;
             text-decoration: none;
             font-size: 20px;
             font-weight: 400;
@@ -115,7 +115,7 @@
         }
 
         .nav-links a:hover {
-            color: #fff; /* Keep white for a nice hover contrast */
+            color: #000000; /* Keep white for a nice hover contrast */
         }
 
         .nav-links a:hover::after {
@@ -126,8 +126,8 @@
         .nav-button-cta {
             background-color: transparent;
             /* === NEW NAVBAR THEME === */
-            border: 2px solid #b4a5d2;
-            color: #b4a5d2;
+            border: 2px solid #ffffff;
+            color: #000000;
             border-radius: 50px;
             padding: 10px 25px;
             text-decoration: none;
