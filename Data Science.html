@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science Learning Path</title>
+    <title>6-Month Powerhouse Roadmap: ML, LLM, MLOps & LLMOps</title>
     <style>
     :root {
-        /* UPDATED: New Data Science-themed color palette */
-        --body-bg: #F8F9FA;          /* Clean Light Gray Background */
-        --card-bg: #FFFFFF;          /* White Cards */
-        --heading-color: #1A202C;     /* Professional Dark Charcoal */
-        --text-color: #4A5568;        /* Readable Gray Text */
-        --accent-color: #805AD5;      /* Professional Deep Purple for accents */
+        /* UPDATED: New AI/ML-themed color palette */
+        --body-bg: #F4F4F5;          /* Light, clean background */
+        --card-bg: #FFFFFF;          /* Crisp white cards */
+        --heading-color: #2D3748;     /* Professional dark blue-gray for headings */
+        --text-color: #4A5568;        /* Readable gray for descriptions */
+        --accent-color: #6366F1;      /* A modern, techy indigo for AI theme */
         
-        --line-bg-color: rgba(128, 90, 213, 0.2);
+        --line-bg-color: rgba(99, 102, 241, 0.2);
         --line-fill-color: var(--accent-color);
-        --dot-color: rgba(128, 90, 213, 0.4);
+        --dot-color: rgba(99, 102, 241, 0.4);
         --dot-active-color: var(--accent-color);
-        --accent-blue: #007bff;
+        --accent-blue: #6366F1; 
     }
 
     body {
@@ -64,6 +64,18 @@
         font-size: 2.5em; font-weight: 700; 
         color: var(--heading-color);
         text-shadow: none;
+        line-height: 1.2;
+    }
+    
+    .sub-header-text {
+        font-size: 1.15em;
+        color: var(--text-color);
+        margin-top: 10px;
+        margin-bottom: 20px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
     }
 
     .toggle-switch-container {
@@ -76,8 +88,13 @@
     .toggle-label {
         font-size: 1.1em;
         font-weight: 600;
-        color: var(--heading-color);
+        color: var(--text-color); 
         user-select: none;
+        transition: color 0.4s ease, font-weight 0.4s ease;
+    }
+    .toggle-label.active {
+        color: var(--accent-color);
+        font-weight: 700;
     }
     .switch {
         position: relative;
@@ -170,7 +187,7 @@
         padding: 25px; 
         background: var(--card-bg);
         border-radius: 12px; 
-        box-shadow: 0 6px 30px rgba(26, 32, 44, 0.08);
+        box-shadow: 0 6px 30px rgba(45, 55, 72, 0.08);
         position: relative; text-align: left;
         border: 1px solid #E2E8F0;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -178,7 +195,7 @@
     
     .timeline-content:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 45px rgba(26, 32, 44, 0.12);
+        box-shadow: 0 12px 45px rgba(45, 55, 72, 0.12);
     }
     
     .content-header {
@@ -250,12 +267,88 @@
     .modal-accordion-toggle { display: inline-block; width: 8px; height: 8px; border-right: 2px solid var(--heading-color); border-bottom: 2px solid var(--heading-color); transform: rotate(45deg); transition: transform 0.3s ease; }
     .modal-accordion-item.open .modal-accordion-toggle { transform: rotate(-135deg); }
     .modal-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 15px 0 0; color: #6c757d; font-size: 0.95rem; line-height: 1.6; }
-    .modal-accordion-item.open .modal-accordion-body { max-height: 200px; padding: 0 15px 15px 0; }
+    .modal-accordion-item.open .modal-accordion-body { max-height: 500px; /* Increased max-height */ padding: 0 15px 15px 0; }
     
     #modal-body::-webkit-scrollbar { width: 8px; }
     #modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
     #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
     #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+    /* Capstone Section Styles */
+    .capstone-container {
+        padding: 50px 25px;
+        margin-top: 40px;
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(45, 55, 72, 0.1);
+        border: 1px solid #E2E8F0;
+        text-align: left;
+    }
+    .capstone-container h2 {
+        font-size: 2.2em;
+        font-weight: 700;
+        color: var(--heading-color);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .capstone-container .subtitle {
+        font-size: 1.15em;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .capstone-container h3 {
+        font-size: 1.7em;
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-top: 40px;
+        margin-bottom: 25px;
+        border-bottom: 3px solid var(--line-bg-color);
+        padding-bottom: 12px;
+    }
+    .projects-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    .projects-grid li {
+        background-color: var(--body-bg);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid var(--accent-color);
+        font-size: 0.95em;
+        line-height: 1.6;
+        color: var(--text-color);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .projects-grid li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    }
+    .projects-grid li strong {
+        color: var(--heading-color);
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+    }
+    .learning-points {
+        list-style: '✅';
+        padding-left: 25px;
+        margin: 20px 0;
+        color: var(--text-color);
+    }
+    .learning-points li {
+        padding-left: 15px;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
 
 </style>
 </head>
@@ -267,19 +360,51 @@
 
     <div class="main-container">
         <div class="header-container">
-            <h1 id="main-header-text">Data Science Learning Path</h1>
+            <h1 id="main-header-text">6-Month Powerhouse Roadmap: ML, LLM, MLOps & LLMOps</h1>
+            <p class="sub-header-text">Level up your skills with the definitive AI Engineering journey—mastering Machine Learning (ML), Large Language Models (LLMs), MLOps, and LLMOps through associate-to-advanced tooling, real-world pipelines, and a full suite of production projects.</p>
         </div>
         
         <div class="toggle-switch-container">
-            <span class="toggle-label">Foundations & Analysis</span>
+            <span id="label-backend" class="toggle-label">Months 1-3</span>
             <label class="switch">
                 <input type="checkbox" id="mode-toggle">
                 <span class="slider"></span>
             </label>
-            <span class="toggle-label">Machine Learning & Advanced</span>
+            <span id="label-frontend" class="toggle-label">Months 4-5</span>
         </div>
 
         <div id="language-display"></div>
+        
+        <div class="capstone-container">
+            <h2>Month 6: Corporate-Grade Capstone Projects Sprint</h2>
+            <p class="subtitle">The final month is a hands-on project marathon: ship 12 production-ready, team-based capstones featuring real-world requirements, end-to-end pipelines, and scalable GenAI and MLOps/LLMOps stacks.</p>
+        
+            <h3>💥 Capstone Projects Lineup</h3>
+            <ul class="projects-grid">
+                <li><strong>Multi-Cloud ML Pipeline:</strong> Cloud-agnostic, reproducible ML pipeline on AWS, GCP, or Azure with full CI/CD, automated retraining, and deployment.</li>
+                <li><strong>LLM-Powered Customer Support Bot:</strong> Build, deploy, monitor, and scale a RAG-based chatbot integrating vector DBs, prompt engineering, and monitoring in prod.</li>
+                <li><strong>Automated Data Drift & Model Monitoring Platform:</strong> Live dashboards and alerting for ML/LLM drift, with workflow-triggered retraining.</li>
+                <li><strong>End-to-End MLOps with Kubeflow:</strong> Pipeline ingestion, training, validation, deployment, and versioning on Kubernetes.</li>
+                <li><strong>GenAI Content Moderation System:</strong> LLM-based filtering, hallucination detection, safe output auditing, and logging.</li>
+                <li><strong>Realtime Recommendation System:</strong> Scalable, low-latency recommendations with automated A/B testing and rollback capabilities.</li>
+                <li><strong>LLM CI/CD & LLMOps:</strong> Secure, audited LLM model deployment flow, version tracking, experiment tracking, and production-grade serving.</li>
+                <li><strong>Explainable AI Platform:</strong> Build dashboards for SHAP/LIME explanations, drift, and transparency for ML and LLM predictions.</li>
+                <li><strong>Secure Model API Gateway:</strong> An API gateway with rate limits, RBAC, and approval flows for ML/LLM serving in regulated environments.</li>
+                <li><strong>Human-in-the-Loop AI Feedback System:</strong> Real-world feedback integration into model improvement pipelines for continuous learning.</li>
+                <li><strong>Serverless ML/LLM Event Pipeline:</strong> Auto-triggered retraining or inference with Lambda/Cloud Functions for a scalable, cost-optimized solution.</li>
+                <li><strong>Business KPI AI Insights Board:</strong> Combine structured/unstructured reporting via model insights and LLM-generated summaries on a live dashboard.</li>
+            </ul>
+        
+            <h3>🎓 Program Structure & Outcomes</h3>
+            <ul class="learning-points">
+                <li>Every lesson is coding-focused with a hands-on project.</li>
+                <li>Benefit from live code reviews, team sprints, and hackathons.</li>
+                <li>Master practical ML/LLM building blocks and deployment tools.</li>
+                <li>Become fluent in production MLOps/LLMOps workflows.</li>
+                <li>Build and present 12 full-scale, corporate-ready projects.</li>
+                <li>Graduate with a production-grade portfolio to impress any employer.</li>
+            </ul>
+        </div>
     </div>
 
     <div id="topics-modal" class="modal-overlay">
@@ -300,83 +425,78 @@
         const modalBodyList = document.querySelector('#modal-body ul');
         const closeModalBtn = document.querySelector('.close-modal');
         
-        // --- UPDATED: New data object for Data Science Learning Path ---
+        const backendLabel = document.getElementById('label-backend');
+        const frontendLabel = document.getElementById('label-frontend');
+        
+        // UPDATED: Data object with ML/LLM content
         const data = {
-            foundations: [
-                { name: 'Mathematics for ML', desc: "The bedrock of machine learning, covering linear algebra, calculus, and statistics to understand model behavior.", linkText: 'Understand the Math >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z"></path><path d="M8 7v12"></path><path d="M16 7v12"></path><path d="M8 12h8"></path><path d="M12 5v14"></path></svg>`,
+            // Months 4-5
+            frontend: [
+                { 
+                  name: 'Month 4', 
+                  desc: 'LLM Development & Applications', 
+                  linkText: 'View LLM Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
                   topics: [
-                    { title: 'Linear Algebra', details: 'Master vectors, matrices, and eigenvalues. Essential for understanding data structures and algorithms like PCA and Deep Learning.' },
-                    { title: 'Calculus', details: 'Learn derivatives and gradients. This is the core of how machine learning models, like neural networks, actually learn via optimization.' },
-                    { title: 'Probability & Statistics', details: 'Understand probability distributions, hypothesis testing, and statistical significance to make valid conclusions from data.' },
-                    { title: 'Information Theory', details: 'Grasp concepts like entropy and cross-entropy, which are fundamental for classification models and loss functions.' }
+                    { title: 'LLM Architectures', details: 'Study GPT, Llama2, Mistral, and the open-source landscape.' },
+                    { title: 'Development Frameworks', details: 'Get hands-on with Hugging Face/Transformers and LangChain.' },
+                    { title: 'Prompt Engineering', details: 'Learn best practices for designing effective prompts and interactions.' },
+                    { title: 'Fine-Tuning & Evaluation', details: 'Fine-tune and evaluate models on custom datasets for specific tasks.' },
+                    { title: 'Use-Case Builds', details: 'Build Retrieval Augmented Generation (RAG) systems, summarization tools, and other GenAI applications.' },
+                    { title: 'Mini-Projects', details: 'Create a prompt engineering leaderboard, a custom QA chatbot, and a document search engine with vector databases.' }
                   ]
                 },
-                { name: 'Python for Data Science', desc: "Leverage Python's scientific computing stack to manipulate, analyze, and visualize complex datasets efficiently.", linkText: 'Explore Python >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path><path d="M10.5 14.5a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z"></path><path d="M16 11.5v-2a3 3 0 0 0-3-3h-2.5"></path><path d="M8 12.5v2a3 3 0 0 0 3 3h2.5"></path></svg>`,
+                { 
+                  name: 'Month 5', 
+                  desc: 'MLOps & LLMOps Productionization', 
+                  linkText: 'View Production Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`,
                   topics: [
-                    { title: 'Pandas', details: 'The cornerstone library for data manipulation. Master DataFrames for cleaning, filtering, joining, and aggregating structured data.' },
-                    { title: 'NumPy', details: 'The fundamental package for scientific computing in Python, providing powerful N-dimensional array objects and mathematical functions.' },
-                    { title: 'Matplotlib & Seaborn', details: 'Create a wide range of static and interactive visualizations to understand data distributions and relationships.' },
-                    { title: 'Scikit-learn', details: 'The go-to library for traditional machine learning, providing a consistent API for pre-processing, training, and evaluating models.' }
-                  ]
-                },
-                { name: 'SQL & Data Wrangling', desc: "Acquire and prepare data from various sources, making it suitable for analysis and modeling.", linkText: 'Prepare Your Data >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
-                  topics: [
-                    { title: 'Advanced SQL', details: 'Go beyond basic queries. Master window functions, Common Table Expressions (CTEs), and complex joins to extract precise data.' },
-                    { title: 'Data Cleaning', details: 'Handle missing values, correct data types, and remove inconsistencies to ensure the quality and reliability of your dataset.' },
-                    { title: 'Feature Engineering', details: 'Create new, informative features from existing data to improve the performance of machine learning models.' },
-                    { title: 'Data Scaling & Transformation', details: 'Apply techniques like normalization and standardization to prepare features for algorithms that are sensitive to scale.' }
-                  ]
-                },
-                { name: 'Exploratory Data Analysis', desc: "The critical process of investigating datasets to summarize their main characteristics, often with visual methods.", linkText: 'Discover Patterns >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>`,
-                  topics: [
-                    { title: 'Univariate & Bivariate Analysis', details: 'Analyze single variables to understand their distributions and pairs of variables to understand their relationships.' },
-                    { title: 'Correlation Analysis', details: 'Quantify the relationship between numerical variables using metrics like Pearson correlation and visualize it with heatmaps.' },
-                    { title: 'Outlier Detection', details: 'Identify and handle data points that deviate significantly from other observations, as they can impact model performance.' },
-                    { title: 'Visual Pattern Recognition', details: 'Use tools like pair plots and distribution plots to visually identify trends, clusters, and anomalies in your data.' }
+                    { title: 'MLOps Essentials', details: 'Covering the full MLOps life cycle: versioning, CI/CD for models, Kubeflow/Pachyderm orchestration, model monitoring, and security. Mini-Projects include building a CI/CD ML pipeline and a model drift dashboard.' },
+                    { title: 'LLMOps for Scalable GenAI', details: 'Focus on the LLMOps lifecycle: automated fine-tuning, vector DB management, inference optimization (quantization), and advanced monitoring for hallucinations and privacy. Mini-Projects include an API-first Chatbot and automated LLM monitoring triggers.' }
                   ]
                 }
             ],
-            machine_learning: [
-                { name: 'Supervised Learning', desc: "Train models on labeled data to make predictions, covering both regression and classification tasks.", linkText: 'Make Predictions >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14l-4-4 4-4"/><path d="M9 18v-5.5a2.5 2.5 0 0 1 5 0V18"/><path d="M12 18.5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0Z"/><path d="M12 6.5A2.5 2.5 0 1 0 7 4a2.5 2.5 0 0 0 5 2.5Z"/></svg>`,
+            // Months 1-3
+            backend: [
+                { 
+                  name: 'Month 1', 
+                  desc: "ML Fundamentals & Python Mastery", 
+                  linkText: 'View Core ML Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
                   topics: [
-                    { title: 'Regression Models', details: 'Predict continuous values. Learn Linear Regression for simple relationships and advanced models like Ridge and Lasso.' },
-                    { title: 'Classification Models', details: 'Predict discrete categories. Master Logistic Regression, Support Vector Machines (SVMs), and Naive Bayes.' },
-                    { title: 'Tree-Based Models', details: 'Understand Decision Trees and their evolution into powerful ensemble methods like Random Forests and Gradient Boosting (XGBoost, LightGBM).' },
-                    { title: 'Model Evaluation Metrics', details: 'Learn to measure performance correctly: R-squared/MAE for regression, and Accuracy/Precision/Recall/F1-score/AUC-ROC for classification.' }
+                    { title: 'Data Wrangling & Visualization', details: 'Master data manipulation and visualization with NumPy, pandas, and seaborn.' },
+                    { title: 'Essential ML Algorithms', details: 'Implement regression, classification, and clustering with scikit-learn.' },
+                    { title: 'Feature Engineering & Model Selection', details: 'Learn core techniques for creating features and selecting the best models.' },
+                    { title: 'Mini-Projects', details: 'Build a Titanic survival predictor, an image classifier for a custom dataset, and a model selection leaderboard.' },
                   ]
                 },
-                { name: 'Unsupervised Learning', desc: "Discover hidden patterns and structures in unlabeled data through clustering and dimensionality reduction.", linkText: 'Find Structures >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/><path d="M7 12a5 5 0 015-5m0 10a5 5 0 01-5-5"/></svg>`,
+                { 
+                  name: 'Month 2', 
+                  desc: 'End-to-End ML Projects', 
+                  linkText: 'View MLOps Basics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`,
                   topics: [
-                    { title: 'Clustering Algorithms', details: 'Group similar data points together. Learn K-Means for simple cases, DBSCAN for density-based clustering, and Hierarchical clustering.' },
-                    { title: 'Dimensionality Reduction', details: 'Reduce the number of features in your dataset while retaining important information using techniques like Principal Component Analysis (PCA).' },
-                    { title: 'Anomaly Detection', details: 'Identify rare items, events, or observations which raise suspicions by differing significantly from the majority of the data.' },
-                    { title: 'Association Rule Mining', details: 'Discover interesting relations between variables in large databases, famously used for "market basket analysis".' }
+                    { title: 'Model Orchestration & Pipelines', details: 'Build and manage workflows with Jupyter and scikit-learn Pipelines.' },
+                    { title: 'Experiment Management', details: 'Track experiments and results using MLflow and Weights & Biases.' },
+                    { title: 'Data Versioning', details: 'Use DVC to version datasets and ensure reproducibility.' },
+                    { title: 'Intro to Cloud ML', details: 'Get an introduction to cloud environments like SageMaker, Vertex AI, and AzureML.' },
+                    { title: 'Mini-Projects', details: 'Implement experiment tracking with auto-logging and build a reproducible pipeline to detect data drift.' },
                   ]
                 },
-                { name: 'Deep Learning', desc: "Build and train neural networks to solve complex problems in computer vision, NLP, and more.", linkText: 'Explore Neural Nets >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><path d="M12 6.5V10.5"/><path d="M12 13.5V17.5"/><path d="M10.5 12H6.5"/><path d="M17.5 12H13.5"/><path d="M8.03 8.03L10.5 10.5"/><path d="M13.5 13.5L15.97 15.97"/><path d="M8.03 15.97L10.5 13.5"/><path d="M13.5 10.5L15.97 8.03"/></svg>`,
+                { 
+                  name: 'Month 3', 
+                  desc: 'Deep Learning & NLP Foundation', 
+                  linkText: 'View Deep Learning Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>`,
                   topics: [
-                    { title: 'Neural Network Basics', details: 'Understand the building blocks: neurons, layers, activation functions, and the process of backpropagation for learning.' },
-                    { title: 'Convolutional Neural Networks (CNNs)', details: 'The standard architecture for image recognition and computer vision tasks, learning features through convolutional filters.' },
-                    { title: 'Recurrent Neural Networks (RNNs)', details: 'Process sequential data like text or time series. Learn about LSTMs and GRUs for handling long-term dependencies.' },
-                    { title: 'Frameworks (TensorFlow/PyTorch)', details: 'Gain hands-on experience with the leading deep learning frameworks to build, train, and deploy complex neural network models.' }
+                    { title: 'Neural Networks with TensorFlow/PyTorch', details: 'Build and train neural networks from scratch.' },
+                    { title: 'Core Architectures', details: 'Learn about CNNs, RNNs, and get an introduction to Transformers.' },
+                    { title: 'Core NLP Tasks', details: 'Perform sentiment analysis, Named Entity Recognition (NER), and Question-Answering (Q&A).' },
+                    { title: 'Pretrained Model Fine-Tuning', details: 'Fine-tune models from Hugging Face Hub on custom data.' },
+                    { title: 'Mini-Projects', details: 'Build an image recognition model with transfer learning, a sentiment analysis pipeline, and a sequence-to-sequence text generator.' },
                   ]
                 },
-                { name: 'MLOps & Deployment', desc: "Bridge the gap between model development and production by automating and streamlining the ML lifecycle.", linkText: 'Go to Production >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16.5V9.4a4.5 4.5 0 1 1 4.5 4.5v.05A4.5 4.5 0 1 1 12 16.5z"/><path d="M12 3v6.4"/><path d="M21 12h-6.4"/></svg>`,
-                  topics: [
-                    { title: 'Model Versioning & Experiment Tracking', details: 'Use tools like Git, DVC, and MLflow to track changes in code, data, and models, ensuring reproducibility.' },
-                    { title: 'Containerization with Docker', details: 'Package your model and all its dependencies into a standardized container for consistent deployment across environments.' },
-                    { title: 'API Deployment', details: 'Serve your trained model as an API endpoint using web frameworks like Flask or FastAPI, allowing applications to get live predictions.' },
-                    { title: 'Cloud ML Platforms', details: 'Leverage managed services like Amazon SageMaker, Google Vertex AI, or Azure Machine Learning to automate training, deployment, and monitoring.' }
-                  ]
-                }
             ]
         };
         
@@ -387,14 +507,24 @@
                 }
             });
         }, { threshold: 0.2 });
+        
+        function updateToggleLabels() {
+            if (modeToggle.checked) {
+                backendLabel.classList.remove('active');
+                frontendLabel.classList.add('active');
+            } else {
+                backendLabel.classList.add('active');
+                frontendLabel.classList.remove('active');
+            }
+        }
 
         modeToggle.addEventListener('change', () => {
-            // UPDATED: Switch between Data Science categories
             if (modeToggle.checked) {
-                createTimeline('machine_learning');
+                createTimeline('frontend');
             } else {
-                createTimeline('foundations');
+                createTimeline('backend');
             }
+            updateToggleLabels();
         });
 
         languageDisplay.addEventListener('click', (e) => {
@@ -510,7 +640,8 @@
         }
 
         // Initial load
-        createTimeline('foundations');
+        createTimeline('backend');
+        updateToggleLabels();
     </script>
 </body>
 </html>

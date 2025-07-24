@@ -76,8 +76,14 @@
     .toggle-label {
         font-size: 1.1em;
         font-weight: 600;
-        color: var(--heading-color);
+        color: var(--text-color); /* Default color changed */
         user-select: none;
+        transition: color 0.4s ease, font-weight 0.4s ease; /* Added transition */
+    }
+    /* NEW STYLE for the active label */
+    .toggle-label.active {
+        color: var(--accent-color);
+        font-weight: 700;
     }
     .switch {
         position: relative;
@@ -257,6 +263,108 @@
     #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
     #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
 
+    /* Capstone Section Styles */
+    .capstone-container {
+        padding: 50px 25px;
+        margin-top: 40px;
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(45, 55, 72, 0.1);
+        border: 1px solid #E2E8F0;
+        text-align: left;
+    }
+    .capstone-container h2 {
+        font-size: 2.2em;
+        font-weight: 700;
+        color: var(--heading-color);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .capstone-container .subtitle {
+        font-size: 1.15em;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .capstone-container h3 {
+        font-size: 1.7em;
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-top: 40px;
+        margin-bottom: 25px;
+        border-bottom: 3px solid var(--line-bg-color);
+        padding-bottom: 12px;
+    }
+    .projects-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    .projects-grid li {
+        background-color: var(--body-bg);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid var(--accent-color);
+        font-size: 0.95em;
+        line-height: 1.6;
+        color: var(--text-color);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .projects-grid li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    }
+    .projects-grid li strong {
+        color: var(--heading-color);
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+    }
+    .learning-points {
+        list-style: '✅';
+        padding-left: 25px;
+        margin: 20px 0;
+        color: var(--text-color);
+    }
+    .learning-points li {
+        padding-left: 15px;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
+    .capstone-container > .info-text {
+        font-size: 1.1em;
+        line-height: 1.7;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .final-pitch {
+        margin-top: 40px;
+        padding: 30px;
+        background: linear-gradient(135deg, rgba(248, 152, 32, 0.08), rgba(248, 152, 32, 0.02));
+        border: 2px solid var(--line-bg-color);
+        border-radius: 12px;
+        text-align: center;
+    }
+    .final-pitch p {
+        margin: 0;
+        font-size: 1.1em;
+        line-height: 1.7;
+        color: var(--text-color);
+    }
+    .final-pitch p:first-child {
+        font-weight: 700;
+        color: var(--heading-color);
+        font-size: 1.25em;
+        margin-bottom: 8px;
+    }
+
 </style>
 </head>
 <body>
@@ -270,16 +378,52 @@
             <h1 id="main-header-text">DevOps & SRE</h1>
         </div>
         
+        <!-- UPDATED: Labels changed and IDs added for clarity -->
         <div class="toggle-switch-container">
-            <span class="toggle-label">Backend</span>
+            <span id="label-backend" class="toggle-label">Months 1-3</span>
             <label class="switch">
                 <input type="checkbox" id="mode-toggle">
                 <span class="slider"></span>
             </label>
-            <span class="toggle-label">Frontend</span>
+            <span id="label-frontend" class="toggle-label">Months 4-6</span>
         </div>
 
         <div id="language-display"></div>
+        
+        <div class="capstone-container">
+            <h2>Your Showstopper Month: 12 Corporate-Level Capstone Projects</h2>
+            <p class="subtitle">End your journey with a hands-on capstone marathon—real projects, real tools, real cloud!</p>
+        
+            <h3>💥 Corporate-Grade Capstone Projects Lineup</h3>
+            <ul class="projects-grid">
+                <li><strong>GitOps-powered Enterprise Platform:</strong> Cloud-native multi-env deployment to EKS with Argo CD, secure automated rollouts from Git to prod.</li>
+                <li><strong>Production Service Mesh with Istio & Kiali:</strong> Deploy secure microservices, visualize traffic and policies with Kiali, enforce mutual TLS and fine-grained policies.</li>
+                <li><strong>Canary & Blue/Green Automated Releases:</strong> Use Argo Rollouts & Istio for zero-downtime updates, automated metrics-triggered rollbacks, instant Slack alerts.</li>
+                <li><strong>Cloud Infrastructure as Code on Steroids:</strong> Terraform all the things: VPC, EKS, databases, IAM – reusable modules, secrets managed securely.</li>
+                <li><strong>Monitoring and Distributed Tracing at Scale:</strong> Full observability pipeline: logs with Loki, traces with Tempo, metrics with Prometheus, visualized in Grafana.</li>
+                <li><strong>Slack-Driven Incident Response (ChatOps):</strong> Integrate Slack alerts with Grafana & Prometheus, automate runbook tasks via chat commands, set up escalation policies.</li>
+                <li><strong>Enterprise-Grade CI/CD Security Pipeline:</strong> Secure every artifact: image scanning, secrets management, end-to-end compliance checks via Jenkins, GitHub Actions, Argo CD.</li>
+                <li><strong>Alloy-Powered Multi-Cloud Telemetry:</strong> Deploy Alloy for unified collection of logs, traces, and metrics from AWS/GCP/Azure, visualize on Grafana.</li>
+                <li><strong>Disaster Recovery & High-Availability Experiments:</strong> Automated cross-region replication, failovers, managed infra with Terraform, automated DR drills.</li>
+                <li><strong>Self-Healing, Auto-Remediating Production Environments:</strong> Monitor with Prometheus/Grafana and automate infrastructure patching, scaling, and recovery using Ansible or Lambda functions as triggers.</li>
+                <li><strong>Serverless Event-Driven App Suite:</strong> CI/CD for AWS Lambda functions, event logging in Loki, tracing with Tempo, real-time Slack notifications.</li>
+                <li><strong>Real-Time Business Metrics and Intelligence:</strong> Gather business KPIs using Alloy from app to infra, live dashboards in Grafana, predictive insights.</li>
+            </ul>
+        
+            <h3>How You'll Learn & Build</h3>
+            <ul class="learning-points">
+                <li>Every class = hands-on, every week = production-grade code.</li>
+                <li>Live reviews, real teamwork, and expert mentorship in every sprint.</li>
+                <li>Every project is portfolio-ready, documented, and demoed.</li>
+            </ul>
+        
+            <p class="info-text">Direct application of SRE and DevOps best practices—so you hit the ground running in any enterprise.</p>
+        
+            <div class="final-pitch">
+                <p>This is not just a course—it's the career accelerator.</p>
+                <p>Students don't just finish—they absolutely stand out in hiring pipelines. Your entry into the world of elite DevOps and SRE starts—and explodes—here.</p>
+            </div>
+        </div>
     </div>
 
     <div id="topics-modal" class="modal-overlay">
@@ -300,42 +444,37 @@
         const modalBodyList = document.querySelector('#modal-body ul');
         const closeModalBtn = document.querySelector('.close-modal');
         
-        // --- UPDATED: New data object with Java Full Stack topics and icons ---
+        // NEW: Get references to the new labels
+        const backendLabel = document.getElementById('label-backend');
+        const frontendLabel = document.getElementById('label-frontend');
+        
+        // Data object is now split into first and second halves of the course
         const data = {
+            // This is the SECOND 3 months
             frontend: [
-                { name: 'Your Showstopper Month: 12 Corporate-Level Capstone Projects', desc: 'End your journey with a hands-on capstone marathon—real projects, real tools, real cloud!', 
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>`,
+                { name: 'Month 4', desc: 'Infrastructure as Code & Automation', linkText: 'Master Databases >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
                   topics: [
-                    { title: 'Semantic HTML5', details: 'Using tags like <article>, <footer>, and <header> gives meaning to content, which improves SEO and accessibility for screen readers.' },
-                    { title: 'CSS Grid & Flexbox', details: 'Flexbox is for one-dimensional layouts (a row or a column), while Grid is for two-dimensional layouts. Mastering both is essential for modern web design.' },
-                    { title: 'Responsive Design', details: 'This approach uses fluid grids, flexible images, and CSS media queries to ensure your website adapts gracefully to any screen size.' },
-                    { title: 'Sass/SCSS', details: 'A CSS preprocessor that adds powerful features like variables for colors and fonts, nested rules, mixins for reusable code, and functions.' }
+                    { title: 'Terraform Associate', details: 'HCL modules, zero-downtime rollouts, remote state, DR, cloud-agnostic infra.' },
+                    { title: 'Ansible Automation', details: 'Idempotent config, dynamic inventories, patch management, continuous compliance.' },
+                    { title: 'Mini-Projects', details: 'Multi-cloud IaC portfolio, auto-patcher for production fleets.' }
                 ]},
-                { name: 'JavaScript', desc: 'The core programming language of the Web, enabling interactive and dynamic content.', linkText: 'Learn JS >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9v6a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9"></path><path d="M16 15a2 2 0 0 0-2-2h-2a2 2 0 0 1-2-2v0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"></path></svg>`,
+                { name: 'Month 5', desc: 'Corporate Observability', linkText: 'Improve Code Quality >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`,
                   topics: [
-                    { title: 'DOM Manipulation', details: 'The Document Object Model (DOM) is a programming interface for web documents. JavaScript can change the document\'s structure, style, and content.' },
-                    { title: 'Asynchronous JS', details: 'Handle operations like API calls with `fetch()` without blocking the main thread. Promises and `async/await` make managing this clean and readable.' },
-                    { title: 'ES6+ Features', details: 'Modern features like arrow functions, `let`/`const`, destructuring, and the spread operator (`...`) make JavaScript more powerful and concise.' },
-                    { title: 'Event Handling', details: 'Use `addEventListener` to listen for user actions like clicks, key presses, and mouse movements to create a responsive user experience.' }
+                    { title: 'Prometheus Certified Associate', details: 'PromQL, exporters, advanced alerting, custom dashboards, SLI/SLO tracking.' },
+                    { title: 'Loki, Tempo, Alloy stack', details: 'Centralized logging, distributed tracing, unified telemetry.' },
+                    { title: 'Mini-Projects', details: 'Trace-root cause pipeline, business-metric Grafana boards' }
                 ]},
-                 { name: 'React', desc: 'A popular library for building complex, stateful user interfaces with a component-based architecture.', linkText: 'View Docs >', 
-                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
-                   topics: [
-                    { title: 'Components & Props', details: 'Break down complex UIs into small, independent, and reusable pieces called components. `Props` are used to pass data down the component tree.' },
-                    { title: 'State & Lifecycle', details: '`State` is an object that holds data and determines how the component renders and behaves. Lifecycle methods let you run code at specific times.' },
-                    { title: 'Hooks (useState, useEffect)', details: 'Hooks are functions that let you "hook into" React state and lifecycle features from function components instead of writing classes.' },
-                    { title: 'React Router', details: 'A standard library for routing in React. It enables navigation among views of various components in a React Application, allows the browser URL to be changed, and keeps the UI in sync with the URL.' }
-                ]},
-                { name: 'Vue.js', desc: 'An approachable, performant, and versatile framework for building user interfaces.', linkText: 'Get Started >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13.5l4-7 4 7-4-7V22"/><path d="M12 2l7.5 11.5L22 17"/></svg>`,
+                { name: 'Month 6 (Weeks 21-24)', desc: 'Cloud-Native Security & Edge', linkText: 'Improve Code Quality >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`,
                   topics: [
-                    { title: 'Directives (v-if, v-for)', details: 'Directives are special tokens in the markup that tell the library to do something to a DOM element. `v-if` conditionally renders an element, and `v-for` renders an element multiple times based on an array.' },
-                    { title: 'Computed Properties', details: 'These are used to handle complex logic for reactive data. They are cached and only re-evaluate when their dependencies change, which improves performance.' },
-                    { title: 'Component Communication', details: 'Components communicate via a props-down, events-up system. A parent passes data to a child via props, and the child sends messages to the parent via events.' },
-                    { title: 'Vuex/Pinia State Management', details: 'For large applications, managing state can be complex. Pinia (the new official recommendation) and Vuex provide a central store for all components.' }
-                ]},
+                    { title: 'DevSecOps', details: 'Secure-by-design pipelines, vulnerability scans, secrets vaults, automated audits.' },
+                    { title: 'Serverless & Innovation', details: 'Multi-cloud Lambda, event-driven workflows, auto-scaling, serverless CI/CD.' },
+                    { title: 'Mini-Projects', details: 'Secure serverless CI/CD, event-driven end-to-end workflow.' },   
+                ]}
             ],
+            // This is the FIRST 3 months
             backend: [
                 { name: 'Month 1 ', desc: "AWS Cloud Wizardry", linkText: 'Learn the Basics >',
                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
@@ -361,28 +500,7 @@
                     { title: 'Mini-Projects', details: 'Multi-cloud deploy pipeline, full Git-driven artifact promotion.' },
                    
                 ]},
-                { name: 'Month 4', desc: 'Infrastructure as Code & Automation', linkText: 'Master Databases >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
-                  topics: [
-                    { title: 'Terraform Associate', details: 'HCL modules, zero-downtime rollouts, remote state, DR, cloud-agnostic infra.' },
-                    { title: 'Ansible Automation', details: 'Idempotent config, dynamic inventories, patch management, continuous compliance.' },
-                    { title: 'Mini-Projects', details: 'Multi-cloud IaC portfolio, auto-patcher for production fleets.' },
-      
-                ]},
-                { name: 'Month 5', desc: 'Corporate Observability', linkText: 'Improve Code Quality >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`,
-                  topics: [
-                    { title: 'Prometheus Certified Associate', details: 'PromQL, exporters, advanced alerting, custom dashboards, SLI/SLO tracking.' },
-                    { title: 'Loki, Tempo, Alloy stack', details: 'Centralized logging, distributed tracing, unified telemetry.' },
-                    { title: 'Mini-Projects', details: 'Trace-root cause pipeline, business-metric Grafana boards' }
-                ]},
-                { name: 'Month 6 (Weeks 21-24)', desc: 'Cloud-Native Security & Edge', linkText: 'Improve Code Quality >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`,
-                  topics: [
-                    { title: 'DevSecOps', details: 'Secure-by-design pipelines, vulnerability scans, secrets vaults, automated audits.' },
-                    { title: 'Serverless & Innovation', details: 'Multi-cloud Lambda, event-driven workflows, auto-scaling, serverless CI/CD.' },
-                    { title: 'Mini-Projects', details: 'Secure serverless CI/CD, event-driven end-to-end workflow.' },   
-                ]}
+                
             ]
         };
         
@@ -393,6 +511,19 @@
                 }
             });
         }, { threshold: 0.2 });
+        
+        // NEW FUNCTION to update the active state of labels
+        function updateToggleLabels() {
+            if (modeToggle.checked) {
+                // If checked (ON), show Months 4-6 as active
+                backendLabel.classList.remove('active');
+                frontendLabel.classList.add('active');
+            } else {
+                // If unchecked (OFF), show Months 1-3 as active
+                backendLabel.classList.add('active');
+                frontendLabel.classList.remove('active');
+            }
+        }
 
         modeToggle.addEventListener('change', () => {
             if (modeToggle.checked) {
@@ -400,6 +531,7 @@
             } else {
                 createTimeline('backend');
             }
+            updateToggleLabels(); // Update labels on change
         });
 
         languageDisplay.addEventListener('click', (e) => {
@@ -516,6 +648,8 @@
 
         // Initial load
         createTimeline('backend');
+        updateToggleLabels(); // Set initial active label
     </script>
 </body>
-</html>
+</html
+>

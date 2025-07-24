@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Full Stack Timeline</title>
+    <title>The Ultimate Multi-Cloud Roadmap</title>
     <style>
     :root {
-        /* UPDATED: Swapped the background and card colors */
-        --body-bg: #E3E8FF;          /* Light Blue Background */
-        --card-bg: #F0F1F5;          /* Light Gray Cards */
-        --heading-color: #182A4D;     /* Navy Blue Heading Color */
-        --text-color: #4A5568;        /* A complementary dark gray for descriptions */
-        --accent-color: #4A60E2;      /* A vibrant blue to complement the theme */
+        /* UPDATED: New Cloud-themed color palette */
+        --body-bg: #F4F4F5;          /* Light, clean background */
+        --card-bg: #FFFFFF;          /* Crisp white cards */
+        --heading-color: #2D3748;     /* Professional dark blue-gray for headings */
+        --text-color: #4A5568;        /* Readable gray for descriptions */
+        --accent-color: #007BFF;      /* A professional blue for cloud theme */
         
-        --line-bg-color: rgba(24, 42, 77, 0.15);
+        --line-bg-color: rgba(0, 123, 255, 0.2);
         --line-fill-color: var(--accent-color);
-        --dot-color: rgba(24, 42, 77, 0.25);
+        --dot-color: rgba(0, 123, 255, 0.4);
         --dot-active-color: var(--accent-color);
-        --accent-blue: #007bff;
+        --accent-blue: #007bff; 
     }
 
     body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         margin: 0;
         padding: 80px 20px 40px 20px;
-        background-color: var(--body-bg); /* UPDATED: Swapped color */
+        background-color: var(--body-bg);
         color: var(--text-color);
     }
     
@@ -65,6 +65,16 @@
         color: var(--heading-color);
         text-shadow: none;
     }
+    
+    .sub-header-text {
+        font-size: 1.2em;
+        color: var(--text-color);
+        margin-top: -10px;
+        margin-bottom: 20px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
     .toggle-switch-container {
         display: flex;
@@ -76,8 +86,13 @@
     .toggle-label {
         font-size: 1.1em;
         font-weight: 600;
-        color: var(--heading-color);
+        color: var(--text-color); 
         user-select: none;
+        transition: color 0.4s ease, font-weight 0.4s ease;
+    }
+    .toggle-label.active {
+        color: var(--accent-color);
+        font-weight: 700;
     }
     .switch {
         position: relative;
@@ -168,17 +183,17 @@
     
     .timeline-content { 
         padding: 25px; 
-        background: var(--card-bg); /* UPDATED: Swapped color */
+        background: var(--card-bg);
         border-radius: 12px; 
-        box-shadow: 0 6px 30px rgba(24, 42, 77, 0.08);
+        box-shadow: 0 6px 30px rgba(45, 55, 72, 0.08);
         position: relative; text-align: left;
-        border: none;
+        border: 1px solid #E2E8F0;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
     .timeline-content:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 45px rgba(24, 42, 77, 0.12);
+        box-shadow: 0 12px 45px rgba(45, 55, 72, 0.12);
     }
     
     .content-header {
@@ -250,12 +265,110 @@
     .modal-accordion-toggle { display: inline-block; width: 8px; height: 8px; border-right: 2px solid var(--heading-color); border-bottom: 2px solid var(--heading-color); transform: rotate(45deg); transition: transform 0.3s ease; }
     .modal-accordion-item.open .modal-accordion-toggle { transform: rotate(-135deg); }
     .modal-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 15px 0 0; color: #6c757d; font-size: 0.95rem; line-height: 1.6; }
-    .modal-accordion-item.open .modal-accordion-body { max-height: 200px; padding: 0 15px 15px 0; }
+    .modal-accordion-item.open .modal-accordion-body { max-height: 500px; /* Increased max-height */ padding: 0 15px 15px 0; }
     
     #modal-body::-webkit-scrollbar { width: 8px; }
     #modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
     #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
     #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+    /* Capstone Section Styles */
+    .capstone-container {
+        padding: 50px 25px;
+        margin-top: 40px;
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(45, 55, 72, 0.1);
+        border: 1px solid #E2E8F0;
+        text-align: left;
+    }
+    .capstone-container h2 {
+        font-size: 2.2em;
+        font-weight: 700;
+        color: var(--heading-color);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .capstone-container .subtitle {
+        font-size: 1.15em;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .capstone-container h3 {
+        font-size: 1.7em;
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-top: 40px;
+        margin-bottom: 25px;
+        border-bottom: 3px solid var(--line-bg-color);
+        padding-bottom: 12px;
+    }
+    .projects-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    .projects-grid li {
+        background-color: var(--body-bg);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid var(--accent-color);
+        font-size: 0.95em;
+        line-height: 1.6;
+        color: var(--text-color);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .projects-grid li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    }
+    .projects-grid li strong {
+        color: var(--heading-color);
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+    }
+    .learning-points {
+        list-style: '✅';
+        padding-left: 25px;
+        margin: 20px 0;
+        color: var(--text-color);
+    }
+    .learning-points li {
+        padding-left: 15px;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
+    .roadmap-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 25px;
+        font-size: 1em;
+    }
+    .roadmap-table th, .roadmap-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #E2E8F0;
+    }
+    .roadmap-table th {
+        background-color: var(--body-bg);
+        font-weight: 600;
+        color: var(--heading-color);
+    }
+    .roadmap-table tr:hover {
+        background-color: #f8f9fa;
+    }
+    .roadmap-table td {
+        color: var(--text-color);
+    }
 
 </style>
 </head>
@@ -267,19 +380,100 @@
 
     <div class="main-container">
         <div class="header-container">
-            <h1 id="main-header-text">Python Full Stack</h1>
+            <h1 id="main-header-text">The Ultimate Multi-Cloud Roadmap</h1>
+            <p class="sub-header-text">(AWS + GCP + Azure: Associate to Architect Level)</p>
+            <p class="sub-header-text">Empower your academy with a future-proof 6-month journey that delivers hands-on, enterprise-ready engineers, ready for ANY cloud. The curriculum covers AWS, GCP, and Azure—from foundations to architect-level mastery—with full-stack corporate-grade projects.</p>
         </div>
         
         <div class="toggle-switch-container">
-            <span class="toggle-label">Backend</span>
+            <span id="label-backend" class="toggle-label">Months 1-3</span>
             <label class="switch">
                 <input type="checkbox" id="mode-toggle">
                 <span class="slider"></span>
             </label>
-            <span class="toggle-label">Frontend</span>
+            <span id="label-frontend" class="toggle-label">Months 4-5</span>
         </div>
 
         <div id="language-display"></div>
+        
+        <div class="capstone-container">
+            <h2>Month 6: 12 Full-Fledged Corporate-Level Capstone Projects</h2>
+            <p class="subtitle">Wrap up with a marathon of production-level, multi-cloud projects that show real engineering muscle, spanning AWS, GCP, and Azure stacks. Each project features GitOps, IaC, advanced automation, and robust observability.</p>
+        
+            <h3>💥 Capstone Projects Lineup</h3>
+            <ul class="projects-grid">
+                <li><strong>Multi-Cloud GitOps Enterprise Platform:</strong> Automated application rollouts on EKS, GKE, and Azure AKS using Argo CD, advanced branching, seamless DR.</li>
+                <li><strong>Global Service Mesh Deployment:</strong> Secure, observable microservices mesh on all clouds with Istio/Kiali, integrated traffic management and resilience.</li>
+                <li><strong>Zero-Downtime Canary & Blue/Green Rollouts:</strong> Advanced deployment policies (Istio, Argo Rollouts) for all major clouds, rollback & Slack alerts.</li>
+                <li><strong>Infra-as-Code Megaproject:</strong> Terraform & ARM templates to provision, secure, and network multi-cloud environments with backup/restore automation.</li>
+                <li><strong>Cross-Cloud Logging & Tracing Stack:</strong> Centralize logging with Loki, tracing with Tempo, multi-source integration with Alloy and native log tools.</li>
+                <li><strong>Automated Incident Response & ChatOps:</strong> Multi-cloud alerting driven by Grafana, Prometheus, and cloud-native, with Slack/Teams integrations and auto-remediation.</li>
+                <li><strong>Enterprise-Grade CI/CD Pipeline:</strong> Secure image builds, secrets management, SAST/DAST, and signed releases for AWS, GCP, and Azure.</li>
+                <li><strong>Unified Multi-Cloud Telemetry Platform:</strong> Deploy Alloy agents for unified monitoring and logging across AWS, GCP, Azure, all visualized in Grafana.</li>
+                <li><strong>Full Disaster Recovery Solution:</strong> Cross-region, multi-cloud DR with automated failover, backup testing, encrypted replication.</li>
+                <li><strong>Self-Healing, Auto-Remediating Infra:</strong> Heal resources on any cloud automatically based on trigger rules; leverage Ansible, AWS Lambda, GCP Cloud Functions, Azure Logic Apps.</li>
+                <li><strong>Serverless Event-Driven Suite:</strong> Multi-cloud eventing with AWS Lambda, Azure Functions, GCP Cloud Functions—monitor and track across all via unified logs/traces.</li>
+                <li><strong>Business KPIs & Real-Time Analytics:</strong> Use Alloy, Prometheus, native tools to gather metrics, create forecasting dashboards (Grafana) from disparate sources.</li>
+            </ul>
+        
+             <h3>🎓 By the end of this journey, students will be:</h3>
+            <ul class="learning-points">
+                <li>Certified on AWS, GCP, Azure (Associate to Architect)</li>
+                <li>Skilled across all major production tools</li>
+                <li>Portfolio-ready with cloud-agnostic projects</li>
+                <li>Truly enterprise and hiring ready</li>
+            </ul>
+
+            <h3>🗓️ Roadmap Table</h3>
+            <table class="roadmap-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Key Focus</th>
+                        <th>Major Tools & Platforms</th>
+                        <th>Capstone/Projects</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>AWS Core</td>
+                        <td>SAA, SysOps, CloudFormation</td>
+                        <td>Resilient, auto-scaling infra</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>GCP Engineering</td>
+                        <td>ACE, PCA, GKE, Pub/Sub</td>
+                        <td>Managed K8s, CI/CD, observability</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Azure Operations & Architecture</td>
+                        <td>AZ-104, Architect, ARM, Azure Monitor</td>
+                        <td>Hybrid bridges, DR automation</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Multi-Cloud Automation</td>
+                        <td>Terraform, Ansible, Jenkins, GitHub</td>
+                        <td>Globalized IaC, cross-cloud automation</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Observability, SRE</td>
+                        <td>Prometheus, Grafana, Loki, Tempo, Alloy</td>
+                        <td>Unified dashboards, alert-driven healing</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Project Sprint</td>
+                        <td>All platforms & tools</td>
+                        <td>12 Full-Scale, Corporate Capstones</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div id="topics-modal" class="modal-overlay">
@@ -300,82 +494,83 @@
         const modalBodyList = document.querySelector('#modal-body ul');
         const closeModalBtn = document.querySelector('.close-modal');
         
+        const backendLabel = document.getElementById('label-backend');
+        const frontendLabel = document.getElementById('label-frontend');
+        
+        // UPDATED: Data object with full Multi-Cloud content
         const data = {
+            // Months 4-5
             frontend: [
-                { name: 'HTML & CSS', desc: 'The building blocks of the web for structure and style.', linkText: 'Explore Fundamentals >', 
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>`,
+                { 
+                  name: 'Month 4', 
+                  desc: 'Cloud-Native Services & Automation', 
+                  linkText: 'View Automation Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>`,
                   topics: [
-                    { title: 'Semantic HTML5', details: 'Using tags like <article>, <footer>, and <header> gives meaning to content, which improves SEO and accessibility for screen readers.' },
-                    { title: 'CSS Grid & Flexbox', details: 'Flexbox is for one-dimensional layouts (a row or a column), while Grid is for two-dimensional layouts. Mastering both is essential for modern web design.' },
-                    { title: 'Responsive Design', details: 'This approach uses fluid grids, flexible images, and CSS media queries to ensure your website adapts gracefully to any screen size.' },
-                    { title: 'Sass/SCSS', details: 'A CSS preprocessor that adds powerful features like variables for colors and fonts, nested rules, mixins for reusable code, and functions.' }
-                ]},
-                { name: 'JavaScript', desc: 'The core programming language of the Web, enabling interactive and dynamic content.', linkText: 'Learn JS >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9v6a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9"></path><path d="M16 15a2 2 0 0 0-2-2h-2a2 2 0 0 1-2-2v0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"></path></svg>`,
+                    { title: 'Terraform (IaC) for multi-cloud', details: 'Master Infrastructure as Code to provision and manage resources consistently across AWS, GCP, and Azure.' },
+                    { title: 'CI/CD pipelines', details: 'Implement automated build, test, and deployment pipelines using Jenkins, GitHub Actions, and GitLab CI for all three clouds.' },
+                    { title: 'Configuration Management', details: 'Use Ansible for automation of end-to-end deployments, configuration, and application rollouts.' },
+                    { title: 'Multi-Cloud Security Pipelines', details: 'Integrate security practices to scan, audit, and enforce compliance in your CI/CD workflows.' },
+                    { title: 'Mini-Projects', details: 'Deploy a global web application via IaC across clouds. Create policy-driven auto-remediation scripts.' }
+                  ]
+                },
+                { 
+                  name: 'Month 5', 
+                  desc: 'Multi-Cloud Monitoring & SRE', 
+                  linkText: 'View SRE Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>`,
                   topics: [
-                    { title: 'DOM Manipulation', details: 'The Document Object Model (DOM) is a programming interface for web documents. JavaScript can change the document\'s structure, style, and content.' },
-                    { title: 'Asynchronous JS', details: 'Handle operations like API calls with `fetch()` without blocking the main thread. Promises and `async/await` make managing this clean and readable.' },
-                    { title: 'ES6+ Features', details: 'Modern features like arrow functions, `let`/`const`, destructuring, and the spread operator (`...`) make JavaScript more powerful and concise.' },
-                    { title: 'Event Handling', details: 'Use `addEventListener` to listen for user actions like clicks, key presses, and mouse movements to create a responsive user experience.' }
-                ]},
-                 { name: 'React', desc: 'A popular library for building complex, stateful user interfaces with a component-based architecture.', linkText: 'View Docs >', 
-                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
-                   topics: [
-                    { title: 'Components & Props', details: 'Break down complex UIs into small, independent, and reusable pieces called components. `Props` are used to pass data down the component tree.' },
-                    { title: 'State & Lifecycle', details: '`State` is an object that holds data and determines how the component renders and behaves. Lifecycle methods let you run code at specific times.' },
-                    { title: 'Hooks (useState, useEffect)', details: 'Hooks are functions that let you "hook into" React state and lifecycle features from function components instead of writing classes.' },
-                    { title: 'React Router', details: 'A standard library for routing in React. It enables navigation among views of various components in a React Application, allows the browser URL to be changed, and keeps the UI in sync with the URL.' }
-                ]},
-                { name: 'Vue.js', desc: 'An approachable, performant, and versatile framework for building user interfaces.', linkText: 'Get Started >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13.5l4-7 4 7-4-7V22"/><path d="M12 2l7.5 11.5L22 17"/></svg>`,
-                  topics: [
-                    { title: 'Directives (v-if, v-for)', details: 'Directives are special tokens in the markup that tell the library to do something to a DOM element. `v-if` conditionally renders an element, and `v-for` renders an element multiple times based on an array.' },
-                    { title: 'Computed Properties', details: 'These are used to handle complex logic for reactive data. They are cached and only re-evaluate when their dependencies change, which improves performance.' },
-                    { title: 'Component Communication', details: 'Components communicate via a props-down, events-up system. A parent passes data to a child via props, and the child sends messages to the parent via events.' },
-                    { title: 'Vuex/Pinia State Management', details: 'For large applications, managing state can be complex. Pinia (the new official recommendation) and Vuex provide a central store for all components.' }
-                ]},
+                    { title: 'Monitoring & Observability', details: 'Set up Prometheus & Grafana for all clouds; integrate with native tools like AWS CloudWatch, GCP Operations Suite, and Azure Monitor.' },
+                    { title: 'Centralized Logging', details: 'Aggregate logs from all services and clouds using Loki and other cloud-native logging solutions.' },
+                    { title: 'Distributed Tracing', details: 'Implement Tempo and cloud-native tracing tools to monitor requests across microservices.' },
+                    { title: 'Incident Response & ChatOps', details: 'Integrate Slack with alerting systems and automate runbook triggers for faster incident response.' },
+                    { title: 'Mini-Projects', details: 'Build cross-cloud real-time dashboards. Implement self-healing automation using alert-driven triggers.' }
+                  ]
+                }
             ],
+            // Months 1-3
             backend: [
-                { name: 'Python', desc: "A versatile language known for its simple, readable syntax, ideal for back-end development.", linkText: 'Discover Python >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path><path d="M10.5 14.5a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z"></path><path d="M16 11.5v-2a3 3 0 0 0-3-3h-2.5"></path><path d="M8 12.5v2a3 3 0 0 0 3 3h2.5"></path></svg>`,
+                { 
+                  name: 'Month 1', 
+                  desc: "AWS Cloud Core", 
+                  linkText: 'View AWS Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>`,
                   topics: [
-                    { title: 'Data Structures', details: 'Master Python\'s built-in data structures: use Lists for ordered sequences, Dictionaries for key-value pairs, Tuples for immutable data, and Sets for unique items.' },
-                    { title: 'Virtual Environments (venv)', details: 'A crucial tool for dependency management. `venv` creates isolated environments, allowing each project to have its own set of dependencies stored in a `requirements.txt` file.' },
-                    { title: 'Package Management with Pip', details: 'Pip is the standard package installer for Python. You use it to install and manage third-party libraries from the Python Package Index (PyPI), making your project reproducible.' },
-                    { title: 'Object-Oriented Programming', details: 'Understand the core principles of OOP: Encapsulation (bundling data and methods), Inheritance (creating new classes from existing ones), and Polymorphism (designing objects to share behaviors).' }
-                ]},
-                { name: 'Django', desc: 'A high-level "batteries-included" Python web framework for rapid, secure, and scalable development.', linkText: 'Visit Django >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H9a7 7 0 00-7 7v6a7 7 0 007 7h6a7 7 0 007-7V9a7 7 0 00-7-7z"/><path d="M9 9h4.5a3.5 3.5 0 110 7H9v-7z"/></svg>`,
+                    { title: 'Certifications', details: 'Solutions Architect Associate & SysOps Administrator.' },
+                    { title: 'Design Resilient & High-Performance Architectures', details: 'VPC, S3, RDS, IAM, EC2, Lambda, CloudFront, Route 53. Design fault-tolerant, scalable blueprints.' },
+                    { title: 'Operations & Automation', details: 'CloudWatch, CloudTrail, CloudFormation, Auto Scaling, Load Balancers, Elastic Beanstalk.' },
+                    { title: 'Security & Compliance', details: 'IAM, KMS, SSM, Encryption, Cost Optimization.' },
+                    { title: 'Mini-Projects', details: 'Build production-level monitoring dashboards. Automate multi-tier deployments.' },
+                  ]
+                },
+                { 
+                  name: 'Month 2', 
+                  desc: 'GCP Engineering', 
+                  linkText: 'View GCP Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
                   topics: [
-                    { title: 'Models & ORM', details: 'Define your application\'s data structure with models. Django\'s Object-Relational Mapper (ORM) translates these models into database tables, abstracting away raw SQL.' },
-                    { title: 'Views & Templates (MTV)', details: 'In Django\'s Model-Template-View pattern, a view processes a user request and returns a response, often by rendering a template with context data.' },
-                    { title: 'URL Routing', details: 'The URL dispatcher, typically in `urls.py`, routes incoming web requests to the correct view based on the requested URL pattern. It\'s like the table of contents for your site.' },
-                    { title: 'Django REST Framework', details: 'A powerful toolkit for building Web APIs. Key features include serializers that convert complex data to JSON, and robust handling of authentication and permissions.' }
-                ]},
-                { name: 'Flask', desc: 'A lightweight and flexible Python web framework that provides the essentials and lets you choose your tools.', linkText: 'Explore Flask >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.31V2"/><path d="M4 9h16"/><path d="M6 9l-1.38 6.14a2 2 0 001.94 2.52h8.88a2 2 0 001.94-2.52L18 9"/></svg>`,
+                    { title: 'Certifications', details: 'Associate Cloud Engineer & Professional Cloud Architect.' },
+                    { title: 'Foundations & Operations', details: 'Cloud Console, Resource Hierarchy, IAM, Billing, CLI.' },
+                    { title: 'Infrastructure Design', details: 'VPCs, Compute Engine, GKE (Kubernetes), Cloud Run, Storage, Firestore, Pub/Sub.' },
+                    { title: 'Security & Networking', details: 'Hybrid, Multicloud setups, advanced IAM, Data Protection, Autoscaling, Load Balancers.' },
+                    { title: 'Professional Strategies', details: 'SLOs/SLIs, DR, migration, microservices, CI/CD on GCP.' },
+                    { title: 'Mini-Projects', details: 'Deploy managed Kubernetes with GKE. Implement CI/CD for microservices. Create observability dashboards.' },
+                  ]
+                },
+                { 
+                  name: 'Month 3', 
+                  desc: 'Azure Cloud Expertise', 
+                  linkText: 'View Azure Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
                   topics: [
-                    { title: 'Routing', details: 'Use the `@app.route()` decorator to bind a URL to a Python function. This is the core of how Flask handles incoming requests for different pages.' },
-                    { title: 'Jinja Templates', details: 'Flask uses the Jinja2 template engine. It allows you to write HTML with embedded variables, loops, and conditional logic, and even template inheritance.' },
-                    { title: 'Request/Response Objects', details: 'The global `request` object provides access to incoming data like form fields and query parameters. You return a `Response` object or a simple string.' },
-                    { title: 'Blueprints', details: 'Blueprints are a way to organize a group of related views and other code. They help in structuring larger Flask applications into maintainable modules.' }
-                ]},
-                { name: 'PostgreSQL', desc: 'A powerful, open-source object-relational database system known for its reliability and data integrity.', linkText: 'View Website >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
-                  topics: [
-                    { title: 'SQL Queries (SELECT, JOIN)', details: 'Beyond simple `SELECT`, master `JOIN` clauses to combine rows from multiple tables based on related columns. This is fundamental for relational data retrieval.' },
-                    { title: 'Database Schemas & Tables', details: 'A schema is a collection of database objects, including tables. Designing a good schema with primary and foreign keys is crucial for data integrity.' },
-                    { title: 'Indexing for Performance', details: 'An index is a data structure that improves the speed of data retrieval operations on a database table, at the cost of slower writes. It avoids costly full-table scans.' },
-                    { title: 'Transactions', details: 'A transaction is a sequence of operations performed as a single logical unit of work. It must adhere to ACID properties (Atomicity, Consistency, Isolation, Durability).' }
-                ]},
-                { name: 'Docker', desc: 'A platform for developing, shipping, and running applications in isolated environments called containers.', linkText: 'Learn Docker >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12v-1.39c0-1-1.34-1.47-2.1-1.07l-3.32 1.9V8.89c0-1-1.34-1.47-2.1-1.07l-2.6 1.5c-.45.26-1.15.26-1.6 0l-2.6-1.5c-.76-.4-2.1.07-2.1 1.07v2.53l-3.32-1.9c-.76-.4-2.1.07-2.1 1.07V12l11 6.35z"/><path d="M12 12v10"/><path d="M2 12v5.5a3 3 0 003 3h14a3 3 0 003-3V12"/></svg>`,
-                  topics: [
-                    { title: 'Dockerfile & Images', details: 'A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Images are read-only templates with instructions for creating a Docker container.' },
-                    { title: 'Containers & Volumes', details: 'A container is a runnable instance of an image. They are isolated from each other and the host machine. Volumes are used to persist data, like a database, outside the container\'s lifecycle.' },
-                    { title: 'Docker Compose', details: 'A tool for defining and running multi-container Docker applications. With a single YAML file, you can configure your application\'s services and run them all with one command.' },
-                    { title: 'Container Orchestration', details: 'Tools like Kubernetes automate the deployment, scaling, and management of containerized applications. They handle tasks like load balancing, auto-scaling, and self-healing.' }
-                ]}
+                    { title: 'Certifications', details: 'Administrator Associate (AZ-104) & Solutions Architect.' },
+                    { title: 'Administration Fundamentals', details: 'Azure AD, identity/governance, Storage, Compute, Virtual Networks, Monitoring.' },
+                    { title: 'Architectural Skills', details: 'ARM, Resource Manager, Security Center, Azure Policy, RBAC, Business Continuity, Site Recovery, Backup.' },
+                    { title: 'Advanced scenarios', details: 'Hybrid Cloud, Data Lakes, serverless.' },
+                    { title: 'Governance, Security, & Scale', details: 'Conditional Access, Compliance, Policy enforcement, Automation.' },
+                    { title: 'Mini-Projects', details: 'Hybrid network bridge with on-prem. Automate DR solutions. Role-based secure deployments.' },
+                  ]
+                },
             ]
         };
         
@@ -386,6 +581,16 @@
                 }
             });
         }, { threshold: 0.2 });
+        
+        function updateToggleLabels() {
+            if (modeToggle.checked) {
+                backendLabel.classList.remove('active');
+                frontendLabel.classList.add('active');
+            } else {
+                backendLabel.classList.add('active');
+                frontendLabel.classList.remove('active');
+            }
+        }
 
         modeToggle.addEventListener('change', () => {
             if (modeToggle.checked) {
@@ -393,6 +598,7 @@
             } else {
                 createTimeline('backend');
             }
+            updateToggleLabels();
         });
 
         languageDisplay.addEventListener('click', (e) => {
@@ -509,6 +715,7 @@
 
         // Initial load
         createTimeline('backend');
+        updateToggleLabels();
     </script>
 </body>
 </html>

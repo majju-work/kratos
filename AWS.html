@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Cloud Engineering Timeline</title>
+    <title>6-Month Data Scientist Course Roadmap</title>
     <style>
     :root {
-        /* UPDATED: New AWS-themed color palette */
-        --body-bg: #F2F3F3;          /* AWS Light Gray Background */
-        --card-bg: #FFFFFF;          /* White Cards */
-        --heading-color: #232F3E;     /* AWS Charcoal Heading Color */
-        --text-color: #545B64;        /* AWS Gray Text */
-        --accent-color: #FF9900;      /* AWS Orange for accents */
+        /* UPDATED: New Data Science-themed color palette */
+        --body-bg: #F4F4F5;          /* Light, clean background */
+        --card-bg: #FFFFFF;          /* Crisp white cards */
+        --heading-color: #2D3748;     /* Professional dark blue-gray for headings */
+        --text-color: #4A5568;        /* Readable gray for descriptions */
+        --accent-color: #10B981;      /* A vibrant, professional green for data science */
         
-        --line-bg-color: rgba(255, 153, 0, 0.2);
+        --line-bg-color: rgba(16, 185, 129, 0.2);
         --line-fill-color: var(--accent-color);
-        --dot-color: rgba(255, 153, 0, 0.4);
+        --dot-color: rgba(16, 185, 129, 0.4);
         --dot-active-color: var(--accent-color);
-        --accent-blue: #007bff;
+        --accent-blue: #10B981; 
     }
 
     body {
@@ -64,6 +64,18 @@
         font-size: 2.5em; font-weight: 700; 
         color: var(--heading-color);
         text-shadow: none;
+        line-height: 1.2;
+    }
+    
+    .sub-header-text {
+        font-size: 1.15em;
+        color: var(--text-color);
+        margin-top: 10px;
+        margin-bottom: 20px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
     }
 
     .toggle-switch-container {
@@ -76,8 +88,13 @@
     .toggle-label {
         font-size: 1.1em;
         font-weight: 600;
-        color: var(--heading-color);
+        color: var(--text-color); 
         user-select: none;
+        transition: color 0.4s ease, font-weight 0.4s ease;
+    }
+    .toggle-label.active {
+        color: var(--accent-color);
+        font-weight: 700;
     }
     .switch {
         position: relative;
@@ -170,7 +187,7 @@
         padding: 25px; 
         background: var(--card-bg);
         border-radius: 12px; 
-        box-shadow: 0 6px 30px rgba(35, 47, 62, 0.08);
+        box-shadow: 0 6px 30px rgba(45, 55, 72, 0.08);
         position: relative; text-align: left;
         border: 1px solid #E2E8F0;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -178,7 +195,7 @@
     
     .timeline-content:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 45px rgba(35, 47, 62, 0.12);
+        box-shadow: 0 12px 45px rgba(45, 55, 72, 0.12);
     }
     
     .content-header {
@@ -250,37 +267,144 @@
     .modal-accordion-toggle { display: inline-block; width: 8px; height: 8px; border-right: 2px solid var(--heading-color); border-bottom: 2px solid var(--heading-color); transform: rotate(45deg); transition: transform 0.3s ease; }
     .modal-accordion-item.open .modal-accordion-toggle { transform: rotate(-135deg); }
     .modal-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 15px 0 0; color: #6c757d; font-size: 0.95rem; line-height: 1.6; }
-    .modal-accordion-item.open .modal-accordion-body { max-height: 200px; padding: 0 15px 15px 0; }
+    .modal-accordion-item.open .modal-accordion-body { max-height: 500px; /* Increased max-height */ padding: 0 15px 15px 0; }
     
     #modal-body::-webkit-scrollbar { width: 8px; }
     #modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
     #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
     #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
 
+    /* Capstone Section Styles */
+    .capstone-container {
+        padding: 50px 25px;
+        margin-top: 40px;
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(45, 55, 72, 0.1);
+        border: 1px solid #E2E8F0;
+        text-align: left;
+    }
+    .capstone-container h2 {
+        font-size: 2.2em;
+        font-weight: 700;
+        color: var(--heading-color);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .capstone-container .subtitle {
+        font-size: 1.15em;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .capstone-container h3 {
+        font-size: 1.7em;
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-top: 40px;
+        margin-bottom: 25px;
+        border-bottom: 3px solid var(--line-bg-color);
+        padding-bottom: 12px;
+    }
+    .projects-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    .projects-grid li {
+        background-color: var(--body-bg);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid var(--accent-color);
+        font-size: 0.95em;
+        line-height: 1.6;
+        color: var(--text-color);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .projects-grid li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    }
+    .projects-grid li strong {
+        color: var(--heading-color);
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+    }
+    .learning-points {
+        list-style: '✅';
+        padding-left: 25px;
+        margin: 20px 0;
+        color: var(--text-color);
+    }
+    .learning-points li {
+        padding-left: 15px;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
+
 </style>
 </head>
 <body>
 
     <div class="home-button-container">
-        <!-- THIS IS THE CORRECTED LINE -->
         <a href="index.html" class="back-to-home"><span>←</span> Back to Home</a>
     </div>
 
     <div class="main-container">
         <div class="header-container">
-            <h1 id="main-header-text">AWS Cloud Engineering</h1>
+            <h1 id="main-header-text">6-Month Data Scientist Course Roadmap</h1>
+            <p class="sub-header-text">Transform aspiring data professionals into corporate-ready data scientists with this hands-on, industry-fueled roadmap. Each stage builds technical depth, business acumen, and production-readiness.</p>
         </div>
         
         <div class="toggle-switch-container">
-            <span class="toggle-label">Foundational</span>
+            <span id="label-backend" class="toggle-label">Months 1-3</span>
             <label class="switch">
                 <input type="checkbox" id="mode-toggle">
                 <span class="slider"></span>
             </label>
-            <span class="toggle-label">DevOps & Advanced</span>
+            <span id="label-frontend" class="toggle-label">Months 4-5</span>
         </div>
 
         <div id="language-display"></div>
+        
+        <div class="capstone-container">
+            <h2>Month 6: Corporate-Grade Capstone Projects (12 Full-Scale Builds)</h2>
+            <p class="subtitle">Wrap up with a sprint of end-to-end projects tackling real business needs—portfolio-ready evidence for job interviews.</p>
+        
+            <h3>💥 Capstone Projects Lineup</h3>
+            <ul class="projects-grid">
+                <li><strong>Customer Lifetime Value Prediction:</strong> Build and deploy a model predicting high-value customers from transactional data.</li>
+                <li><strong>Product Recommendation Engine:</strong> Implement collaborative filtering or content-based recommendations for e-commerce.</li>
+                <li><strong>End-to-End A/B Testing Platform:</strong> Design, execute, analyze, and visualize business experiments.</li>
+                <li><strong>Credit Risk Scoring Model:</strong> Deploy models to predict default with full EDA, feature selection, and reporting.</li>
+                <li><strong>Time Series Forecasting Platform:</strong> Automate sales/demand forecasting with multiple models and scenario analysis.</li>
+                <li><strong>Social Media Insights & Sentiment Analysis:</strong> Create an NLP-driven dashboard for real-time campaign monitoring.</li>
+                <li><strong>Real-Time Fraud Detection System:</strong> Build a pipeline for streaming anomaly detection (Spark/Dask optional).</li>
+                <li><strong>Churn Prediction for SaaS/Telecom:</strong> Develop an end-to-end solution including deployment and scheduled retraining.</li>
+                <li><strong>Interactive Executive Dashboard:</strong> Build with Tableau, Power BI, or Streamlit for live business metric monitoring.</li>
+                <li><strong>Image Classification/Recognition Engine:</strong> An end-to-end deep learning project with automated data labeling & reporting.</li>
+                <li><strong>Business Data Lake Integration:</strong> Automate ingest, transformation, and querying from disparate sources.</li>
+                <li><strong>Explainable AI Reporting Suite:</strong> Generate reports with SHAP/LIME explanations for model outcomes.</li>
+            </ul>
+        
+            <h3>🎓 Learning Experience & Outcomes</h3>
+            <ul class="learning-points">
+                <li>Every lesson includes hands-on code and immediate mini-projects.</li>
+                <li>Team collaboration through peer reviews, pair programming, and code demos.</li>
+                <li>Frequent business case studies provide real-world context.</li>
+                <li>Become an expert in essential and advanced data science techniques.</li>
+                <li>Gain fluency in production workflows and business problem-solving.</li>
+                <li>Graduate with a portfolio of practical, interview-winning projects.</li>
+            </ul>
+        </div>
     </div>
 
     <div id="topics-modal" class="modal-overlay">
@@ -301,83 +425,81 @@
         const modalBodyList = document.querySelector('#modal-body ul');
         const closeModalBtn = document.querySelector('.close-modal');
         
-        // --- UPDATED: New data object with AWS topics and icons ---
+        const backendLabel = document.getElementById('label-backend');
+        const frontendLabel = document.getElementById('label-frontend');
+        
+        // UPDATED: Data object with Data Scientist content
         const data = {
-            foundational: [
-                { name: 'IAM (Identity & Access)', desc: "Securely manage access to AWS services by creating users, groups, and roles with specific permissions.", linkText: 'Explore Security >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777z"/><path d="M13.5 10.5L21 3"/></svg>`,
+            // Months 4-5
+            frontend: [
+                { 
+                  name: 'Month 4', 
+                  desc: 'Advanced ML, Deep Learning & Big Data', 
+                  linkText: 'View Advanced Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" /></svg>`,
                   topics: [
-                    { title: 'Users, Groups, & Roles', details: 'Users are individuals, Groups are collections of users, and Roles are assumable identities with specific permissions, ideal for services or temporary access.' },
-                    { title: 'IAM Policies & Permissions', details: 'Use JSON-based policies to define fine-grained permissions (Allow/Deny) for actions on specific AWS resources.' },
-                    { title: 'Multi-Factor Authentication (MFA)', details: 'Add an extra layer of security for your root account and individual IAM users to protect against unauthorized access.' },
-                    { title: 'Best Practices', details: 'Follow the principle of least privilege, never use the root account for daily tasks, and regularly rotate access keys.' }
+                    { title: 'Ensemble Methods', details: 'Master Random Forest, XGBoost, and LightGBM for high-performance models.' },
+                    { title: 'Deep Learning Basics', details: 'Get started with neural networks using TensorFlow or PyTorch.' },
+                    { title: 'Time Series Forecasting', details: 'Learn to forecast trends with models like ARIMA and Prophet.' },
+                    { title: 'NLP Essentials', details: 'Work with text data using vectorization, tf-idf, and sentiment analysis.' },
+                    { title: 'Handling Large Datasets', details: 'Introduction to scaling data processing with Dask and Spark basics.' },
+                    { title: 'Mini-Projects', details: 'Build a sentiment classifier, a stock price forecaster, and a customer churn prediction model.' }
                   ]
                 },
-                { name: 'VPC (Virtual Private Cloud)', desc: "Provision a logically isolated section of the AWS Cloud where you can launch resources in a virtual network.", linkText: 'Understand Networking >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>`,
+                { 
+                  name: 'Month 5', 
+                  desc: 'MLOps & Data Science in Production', 
+                  linkText: 'View Production Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" y1="12" x2="3" y2="12" /></svg>`,
                   topics: [
-                    { title: 'Subnets (Public & Private)', details: 'Divide your VPC into subnets. Public subnets have a route to the internet via an Internet Gateway, while private subnets do not.' },
-                    { title: 'Route Tables & Gateways', details: 'Route tables control traffic flow. An Internet Gateway (IGW) allows public traffic, and a NAT Gateway lets private instances access the internet.' },
-                    { title: 'Security Groups & NACLs', details: 'Security Groups act as a stateful firewall for instances, while Network Access Control Lists (NACLs) are a stateless firewall for subnets.' },
-                    { title: 'VPC Peering & Endpoints', details: 'Connect VPCs together privately using peering. Use VPC endpoints to access AWS services without traversing the public internet.' }
-                  ]
-                },
-                { name: 'EC2 (Elastic Compute Cloud)', desc: "The core service for scalable computing capacity, providing virtual servers (instances) in the cloud.", linkText: 'Launch Servers >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>`,
-                  topics: [
-                    { title: 'Instance Types & AMIs', details: 'Choose from a wide variety of instance types optimized for different workloads (compute, memory, etc.). AMIs (Amazon Machine Images) are templates for your instances.' },
-                    { title: 'Elastic Block Store (EBS)', details: 'EBS provides persistent block-level storage volumes for use with EC2 instances, like virtual hard drives.' },
-                    { title: 'Auto Scaling Groups & ELB', details: 'Automatically adjust the number of EC2 instances based on demand with Auto Scaling. Distribute traffic across instances using an Elastic Load Balancer (ELB).' },
-                    { title: 'Key Pairs & SSH', details: 'Securely connect to your Linux instances using a key pair, which consists of a public key stored on the instance and a private key you control.' }
-                  ]
-                },
-                { name: 'S3 (Simple Storage Service)', desc: "Industry-leading object storage for any amount of data, offering scalability, availability, and performance.", linkText: 'Learn Storage >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5"/><path d="M22 10.5c0 .8-.5 1.5-1.1 1.5s-1.1-.7-1.1-1.5.5-1.5 1.1-1.5 1.1.7 1.1 1.5z"/></svg>`,
-                  topics: [
-                    { title: 'Buckets & Objects', details: 'Data is stored in buckets, which are globally unique containers. Inside buckets, you store data as objects, which consist of the data, a key, and metadata.' },
-                    { title: 'Storage Classes', details: 'Optimize costs by choosing the right storage class, from S3 Standard for frequent access to Glacier Deep Archive for long-term retention.' },
-                    { title: 'Versioning & Lifecycle Policies', details: 'Protect against accidental deletions with versioning. Automate moving objects to cheaper storage classes with lifecycle policies.' },
-                    { title: 'Static Website Hosting', details: 'Configure an S3 bucket to serve a static website, providing a highly available and low-cost hosting solution.' }
+                    { title: 'Reproducible Pipelines', details: 'Build automated workflows with scikit-learn and MLflow.' },
+                    { title: 'Version Control & Collaboration', details: 'Use Git for data science projects and learn collaborative workflows.' },
+                    { title: 'Model Deployment', details: 'Serve models as APIs using Flask/FastAPI and containerize with Docker.' },
+                    { title: 'Performance Monitoring', details: 'Track model performance and detect concept/data drift.' },
+                    { title: 'Data Visualization & Dashboarding', details: 'Create interactive dashboards with Plotly and get an intro to Power BI/Tableau.' },
+                    { title: 'Mini-Projects', details: 'Deploy a predictive model as an API, create an automated retraining workflow, and build an interactive data dashboard.' }
                   ]
                 }
             ],
-            advanced: [
-                { name: 'Lambda & Serverless', desc: "Run code without provisioning or managing servers. Pay only for the compute time you consume.", linkText: 'Go Serverless >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18l6-12 6 12"/><path d="M10 14h3.5"/></svg>`,
-                  topics: [
-                    { title: 'Function as a Service (FaaS)', details: 'Lambda is the core of FaaS. You upload your code as a function, and Lambda handles all the infrastructure to run and scale it.' },
-                    { title: 'Event-Driven Architecture', details: 'Trigger Lambda functions from over 200 AWS services (like S3 uploads, API Gateway requests) or custom applications.' },
-                    { title: 'API Gateway', details: 'Create, publish, and secure APIs at any scale. API Gateway can act as a "front door" for applications to access your Lambda functions.' },
-                    { title: 'Serverless Application Model (SAM)', details: 'Use this open-source framework to build and deploy serverless applications on AWS more easily, with a simplified YAML syntax.' }
-                  ]
-                },
-                { name: 'Containers (ECS & EKS)', desc: "Run and manage Docker containers at scale using AWS's managed orchestration services.", linkText: 'Orchestrate Containers >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>`,
-                  topics: [
-                    { title: 'ECS (Elastic Container Service)', details: 'A highly scalable, high-performance container orchestration service that is deeply integrated with the AWS ecosystem. Supports EC2 and Fargate launch types.' },
-                    { title: 'EKS (Elastic Kubernetes Service)', details: 'A managed service to run Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane.' },
-                    { title: 'Fargate', details: 'A serverless compute engine for containers. With Fargate, you no longer have to provision and manage servers for your containers.' },
-                    { title: 'ECR (Elastic Container Registry)', details: 'A fully-managed Docker container registry that makes it easy to store, manage, and deploy Docker container images.' }
-                  ]
-                },
-                { name: 'Infrastructure as Code', desc: "Manage and provision your cloud infrastructure using code and automation with CloudFormation or Terraform.", linkText: 'Automate Infrastructure >',
+            // Months 1-3
+            backend: [
+                { 
+                  name: 'Month 1', 
+                  desc: "Foundational Skills in Python & Data", 
+                  linkText: 'View Foundational Topics >',
                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
                   topics: [
-                    { title: 'CloudFormation', details: 'AWS\'s native IaC service. Define your resources in YAML or JSON templates, and CloudFormation provisions and configures them for you in a repeatable way.' },
-                    { title: 'Terraform', details: 'A popular open-source IaC tool from HashiCorp. It uses a declarative configuration language (HCL) and supports multiple cloud providers, including AWS.' },
-                    { title: 'Stacks & State Management', details: 'CloudFormation manages resources as a single unit called a stack. Terraform maintains a state file to track your managed infrastructure.' },
-                    { title: 'Declarative vs. Imperative', details: 'Understand the declarative approach ("what I want") of IaC tools versus an imperative approach ("how to do it") of scripting.' }
+                    { title: 'Python for Data Analysis', details: 'Master core libraries like NumPy and pandas for data manipulation.' },
+                    { title: 'Data Wrangling & EDA', details: 'Learn to clean, merge, transform, and explore data with matplotlib & seaborn.' },
+                    { title: 'Introduction to SQL', details: 'Gain essential skills for querying and retrieving data from structured databases.' },
+                    { title: 'Mini-Projects', details: 'Complete a data audit/visualization report and solve a SQL challenge to retrieve business KPIs.' },
                   ]
                 },
-                { name: 'Monitoring & Logging', desc: "Gain visibility into the performance of your applications and infrastructure with CloudWatch and CloudTrail.", linkText: 'Observe Your Stack >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.06 12.06c.01.01 0 .01 0 0L2 12l5.66-7a8 8 0 0 1 8.68 0L22 12l-5.66 7a8 8 0 0 1-8.68 0L2 12z"/><circle cx="12" cy="12" r="3"/></svg>`,
+                { 
+                  name: 'Month 2', 
+                  desc: 'Applied Statistics & Advanced Analytics', 
+                  linkText: 'View Statistics Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
                   topics: [
-                    { title: 'CloudWatch Metrics & Alarms', details: 'Collect and track metrics for your AWS resources. Set alarms to automatically notify you or take action when a threshold is breached.' },
-                    { title: 'CloudWatch Logs', details: 'Centralize logs from all your systems, applications, and AWS services. Search and filter logs for troubleshooting and analysis.' },
-                    { title: 'CloudTrail', details: 'Record all API calls made in your AWS account. CloudTrail provides a history of events for security analysis and operational troubleshooting.' },
-                    { title: 'Dashboards', details: 'Create custom dashboards in CloudWatch to get a unified operational view of your AWS resources and applications with graphs and metrics.' }
+                    { title: 'Descriptive & Inferential Statistics', details: 'Understand core statistical concepts for business applications.' },
+                    { title: 'Hypothesis Testing', details: 'Learn to design and interpret experiments to make data-driven decisions.' },
+                    { title: 'Probability & Correlation', details: 'Analyze data distributions and the relationships between variables.' },
+                    { title: 'Mini-Projects', details: 'Analyze an A/B testing experiment and perform customer segmentation using clustering and statistical methods.' },
                   ]
-                }
+                },
+                { 
+                  name: 'Month 3', 
+                  desc: 'Machine Learning Foundations', 
+                  linkText: 'View ML Foundation Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" /></svg>`,
+                  topics: [
+                    { title: 'Supervised Learning', details: 'Implement regression and classification models with scikit-learn.' },
+                    { title: 'Unsupervised Learning', details: 'Apply clustering, PCA, and anomaly detection techniques.' },
+                    { title: 'Feature Engineering & Selection', details: 'Master techniques to create and select impactful features for your models.' },
+                    { title: 'Evaluation Metrics', details: 'Understand and use metrics like accuracy, precision, recall, and ROC/AUC to evaluate model performance.' },
+                    { title: 'Mini-Projects', details: 'Build a housing price predictor, a fraud detection model, and use dimensionality reduction on customer data.' },
+                  ]
+                },
             ]
         };
         
@@ -388,14 +510,24 @@
                 }
             });
         }, { threshold: 0.2 });
+        
+        function updateToggleLabels() {
+            if (modeToggle.checked) {
+                backendLabel.classList.remove('active');
+                frontendLabel.classList.add('active');
+            } else {
+                backendLabel.classList.add('active');
+                frontendLabel.classList.remove('active');
+            }
+        }
 
         modeToggle.addEventListener('change', () => {
-            // UPDATED: Switch between AWS categories
             if (modeToggle.checked) {
-                createTimeline('advanced');
+                createTimeline('frontend');
             } else {
-                createTimeline('foundational');
+                createTimeline('backend');
             }
+            updateToggleLabels();
         });
 
         languageDisplay.addEventListener('click', (e) => {
@@ -511,7 +643,8 @@
         }
 
         // Initial load
-        createTimeline('foundational');
+        createTimeline('backend');
+        updateToggleLabels();
     </script>
 </body>
 </html>

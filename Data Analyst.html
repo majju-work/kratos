@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analyst Learning Path</title>
+    <title>Data Engineer Mastery Roadmap</title>
     <style>
     :root {
-        /* UPDATED: New Data Analyst-themed color palette */
-        --body-bg: #F8F9FA;          /* Clean Light Gray Background */
-        --card-bg: #FFFFFF;          /* White Cards */
-        --heading-color: #343A40;     /* Professional Dark Gray */
-        --text-color: #495057;        /* Readable Gray Text */
-        --accent-color: #20C997;      /* Professional Teal for accents */
+        /* UPDATED: New Data Engineering-themed color palette */
+        --body-bg: #F4F4F5;          /* Light, clean background */
+        --card-bg: #FFFFFF;          /* Crisp white cards */
+        --heading-color: #2D3748;     /* Professional dark blue-gray for headings */
+        --text-color: #4A5568;        /* Readable gray for descriptions */
+        --accent-color: #3B82F6;      /* A strong, professional blue for data engineering */
         
-        --line-bg-color: rgba(32, 201, 151, 0.2);
+        --line-bg-color: rgba(59, 130, 246, 0.2);
         --line-fill-color: var(--accent-color);
-        --dot-color: rgba(32, 201, 151, 0.4);
+        --dot-color: rgba(59, 130, 246, 0.4);
         --dot-active-color: var(--accent-color);
-        --accent-blue: #007bff;
+        --accent-blue: #3B82F6; 
     }
 
     body {
@@ -64,61 +64,20 @@
         font-size: 2.5em; font-weight: 700; 
         color: var(--heading-color);
         text-shadow: none;
-    }
-
-    .toggle-switch-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 50px;
-    }
-    .toggle-label {
-        font-size: 1.1em;
-        font-weight: 600;
-        color: var(--heading-color);
-        user-select: none;
-    }
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-    }
-    .switch input { 
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 34px;
-    }
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
-    input:checked + .slider {
-        background-color: var(--accent-color);
-    }
-    input:checked + .slider:before {
-        transform: translateX(26px);
+        line-height: 1.2;
     }
     
+    .sub-header-text {
+        font-size: 1.15em;
+        color: var(--text-color);
+        margin-top: 10px;
+        margin-bottom: 20px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
     .timeline { position: relative; width: 100%; margin: 0 auto; padding: 40px 0; }
     .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--line-bg-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
     .timeline::before { content: ''; position: absolute; width: 4px; background-color: var(--line-fill-color); top: 0; left: 50%; margin-left: -2px; border-radius: 2px; height: var(--line-height, 0); transition: height 0.2s ease-out; }
@@ -170,15 +129,15 @@
         padding: 25px; 
         background: var(--card-bg);
         border-radius: 12px; 
-        box-shadow: 0 6px 30px rgba(52, 58, 64, 0.08);
+        box-shadow: 0 6px 30px rgba(45, 55, 72, 0.08);
         position: relative; text-align: left;
-        border: 1px solid #DEE2E6;
+        border: 1px solid #E2E8F0;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
     .timeline-content:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 45px rgba(52, 58, 64, 0.12);
+        box-shadow: 0 12px 45px rgba(45, 55, 72, 0.12);
     }
     
     .content-header {
@@ -250,12 +209,115 @@
     .modal-accordion-toggle { display: inline-block; width: 8px; height: 8px; border-right: 2px solid var(--heading-color); border-bottom: 2px solid var(--heading-color); transform: rotate(45deg); transition: transform 0.3s ease; }
     .modal-accordion-item.open .modal-accordion-toggle { transform: rotate(-135deg); }
     .modal-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 15px 0 0; color: #6c757d; font-size: 0.95rem; line-height: 1.6; }
-    .modal-accordion-item.open .modal-accordion-body { max-height: 200px; padding: 0 15px 15px 0; }
+    .modal-accordion-item.open .modal-accordion-body { max-height: 500px; /* Increased max-height */ padding: 0 15px 15px 0; }
     
     #modal-body::-webkit-scrollbar { width: 8px; }
     #modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
     #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
     #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+    /* Specialization Section Styles */
+    .specialization-container {
+        padding: 50px 25px;
+        margin-top: 40px;
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(45, 55, 72, 0.1);
+        border: 1px solid #E2E8F0;
+        text-align: left;
+    }
+    .specialization-container h2 {
+        font-size: 2.2em;
+        font-weight: 700;
+        color: var(--heading-color);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .specialization-container .subtitle {
+        font-size: 1.15em;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cloud-tracks-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 20px;
+    }
+    .cloud-track-card {
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        border-left: 5px solid var(--accent-color);
+    }
+    .cloud-track-card h3 {
+        font-size: 1.7em;
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    .cloud-track-card h4 {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--accent-color);
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--line-bg-color);
+        padding-bottom: 5px;
+    }
+    .cloud-track-card ul {
+        list-style: '→';
+        padding-left: 20px;
+        margin: 0;
+    }
+    .cloud-track-card li {
+        margin-bottom: 10px;
+        padding-left: 10px;
+        line-height: 1.6;
+    }
+     .roadmap-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 40px;
+        font-size: 1em;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .roadmap-table th, .roadmap-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #E2E8F0;
+    }
+    .roadmap-table th {
+        background-color: var(--body-bg);
+        font-weight: 600;
+        color: var(--heading-color);
+    }
+    .roadmap-table tr:last-child td {
+        border-bottom: none;
+    }
+    .roadmap-table tr:hover {
+        background-color: #f8f9fa;
+    }
+    .learning-points {
+        list-style: '✅';
+        padding-left: 25px;
+        margin: 20px 0;
+        color: var(--text-color);
+    }
+    .learning-points li {
+        padding-left: 15px;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
 
 </style>
 </head>
@@ -267,19 +329,128 @@
 
     <div class="main-container">
         <div class="header-container">
-            <h1 id="main-header-text">Data Analyst Learning Path</h1>
+            <h1 id="main-header-text">Data Engineer Mastery Roadmap — From Foundations to Cloud King</h1>
+            <p class="sub-header-text">This comprehensive 6-month journey builds rock-solid foundations first, then powers through cloud specialization on AWS, Azure, and GCP, ending with hands-on corporate capstone projects.</p>
         </div>
         
-        <div class="toggle-switch-container">
-            <span class="toggle-label">Core Skills</span>
-            <label class="switch">
-                <input type="checkbox" id="mode-toggle">
-                <span class="slider"></span>
-            </label>
-            <span class="toggle-label">Advanced Tools & Concepts</span>
+        <div class="header-container">
+            <h2>Pre-Cloud Data Engineering Foundations (Months 1–3)</h2>
         </div>
 
         <div id="language-display"></div>
+        
+        <div class="specialization-container">
+            <h2>Cloud Data Engineering Specializations (Months 4–6)</h2>
+            <p class="subtitle">Once foundational skills are mastered, learners specialize in one of the three major clouds with a consistent structure, enabling enterprise expertise and portfolio-ready projects.</p>
+        
+            <div class="cloud-tracks-grid">
+                <!-- AWS Track -->
+                <div class="cloud-track-card">
+                    <h3>AWS Data Engineer Mastery</h3>
+                    <h4>Monthly Focus</h4>
+                    <ul>
+                        <li><b>Month 4:</b> Storage & Ingestion with S3, Glue, RDS, DynamoDB</li>
+                        <li><b>Month 5:</b> Big Data Processing with EMR, Lambda, Kinesis</li>
+                        <li><b>Month 6:</b> Data Warehousing with Redshift, QuickSight dashboards</li>
+                    </ul>
+                    <h4>Capstone Projects</h4>
+                    <ul>
+                        <li>Streaming Analytics Pipeline (Kinesis + Lambda + Redshift)</li>
+                        <li>Secure Data Lake with Glue & Lake Formation</li>
+                        <li>Automated Data Warehouse Management with Redshift</li>
+                        <li>ML-Ready Feature Store for SageMaker Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Azure Track -->
+                <div class="cloud-track-card">
+                    <h3>Azure Data Engineer Mastery</h3>
+                    <h4>Monthly Focus</h4>
+                    <ul>
+                        <li><b>Month 4:</b> Azure Blob, Data Lake Gen 2, Data Factory Pipelines</li>
+                        <li><b>Month 5:</b> Azure Databricks, Stream Analytics, Event Hubs</li>
+                        <li><b>Month 6:</b> Synapse Analytics, Power BI Reporting, Security with Key Vault & Purview</li>
+                    </ul>
+                    <h4>Capstone Projects</h4>
+                    <ul>
+                        <li>Advanced Data Lake Platform with Data Factory & Purview</li>
+                        <li>Real-Time Streaming Pipeline using Event Hubs & Databricks</li>
+                        <li>Enterprise Analytics Hub with Synapse & Power BI</li>
+                        <li>Fully Automated ETL Pipeline with ARM & DevOps</li>
+                    </ul>
+                </div>
+
+                <!-- GCP Track -->
+                <div class="cloud-track-card">
+                    <h3>GCP Data Engineer Mastery</h3>
+                    <h4>Monthly Focus</h4>
+                    <ul>
+                        <li><b>Month 4:</b> BigQuery data warehouse, Cloud SQL, Dataflow pipelines</li>
+                        <li><b>Month 5:</b> Pub/Sub, Dataproc cluster management, Data Studio for dashboards</li>
+                        <li><b>Month 6:</b> Composer (Airflow), Data Catalog, security policies & governance</li>
+                    </ul>
+                    <h4>Capstone Projects</h4>
+                    <ul>
+                        <li>Cloud-Native Data Warehouse with BigQuery & Dataflow</li>
+                        <li>Real-Time Analytics Pipeline on Pub/Sub & Looker Studio</li>
+                        <li>End-to-End Data Lake & Metadata Management using Composer & Catalog</li>
+                        <li>Automated ML Pipeline using BigQuery ML & Vertex AI</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 60px;">Comprehensive Roadmap Table</h2>
+             <table class="roadmap-table">
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Focus</th>
+                        <th>Key Technologies & Tools</th>
+                        <th>Deliverables</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pre-Cloud</td>
+                        <td>Python, SQL, Hadoop, Hive, Spark</td>
+                        <td>Python, pandas, SQL, HDFS, MapReduce, Hive, Spark</td>
+                        <td>Foundational ETL pipelines & big data projects</td>
+                    </tr>
+                     <tr>
+                        <td>Cloud Track 1</td>
+                        <td>AWS Data Engineering</td>
+                        <td>S3, Glue, Lambda, EMR, Kinesis, Redshift</td>
+                        <td>Streaming Analytics, Data Lakes, Warehousing</td>
+                    </tr>
+                     <tr>
+                        <td>Cloud Track 2</td>
+                        <td>Azure Data Engineering</td>
+                        <td>Blob, Data Lake, Data Factory, Databricks, Synapse</td>
+                        <td>Real-Time Pipelines, Data Lakes, BI Dashboards</td>
+                    </tr>
+                     <tr>
+                        <td>Cloud Track 3</td>
+                        <td>GCP Data Engineering</td>
+                        <td>BigQuery, Dataflow, Pub/Sub, Dataproc, Composer</td>
+                        <td>Cloud Warehouse, Streaming Analytics, Metadata mgmt</td>
+                    </tr>
+                     <tr>
+                        <td>Capstone Month</td>
+                        <td>Corporate-Grade Portfolio</td>
+                        <td>All platforms and integrations</td>
+                        <td>4 Major Production-Ready Projects per Cloud Track</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 style="margin-top: 60px;">Why This Roadmap Works</h2>
+             <ul class="learning-points">
+                <li><b>Foundation First:</b> Ensures every student masters core data programming, SQL, and big data before moving to advanced cloud tools.</li>
+                <li><b>Cloud Specialization:</b> Deep dives into each cloud’s unique strengths and ecosystem, enabling enterprise-level skills.</li>
+                <li><b>Hands-On, Project-Driven:</b> Each stage equips learners with mini-projects building to capstone production projects.</li>
+                <li><b>Portfolio-Ready Graduates:</b> Multiple capstone projects per cloud arm graduates with real-world experience to ace job interviews.</li>
+            </ul>
+        </div>
     </div>
 
     <div id="topics-modal" class="modal-overlay">
@@ -293,90 +464,51 @@
     </div>
 
     <script>
-        const modeToggle = document.getElementById('mode-toggle');
         const languageDisplay = document.getElementById('language-display');
         const modal = document.getElementById('topics-modal');
         const modalTitle = document.getElementById('modal-title');
         const modalBodyList = document.querySelector('#modal-body ul');
         const closeModalBtn = document.querySelector('.close-modal');
         
-        // --- UPDATED: New data object for Data Analyst Learning Path ---
+        // UPDATED: Data object with Data Engineering Foundations content
         const data = {
-            core_skills: [
-                { name: 'Excel for Data Analysis', desc: "The foundational tool for organizing, cleaning, and performing initial analysis on smaller datasets.", linkText: 'Master Spreadsheets >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`,
+            foundations: [
+                { 
+                  name: 'Month 1', 
+                  desc: "Python for Data Engineering", 
+                  linkText: 'View Python Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-1.45-1.45c-.2-.2-.2-.51 0-.71l1.45-1.45c.2-.2.51-.2.71 0l1.45 1.45c.2.2.2.51 0 .71l-1.45 1.45c-.2.2-.51.2-.71 0zm-10 10l-1.45-1.45c-.2-.2-.2-.51 0-.71l1.45-1.45c.2-.2.51-.2.71 0l1.45 1.45c.2.2.2.51 0 .71l-1.45 1.45c-.2.2-.51.2-.71 0zM4 12l-1.45-1.45A.5.5 0 012 10.24l1.45-1.45a.5.5 0 01.71 0L5.61 10.24a.5.5 0 010 .71L4.16 12.4a.5.5 0 01-.71 0z" /><path d="M12 2l1.45 1.45c.2.2.2.51 0 .71L12 5.61a.5.5 0 01-.71 0L9.84 4.16a.5.5 0 010-.71L11.29 2c.2-.2.51-.2.71 0z" /></svg>`,
                   topics: [
-                    { title: 'Formulas & Functions', details: 'Go beyond basic SUM. Master functions like VLOOKUP, INDEX-MATCH, IF statements, and text manipulation to clean and structure data.' },
-                    { title: 'PivotTables & PivotCharts', details: 'The most powerful feature for summarizing large amounts of data. Learn to group, aggregate, and filter data dynamically.' },
-                    { title: 'Data Cleaning Tools', details: 'Use features like "Text to Columns," "Remove Duplicates," and Power Query to standardize and clean messy data efficiently.' },
-                    { title: 'Conditional Formatting', details: 'Visually highlight trends, outliers, and important data points directly within your spreadsheet to make insights stand out.' }
+                    { title: 'Core Python', details: 'Master syntax, control flows, functions, modules, and best practices for data engineering.' },
+                    { title: 'Data Manipulation with Pandas', details: 'Learn to efficiently load, clean, transform, and analyze data.' },
+                    { title: 'File Handling & Database Connectivity', details: 'Work with large CSVs & JSON files and connect to databases using SQLAlchemy & psycopg2.' },
+                    { title: 'Mini-Projects', details: 'Build an ETL script to ingest CSVs into a database and create data cleaning/transformation pipelines.' },
                   ]
                 },
-                { name: 'SQL for Data Retrieval', desc: "The essential language for querying and manipulating data stored in relational databases.", linkText: 'Query Databases >',
+                { 
+                  name: 'Month 2', 
+                  desc: 'SQL and Classic Big Data Tools', 
+                  linkText: 'View Big Data Topics >',
                   logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
                   topics: [
-                    { title: 'SELECT, FROM, WHERE', details: 'The fundamental clauses for retrieving data. Learn to filter rows and select specific columns from tables.' },
-                    { title: 'JOINS (INNER, LEFT, RIGHT)', details: 'Combine data from multiple tables based on related columns. This is crucial for creating a complete analytical dataset.' },
-                    { title: 'Aggregate Functions & GROUP BY', details: 'Use functions like COUNT(), SUM(), AVG(), MIN(), MAX() with the GROUP BY clause to summarize data and find insights.' },
-                    { title: 'Subqueries & CTEs', details: 'Write more complex and readable queries by nesting SELECT statements (subqueries) or using Common Table Expressions (CTEs) to break down logic.' }
+                    { title: 'SQL Mastery', details: 'Go deep with SELECT, JOINs, GROUP BY, Window Functions, and CTEs. Learn query optimization and indexing basics.' },
+                    { title: 'Hadoop Ecosystem', details: 'Understand HDFS fundamentals, MapReduce basics, and Hive SQL for big data querying.' },
+                    { title: 'Data Ingestion & Orchestration', details: 'Get an introduction to Sqoop for data import/export and Oozie for workflow scheduling.' },
+                    { title: 'Mini-Projects', details: 'Build batch processing pipelines using Hadoop & Hive and perform data ingestion with Sqoop.' },
                   ]
                 },
-                { name: 'Statistics Fundamentals', desc: "The theoretical backbone for making sound, data-driven decisions and understanding uncertainty.", linkText: 'Understand the Theory >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8a6 6 0 0 0-8.4 0L3 15.6"/></svg>`,
+                { 
+                  name: 'Month 3', 
+                  desc: 'Apache Spark Foundations', 
+                  linkText: 'View Spark Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
                   topics: [
-                    { title: 'Descriptive Statistics', details: 'Summarize and describe data features using measures like mean, median, mode, standard deviation, and variance.' },
-                    { title: 'Inferential Statistics', details: 'Make inferences and predictions about a population based on a sample of data. This is the foundation of data-driven decision-making.' },
-                    { title: 'Probability Distributions', details: 'Understand common distributions like the Normal (Bell Curve), Binomial, and Poisson to model real-world phenomena.' },
-                    { title: 'Hypothesis Testing & A/B Testing', details: 'Formulate hypotheses and use statistical tests (like t-tests, chi-squared) to determine if your results are statistically significant.' }
+                    { title: 'Spark Architecture', details: 'Understand RDDs, DataFrames, the DAG scheduler, and distributed data processing.' },
+                    { title: 'Batch & Streaming Pipelines', details: 'Use Spark SQL for batch processing and Structured Streaming for real-time data pipelines.' },
+                    { title: 'Introduction to MLlib', details: 'Explore Spark’s library for scalable machine learning on big data.' },
+                    { title: 'Mini-Projects', details: 'Build a scalable batch ETL pipeline with Spark DataFrames and implement a real-time aggregation pipeline.' },
                   ]
                 },
-                { name: 'Data Visualization', desc: "The art and science of communicating data insights visually through charts, graphs, and dashboards.", linkText: 'Visualize Insights >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>`,
-                  topics: [
-                    { title: 'Choosing the Right Chart', details: 'Learn when to use different chart types: bar charts for comparison, line charts for trends, scatter plots for relationships, and pie charts for composition.' },
-                    { title: 'Design Principles', details: 'Apply principles of visual perception, such as minimizing chart junk, using color effectively, and maintaining a high data-to-ink ratio.' },
-                    { title: 'Dashboarding', details: 'Combine multiple visualizations into a single, interactive dashboard that provides a comprehensive overview of key performance indicators (KPIs).' },
-                    { title: 'Common Tools (Tableau/Power BI)', details: 'Gain hands-on experience with industry-standard tools like Tableau or Microsoft Power BI to create powerful and interactive visualizations.' }
-                  ]
-                }
-            ],
-            advanced_tools: [
-                { name: 'Python for Data Analysis', desc: "Leverage Python's powerful libraries to programmatically clean, transform, analyze, and visualize data.", linkText: 'Code Your Analysis >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path><path d="M10.5 14.5a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z"></path><path d="M16 11.5v-2a3 3 0 0 0-3-3h-2.5"></path><path d="M8 12.5v2a3 3 0 0 0 3 3h2.5"></path></svg>`,
-                  topics: [
-                    { title: 'Pandas', details: 'The cornerstone library for data manipulation. Master DataFrames for cleaning, filtering, joining, and aggregating structured data.' },
-                    { title: 'NumPy', details: 'The fundamental package for scientific computing in Python, providing powerful N-dimensional array objects and mathematical functions.' },
-                    { title: 'Matplotlib & Seaborn', details: 'Create a wide range of static, animated, and interactive visualizations. Seaborn provides a high-level interface for drawing attractive statistical graphics.' },
-                    { title: 'Jupyter Notebooks', details: 'An interactive environment that allows you to write and execute code, visualize data, and add narrative text in a single document.' }
-                  ]
-                },
-                { name: 'Business Intelligence Tools', desc: "Deep dive into creating end-to-end BI solutions, from data connection to automated reporting.", linkText: 'Build Dashboards >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>`,
-                  topics: [
-                    { title: 'Data Modeling', details: 'In tools like Power BI, learn to create relationships between tables, define star schemas, and write DAX measures to create a robust data model.' },
-                    { title: 'Advanced Visualizations', details: 'Go beyond basic charts. Learn to use maps, decomposition trees, custom visuals, and interactive features like drill-through and tooltips.' },
-                    { title: 'Data Transformation (Power Query/Prep)', details: 'Master the Extract, Transform, Load (ETL) process within BI tools to clean and reshape data from various sources before analysis.' },
-                    { title: 'Sharing & Collaboration', details: 'Learn to publish reports and dashboards to the cloud, set up scheduled data refreshes, and manage user access and permissions.' }
-                  ]
-                },
-                { name: 'Cloud Data Platforms', desc: "Understand how data is stored, processed, and accessed in modern cloud environments like AWS, GCP, or Azure.", linkText: 'Explore the Cloud >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>`,
-                  topics: [
-                    { title: 'Cloud Storage (e.g., S3, GCS)', details: 'Learn about object storage for raw data files (like CSVs, JSON, Parquet) which often serves as the source for data warehouses.' },
-                    { title: 'Data Warehousing (e.g., Redshift, BigQuery)', details: 'Understand columnar databases designed for fast analytical queries on massive datasets, forming the core of BI.' },
-                    { title: 'Data Pipelines & ETL/ELT', details: 'Grasp the concepts of moving data from source systems into an analytical environment using cloud-native tools.' },
-                    { title: 'Basic Cloud Security', details: 'Learn the fundamentals of securing data in the cloud, including access control (IAM), encryption, and network security.' }
-                  ]
-                },
-                { name: 'Storytelling with Data', desc: "The crucial soft skill of weaving data, visuals, and narrative into a compelling story that drives action.", linkText: 'Craft a Narrative >',
-                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`,
-                  topics: [
-                    { title: 'Understanding Your Audience', details: 'Tailor your communication style, level of detail, and key takeaways to the specific needs and goals of your audience (e.g., executive vs. technical).' },
-                    { title: 'The Narrative Arc', details: 'Structure your analysis like a story with a clear beginning (the context), middle (the findings), and end (the recommendation or call to action).' },
-                    { title: 'Explaining the "So What?"', details: 'Move beyond simply stating what the data says. Focus on explaining why it matters and what the business implications are.' },
-                    { title: 'Simplifying Complexity', details: 'Learn to distill complex analyses into simple, memorable, and actionable insights that your stakeholders can easily understand and act upon.' }
-                  ]
-                }
             ]
         };
         
@@ -387,16 +519,7 @@
                 }
             });
         }, { threshold: 0.2 });
-
-        modeToggle.addEventListener('change', () => {
-            // UPDATED: Switch between Data Analyst categories
-            if (modeToggle.checked) {
-                createTimeline('advanced_tools');
-            } else {
-                createTimeline('core_skills');
-            }
-        });
-
+        
         languageDisplay.addEventListener('click', (e) => {
             const link = e.target.closest('.timeline-link');
             if (link) {
@@ -509,8 +632,8 @@
             }
         }
 
-        // Initial load
-        createTimeline('core_skills');
+        // Initial load for the foundational timeline
+        createTimeline('foundations');
     </script>
 </body>
 </html>
