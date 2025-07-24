@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     
-    <!-- === FONT & ICON LINKS (Updated for footer compatibility) === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <title>CloudWorld AWS Training</title>
+    <title>6-Month Powerhouse Roadmap: ML, LLM, MLOps & LLMOps</title>
     <style>
         /* General Body Styles */
         body {
@@ -132,13 +131,15 @@
         }
 
         .backbtn {
-            font-size: 3.5rem; /* Adjusted for better visibility */
-            margin-left: -200px;
-            padding: 60px;
-            margin-top: -80px;
+            font-size: 2.5rem; /* More reasonable icon size */
+            padding: 0; /* Remove excessive padding, let font-size define size */
+            margin: 0; /* Remove negative margins entirely */
+            margin-right: 1.5rem; /* Add some space between the icon and the main content */
             color: #0d2c4f;
             text-decoration: none;
             transition: color 0.3s ease;
+            align-self: flex-start; /* Ensures it aligns to the top of the flex container */
+            padding-top: 0.5rem; /* Small padding at top to align with top of the card's text */
         }
 
         .backbtn:hover {
@@ -203,45 +204,7 @@
             margin: 0 0 1.5rem 0;
             font-weight: 600;
         }
-
-        .date-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            color: #4a5a70;
-        }
-
-        .calendar-icon {
-            width: 28px;
-            height: 28px;
-            background-color: #7f8b9a;
-            border-radius: 4px;
-            position: relative;
-            margin-right: 15px;
-            flex-shrink: 0;
-            background-image: 
-                linear-gradient(white 1px, transparent 1px),
-                linear-gradient(to right, white 1px, transparent 1px);
-            background-size: 6px 6px;
-            background-position: 3px 9px;
-        }
-
-        .calendar-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 7px;
-            background-color: #606d7b;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
-
-        .date-text {
-            font-size: 1.3rem;
-        }
-
+       
         .text-column p {
             font-size: 1.15rem;
             line-height: 1.7;
@@ -253,19 +216,28 @@
             margin-bottom: 0;
         }
 
-        .text-column p u {
-            text-decoration-color: #4a5a70;
-            text-decoration-thickness: 1px;
-        }
-
         .text-column h2 {
             color: #0d2c4f;
             font-size: 1.8rem;
             font-weight: 600;
-            margin: 2rem 0 1rem 0;
+            margin: 2.5rem 0 1rem 0;
             line-height: 1.3;
         }
 
+        .text-column h3 {
+             color: #1a3c5f;
+             font-size: 1.5rem;
+             font-weight: 600;
+             margin: 1.5rem 0 1rem 0;
+        }
+        
+        .text-column h4 {
+            color: #2a4c6f;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1rem 0 0.8rem 0;
+        }
+        
         .text-column h2 strong {
             font-weight: 600;
         }
@@ -344,6 +316,11 @@
             .text-column p, .text-column ul, .text-column ol {
                 font-size: 1rem;
             }
+            .backbtn {
+                margin-right: 0; /* No right margin when stacked */
+                margin-bottom: 1rem; /* Add some space below when stacked */
+                padding-top: 0; /* Reset top padding for stacked layout */
+            }
         }
         
         .top-button {
@@ -379,9 +356,9 @@
             background-color: #ff9800; /* A distinct orange color */
             outline: 2px solid #c00;
         }
-
+        
         /* ================================= 
-           FOOTER STYLES (Added)
+            FOOTER STYLES (Added)
         ================================== */
         footer {
             background-color: #121212;
@@ -409,8 +386,8 @@
             gap: 15px;
         }
         .footer-nav-top ul li {
-           position: relative;
-           padding: 0 20px;
+          position: relative;
+          padding: 0 20px;
         }
         .footer-nav-top ul li:not(:last-child)::after {
             content: '';
@@ -513,10 +490,8 @@
 </head>
 <body>
     
-    <!-- Anchor for the "Scroll to Top" button. -->
     <div id="up_button"></div>
 
-    <!-- ===== NAVIGATION BAR HTML ===== -->
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-left">
@@ -525,13 +500,12 @@
                 </div>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="python_blog.html">python</a></li>
-                <li><a href="java_blog.html">JAVA</a></li>
-                <li><a href="aws_blog.html">AWS</a></li>
-                <li><a href="devops.html">DevOps</a></li>
-                <li><a href="data_s_blog.html">Data science</a></li>
-                <li><a href="data_a.html">Data Analysis</a></li>
-                <!-- UPDATED SEARCH BAR -->
+                <li><a href="devops&sre.html">DevOps</a></li>
+                <li><a href="multi-cloud.html">Multi-Cloud</a></li>
+                <li><a href="aipowerhouse.html">ML&MLOps</a></li>
+                 <li><a href="data_scientist.html">Data Scientists</a></li>
+                <li><a href="god_tier.html">God-Tier</a></li>
+                <li><a href="dataEngineer_Mastery.html">Data Engineer</a></li>
                 <li>
                     <form class="search-form" action="#" method="get" onsubmit="return false;">
                         <input type="text" placeholder="Search..." name="q" class="search-input">
@@ -543,205 +517,156 @@
         </div>
     </nav>
 
-    <!-- ===== MAIN CONTENT AREA - AWS BLOG 1 ===== -->
-    <div class="content-wrapper" id="aws1">
+    <div class="content-wrapper" id="aipowerhouse">
         <a href="blog.html" class="backbtn"><i class="fa fa-home"></i></a>
         <main>
             <div class="training-card">
                 <div class="card-content">
                     
-                    <!-- Item 1: Image -->
                     <div class="image-column">
-                        <img src="https://placehold.co/1200x400/FF9900/000000?text=AWS&font=sans-serif" alt="A professional working environment for AWS training.">
+                        <img src="https://placehold.co/1200x400/0d2c4f/eef2ff?text=AI+Engineering+Roadmap&font=sans-serif" alt="An illustration representing AI, ML, LLM, MLOps, and LLMOps workflows.">
                     </div>
 
-                    <!-- Item 2: Text Content -->
                     <div class="text-column">
-                        <h1>JOIN CLOUDWORLD FOR THE MOST COMPREHENSIVE AWS TRAINING IN PUNE</h1>
-                        <div class="date-info">
-                            <div class="calendar-icon"></div>
-                            <span class="date-text">10/10/2024</span>
-                        </div>
+                        <h1>6-Month Powerhouse Roadmap: ML, LLM, MLOps & LLMOps</h1>
                         
                         <p>
-                            Are you ready to launch your career in the cloud? Amazon Web Services (AWS) is the world's most comprehensive and broadly adopted cloud platform, and mastering it is your ticket to a high-growth career. Whether you are a beginner or an experienced professional, Cloudworld offers the <u>best AWS training in Pune</u> to help you achieve your career goals.
+                            Level up your skills with the definitive AI Engineering journey—mastering Machine Learning (ML), Large Language Models (LLMs), MLOps, and LLMOps through associate-to-advanced tooling, real-world pipelines, and a full suite of production projects. At the end, students emerge with a corporate-ready portfolio and practical expertise across both data science and modern GenAI engineering.
                         </p>
 
-                        <h2><strong>Why Learn AWS?</strong></h2>
-                        <p>
-                            AWS is the undisputed leader in the cloud computing market, trusted by millions of customers—from the fastest-growing startups to the largest enterprises. Learning AWS opens doors to roles in cloud engineering, architecture, development, and administration. Skilled AWS professionals are in constant demand, commanding excellent salaries and career opportunities.
-                        </p>
-
-                        <h2><strong>CloudWorld: The Best AWS Training Institute in Pune</strong></h2>
-                        <p>
-                            If you’re searching for "AWS training in Pune," look no further than CloudWorld. We are recognized as a leading training institute, offering a robust program designed to equip you with practical, in-demand AWS skills. Our curriculum is crafted by industry experts to cover everything from foundational concepts to advanced cloud strategies.
-                        </p>
-
-                        <h2><strong>Why Choose CloudWorld for AWS Training?</strong></h2>
-                        <ol>
-                            <li>
-                                <strong>Comprehensive Curriculum:</strong> Our AWS course in Pune covers core services like EC2, S3, IAM, VPC, and RDS, as well as advanced topics like serverless computing with Lambda, containerization with ECS and EKS, and infrastructure as code with CloudFormation.
-                            </li>
-                            <li>
-                                <strong>Hands-on Labs and Projects:</strong> We believe in learning by doing. Our AWS classes in Pune are packed with practical labs and real-world projects that give you the hands-on experience employers are looking for.
-                            </li>
-                            <li>
-                                <strong>Guaranteed Job Placement Support:</strong> Our AWS classes in Pune with placement assistance are designed to make you job-ready. We help with resume building, conduct mock interviews, and connect you with our network of top hiring partners in Pune.
-                            </li>
-                            <li>
-                                <strong>Learn from AWS Certified Experts:</strong> Our instructors are not just teachers; they are AWS certified professionals with years of industry experience. They provide mentorship and share real-world insights that you can't find in a textbook.
-                            </li>
-                            <li>
-                                <strong>Flexible Learning Modes:</strong> We offer both online AWS training in Pune and traditional classroom sessions, providing the flexibility to learn at your own pace and convenience.
-                            </li>
-                        </ol>
-
-                        <h2><strong>The Soaring Demand for AWS Professionals</strong></h2>
-                        <p>
-                            As businesses of all sizes migrate to the cloud to increase agility and reduce costs, the demand for AWS-skilled professionals has skyrocketed. Pune's thriving IT industry is a hotspot for cloud-related jobs. By enrolling in an AWS course at CloudWorld, you are positioning yourself for a successful and future-proof career.
-                        </p>
+                        <h2>Months 1-2: Core Machine Learning Foundations</h2>
                         
-                        <h2><strong>Conclusion</strong></h2>
-                        <p>
-                            If you're serious about building a career in cloud computing, CloudWorld is the best AWS training institute in Pune to guide you. With our expert trainers, hands-on approach, and dedicated placement support, we provide everything you need to succeed.
-                        </p>
-                        <p><strong>CloudWorld – Your Launchpad to a Successful Career in AWS.</strong></p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-    
-    <!-- ===== MAIN CONTENT AREA - AWS BLOG 2 ===== -->
-     <div class="content-wrapper" id="aws2">
-       
-        <main>
-            <div class="training-card">
-                <div class="card-content">
-                    
-                    <!-- Item 1: Image -->
-                    <div class="image-column">
-                        <img src="https://placehold.co/1200x400/232F3E/FFFFFF?text=AWS+Core+Services&font=sans-serif" alt="Diagram of core AWS services.">
-                    </div>
-
-                    <!-- Item 2: Text Content -->
-                    <div class="text-column">
-                        <h1>A DEEP DIVE INTO KEY AWS SERVICES WITH CLOUDWORLD</h1>
-                        <div class="date-info">
-                            <div class="calendar-icon"></div>
-                            <span class="date-text">15/10/2024</span>
-                        </div>
-                        
-                        <p>
-                            Amazon Web Services (AWS) offers over 200 fully featured services from data centers globally. While the sheer number can be overwhelming, a solid understanding of its core services is the foundation of any successful cloud career. At CloudWorld, our <u>AWS course in Pune</u> focuses on building this strong foundation.
-                        </p>
-
-                        <h2><strong>Understanding the Building Blocks of AWS</strong></h2>
-                        <p>
-                           Think of AWS services as building blocks. By learning how to combine them, you can build sophisticated, scalable, and fault-tolerant applications. Our training covers the most critical services that you will use daily as a cloud professional.
-                        </p>
-
-                        <h2><strong>Core AWS Services You Will Master at CloudWorld:</strong></h2>
+                        <h3>Month 1: ML Fundamentals & Python Mastery</h3>
                         <ul>
-                            <li>
-                                <strong>Amazon EC2 (Elastic Compute Cloud):</strong> This is the backbone of AWS, providing secure and resizable compute capacity (virtual servers) in the cloud. We teach you how to launch, manage, and scale EC2 instances for various workloads.
-                            </li>
-                            <li>
-                                <strong>Amazon S3 (Simple Storage Service):</strong> An object storage service offering industry-leading scalability, data availability, security, and performance. You'll learn to store and retrieve any amount of data for use cases like websites, mobile apps, and data analytics.
-                            </li>
-                            <li>
-                                <strong>AWS IAM (Identity and Access Management):</strong> Security is paramount. IAM allows you to securely manage access to AWS services and resources. Our course provides in-depth training on creating users, groups, roles, and policies to enforce the principle of least privilege.
-                            </li>
-                            <li>
-                                <strong>Amazon VPC (Virtual Private Cloud):</strong> Learn to provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. You'll master subnets, route tables, and network gateways.
-                            </li>
-                             <li>
-                                <strong>Amazon RDS (Relational Database Service):</strong> We cover how to set up, operate, and scale a relational database in the cloud with just a few clicks. You'll work with popular database engines like MySQL, PostgreSQL, and SQL Server.
-                            </li>
-                             <li>
-                                <strong>AWS Lambda:</strong> Step into the world of serverless computing. With Lambda, you can run code without provisioning or managing servers. You'll learn to build event-driven applications that are cost-effective and infinitely scalable.
-                            </li>
+                            <li>Data wrangling and visualization (<strong>NumPy, pandas, seaborn</strong>)</li>
+                            <li>Essential ML algorithms (<strong>scikit-learn</strong>): regression, classification, clustering</li>
+                            <li>Feature engineering and model selection</li>
+                            <li>Evaluation metrics and baseline deployment practices</li>
                         </ul>
-                        
-                         <h2><strong>Practical Learning for Real-World Scenarios</strong></h2>
-                        <p>
-                            Our AWS classes in Pune go beyond theory. You will deploy a multi-tier web application, configure a secure and scalable network, and automate infrastructure with code—all within the AWS ecosystem. This practical approach ensures you are ready to tackle real-world challenges from day one.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- ===== MAIN CONTENT AREA - AWS BLOG 3 ===== -->
-     <div class="content-wrapper" id="aws3">
-        <main>
-            <div class="training-card">
-                <div class="card-content">
-                    
-                    <!-- Item 1: Image -->
-                    <div class="image-column">
-                        <img src="https://placehold.co/1200x400/0d2c4f/a7bfff?text=AWS+Certification&font=sans-serif" alt="An AWS certification badge.">
-                    </div>
-
-                    <!-- Item 2: Text Content -->
-                    <div class="text-column">
-                        <h1>YOUR PATH TO AWS CERTIFICATION AND A TOP CAREER IN PUNE</h1>
-                        <div class="date-info">
-                            <div class="calendar-icon"></div>
-                            <span class="date-text">20/10/2024</span>
-                        </div>
-                        
-                        <p>
-                            In the competitive IT job market, an AWS certification is a powerful credential that validates your cloud expertise and enhances your professional credibility. CloudWorld offers the <u>best AWS certification training in Pune</u>, designed to help you pass the exam with confidence and land your dream job.
-                        </p>
-
-                        <h2><strong>Why Get AWS Certified?</strong></h2>
+                        <h4>Mini-Projects:</h4>
                         <ul>
-                            <li><strong>Validate Your Skills:</strong> A certification is proof of your technical skills and knowledge, recognized by employers worldwide.</li>
-                            <li><strong>Boost Your Career:</strong> Certified professionals often have a competitive edge in the job market and may command higher salaries.</li>
-                            <li><strong>Gain Confidence:</strong> Preparing for and passing a certification exam deepens your understanding and builds your confidence in using AWS.</li>
+                            <li>Titanic survival predictor</li>
+                            <li>Image classifier on small custom dataset</li>
+                            <li>Model selection leaderboard</li>
                         </ul>
 
-                        <h2><strong>CloudWorld's AWS Certification Training Program</strong></h2>
-                        <p>
-                            Our AWS course is aligned with the official AWS certification exam blueprints. We focus on preparing you for the most sought-after certifications:
-                        </p>
-                        <ol>
-                            <li>
-                                <strong>AWS Certified Cloud Practitioner:</strong> The perfect starting point, this certification validates a fundamental understanding of the AWS Cloud.
-                            </li>
-                            <li>
-                                <strong>AWS Certified Solutions Architect - Associate:</strong> One of the most popular and respected IT certifications, this validates your ability to design and deploy scalable, highly available systems on AWS.
-                            </li>
-                             <li>
-                                <strong>AWS Certified Developer - Associate:</strong> Ideal for developers, this certification shows you can develop and maintain applications on the AWS platform.
-                            </li>
-                        </ol>
+                        <h3>Month 2: End-to-End ML Projects & Experiment Tracking</h3>
+                        <ul>
+                            <li>Model orchestration and pipelines (<strong>Jupyter, scikit-learn Pipelines</strong>)</li>
+                            <li>Experiment management (<strong>MLflow, Weights & Biases basics</strong>)</li>
+                            <li>Data versioning (<strong>DVC</strong>)</li>
+                            <li>Introduction to cloud ML environments (<strong>SageMaker, Vertex AI, AzureML</strong>)</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>ML experiment tracking and auto-logging</li>
+                            <li>Reproducible pipeline for data drift detection</li>
+                        </ul>
 
-                        <h2><strong>How We Prepare You for Success</strong></h2>
-                        <p>
-                            At CloudWorld, our AWS training in Pune includes comprehensive exam preparation support. We provide hundreds of practice questions, conduct regular mock exams that simulate the real test environment, and offer one-on-one doubt-clearing sessions with our expert instructors. Our goal is not just to teach you AWS, but to ensure you become certified.
-                        </p>
+                        <h2>Months 3-4: Deep Learning & LLM Foundations</h2>
+                        
+                        <h3>Month 3: Deep Learning and NLP Foundation</h3>
+                        <ul>
+                            <li>Neural networks with <strong>TensorFlow/PyTorch</strong></li>
+                            <li>CNNs, RNNs, Transformers introduction</li>
+                            <li>Core NLP tasks: sentiment, NER, Q&A</li>
+                            <li>Pretrained model fine-tuning (<strong>Hugging Face basics</strong>)</li>
+                            <li>Data pipeline automation</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>Image recognition with transfer learning</li>
+                            <li>Sentiment analysis pipeline with automated deployment</li>
+                            <li>Sequence-to-sequence text generator</li>
+                        </ul>
 
-                        <h2><strong>Take the Next Step Towards Certification</strong></h2>
-                        <p>
-                            Ready to become an AWS certified professional? Enroll in CloudWorld's AWS classes in Pune with placement support and take a definitive step towards a rewarding cloud career.
-                        </p>
+                        <h3>Month 4: LLM Development, Prompt Engineering, and Applications</h3>
+                        <ul>
+                            <li>LLM architectures (<strong>GPT, Llama2, Mistral, open-source landscapes</strong>)</li>
+                            <li>Hands-on with <strong>Hugging Face/Transformers and LangChain</strong></li>
+                            <li>Prompt engineering best practices</li>
+                            <li>Fine-tuning and evaluation on custom datasets</li>
+                            <li>Use-case builds: retrieval augmented generation (<strong>RAG</strong>), summarization, code/genAI tasks</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>Prompt engineering leaderboard</li>
+                            <li>Custom QA chatbot for documentation</li>
+                            <li>Document search with vector databases (<strong>Pinecone, Weaviate</strong>)</li>
+                        </ul>
+
+                        <h2>Month 5: MLOps & LLMOps Associate-Level Productionization</h2>
+                        
+                        <h3>Weeks 17-18: MLOps Essentials</h3>
+                        <ul>
+                            <li>MLOps life cycle: versioning, CI/CD for models, deployment automation</li>
+                            <li><strong>Kubeflow/Pachyderm</strong> basics, orchestrating reproducible pipelines</li>
+                            <li>Model monitoring, data drift, and feedback loops</li>
+                            <li>ML system security (role-based access, reproducibility, audit logging)</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>CI/CD ML pipeline: automated retraining and redeployment</li>
+                            <li>Model drift dashboard using <strong>Evidently AI</strong></li>
+                        </ul>
+
+                        <h3>Weeks 19-20: LLMOps for Scalable GenAI Deployments</h3>
+                        <ul>
+                            <li>LLMOps lifecycle: data, model, inference, serving at scale</li>
+                            <li>Automated fine-tuning pipelines (with <strong>Hugging Face Hub</strong> and cloud GPU)</li>
+                            <li>Vector DB management and updating</li>
+                            <li>Inference optimization (quantization, distillation)</li>
+                            <li>Advanced monitoring: hallucination detection, usage analytics, privacy</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>API-first Chatbot with scalable LLM serving</li>
+                            <li>Automated LLM monitoring, alerting, and retraining triggers</li>
+                        </ul>
+
+                        <h2>Month 6: Corporate-Grade Capstone Projects Sprint</h2>
+                        <p>The final month is a hands-on project marathon: ship 12 production-ready, team-based capstones featuring real-world requirements, end-to-end pipelines, and scalable GenAI and MLOps/LLMOps stacks.</p>
+                        
+                        <h3>Capstone Projects Lineup</h3>
+                        <ul>
+                            <li><strong>Multi-Cloud ML Pipeline:</strong> Cloud-agnostic, reproducible ML pipeline on AWS, GCP, or Azure with full CI/CD, automated retraining, and deployment.</li>
+                            <li><strong>LLM-Powered Customer Support Bot:</strong> Build, deploy, monitor, and scale a RAG-based chatbot integrating vector DB (Pinecone/Weaviate), prompt engineering, and monitoring in prod.</li>
+                            <li><strong>Automated Data Drift & Model Monitoring Platform:</strong> Live dashboards and alerting for ML/LLM drift, workflow-triggered retraining.</li>
+                            <li><strong>End-to-End MLOps with Kubeflow:</strong> Pipeline ingestion, training, validation, deployment, and versioning on Kubernetes.</li>
+                            <li><strong>GenAI Content Moderation System:</strong> LLM-based filtering, hallucination detection, safe output auditing, and logging.</li>
+                            <li><strong>Realtime Recommendation System:</strong> Scalable, low-latency recommendations with automated A/B testing and rollback.</li>
+                            <li><strong>LLM CI/CD & LLMOps:</strong> Secure, audited LLM model deployment flow, version tracking, experiment tracking, production-grade serving.</li>
+                            <li><strong>Explainable AI Platform:</strong> Build dashboards for SHAP/LIME explanations, drift, and transparency for ML and LLM predictions.</li>
+                            <li><strong>Secure Model API Gateway:</strong> API gateway with rate limits, RBAC, approval flows for ML/LLM serving in regulated environments.</li>
+                            <li><strong>Human-in-the-Loop AI Feedback System:</strong> Real-world feedback integration to model improvement pipelines for continuous learning.</li>
+                            <li><strong>Serverless ML/LLM Event Pipeline:</strong> Auto-triggered retraining or inference with Lambda, Cloud Functions; scalable, cost-optimized.</li>
+                            <li><strong>Business KPI AI Insights Board:</strong> Combine structured/unstructured reporting via model insights and LLM-generated summaries on a live Grafana/Streamlit dashboard.</li>
+                        </ul>
+
+                        <h2>Program Structure</h2>
+                        <ul>
+                            <li>Every lesson = coding + a hands-on project</li>
+                            <li>Live code reviews, team sprints, and hackathons</li>
+                            <li>Production-grade portfolio—ready to impress any employer</li>
+                        </ul>
+                        
+                        <p>By graduation, students will:</p>
+                        <ul>
+                            <li>Master practical ML/LLM building blocks and deployment tools</li>
+                            <li>Be fluent in production MLOps/LLMOps workflows</li>
+                            <li>Build and present 12 full-scale, corporate-ready projects</li>
+                        </ul>
+
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Stylish Top Button -->
     <button class="top-button" onclick="document.getElementById('up_button').scrollIntoView({ behavior: 'smooth' });">
       ↑
     </button>
-   
-    <!-- ============================================= -->
-    <!--              FOOTER (Added)                   -->
-    <!-- ============================================= -->
+    
     <footer>
         <div class="footer-container">
             <div class="dashed-line"></div>
@@ -749,10 +674,10 @@
                 <ul>
                     <li><a href="../blog/blog.html">Blogs</a></li>
                     <li><a href="../index.html#review">Reviews</a></li>
-                  
+                
                     <li><a href="../about_us.html">About Us</a></li>
                     <li><a href="contact_us.html">Contact us</a></li>
-                  
+                
                 </ul>
             </nav>
             <div class="footer-main">
@@ -781,7 +706,6 @@
     </footer>
 
 
-    <!-- ===== JAVASCRIPT FOR MOBILE MENU ===== -->
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -791,7 +715,6 @@
         });
     </script>
 
-    <!-- ===== JAVASCRIPT FOR SEARCH, HIGHLIGHT, AND FOOTER (UPDATED) ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.querySelector('.search-input');
@@ -837,7 +760,7 @@
                     wrapper.style.display = matchFound ? 'flex' : 'none';
 
                     if (matchFound) {
-                        const textElements = wrapper.querySelectorAll('h1, h2, p, li, strong, u');
+                        const textElements = wrapper.querySelectorAll('h1, h2, h3, p, li, strong, u');
                         textElements.forEach(element => {
                             element.innerHTML = element.innerHTML.replace(regex, match => `<mark class="search-highlight">${match}</mark>`);
                         });

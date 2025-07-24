@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     
-    <!-- === FONT & ICON LINKS (Updated for footer compatibility) === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <title>CloudWorld Data Science Training</title>
+    
+    <title>Data Engineer Mastery Roadmap — From Foundations to Cloud King</title>
     <style>
         /* General Body Styles */
         body {
@@ -132,13 +131,15 @@
         }
 
         .backbtn {
-            font-size: 3.5rem; /* Adjusted for better visibility */
-            margin-left: -200px;
-            padding: 60px;
-            margin-top: -80px;
+            font-size: 2.5rem; /* More reasonable icon size */
+            padding: 0; /* Remove excessive padding, let font-size define size */
+            margin: 0; /* Remove negative margins entirely */
+            margin-right: 1.5rem; /* Add some space between the icon and the main content */
             color: #0d2c4f;
             text-decoration: none;
             transition: color 0.3s ease;
+            align-self: flex-start; /* Ensures it aligns to the top of the flex container */
+            padding-top: 0.5rem; /* Small padding at top to align with top of the card's text */
         }
 
         .backbtn:hover {
@@ -203,45 +204,7 @@
             margin: 0 0 1.5rem 0;
             font-weight: 600;
         }
-
-        .date-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            color: #4a5a70;
-        }
-
-        .calendar-icon {
-            width: 28px;
-            height: 28px;
-            background-color: #7f8b9a;
-            border-radius: 4px;
-            position: relative;
-            margin-right: 15px;
-            flex-shrink: 0;
-            background-image: 
-                linear-gradient(white 1px, transparent 1px),
-                linear-gradient(to right, white 1px, transparent 1px);
-            background-size: 6px 6px;
-            background-position: 3px 9px;
-        }
-
-        .calendar-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 7px;
-            background-color: #606d7b;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
-
-        .date-text {
-            font-size: 1.3rem;
-        }
-
+       
         .text-column p {
             font-size: 1.15rem;
             line-height: 1.7;
@@ -253,19 +216,28 @@
             margin-bottom: 0;
         }
 
-        .text-column p u {
-            text-decoration-color: #4a5a70;
-            text-decoration-thickness: 1px;
-        }
-
         .text-column h2 {
             color: #0d2c4f;
             font-size: 1.8rem;
             font-weight: 600;
-            margin: 2rem 0 1rem 0;
+            margin: 2.5rem 0 1rem 0;
             line-height: 1.3;
         }
 
+        .text-column h3 {
+             color: #1a3c5f;
+             font-size: 1.5rem;
+             font-weight: 600;
+             margin: 1.5rem 0 1rem 0;
+        }
+        
+        .text-column h4 {
+            color: #2a4c6f;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1rem 0 0.8rem 0;
+        }
+        
         .text-column h2 strong {
             font-weight: 600;
         }
@@ -344,6 +316,11 @@
             .text-column p, .text-column ul, .text-column ol {
                 font-size: 1rem;
             }
+            .backbtn {
+                margin-right: 0; /* No right margin when stacked */
+                margin-bottom: 1rem; /* Add some space below when stacked */
+                padding-top: 0; /* Reset top padding for stacked layout */
+            }
         }
         
         .top-button {
@@ -366,7 +343,7 @@
           background-color: #45a049;
           transform: translateY(-2px);
         }
-        
+
         /* ===== STYLES FOR SEARCH HIGHLIGHT ===== */
         .search-highlight {
             background-color: #FFD43B; /* Bright yellow */
@@ -381,7 +358,7 @@
         }
         
         /* ================================= 
-           FOOTER STYLES (Added)
+            FOOTER STYLES (Added)
         ================================== */
         footer {
             background-color: #121212;
@@ -409,8 +386,8 @@
             gap: 15px;
         }
         .footer-nav-top ul li {
-           position: relative;
-           padding: 0 20px;
+          position: relative;
+          padding: 0 20px;
         }
         .footer-nav-top ul li:not(:last-child)::after {
             content: '';
@@ -513,10 +490,8 @@
 </head>
 <body>
     
-    <!-- Anchor for the "Scroll to Top" button. -->
     <div id="up_button"></div>
 
-    <!-- ===== NAVIGATION BAR HTML ===== -->
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-left">
@@ -525,13 +500,12 @@
                 </div>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="python_blog.html">python</a></li>
-                <li><a href="java_blog.html">JAVA</a></li>
-                <li><a href="aws_blog.html">AWS</a></li>
-                <li><a href="devops.html">DevOps</a></li>
-                <li><a href="data_s_blog.html">Data science</a></li>
-                <li><a href="data_a.html">Data Analysis</a></li>
-                <!-- UPDATED SEARCH BAR -->
+                <li><a href="devops&sre.html">DevOps</a></li>
+                <li><a href="multi-cloud.html">Multi-Cloud</a></li>
+                <li><a href="aipowerhouse.html">ML&MLOps</a></li>
+                <li><a href="data_scientist.html">Data Scientists</a></li>
+                <li><a href="god_tier.html">God-Tier</a></li>
+                <li><a href="dataEngineer_Mastery.html">Data Engineer</a></li>
                 <li>
                     <form class="search-form" action="#" method="get" onsubmit="return false;">
                         <input type="text" placeholder="Search..." name="q" class="search-input">
@@ -543,188 +517,195 @@
         </div>
     </nav>
 
-    <!-- ===== MAIN CONTENT AREA - DATA SCIENCE BLOG 1 ===== -->
-   <div class="content-wrapper" id="datas1">
-        <a href="blog.html" class="backbtn"><i class="fa fa-home"></i></a>
+    <div class="content-wrapper" id="dataEngineer1">
+        <a href="http:blog.html" class="backbtn"><i class="fa fa-home"></i></a>
         <main>
             <div class="training-card">
                 <div class="card-content">
                     
-                    <!-- Item 1: Image -->
                     <div class="image-column">
-                        <img src="https://placehold.co/1200x400/6a0dad/ffffff?text=Data+Science&font=sans-serif" alt="An abstract representation of data science concepts.">
+                        <img src="https://placehold.co/1200x400/0d2c4f/eef2ff?text=Data+Engineer+Mastery+Roadmap&font=sans-serif" alt="An illustration representing Data Engineering workflows.">
                     </div>
 
-                    <!-- Item 2: Text Content -->
                     <div class="text-column">
-                        <h1>JOIN CLOUDWORLD FOR THE MOST COMPREHENSIVE DATA SCIENCE TRAINING IN PUNE</h1>
-                        <div class="date-info">
-                            <div class="calendar-icon"></div>
-                            <span class="date-text">25/10/2024</span>
-                        </div>
+                        <h1>Data Engineer Mastery Roadmap — From Foundations to Cloud King</h1>
                         
                         <p>
-                            Are you ready to become a part of the data revolution? Data Science, often called the "sexiest job of the 21st century," is transforming industries by enabling data-driven decisions. To build a successful career in this exciting field, you need the right skills and guidance. Cloudworld offers the <u>best Data Science training in Pune</u> to turn your aspirations into reality.
+                            Transform your learners into **data engineering kings**, expertly fluent across core programming, classic big data, Spark, and the leading cloud platforms AWS, Azure, and GCP. This comprehensive 6-month journey builds rock-solid foundations first, then powers through cloud specialization, ending with hands-on corporate capstone projects. It’s the ultimate blueprint to produce top-tier, production-ready data engineers.
                         </p>
 
-                        <h2><strong>Why Data Science?</strong></h2>
-                        <p>
-                            Data Science is an interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data. From predicting consumer behavior to developing life-saving drugs, data scientists are at the forefront of innovation. The demand for skilled data scientists is at an all-time high, with lucrative salaries and endless growth opportunities.
-                        </p>
-
-                        <h2><strong>CloudWorld: The Best Data Science Training Institute in Pune</strong></h2>
-                        <p>
-                            When you search for a "Data Science course in Pune," CloudWorld stands out as the premier choice. Our comprehensive program is meticulously designed to take you from a novice to a job-ready professional. We provide a blend of strong theoretical knowledge and extensive practical application.
-                        </p>
-
-                        <h2><strong>Why Choose CloudWorld for Data Science Training?</strong></h2>
-                        <ol>
-                            <li>
-                                <strong>Industry-Aligned Curriculum:</strong> Our Data Science course covers Python, Statistics, Machine Learning, Deep Learning, NLP, Data Visualization, and more. You'll work with popular libraries like Pandas, NumPy, Scikit-learn, TensorFlow, and Matplotlib.
-                            </li>
-                            <li>
-                                <strong>Project-Based Learning:</strong> We believe in learning by building. Our Data Science classes in Pune are centered around real-world projects, such as building recommendation engines, performing sentiment analysis, and forecasting sales.
-                            </li>
-                            <li>
-                                <strong>Dedicated Placement Assistance:</strong> Our Data Science course in Pune with placement support includes resume workshops, mock interviews, and access to our extensive network of corporate partners, ensuring you have the best chance of landing a top job.
-                            </li>
-                            <li>
-                                <strong>Learn from Industry Practitioners:</strong> Our instructors are experienced data scientists who bring their real-world expertise into the classroom, providing mentorship that prepares you for industry challenges.
-                            </li>
-                        </ol>
-                        <p>
-                            By enrolling in CloudWorld's Data Science training, you are not just learning a subject; you are building a career.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-    
-    <!-- ===== MAIN CONTENT AREA - DATA SCIENCE BLOG 2 ===== -->
-      <div class="content-wrapper" id="datas2">
-       
-        <main>
-            <div class="training-card">
-                <div class="card-content">
-                    
-                    <!-- Item 1: Image -->
-                    <div class="image-column">
-                        <img src="https://placehold.co/1200x400/0077b6/ffffff?text=Data+Science+Toolkit&font=sans-serif" alt="Icons representing the data science toolkit.">
-                    </div>
-
-                    <!-- Item 2: Text Content -->
-                    <div class="text-column">
-                        <h1>MASTERING THE CORE PILLARS OF DATA SCIENCE WITH CLOUDWORLD</h1>
-                        <div class="date-info">
-                            <div class="calendar-icon"></div>
-                            <span class="date-text">28/10/2024</span>
-                        </div>
+                        <h2>Pre-Cloud Data Engineering Foundations (Months 1–2)</h2>
                         
-                        <p>
-                            A successful data scientist is a master of multiple domains. At CloudWorld, our <u>Data Science classes in Pune</u> are structured around the core pillars of the field, ensuring you develop a holistic and robust skill set.
-                        </p>
-
-                        <h2><strong>The Essential Toolkit of a Data Scientist</strong></h2>
-                        <p>
-                           Our curriculum is designed to give you deep expertise in each of the following areas, transforming you into a versatile data professional.
-                        </p>
-
-                        <h2><strong>Core Pillars Covered in Our Course:</strong></h2>
+                        <h3>Month 1: Python for Data Engineering</h3>
                         <ul>
-                            <li>
-                                <strong>Programming with Python:</strong> Python is the lingua franca of data science. You will master its powerful libraries, including <strong>Pandas</strong> for data manipulation, <strong>NumPy</strong> for numerical computation, and <strong>Scikit-learn</strong> for machine learning.
-                            </li>
-                            <li>
-                                <strong>Statistics and Probability:</strong> This is the mathematical backbone of data science. We cover everything from descriptive statistics to inferential statistics, hypothesis testing, and probability distributions, enabling you to make sound, data-backed conclusions.
-                            </li>
-                            <li>
-                                <strong>Machine Learning:</strong> Dive deep into the world of predictive modeling. You'll learn to build and deploy supervised (e.g., regression, classification), unsupervised (e.g., clustering), and reinforcement learning models.
-                            </li>
-                            <li>
-                                <strong>Data Wrangling and Preprocessing:</strong> Real-world data is messy. You will learn essential techniques to handle missing values, clean inconsistent data, and transform raw data into a usable format—a critical and often time-consuming part of any project.
-                            </li>
-                             <li>
-                                <strong>Data Visualization and Storytelling:</strong> A model is only as good as its ability to be understood. You'll master tools like <strong>Matplotlib</strong> and <strong>Seaborn</strong> to create compelling visualizations and learn the art of telling a story with data to stakeholders.
-                            </li>
+                            <li><strong>Core Python:</strong> syntax, control flows, functions, modules</li>
+                            <li>Data manipulation with **pandas**</li>
+                            <li>File handling at scale (large CSVs, JSON)</li>
+                            <li>Database connectivity (**SQLAlchemy, psycopg2**)</li>
+                            <li>Code modularity and best practices for data engineering</li>
                         </ul>
-                        
-                         <h2><strong>From Theory to Practice</strong></h2>
-                        <p>
-                            CloudWorld’s Data Science course ensures you don't just learn the theory but apply it. Every module is paired with hands-on labs and mini-projects, solidifying your understanding and building your confidence.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- ===== MAIN CONTENT AREA - DATA SCIENCE BLOG 3 ===== -->
-      <div class="content-wrapper" id="datas3">
-        <main>
-            <div class="training-card">
-                <div class="card-content">
-                    
-                    <!-- Item 1: Image -->
-                    <div class="image-column">
-                        <img src="https://placehold.co/1200x400/3a5a40/ffffff?text=Data+Science+Career&font=sans-serif" alt="A visual of a data science career path.">
-                    </div>
-
-                    <!-- Item 2: Text Content -->
-                    <div class="text-column">
-                        <h1>BUILDING YOUR DATA SCIENCE CAREER AND PORTFOLIO IN PUNE</h1>
-                        <div class="date-info">
-                            <div class="calendar-icon"></div>
-                            <span class="date-text">30/10/2024</span>
-                        </div>
-                        
-                        <p>
-                            In data science, your portfolio of projects is your most valuable asset. It demonstrates your practical skills to potential employers far more effectively than a resume alone. CloudWorld's <u>Data Science course in Pune with placement</u> is uniquely structured to help you build a powerful, job-winning portfolio.
-                        </p>
-
-                        <h2><strong>Your Portfolio: The Key to Your First Job</strong></h2>
-                        <p>
-                           A strong portfolio showcases your ability to handle a data science project from end to end—from data collection and cleaning to modeling and communicating results. It's the tangible proof of your skills that hiring managers look for.
-                        </p>
-
-                        <h2><strong>Building Your Portfolio at CloudWorld</strong></h2>
-                        <p>
-                            Throughout our Data Science training, you will work on multiple real-world projects that become part of your portfolio. These aren't simple academic exercises; they are complex problems designed to mirror industry challenges.
-                        </p>
+                        <h4>Mini-Projects:</h4>
                         <ul>
-                            <li><strong>Capstone Project:</strong> You will complete a major capstone project in a domain of your choice (e.g., finance, e-commerce, healthcare), which serves as the centerpiece of your portfolio.</li>
-                            <li><strong>Diverse Mini-Projects:</strong> Work on a variety of smaller projects like a customer churn prediction model, a movie recommendation system, or an image classification tool.</li>
-                            <li><strong>GitHub Profile Building:</strong> We guide you on how to professionally present your projects on GitHub, a standard practice in the tech industry.</li>
+                            <li>ETL script to ingest CSVs into databases</li>
+                            <li>Data cleaning and transformation pipelines</li>
                         </ul>
 
-                        <h2><strong>Placement Support That Makes a Difference</strong></h2>
+                        <h3>Month 2: SQL and Classic Big Data Tools</h3>
+                        <ul>
+                            <li><strong>SQL mastery:</strong> SELECT, JOINs, GROUP BY, Window functions, CTEs</li>
+                            <li>Query optimization and indexing basics</li>
+                            <li>Introduction to Hadoop ecosystem:</li>
+                            <ul>
+                                <li>**HDFS** fundamentals and CLI tools</li>
+                                <li>**MapReduce** basics with a word count example</li>
+                                <li>**Hive SQL** on big data, schema design, and querying</li>
+                                <li>Intro to **Sqoop** (import-export), **Oozie** (workflow scheduling)</li>
+                            </ul>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>Batch processing pipelines using Hadoop and Hive</li>
+                            <li>Data ingestion with Sqoop and ETL with Hive</li>
+                        </ul>
+
+                        <h3>Month 3: Apache Spark Foundations</h3>
+                        <ul>
+                            <li><strong>Spark architecture:</strong> RDDs, DataFrames, DAGs</li>
+                            <li>Distributed data processing and analytics with **Spark SQL**</li>
+                            <li>Batch and streaming data pipelines (**Structured Streaming**)</li>
+                            <li>Introduction to **MLlib** for machine learning on big data</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>Build scalable batch ETL pipelines using Spark DataFrames</li>
+                            <li>Implement a real-time aggregation pipeline with Spark Structured Streaming</li>
+                        </ul>
+
+                        <h2>Cloud Data Engineering Specializations (Months 4–6)</h2>
                         <p>
-                            Our commitment to your success extends beyond training. We provide:
+                            Once foundational skills are mastered, learners specialize in one of the three major clouds with a consistent structure, enabling enterprise expertise, tool fluency, and portfolio-ready projects.
                         </p>
-                        <ol>
-                            <li><strong>Expert Resume Review:</strong> We help you craft a resume that highlights your new skills and portfolio projects effectively.</li>
-                            <li><strong>Targeted Interview Preparation:</strong> We conduct mock interviews covering technical questions (Python, SQL, ML algorithms) and behavioral questions.</li>
-                            <li><strong>Exclusive Job Referrals:</strong> Leverage our strong ties with Pune's top IT and data analytics companies to get access to exclusive job openings.</li>
-                        </ol>
+
+                        <h3>AWS Data Engineer Mastery</h3>
+                        <ul>
+                            <li><strong>Month 4:</strong> Storage & Ingestion with **S3, Glue, RDS, DynamoDB**</li>
+                            <li><strong>Month 5:</strong> Big Data Processing with **EMR, Lambda, Kinesis**</li>
+                            <li><strong>Month 6:</strong> Data Warehousing with **Redshift, QuickSight** dashboards</li>
+                        </ul>
+                        <h4>Bonus skills:</h4>
+                        <ul>
+                            <li>Step Functions orchestration, security with KMS & Lake Formation, CI/CD with CodePipeline</li>
+                        </ul>
+                        <h4>Capstone Projects:</h4>
+                        <ul>
+                            <li>Streaming Analytics Pipeline (**Kinesis + Lambda + Redshift**)</li>
+                            <li>Secure Data Lake with **Glue & Lake Formation**</li>
+                            <li>Automated Data Warehouse Management with **Redshift**</li>
+                            <li>ML-Ready Feature Store for **SageMaker** Integration</li>
+                        </ul>
+
+                        <h3>Azure Data Engineer Mastery</h3>
+                        <ul>
+                            <li><strong>Month 4:</strong> Azure **Blob, Data Lake Gen 2, Data Factory** Pipelines</li>
+                            <li><strong>Month 5:</strong> Azure **Databricks, Stream Analytics, Event Hubs**</li>
+                            <li><strong>Month 6:</strong> **Synapse Analytics, Power BI** Reporting, Security with **Key Vault & Purview**</li>
+                        </ul>
+                        <h4>Bonus skills:</h4>
+                        <ul>
+                            <li>ARM templates, Azure Policy, Azure DevOps CI/CD</li>
+                        </ul>
+                        <h4>Capstone Projects:</h4>
+                        <ul>
+                            <li>Advanced Data Lake Platform with **Data Factory & Purview**</li>
+                            <li>Real-Time Streaming Pipeline using **Event Hubs & Databricks**</li>
+                            <li>Enterprise Analytics Hub with **Synapse & Power BI**</li>
+                            <li>Fully Automated ETL Pipeline with **ARM & DevOps**</li>
+                        </ul>
+
+                        <h3>GCP Data Engineer Mastery</h3>
+                        <ul>
+                            <li><strong>Month 4:</strong> **BigQuery** data warehouse, **Cloud SQL, Dataflow** pipelines</li>
+                            <li><strong>Month 5:</strong> **Pub/Sub, Dataproc** cluster management, **Data Studio** for dashboards</li>
+                            <li><strong>Month 6:</strong> **Composer (Airflow), Data Catalog**, security policies & governance</li>
+                        </ul>
+                        <h4>Bonus skills:</h4>
+                        <ul>
+                            <li>BigQuery ML for predictive analytics, Vertex AI integration</li>
+                        </ul>
+                        <h4>Capstone Projects:</h4>
+                        <ul>
+                            <li>Cloud-Native Data Warehouse with **BigQuery & Dataflow**</li>
+                            <li>Real-Time Analytics Pipeline on **Pub/Sub & Looker Studio**</li>
+                            <li>End-to-End Data Lake & Metadata Management using **Composer & Catalog**</li>
+                            <li>Automated ML Pipeline using **BigQuery ML & Vertex AI**</li>
+                        </ul>
                         
-                        <h2><strong>Start Your Data Science Journey Today</strong></h2>
-                        <p>
-                            Enroll in CloudWorld and start building the skills and portfolio you need for a high-growth career in data science. Your journey to becoming a sought-after data scientist in Pune begins here.
-                        </p>
+                        <h2>Comprehensive Roadmap Table</h2>
+                        <div style="overflow-x:auto;">
+                            <table class="w3-table-all w3-card-4">
+                                <thead>
+                                    <tr class="w3-light-grey">
+                                        <th>Phase</th>
+                                        <th>Focus</th>
+                                        <th>Key Technologies & Tools</th>
+                                        <th>Deliverables</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Pre-Cloud</td>
+                                        <td>Python, SQL, Hadoop, Hive, Spark</td>
+                                        <td>Python, pandas, SQL, Hadoop HDFS, MapReduce, Hive, Sqoop, Apache Spark</td>
+                                        <td>Foundational ETL pipelines and big data projects</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cloud Track 1</td>
+                                        <td>AWS Data Engineering</td>
+                                        <td>S3, Glue, Lambda, EMR, Kinesis, Redshift, QuickSight, Step Functions</td>
+                                        <td>Streaming Analytics, Data Lakes, Warehousing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cloud Track 2</td>
+                                        <td>Azure Data Engineering</td>
+                                        <td>Blob Storage, Data Lake Gen2, Data Factory, Databricks, Synapse, Power BI, Purview</td>
+                                        <td>Real-Time Pipelines, Data Lakes, BI Dashboards</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cloud Track 3</td>
+                                        <td>GCP Data Engineering</td>
+                                        <td>BigQuery, Cloud SQL, Dataflow, Pub/Sub, Dataproc, Composer, Data Catalog</td>
+                                        <td>Cloud Warehouse, Streaming Analytics, Metadata mgmt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Capstone Month</td>
+                                        <td>Corporate-Grade Portfolio Projects</td>
+                                        <td>All platforms and integrations</td>
+                                        <td>4 Major Production-Ready Projects per Cloud Track</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2>Why This Roadmap Works</h2>
+                        <ul>
+                            <li><strong>Foundation First:</strong> Ensures every student masters core data programming, SQL, and big data before moving to advanced cloud tools.</li>
+                            <li><strong>Cloud Specialization:</strong> Deep dive into each cloud’s unique strengths and ecosystem, enabling enterprise-level skills.</li>
+                            <li><strong>Hands-On, Project-Driven:</strong> Each stage equips learners with mini-projects building to capstone production projects.</li>
+                            <li><strong>Portfolio-Ready Graduates:</strong> Multiple capstone projects per cloud arm graduates with real-world experience to ace job interviews and deliver immediately on the job.</li>
+                        </ul>
+                        
+                        <p>This phased, multi-cloud data engineer mastery program produces elite, adaptable engineers who excel anywhere in modern data ecosystems—empowering your academy to create the next generation of cloud data leaders.</p>
+
                     </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Stylish Top Button -->
     <button class="top-button" onclick="document.getElementById('up_button').scrollIntoView({ behavior: 'smooth' });">
       ↑
     </button>
-   
-    <!-- ============================================= -->
-    <!--              FOOTER (Added)                   -->
-    <!-- ============================================= -->
+    
     <footer>
         <div class="footer-container">
             <div class="dashed-line"></div>
@@ -732,10 +713,10 @@
                 <ul>
                     <li><a href="../blog/blog.html">Blogs</a></li>
                     <li><a href="../index.html#review">Reviews</a></li>
-                  
+                
                     <li><a href="../about_us.html">About Us</a></li>
                     <li><a href="contact_us.html">Contact us</a></li>
-                  
+                
                 </ul>
             </nav>
             <div class="footer-main">
@@ -763,7 +744,7 @@
         </div>
     </footer>
 
-    <!-- ===== JAVASCRIPT FOR MOBILE MENU ===== -->
+
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
@@ -773,7 +754,6 @@
         });
     </script>
 
-    <!-- ===== JAVASCRIPT FOR SEARCH, HIGHLIGHT, AND FOOTER (UPDATED) ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.querySelector('.search-input');
@@ -819,7 +799,7 @@
                     wrapper.style.display = matchFound ? 'flex' : 'none';
 
                     if (matchFound) {
-                        const textElements = wrapper.querySelectorAll('h1, h2, p, li, strong, u');
+                        const textElements = wrapper.querySelectorAll('h1, h2, h3, p, li, strong, u');
                         textElements.forEach(element => {
                             element.innerHTML = element.innerHTML.replace(regex, match => `<mark class="search-highlight">${match}</mark>`);
                         });

@@ -373,12 +373,12 @@
             transform: scale(1.1);
         }
 
-     .image123:nth-child(1) { background-image: url("standard\ villa\ room.jpg"); }
-.image123:nth-child(2) { background-image: url("room1.jpeg"); }
-.image123:nth-child(3) { background-image: url("room2.jpeg"); }
-.image123:nth-child(4) { background-image: url("room3.jpeg"); }
-.image123:nth-child(5) { background-image: url("room4.jpeg"); }
-.image123:nth-child(6) { background-image: url("room4.jpeg"); }
+     .image123:nth-child(1) { background-image: url("devops.png"); }
+.image123:nth-child(2) { background-image: url("multi-cloud.png"); }
+.image123:nth-child(3) { background-image: url("power1.png"); }
+.image123:nth-child(4) { background-image: url("datascince2.png"); }
+.image123:nth-child(5) { background-image: url("god-tier.png"); }
+.image123:nth-child(6) { background-image: url("data-engineer.png"); }
 
         .image123::before {
             content: "";
