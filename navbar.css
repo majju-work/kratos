@@ -1,3 +1,8 @@
+.scroll-target {
+  padding-top: 80px;    /* Creates space for the navbar */
+  margin-top: -200px;   /* Pulls the section's content back into place */
+}
+
 /* --- Main Navbar Container --- */
 .main-nav {
     position: fixed;       /* This makes the navbar stick to the viewport */
@@ -5,7 +10,7 @@
     left: 0;               /* Aligns it to the left */
     width: 100%;           /* Makes it span the full width of the screen */
     z-index: 500;         /* Ensures it stays on top of all other content */
-   background-color:tranpernt;
+   background-color:transparent;
       height: 100px;   
            backdrop-filter: blur(5px);
     box-sizing: border-box;  /* Important: includes padding in the width calculation */

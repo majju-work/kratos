@@ -1,0 +1,831 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+
+    <!-- === FONT & ICON LINKS (Updated for footer compatibility) === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <title>CloudWorld Data Scientist Training</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            background-color: #f0f2f5; /* A neutral background color */
+            cursor: pointer;
+        }
+        
+        /* ===== NAVIGATION BAR STYLES ===== */
+        .navbar {
+            background-color: #0d2c4f;
+            padding: 1rem 0;
+            position: sticky; /* Makes the navbar stick to the top */
+            top: 0;
+            z-index: 1000; /* Ensures it stays on top of other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* New style for the left side of the navbar */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem; /* Adds space between the back button and logo */
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: #eef2ff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover, .nav-menu .active a {
+            color: #fff;
+            border-bottom: 2px solid #a7bfff;
+        }
+        
+        /* ===== NEW SEARCH BAR STYLES ===== */
+        .search-form {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2px 5px;
+        }
+
+        .search-input {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            padding: 0.4rem;
+            font-size: 0.9rem;
+            width: 120px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .search-input::placeholder {
+            color: #a7bfff;
+        }
+
+        .search-input:focus {
+            width: 180px;
+        }
+
+        .search-button {
+            background: none;
+            border: none;
+            color: #eef2ff;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0 0.5rem;
+        }
+
+        .search-button:hover {
+            color: #fff;
+        }
+        /* ===== END OF SEARCH BAR STYLES ===== */
+
+
+        .menu-toggle {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .backbtn {
+            font-size: 3.5rem; /* Adjusted for better visibility */
+            margin-left: -200px;
+            padding: 60px;
+            margin-top: -80px;
+            color: #0d2c4f;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .backbtn:hover {
+            color: #4CAF50; /* Consistent hover color */
+        }
+
+        /* ===== MAIN CONTENT WRAPPER ===== */
+        .content-wrapper {
+            display: flex;
+            align-items: flex-start; /* Aligns items to the top */
+            gap: 2rem; /* Space between home button and card */
+            max-width: 1200px;
+            margin: 2rem auto; /* Centers the content and adds top/bottom space */
+            padding: 0 2rem;
+        }
+
+        /* ===== MAIN CONTENT STYLES ===== */
+        main {
+            padding: 0; /* Padding is now on the wrapper */
+            flex-grow: 1; /* Allows the main content to take remaining space */
+            min-width: 0; /* Prevents flexbox overflow issues */
+        }
+
+        .training-card {
+            max-width: 1200px; 
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden; 
+            margin-top: 0; /* Margin is now on the wrapper */
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column; 
+        }
+
+        /* Image now acts as a top banner */
+        .image-column {
+            width: 100%; 
+        }
+
+        .image-column img {
+            width: 100%;
+            height: auto; 
+            max-height: 400px; 
+            object-fit: cover; 
+            display: block; 
+        }
+
+        /* Text Column */
+        .text-column {
+            flex: 1;
+            padding: 2.5rem;
+            background-color: #eef2ff;
+        }
+
+        h1 {
+            color: #0d2c4f;
+            font-size: 2.4rem;
+            line-height: 1.25;
+            margin: 0 0 1.5rem 0;
+            font-weight: 600;
+        }
+        
+        .text-column h3 {
+             color: #1a3c5f;
+             font-size: 1.5rem;
+             font-weight: 600;
+             margin: 1.5rem 0 1rem 0;
+        }
+        
+        .date-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #4a5a70;
+        }
+
+        .calendar-icon {
+            width: 28px;
+            height: 28px;
+            background-color: #7f8b9a;
+            border-radius: 4px;
+            position: relative;
+            margin-right: 15px;
+            flex-shrink: 0;
+            background-image: 
+                linear-gradient(white 1px, transparent 1px),
+                linear-gradient(to right, white 1px, transparent 1px);
+            background-size: 6px 6px;
+            background-position: 3px 9px;
+        }
+
+        .calendar-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 7px;
+            background-color: #606d7b;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .date-text {
+            font-size: 1.3rem;
+        }
+
+        .text-column p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #4a5a70;
+            margin: 0 0 1rem 0;
+        }
+        
+        .text-column p:last-child {
+            margin-bottom: 0;
+        }
+
+        .text-column p u {
+            text-decoration-color: #4a5a70;
+            text-decoration-thickness: 1px;
+        }
+
+        .text-column h2 {
+            color: #0d2c4f;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.3;
+        }
+
+        .text-column h2 strong {
+            font-weight: 600;
+        }
+
+        .text-column ul, .text-column ol {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #4a5a70;
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        .text-column li {
+            margin-bottom: 1rem;
+        }
+
+        .text-column li strong {
+            color: #0d2c4f;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            /* Navbar responsiveness */
+            .menu-toggle {
+                display: block; /* Show hamburger menu */
+            }
+            .nav-menu {
+                display: none; /* Hide menu by default */
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 68px; /* Position below navbar */
+                left: 0;
+                background-color: #0d2c4f;
+            }
+            .nav-menu.show {
+                display: flex; /* Show menu when toggled */
+            }
+            .nav-menu li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid #1a3c5f;
+            }
+            .nav-menu a:hover, .nav-menu .active a {
+                background-color: #1a3c5f;
+                border-bottom: 1px solid #1a3c5f;
+            }
+
+            .search-form {
+                justify-content: center;
+                margin: 0.5rem auto;
+                padding: 0.5rem;
+                width: 80%;
+            }
+
+            /* Content responsiveness */
+            .content-wrapper {
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center items when stacked */
+                gap: 1.5rem;
+            }
+            .text-column {
+                padding: 2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .text-column h2 {
+                font-size: 1.5rem;
+            }
+            .text-column p, .text-column ul, .text-column ol {
+                font-size: 1rem;
+            }
+        }
+        
+        .top-button {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          background-color: #4CAF50; /* Green */
+          color: white;
+          border: none;
+          border-radius: 50px;
+          padding: 12px 20px;
+          font-size: 25px;
+          cursor: pointer;
+          box-shadow: 0 12px 14px rgba(0,0,0,0.2);
+          transition: background-color 0.3s ease, transform 0.3s ease;
+          z-index: 999;
+        }
+
+        .top-button:hover {
+          background-color: #45a049;
+          transform: translateY(-2px);
+        }
+
+        /* ===== STYLES FOR SEARCH HIGHLIGHT ===== */
+        .search-highlight {
+            background-color: #FFD43B; /* Bright yellow */
+            color: #0d2c4f; /* Dark text for contrast */
+            border-radius: 3px;
+            padding: 0 2px;
+        }
+        /* Style for the currently active highlight */
+        .active-highlight {
+            background-color: #ff9800; /* A distinct orange color */
+            outline: 2px solid #c00;
+        }
+
+        /* ================================= 
+            FOOTER STYLES (Added)
+        ================================== */
+        footer {
+            background-color: #121212;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTIxMjEyIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMzMDMwMzAiPjwvcmVjdD4KPC9zdmc+');
+            color: #e0e0e0;
+            padding: 20px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        .dashed-line {
+            border-top: 2px dashed #3a3a3a;
+            margin: 25px 0;
+        }
+        .footer-nav-top ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .footer-nav-top ul li {
+           position: relative;
+           padding: 0 20px;
+        }
+        .footer-nav-top ul li:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -7.5px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 16px;
+            width: 1px;
+            background-color: #3a3a3a;
+        }
+        .footer-nav-top ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 15px;
+            transition: text-decoration 0.3s;
+        }
+        .footer-nav-top ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .contact-info {
+            display: flex;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+        .contact-info a {
+            color: #e0e0e0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #ffffff;
+        }
+        .contact-info a i {
+            transition: color 0.3s ease;
+        }
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+        .social-icon {
+            color: #ffffff;
+            font-size: 24px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.15);
+        }
+        .social-icon.instagram:hover { color: #E1306C; }
+        .social-icon.linkedin:hover { color: #0A66C2; }
+        .social-icon.youtube:hover { color: #FF0000; }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #a0a0a0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-links-bottom {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .footer-links-bottom a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+        .footer-links-bottom a:hover {
+            text-decoration: underline;
+        }
+        .copyright p {
+            margin: 0;
+        }
+        @media (max-width: 992px) {
+            .footer-main, .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .social-icons {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Anchor for the "Scroll to Top" button. -->
+    <div id="up_button"></div>
+
+    <!-- ===== NAVIGATION BAR HTML ===== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <div class="logo">
+                    <a href="">Kratos</a>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="devops&sre.html">DevOps</a></li>
+                <li><a href="multi-cloud.html">Multi-Cloud</a></li>
+                <li><a href="aipowerhouse.html">ML&MLOps</a></li>
+                <li><a href="data_scientist.html">Data Scientists</a></li>
+                <li><a href="god_tier.html">God-Tier</a></li>
+                <li><a href="dataEngineer_Mastery.html">Data Engineer</a></li>
+                <!-- UPDATED SEARCH BAR -->
+                <li>
+                    <form class="search-form" action="#" method="get" onsubmit="return false;">
+                        <input type="text" placeholder="Search..." name="q" class="search-input">
+                        <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                    </form>
+                </li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT AREA - DATA SCIENTIST ROADMAP BLOG ===== -->
+    <div class="content-wrapper" id="data-scientist-roadmap-blog">
+        <a href="blog.html#blog1" class="backbtn"><i class="fa fa-home"></i></a>
+        <main>
+            <div class="training-card">
+                <div class="card-content">
+                    
+                    <!-- Item 1: Image -->
+                    <div class="image-column">
+                        <img src="https://placehold.co/1200x400/f37736/ffffff?text=Data+Scientist+Roadmap&font=sans-serif" alt="A roadmap for data scientists.">
+                    </div>
+
+                    <!-- Item 2: Text Content -->
+                    <div class="text-column">
+                        <h1>6-Month Data Scientist Course Roadmap</h1>
+                        <div class="date-info">
+                            <div class="calendar-icon"></div>
+                            <span class="date-text">23/07/2025</span>
+                        </div>
+                        
+                        <p>
+                           Transform aspiring data professionals into corporate-ready data scientists with this hands-on, industry-fueled roadmap. Each stage builds technical depth, business acumen, and production-readiness—culminating in 12 full-fledged capstone projects designed for real-world application.
+                        </p>
+
+                        <h2>Month 1: Foundational Skills in Python and Data</h2>
+                        <h3>Core Topics</h3>
+                        <ul>
+                            <li>Python programming for data analysis (NumPy, pandas)</li>
+                            <li>Analytical thinking, code best practices</li>
+                            <li>Data wrangling: cleaning, merging, transforming</li>
+                            <li>Exploratory Data Analysis (EDA) with matplotlib & seaborn</li>
+                            <li>Introduction to SQL for structured data</li>
+                            <li><strong>Mini-Projects:</strong> Data audit/visualization report on real-world dataset & SQL challenge retrieving business KPIs.</li>
+                        </ul>
+
+                        <h2>Month 2: Applied Statistics & Advanced Analytics</h2>
+                        <h3>Core Topics</h3>
+                        <ul>
+                            <li>Descriptive & inferential statistics for business</li>
+                            <li>Hypothesis testing, statistical inference</li>
+                            <li>Data distributions, central tendency, variance</li>
+                            <li>Probability and correlation (Pearson, Spearman)</li>
+                            <li><strong>Mini-Projects:</strong> A/B testing experiment analysis & Customer segmentation with clustering and stats.</li>
+                        </ul>
+                        
+                        <h2>Month 3: Machine Learning Foundations</h2>
+                        <h3>Core Topics</h3>
+                        <ul>
+                           <li>ML workflow: data split, model selection, fitting</li>
+                           <li>Supervised learning: regression & classification (scikit-learn)</li>
+                           <li>Unsupervised learning: clustering, PCA, anomaly detection</li>
+                           <li>Feature engineering & selection</li>
+                           <li>Evaluation metrics (accuracy, precision, recall, ROC/AUC)</li>
+                           <li><strong>Mini-Projects:</strong> Housing price predictor, Fraud detection model, & Dimensionality reduction on customer data.</li>
+                        </ul>
+                        
+                        <h2>Month 4: Advanced ML, Deep Learning & Big Data</h2>
+                        <h3>Core Topics</h3>
+                        <ul>
+                           <li>Ensemble methods: Random Forest, XGBoost, LightGBM</li>
+                           <li>Neural networks with TensorFlow or PyTorch (basics)</li>
+                           <li>Time series forecasting (ARIMA, Prophet)</li>
+                           <li>NLP essentials: text vectorization, tf-idf, sentiment analysis</li>
+                           <li>Handling large datasets (Dask, Spark basics)</li>
+                           <li><strong>Mini-Projects:</strong> Build a sentiment classifier, Stock price forecasting, & Customer churn prediction.</li>
+                        </ul>
+
+                        <h2>Month 5: Machine Learning Operations & Data Science in Production</h2>
+                        <h3>Core Topics</h3>
+                        <ul>
+                           <li>Building reproducible pipelines (scikit-learn, MLflow)</li>
+                           <li>Model validation and cross-validation</li>
+                           <li>Version control (Git basics) for DS, collaborative workflows</li>
+                           <li>Model deployment (Flask/FastAPI), serving with Docker</li>
+                           <li>Performance monitoring, concept/data drift</li>
+                           <li>Data visualization and dashboarding (Plotly, Power BI/Tableau basics)</li>
+                           <li><strong>Mini-Projects:</strong> Deploy a predictive model as an API, Automated model retraining workflow, & an Interactive data dashboard.</li>
+                        </ul>
+                        
+                        <h2>Month 6: Corporate-Grade Capstone Projects (12 Full-Scale Builds)</h2>
+                        <p>Wrap up with a sprint of end-to-end projects tackling real business needs—portfolio-ready evidence for job interviews.</p>
+                        <h3>Capstone Projects Lineup</h3>
+                        <ul>
+                           <li>Customer Lifetime Value Prediction</li>
+                           <li>Product Recommendation Engine</li>
+                           <li>End-to-End A/B Testing Platform</li>
+                           <li>Credit Risk Scoring Model</li>
+                           <li>Time Series Forecasting Platform</li>
+                           <li>Social Media Insights & Sentiment Analysis</li>
+                           <li>Real-Time Fraud Detection System</li>
+                           <li>Churn Prediction for SaaS/Telecom</li>
+                           <li>Interactive Executive Dashboard</li>
+                           <li>Image Classification/Recognition Engine</li>
+                           <li>Business Data Lake Integration</li>
+                           <li>Explainable AI Reporting Suite</li>
+                        </ul>
+                        
+                        <h2>Learning Experience</h2>
+                        <ul>
+                           <li>Every lesson: hands-on code and immediate mini-projects</li>
+                           <li>Team collaboration: peer reviews, pair programming, code demos</li>
+                           <li>Frequent business case studies for context</li>
+                           <li><strong>Portfolio:</strong> Each capstone is documented, demoed, and ready for recruiters</li>
+                        </ul>
+
+                        <h2>By graduation, students are:</h2>
+                        <ul>
+                           <li><strong>Experts</strong> in essential and advanced data science techniques</li>
+                           <li><strong>Fluent</strong> in production workflows and business problem-solving</li>
+                           <li><strong>Portfolio-ready</strong> with practical, interview-winning projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Stylish Top Button -->
+    <button class="top-button" onclick="document.getElementById('up_button').scrollIntoView({ behavior: 'smooth' });">
+      ↑
+    </button>
+    
+    <!-- ============================================= -->
+    <!--                 FOOTER (Added)                    -->
+    <!-- ============================================= -->
+    <footer>
+        <div class="footer-container">
+            <div class="dashed-line"></div>
+            <nav class="footer-nav-top">
+                <ul>
+                    <li><a href="../blog/blog.html">Blogs</a></li>
+                    <li><a href="../index.html#review">Reviews</a></li>
+                
+                    <li><a href="../about_us.html">About Us</a></li>
+                    <li><a href="contact_us.html">Contact us</a></li>
+                
+                </ul>
+            </nav>
+            <div class="footer-main">
+                <div class="contact-info">
+                    <a href="tel:18003093939"><i class="fa-solid fa-phone"></i> 18003093939</a>
+                    <a href="mailto:hello@kratos.com"><i class="fa-solid fa-envelope"></i> hello@Kratos.com</a>
+                    <a href="https://wa.me/your-whatsapp-number" target="_blank"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram" class="social-icon instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="dashed-line"></div>
+            <div class="footer-bottom">
+                <div class="footer-links-bottom">
+                   <a href="../tearm_condition.html">Terms and Conditions</a>&
+                    <a href="../Privacy_policy.html">Privacy Policy</a>
+                </div>
+                <div class="copyright">
+                    <p>© <span id="current-year"></span> Kratos. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ===== JAVASCRIPT FOR MOBILE MENU ===== -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    </script>
+
+    <!-- ===== JAVASCRIPT FOR SEARCH, HIGHLIGHT, AND FOOTER (UPDATED) ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('.search-input');
+            const contentWrappers = document.querySelectorAll('.content-wrapper');
+            
+            // Store original HTML to reset content and remove highlights
+            const originalContent = new Map();
+            contentWrappers.forEach(wrapper => {
+                originalContent.set(wrapper, wrapper.innerHTML);
+            });
+
+            // State variables to track highlights
+            let highlightedElements = [];
+            let currentHighlightIndex = -1;
+
+            const performSearch = () => {
+                const query = searchInput.value.trim();
+                
+                // Clear previous search state
+                highlightedElements.forEach(el => el.classList.remove('active-highlight'));
+                highlightedElements = [];
+                currentHighlightIndex = -1;
+
+                // Restore original content for all cards before starting a new search
+                contentWrappers.forEach(wrapper => {
+                    wrapper.innerHTML = originalContent.get(wrapper);
+                });
+
+                if (query === "") {
+                    // If search is cleared, just show all wrappers and we're done
+                    contentWrappers.forEach(wrapper => {
+                        wrapper.style.display = 'flex';
+                    });
+                    return;
+                }
+
+                const regex = new RegExp(query, 'gi');
+
+                contentWrappers.forEach(wrapper => {
+                    const wrapperText = wrapper.textContent;
+                    const matchFound = wrapperText.toLowerCase().includes(query.toLowerCase());
+
+                    wrapper.style.display = matchFound ? 'flex' : 'none';
+
+                    if (matchFound) {
+                        const textElements = wrapper.querySelectorAll('h1, h2, p, li, strong, u');
+                        textElements.forEach(element => {
+                            element.innerHTML = element.innerHTML.replace(regex, match => `<mark class="search-highlight">${match}</mark>`);
+                        });
+                    }
+                });
+                
+                // After highlighting, collect all the new highlighted elements
+                highlightedElements = document.querySelectorAll('.search-highlight');
+            };
+
+            const goToNextHighlight = () => {
+                if (highlightedElements.length === 0) return;
+
+                // Remove the active class from the previous element
+                if (currentHighlightIndex > -1) {
+                    highlightedElements[currentHighlightIndex].classList.remove('active-highlight');
+                }
+
+                // Move to the next index, cycling back to the start if at the end
+                currentHighlightIndex++;
+                if (currentHighlightIndex >= highlightedElements.length) {
+                    currentHighlightIndex = 0;
+                }
+                
+                const nextElement = highlightedElements[currentHighlightIndex];
+                
+                // Add the active class to the new element and scroll to it
+                nextElement.classList.add('active-highlight');
+                nextElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center', // Aligns the element to the center of the viewport
+                    inline: 'nearest'
+                });
+            };
+
+            if (searchInput && contentWrappers.length > 0) {
+                // Perform search as the user types
+                searchInput.addEventListener('input', performSearch);
+                
+                // Handle Enter key press to cycle through results
+                searchInput.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                        event.preventDefault(); // Prevent form submission
+                        goToNextHighlight();
+                    }
+                });
+            }
+
+            // --- FOOTER YEAR SCRIPT (Added) ---
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-Month Data Scientist Course Roadmap</title>
+    <style>
+    :root {
+        /* UPDATED: New Data Science-themed color palette */
+        --body-bg: #F4F4F5;          /* Light, clean background */
+        --card-bg: #FFFFFF;          /* Crisp white cards */
+        --heading-color: #2D3748;     /* Professional dark blue-gray for headings */
+        --text-color: #4A5568;        /* Readable gray for descriptions */
+        --accent-color: #10B981;      /* A vibrant, professional green for data science */
+        
+        --line-bg-color: rgba(16, 185, 129, 0.2);
+        --line-fill-color: var(--accent-color);
+        --dot-color: rgba(16, 185, 129, 0.4);
+        --dot-active-color: var(--accent-color);
+        --accent-blue: #10B981; 
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 80px 20px 40px 20px;
+        background-color: var(--body-bg);
+        color: var(--text-color);
+    }
+    
+    body.modal-open {
+        overflow: hidden;
+    }
+
+    .home-button-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    
+    .back-to-home { 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 6px;
+        padding: 8px 16px; 
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0; 
+        border-radius: 6px; 
+        text-decoration: none; 
+        font-size: 14px; 
+        font-weight: 500;
+        color: #333; 
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .back-to-home:hover { 
+        background-color: #f8f8f8; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    }
+
+    .main-container { max-width: 800px; margin: 0 auto; }
+
+    .header-container { text-align: center; margin-bottom: 20px; }
+    #main-header-text { 
+        font-size: 2.5em; font-weight: 700; 
+        color: var(--heading-color);
+        text-shadow: none;
+        line-height: 1.2;
+    }
+    
+    .sub-header-text {
+        font-size: 1.15em;
+        color: var(--text-color);
+        margin-top: 10px;
+        margin-bottom: 20px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    .toggle-switch-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+    .toggle-label {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--text-color); 
+        user-select: none;
+        transition: color 0.4s ease, font-weight 0.4s ease;
+    }
+    .toggle-label.active {
+        color: var(--accent-color);
+        font-weight: 700;
+    }
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+    .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+    input:checked + .slider {
+        background-color: var(--accent-color);
+    }
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+    
+    .timeline { position: relative; width: 100%; margin: 0 auto; padding: 40px 0; }
+    .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--line-bg-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
+    .timeline::before { content: ''; position: absolute; width: 4px; background-color: var(--line-fill-color); top: 0; left: 50%; margin-left: -2px; border-radius: 2px; height: var(--line-height, 0); transition: height 0.2s ease-out; }
+    
+    .timeline-marker {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        top: var(--marker-position, 0px);
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 3px 15px rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: top 0.2s ease-out;
+        color: var(--accent-color);
+    }
+    .timeline-marker svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .timeline ul { list-style: none; padding: 0; margin: 0; }
+    .timeline-item {
+        padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 50%; }
+    .timeline-item.is-visible { opacity: 1; transform: translateY(0); }
+
+    .timeline-item::after { 
+        content: ''; position: absolute; width: 14px; height: 14px;
+        background-color: var(--dot-color); top: 35px; border-radius: 50%; z-index: 1;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .timeline-item:nth-child(odd)::after { right: -7px; }
+    .timeline-item:nth-child(even)::after { left: -7px; }
+    .timeline-item.is-visible::after { background-color: var(--dot-active-color); transform: scale(1.3); }
+    
+    .timeline-content { 
+        padding: 25px; 
+        background: var(--card-bg);
+        border-radius: 12px; 
+        box-shadow: 0 6px 30px rgba(45, 55, 72, 0.08);
+        position: relative; text-align: left;
+        border: 1px solid #E2E8F0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 45px rgba(45, 55, 72, 0.12);
+    }
+    
+    .content-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .logo-container {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        color: var(--accent-color);
+    }
+    .logo-container svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .timeline-content h3 {
+        margin: 0;
+        font-size: 1.6em;
+        font-weight: 600;
+        color: var(--heading-color);
+    }
+
+    .description { font-size: 1.05em; line-height: 1.6; margin: 0 0 15px 0; color: var(--text-color); }
+    .link-wrapper { text-align: left; margin-top: 20px; }
+    .timeline-link { font-size: 0.95em; font-weight: 600; color: var(--accent-color); text-decoration: none; transition: opacity 0.2s ease; cursor: pointer; }
+    .timeline-link:hover { opacity: 0.8; }
+    
+    .timeline-item .timeline-content > * { opacity: 0; transform: translateY(15px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+    .timeline-item.is-visible .timeline-content > * { opacity: 1; transform: translateY(0); }
+    .timeline-item.is-visible .timeline-content .content-header { transition-delay: 0.2s; }
+    .timeline-item.is-visible .timeline-content .description { transition-delay: 0.3s; }
+    .timeline-item.is-visible .timeline-content .link-wrapper { transition-delay: 0.4s; }
+
+
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0s 0.3s linear; z-index: 1000; }
+    .modal-overlay.visible { opacity: 1; visibility: visible; transition-delay: 0s; }
+    
+    .modal-content { 
+        background-color: white; padding: 30px; border-radius: 12px; 
+        width: 90%; max-width: 500px; 
+        transform: translateY(-30px) scale(0.95);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+        max-height: 85vh;
+    }
+    .modal-overlay.visible .modal-content { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #dee2e6; padding-bottom: 15px; margin-bottom: 20px; }
+    #modal-title { font-size: 1.5em; color: var(--heading-color); margin: 0; }
+    .close-modal { font-size: 1.8em; font-weight: bold; color: #adb5bd; cursor: pointer; line-height: 1; transition: color 0.2s; }
+    .close-modal:hover { color: #495057; }
+    
+    #modal-body { overflow-y: auto; padding-right: 15px; }
+    #modal-body ul { list-style: none; padding: 0; margin: 0; }
+    .modal-accordion-item { background-color: #f7f9fc; border: 1px solid #e9ecef; border-radius: 8px; margin-bottom: 10px; position: relative; padding-left: 25px; overflow: hidden; }
+    .modal-accordion-item::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 6px; background-color: var(--accent-blue); border-radius: 8px 0 0 8px; }
+    .modal-accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 15px 15px 0; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--heading-color); }
+    .modal-accordion-toggle { display: inline-block; width: 8px; height: 8px; border-right: 2px solid var(--heading-color); border-bottom: 2px solid var(--heading-color); transform: rotate(45deg); transition: transform 0.3s ease; }
+    .modal-accordion-item.open .modal-accordion-toggle { transform: rotate(-135deg); }
+    .modal-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 15px 0 0; color: #6c757d; font-size: 0.95rem; line-height: 1.6; }
+    .modal-accordion-item.open .modal-accordion-body { max-height: 500px; /* Increased max-height */ padding: 0 15px 15px 0; }
+    
+    #modal-body::-webkit-scrollbar { width: 8px; }
+    #modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+    /* Capstone Section Styles */
+    .capstone-container {
+        padding: 50px 25px;
+        margin-top: 40px;
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(45, 55, 72, 0.1);
+        border: 1px solid #E2E8F0;
+        text-align: left;
+    }
+    .capstone-container h2 {
+        font-size: 2.2em;
+        font-weight: 700;
+        color: var(--heading-color);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .capstone-container .subtitle {
+        font-size: 1.15em;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .capstone-container h3 {
+        font-size: 1.7em;
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-top: 40px;
+        margin-bottom: 25px;
+        border-bottom: 3px solid var(--line-bg-color);
+        padding-bottom: 12px;
+    }
+    .projects-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    .projects-grid li {
+        background-color: var(--body-bg);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid var(--accent-color);
+        font-size: 0.95em;
+        line-height: 1.6;
+        color: var(--text-color);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .projects-grid li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    }
+    .projects-grid li strong {
+        color: var(--heading-color);
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+    }
+    .learning-points {
+        list-style: '✅';
+        padding-left: 25px;
+        margin: 20px 0;
+        color: var(--text-color);
+    }
+    .learning-points li {
+        padding-left: 15px;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="home-button-container">
+        <a href="index.html" class="back-to-home"><span>←</span> Back to Home</a>
+    </div>
+
+    <div class="main-container">
+        <div class="header-container">
+            <h1 id="main-header-text">6-Month Data Scientist Course Roadmap</h1>
+            <p class="sub-header-text">Transform aspiring data professionals into corporate-ready data scientists with this hands-on, industry-fueled roadmap. Each stage builds technical depth, business acumen, and production-readiness.</p>
+        </div>
+        
+        <div class="toggle-switch-container">
+            <span id="label-backend" class="toggle-label">Months 1-3</span>
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle">
+                <span class="slider"></span>
+            </label>
+            <span id="label-frontend" class="toggle-label">Months 4-5</span>
+        </div>
+
+        <div id="language-display"></div>
+        
+        <div class="capstone-container">
+            <h2>Month 6: Corporate-Grade Capstone Projects (12 Full-Scale Builds)</h2>
+            <p class="subtitle">Wrap up with a sprint of end-to-end projects tackling real business needs—portfolio-ready evidence for job interviews.</p>
+        
+            <h3>💥 Capstone Projects Lineup</h3>
+            <ul class="projects-grid">
+                <li><strong>Customer Lifetime Value Prediction:</strong> Build and deploy a model predicting high-value customers from transactional data.</li>
+                <li><strong>Product Recommendation Engine:</strong> Implement collaborative filtering or content-based recommendations for e-commerce.</li>
+                <li><strong>End-to-End A/B Testing Platform:</strong> Design, execute, analyze, and visualize business experiments.</li>
+                <li><strong>Credit Risk Scoring Model:</strong> Deploy models to predict default with full EDA, feature selection, and reporting.</li>
+                <li><strong>Time Series Forecasting Platform:</strong> Automate sales/demand forecasting with multiple models and scenario analysis.</li>
+                <li><strong>Social Media Insights & Sentiment Analysis:</strong> Create an NLP-driven dashboard for real-time campaign monitoring.</li>
+                <li><strong>Real-Time Fraud Detection System:</strong> Build a pipeline for streaming anomaly detection (Spark/Dask optional).</li>
+                <li><strong>Churn Prediction for SaaS/Telecom:</strong> Develop an end-to-end solution including deployment and scheduled retraining.</li>
+                <li><strong>Interactive Executive Dashboard:</strong> Build with Tableau, Power BI, or Streamlit for live business metric monitoring.</li>
+                <li><strong>Image Classification/Recognition Engine:</strong> An end-to-end deep learning project with automated data labeling & reporting.</li>
+                <li><strong>Business Data Lake Integration:</strong> Automate ingest, transformation, and querying from disparate sources.</li>
+                <li><strong>Explainable AI Reporting Suite:</strong> Generate reports with SHAP/LIME explanations for model outcomes.</li>
+            </ul>
+        
+            <h3>🎓 Learning Experience & Outcomes</h3>
+            <ul class="learning-points">
+                <li>Every lesson includes hands-on code and immediate mini-projects.</li>
+                <li>Team collaboration through peer reviews, pair programming, and code demos.</li>
+                <li>Frequent business case studies provide real-world context.</li>
+                <li>Become an expert in essential and advanced data science techniques.</li>
+                <li>Gain fluency in production workflows and business problem-solving.</li>
+                <li>Graduate with a portfolio of practical, interview-winning projects.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="topics-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Relevant Topics</h3>
+                <span class="close-modal">×</span>
+            </div>
+            <div id="modal-body"><ul></ul></div>
+        </div>
+    </div>
+
+    <script>
+        const modeToggle = document.getElementById('mode-toggle');
+        const languageDisplay = document.getElementById('language-display');
+        const modal = document.getElementById('topics-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBodyList = document.querySelector('#modal-body ul');
+        const closeModalBtn = document.querySelector('.close-modal');
+        
+        const backendLabel = document.getElementById('label-backend');
+        const frontendLabel = document.getElementById('label-frontend');
+        
+        // UPDATED: Data object with Data Scientist content
+        const data = {
+            // Months 4-5
+            frontend: [
+                { 
+                  name: 'Month 4', 
+                  desc: 'Advanced ML, Deep Learning & Big Data', 
+                  linkText: 'View Advanced Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9" /><path d="M4 4a16 16 0 0 1 16 16" /><circle cx="5" cy="19" r="1" /></svg>`,
+                  topics: [
+                    { title: 'Ensemble Methods', details: 'Master Random Forest, XGBoost, and LightGBM for high-performance models.' },
+                    { title: 'Deep Learning Basics', details: 'Get started with neural networks using TensorFlow or PyTorch.' },
+                    { title: 'Time Series Forecasting', details: 'Learn to forecast trends with models like ARIMA and Prophet.' },
+                    { title: 'NLP Essentials', details: 'Work with text data using vectorization, tf-idf, and sentiment analysis.' },
+                    { title: 'Handling Large Datasets', details: 'Introduction to scaling data processing with Dask and Spark basics.' },
+                    { title: 'Mini-Projects', details: 'Build a sentiment classifier, a stock price forecaster, and a customer churn prediction model.' }
+                  ]
+                },
+                { 
+                  name: 'Month 5', 
+                  desc: 'MLOps & Data Science in Production', 
+                  linkText: 'View Production Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" y1="12" x2="3" y2="12" /></svg>`,
+                  topics: [
+                    { title: 'Reproducible Pipelines', details: 'Build automated workflows with scikit-learn and MLflow.' },
+                    { title: 'Version Control & Collaboration', details: 'Use Git for data science projects and learn collaborative workflows.' },
+                    { title: 'Model Deployment', details: 'Serve models as APIs using Flask/FastAPI and containerize with Docker.' },
+                    { title: 'Performance Monitoring', details: 'Track model performance and detect concept/data drift.' },
+                    { title: 'Data Visualization & Dashboarding', details: 'Create interactive dashboards with Plotly and get an intro to Power BI/Tableau.' },
+                    { title: 'Mini-Projects', details: 'Deploy a predictive model as an API, create an automated retraining workflow, and build an interactive data dashboard.' }
+                  ]
+                }
+            ],
+            // Months 1-3
+            backend: [
+                { 
+                  name: 'Month 1', 
+                  desc: "Foundational Skills in Python & Data", 
+                  linkText: 'View Foundational Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+                  topics: [
+                    { title: 'Python for Data Analysis', details: 'Master core libraries like NumPy and pandas for data manipulation.' },
+                    { title: 'Data Wrangling & EDA', details: 'Learn to clean, merge, transform, and explore data with matplotlib & seaborn.' },
+                    { title: 'Introduction to SQL', details: 'Gain essential skills for querying and retrieving data from structured databases.' },
+                    { title: 'Mini-Projects', details: 'Complete a data audit/visualization report and solve a SQL challenge to retrieve business KPIs.' },
+                  ]
+                },
+                { 
+                  name: 'Month 2', 
+                  desc: 'Applied Statistics & Advanced Analytics', 
+                  linkText: 'View Statistics Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+                  topics: [
+                    { title: 'Descriptive & Inferential Statistics', details: 'Understand core statistical concepts for business applications.' },
+                    { title: 'Hypothesis Testing', details: 'Learn to design and interpret experiments to make data-driven decisions.' },
+                    { title: 'Probability & Correlation', details: 'Analyze data distributions and the relationships between variables.' },
+                    { title: 'Mini-Projects', details: 'Analyze an A/B testing experiment and perform customer segmentation using clustering and statistical methods.' },
+                  ]
+                },
+                { 
+                  name: 'Month 3', 
+                  desc: 'Machine Learning Foundations', 
+                  linkText: 'View ML Foundation Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" /></svg>`,
+                  topics: [
+                    { title: 'Supervised Learning', details: 'Implement regression and classification models with scikit-learn.' },
+                    { title: 'Unsupervised Learning', details: 'Apply clustering, PCA, and anomaly detection techniques.' },
+                    { title: 'Feature Engineering & Selection', details: 'Master techniques to create and select impactful features for your models.' },
+                    { title: 'Evaluation Metrics', details: 'Understand and use metrics like accuracy, precision, recall, and ROC/AUC to evaluate model performance.' },
+                    { title: 'Mini-Projects', details: 'Build a housing price predictor, a fraud detection model, and use dimensionality reduction on customer data.' },
+                  ]
+                },
+            ]
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        function updateToggleLabels() {
+            if (modeToggle.checked) {
+                backendLabel.classList.remove('active');
+                frontendLabel.classList.add('active');
+            } else {
+                backendLabel.classList.add('active');
+                frontendLabel.classList.remove('active');
+            }
+        }
+
+        modeToggle.addEventListener('change', () => {
+            if (modeToggle.checked) {
+                createTimeline('frontend');
+            } else {
+                createTimeline('backend');
+            }
+            updateToggleLabels();
+        });
+
+        languageDisplay.addEventListener('click', (e) => {
+            const link = e.target.closest('.timeline-link');
+            if (link) {
+                openModal(link.dataset.type, link.dataset.index);
+            }
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        
+        modalBodyList.addEventListener('click', (e) => {
+            const header = e.target.closest('.modal-accordion-header');
+            if (header) {
+                const item = header.parentElement;
+                item.classList.toggle('open');
+            }
+        });
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        function createTimeline(type) {
+            const timelineData = data[type];
+            languageDisplay.innerHTML = ''; 
+            const timelineDiv = document.createElement('div');
+            timelineDiv.className = 'timeline';
+
+            const markerElement = document.createElement('div');
+            markerElement.className = 'timeline-marker';
+            markerElement.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13.1818L9.83333 18L19 7" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            timelineDiv.appendChild(markerElement);
+
+            const listElement = document.createElement('ul');
+            timelineData.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'timeline-item';
+                listItem.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="content-header">
+                            <div class="logo-container">
+                                ${item.logo || ''}
+                            </div>
+                            <h3>${item.name}</h3>
+                        </div>
+                        <p class="description">${item.desc}</p>
+                        <div class="link-wrapper">
+                            <a class="timeline-link" data-type="${type}" data-index="${index}">${item.linkText}</a>
+                        </div>
+                    </div>
+                `;
+                listElement.appendChild(listItem);
+                observer.observe(listItem);
+            });
+            timelineDiv.appendChild(listElement);
+            languageDisplay.appendChild(timelineDiv);
+            
+            handleScrollAnimations(); 
+        }
+
+        function openModal(type, index) {
+            const item = data[type][index];
+            modalTitle.textContent = `Key Topics for ${item.name}`;
+            modalBodyList.innerHTML = '';
+            
+            item.topics.forEach(topic => {
+                const li = document.createElement('li');
+                li.className = 'modal-accordion-item';
+                li.innerHTML = `
+                    <div class="modal-accordion-header">
+                        <span>${topic.title}</span>
+                        <span class="modal-accordion-toggle"></span>
+                    </div>
+                    <div class="modal-accordion-body">
+                        ${topic.details}
+                    </div>
+                `;
+                modalBodyList.appendChild(li);
+            });
+            modal.classList.add('visible');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modal.classList.remove('visible');
+            document.body.classList.remove('modal-open');
+        }
+
+        function handleScrollAnimations() {
+            const timeline = document.querySelector('.timeline');
+            if (!timeline) return;
+            
+            const marker = timeline.querySelector('.timeline-marker');
+            const timelineRect = timeline.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            const startPoint = timelineRect.top + window.scrollY;
+            const endPoint = timelineRect.bottom + window.scrollY - viewportHeight;
+            
+            const scrollY = window.scrollY;
+            
+            let progress = (scrollY - startPoint) / (endPoint - startPoint);
+            progress = Math.max(0, Math.min(1, progress));
+
+            const lineHeight = progress * timelineRect.height;
+            timeline.style.setProperty('--line-height', `${lineHeight}px`);
+            
+            if (marker) {
+                marker.style.setProperty('--marker-position', `${lineHeight}px`);
+            }
+        }
+
+        // Initial load
+        createTimeline('backend');
+        updateToggleLabels();
+    </script>
+</body>
+</html>

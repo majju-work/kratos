@@ -1,0 +1,219 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #FF4B5C; /* Vibrant Pink/Red for hike text */
+            --secondary-color: #00E0C6; /* Bright Teal/Cyan for circle border */
+            --dark-bg: #000000;
+            --card-bg: #25213D;
+            --text-light: #FFFFFF;
+            --text-medium: #A09CB8;
+            --text-dark: #1f1f1f;
+            --border-radius-main: 15px;
+            --shadow-subtle: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+
+
+        .transition-stories-section {
+            width: 100%;
+            max-width: 1200px;
+            padding: 70px 10px;
+            text-align: center;
+            position: relative;
+              margin-left: auto; /* <-- ADD THIS LINE */
+    margin-right: auto; /* <-- AND THIS LINE */
+            
+        }
+
+        .transition-stories-section::before {
+            content: "KRATOS ACADEMY";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(50px, 15vw, 180px);
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.025);
+            z-index: 0;
+            pointer-events: none;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .section-subtitle {
+            color: var(--primary-color);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-main);
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: var(--shadow-subtle);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            display: flex; /* Added for ordering children */
+            flex-direction: column; /* Stack children vertically */
+            align-items: center; /* Center children horizontally */
+        }
+
+        .story-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-card:nth-child(1) { transition-delay: 0.1s; }
+        .story-card:nth-child(2) { transition-delay: 0.2s; }
+        .story-card:nth-child(3) { transition-delay: 0.3s; }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(var(--secondary-color), 0.1), 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .student-placeholder-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            margin-bottom: 25px; /* Space below circle */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            order: 1; /* Order in flex layout */
+        }
+
+        .student-name-in-circle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .student-name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 15px; /* Space below name, before badge */
+            order: 2; /* Order in flex layout */
+        }
+
+        .placement-badge {
+            background-color: #fff;
+            color: var(--text-dark);
+            border-radius: 10px;
+            padding: 12px 18px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            width: 90%; /* Adjust width as needed, or use fit-content */
+            max-width: 250px; /* Max width for the badge */
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 15px; /* Space below badge, before role */
+            order: 3; /* Order in flex layout */
+            transition: transform 0.2s ease; /* For hover scale */
+        }
+        
+        .story-card:hover .placement-badge {
+            transform: scale(1.03); /* Slight scale on card hover */
+        }
+
+        .company-info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 8px;
+            gap: 8px;
+        }
+
+        .company-icon {
+            width: 22px; 
+            height: 22px;
+            object-fit: contain;
+        }
+
+        .company-name-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .hike-details {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+            text-align: left;
+        }
+
+        .hike-details .fas {
+            margin-left: 5px;
+            color: #28a745;
+        }
+
+        .student-role {
+            font-size: 1rem;
+            color: var(--text-medium);
+            /* margin-bottom: 20px; No extra margin needed if it's the last item */
+            order: 4; /* Order in flex layout */
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .stories-grid {
+                grid-template-columns: 1fr;
+                gap: 50px; 
+            }
+            /* Badge styling is now consistent, so no major changes needed here for position */
+             .transition-stories-section::before {
+                font-size: clamp(40px, 12vw, 100px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 50px;
+            }
+            .student-name {
+                font-size: 1.4rem;
+            }
+             .student-placeholder-circle {
+                width: 120px;
+                height: 120px;
+            }
+            .student-name-in-circle {
+                font-size: 1rem;
+            }
+            .placement-badge {
+                padding: 10px 15px;
+            }
+        }

@@ -2,16 +2,19 @@
 .hero-section {
     display: flex;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: space-between; 
+    gap: 40px;
     text-align: left;
     min-height: calc(100vh - 100px);
     color: white;
     padding: 0 8%;
     box-sizing: border-box;
     margin-top: 100px;
+    overflow-x: hidden;
 }
 
 .hero-content {
+    flex: 0 1 750px; 
     max-width: 800px;
 }
 
@@ -55,22 +58,56 @@
     filter: drop-shadow(0 0 4px #ff3355);
 }
 
+
 /* ==================================================== */
-/* === NEW & UPDATED STYLES FOR CTA (Button & Stars) === */
+/* === NEW STYLES FOR FADING IMAGE SLIDER === */
 /* ==================================================== */
 
-/* NEW: Container for the button and stars */
+.hero-image-slider {
+    flex: 1;
+    max-width: 50px;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+   
+    right: 50px;
+    border-left: 2px white;    
+  box-shadow: 10px 10px 5px rgb(0, 166, 222);
+}
+
+.hero-image-slider .slide {
+    position: absolute;
+    top: 14%;
+    left: 55%;
+    width: 50%;
+    height: 85%; /* Image will fill the container's height */
+    object-fit: cover; /* Prevents image distortion */
+    opacity: 0; /* All slides are invisible by default */
+    transition: opacity 1s ease-in-out; /* The fade animation */
+    border-radius: 20px;
+    
+}
+
+
+
+.hero-image-slider .slide.active {
+    opacity: 1; /* The active slide is visible */
+}
+
+
+/* ==================================================== */
+/* === CTA (Button & Stars) === */
+/* ==================================================== */
+
 .cta-container {
     display: flex;
     align-items: center;
     gap: 30px;
     margin-top: 50px;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    flex-wrap: wrap; 
 }
 
-/* UPDATED: Booknow button style */
 .booknow {
-    /* margin-top: 50px; <-- REMOVED, now on .cta-container */
     background-color: white;
     color: black;
     padding: 15px 40px;
@@ -88,10 +125,9 @@
 .booknow:hover {
     background-color: black;
     color: white;
-    border-color: #666; /* A medium gray color */
+    border-color: #666; 
 }
 
-/* NEW: Star rating styles */
 .star-rating {
     display: flex;
     align-items: center;
@@ -99,13 +135,13 @@
 }
 
 .star-rating .stars {
-    color: #a9ffb4; /* Light glowing green */
+    color: #a9ffb4; 
     font-size: 1.2rem;
     text-shadow: 0 0 5px #a9ffb466;
 }
 
 .star-rating .stars .fas {
-    margin-right: 2px; /* Small space between stars */
+    margin-right: 2px;
 }
 
 .star-rating .rating-number {
@@ -115,15 +151,13 @@
 }
 
 .star-rating .rating-text {
-    color: #b0b0b0; /* Light gray for the text */
+    color: #b0b0b0; 
     font-size: 1rem;
 }
 
-
 /* ======================================= */
-/* === STYLES FOR ANIMATED STATS === */
+/* === ANIMATED STATS === */
 /* ======================================= */
-
 .stats-container {
     display: flex;
     justify-content: space-between;
@@ -158,24 +192,29 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Specific colors for each number */
 .stat-item:nth-child(1) h2,
 .stat-item:nth-child(4) h2 {
-    color: #35c9a4; /* Teal / Green */
+    color: #35c9a4; 
 }
 
 .stat-item:nth-child(2) h2 {
-    color: #ff9900; /* Orange */
+    color: #ff9900;
 }
 
 .stat-item:nth-child(3) h2 {
-    color: #9370DB; /* Purple */
+    color: #9370DB; 
 }
 
 
 /* --- HERO & STATS RESPONSIVE STYLES --- */
-
 @media (max-width: 992px) {
+    .hero-image-slider {
+        display: none;
+    }
+    .hero-section {
+        justify-content: flex-start;
+    }
+
     .hero-section h1 { font-size: 3rem; }
     .hero-section p { font-size: 1.1rem; }
     .highlight-word svg { bottom: -10px; height: 30px; }
@@ -196,7 +235,6 @@
 }
 
 @media (max-width: 768px) {
-    /* Stack the button and star rating on smaller tablets/large phones */
     .cta-container {
         flex-direction: column;
         align-items: flex-start;

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <title>6-Month Powerhouse Roadmap: ML, LLM, MLOps & LLMOps</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            background-color: #f0f2f5; /* A neutral background color */
+            cursor: pointer;
+        }
+        
+        /* ===== NAVIGATION BAR STYLES ===== */
+        .navbar {
+            background-color: #0d2c4f;
+            padding: 1rem 0;
+            position: sticky; /* Makes the navbar stick to the top */
+            top: 0;
+            z-index: 1000; /* Ensures it stays on top of other content */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* New style for the left side of the navbar */
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem; /* Adds space between the back button and logo */
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: #eef2ff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover, .nav-menu .active a {
+            color: #fff;
+            border-bottom: 2px solid #a7bfff;
+        }
+        
+        /* ===== NEW SEARCH BAR STYLES ===== */
+        .search-form {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2px 5px;
+        }
+
+        .search-input {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            padding: 0.4rem;
+            font-size: 0.9rem;
+            width: 120px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .search-input::placeholder {
+            color: #a7bfff;
+        }
+
+        .search-input:focus {
+            width: 180px;
+        }
+
+        .search-button {
+            background: none;
+            border: none;
+            color: #eef2ff;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0 0.5rem;
+        }
+
+        .search-button:hover {
+            color: #fff;
+        }
+        /* ===== END OF SEARCH BAR STYLES ===== */
+
+
+        .menu-toggle {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .backbtn {
+            font-size: 2.5rem; /* More reasonable icon size */
+            padding: 0; /* Remove excessive padding, let font-size define size */
+            margin: 0; /* Remove negative margins entirely */
+            margin-right: 1.5rem; /* Add some space between the icon and the main content */
+            color: #0d2c4f;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            align-self: flex-start; /* Ensures it aligns to the top of the flex container */
+            padding-top: 0.5rem; /* Small padding at top to align with top of the card's text */
+        }
+
+        .backbtn:hover {
+            color: #4CAF50; /* Consistent hover color */
+        }
+
+        /* ===== MAIN CONTENT WRAPPER ===== */
+        .content-wrapper {
+            display: flex;
+            align-items: flex-start; /* Aligns items to the top */
+            gap: 2rem; /* Space between home button and card */
+            max-width: 1200px;
+            margin: 2rem auto; /* Centers the content and adds top/bottom space */
+            padding: 0 2rem;
+        }
+
+        /* ===== MAIN CONTENT STYLES ===== */
+        main {
+            padding: 0; /* Padding is now on the wrapper */
+            flex-grow: 1; /* Allows the main content to take remaining space */
+            min-width: 0; /* Prevents flexbox overflow issues */
+        }
+
+        .training-card {
+            max-width: 1200px; 
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden; 
+            margin-top: 0; /* Margin is now on the wrapper */
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column; 
+        }
+
+        /* Image now acts as a top banner */
+        .image-column {
+            width: 100%; 
+        }
+
+        .image-column img {
+            width: 100%;
+            height: auto; 
+            max-height: 400px; 
+            object-fit: cover; 
+            display: block; 
+        }
+
+        /* Text Column */
+        .text-column {
+            flex: 1;
+            padding: 2.5rem;
+            background-color: #eef2ff;
+        }
+
+        h1 {
+            color: #0d2c4f;
+            font-size: 2.4rem;
+            line-height: 1.25;
+            margin: 0 0 1.5rem 0;
+            font-weight: 600;
+        }
+       
+        .text-column p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #4a5a70;
+            margin: 0 0 1rem 0;
+        }
+        
+        .text-column p:last-child {
+            margin-bottom: 0;
+        }
+
+        .text-column h2 {
+            color: #0d2c4f;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1rem 0;
+            line-height: 1.3;
+        }
+
+        .text-column h3 {
+             color: #1a3c5f;
+             font-size: 1.5rem;
+             font-weight: 600;
+             margin: 1.5rem 0 1rem 0;
+        }
+        
+        .text-column h4 {
+            color: #2a4c6f;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 1rem 0 0.8rem 0;
+        }
+        
+        .text-column h2 strong {
+            font-weight: 600;
+        }
+
+        .text-column ul, .text-column ol {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #4a5a70;
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        .text-column li {
+            margin-bottom: 1rem;
+        }
+
+        .text-column li strong {
+            color: #0d2c4f;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            /* Navbar responsiveness */
+            .menu-toggle {
+                display: block; /* Show hamburger menu */
+            }
+            .nav-menu {
+                display: none; /* Hide menu by default */
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 68px; /* Position below navbar */
+                left: 0;
+                background-color: #0d2c4f;
+            }
+            .nav-menu.show {
+                display: flex; /* Show menu when toggled */
+            }
+            .nav-menu li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid #1a3c5f;
+            }
+            .nav-menu a:hover, .nav-menu .active a {
+                background-color: #1a3c5f;
+                border-bottom: 1px solid #1a3c5f;
+            }
+
+            .search-form {
+                justify-content: center;
+                margin: 0.5rem auto;
+                padding: 0.5rem;
+                width: 80%;
+            }
+
+            /* Content responsiveness */
+            .content-wrapper {
+                flex-direction: column; /* Stack items vertically */
+                align-items: center; /* Center items when stacked */
+                gap: 1.5rem;
+            }
+            .text-column {
+                padding: 2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .text-column h2 {
+                font-size: 1.5rem;
+            }
+            .text-column p, .text-column ul, .text-column ol {
+                font-size: 1rem;
+            }
+            .backbtn {
+                margin-right: 0; /* No right margin when stacked */
+                margin-bottom: 1rem; /* Add some space below when stacked */
+                padding-top: 0; /* Reset top padding for stacked layout */
+            }
+        }
+        
+        .top-button {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          background-color: #4CAF50; /* Green */
+          color: white;
+          border: none;
+          border-radius: 50px;
+          padding: 12px 20px;
+          font-size: 25px;
+          cursor: pointer;
+          box-shadow: 0 12px 14px rgba(0,0,0,0.2);
+          transition: background-color 0.3s ease, transform 0.3s ease;
+          z-index: 999;
+        }
+
+        .top-button:hover {
+          background-color: #45a049;
+          transform: translateY(-2px);
+        }
+
+        /* ===== STYLES FOR SEARCH HIGHLIGHT ===== */
+        .search-highlight {
+            background-color: #FFD43B; /* Bright yellow */
+            color: #0d2c4f; /* Dark text for contrast */
+            border-radius: 3px;
+            padding: 0 2px;
+        }
+        /* Style for the currently active highlight */
+        .active-highlight {
+            background-color: #ff9800; /* A distinct orange color */
+            outline: 2px solid #c00;
+        }
+        
+        /* ================================= 
+            FOOTER STYLES (Added)
+        ================================== */
+        footer {
+            background-color: #121212;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTIxMjEyIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMzMDMwMzAiPjwvcmVjdD4KPC9zdmc+');
+            color: #e0e0e0;
+            padding: 20px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        .dashed-line {
+            border-top: 2px dashed #3a3a3a;
+            margin: 25px 0;
+        }
+        .footer-nav-top ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .footer-nav-top ul li {
+          position: relative;
+          padding: 0 20px;
+        }
+        .footer-nav-top ul li:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -7.5px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 16px;
+            width: 1px;
+            background-color: #3a3a3a;
+        }
+        .footer-nav-top ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 15px;
+            transition: text-decoration 0.3s;
+        }
+        .footer-nav-top ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .contact-info {
+            display: flex;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+        .contact-info a {
+            color: #e0e0e0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #ffffff;
+        }
+        .contact-info a i {
+            transition: color 0.3s ease;
+        }
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+        .social-icon {
+            color: #ffffff;
+            font-size: 24px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.15);
+        }
+        .social-icon.instagram:hover { color: #E1306C; }
+        .social-icon.linkedin:hover { color: #0A66C2; }
+        .social-icon.youtube:hover { color: #FF0000; }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #a0a0a0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-links-bottom {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .footer-links-bottom a {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: text-decoration 0.3s;
+        }
+        .footer-links-bottom a:hover {
+            text-decoration: underline;
+        }
+        .copyright p {
+            margin: 0;
+        }
+        @media (max-width: 992px) {
+            .footer-main, .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .social-icons {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="up_button"></div>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <div class="logo">
+                    <a href="">Kratos</a>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="devops&sre.html">DevOps</a></li>
+                <li><a href="multi-cloud.html">Multi-Cloud</a></li>
+                <li><a href="aipowerhouse.html">ML&MLOps</a></li>
+                 <li><a href="data_scientist.html">Data Scientists</a></li>
+                <li><a href="god_tier.html">God-Tier</a></li>
+                <li><a href="dataEngineer_Mastery.html">Data Engineer</a></li>
+                <li>
+                    <form class="search-form" action="#" method="get" onsubmit="return false;">
+                        <input type="text" placeholder="Search..." name="q" class="search-input">
+                        <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+                    </form>
+                </li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <div class="content-wrapper" id="aipowerhouse">
+        <a href="blog.html" class="backbtn"><i class="fa fa-home"></i></a>
+        <main>
+            <div class="training-card">
+                <div class="card-content">
+                    
+                    <div class="image-column">
+                        <img src="https://placehold.co/1200x400/0d2c4f/eef2ff?text=AI+Engineering+Roadmap&font=sans-serif" alt="An illustration representing AI, ML, LLM, MLOps, and LLMOps workflows.">
+                    </div>
+
+                    <div class="text-column">
+                        <h1>6-Month Powerhouse Roadmap: ML, LLM, MLOps & LLMOps</h1>
+                        
+                        <p>
+                            Level up your skills with the definitive AI Engineering journey—mastering Machine Learning (ML), Large Language Models (LLMs), MLOps, and LLMOps through associate-to-advanced tooling, real-world pipelines, and a full suite of production projects. At the end, students emerge with a corporate-ready portfolio and practical expertise across both data science and modern GenAI engineering.
+                        </p>
+
+                        <h2>Months 1-2: Core Machine Learning Foundations</h2>
+                        
+                        <h3>Month 1: ML Fundamentals & Python Mastery</h3>
+                        <ul>
+                            <li>Data wrangling and visualization (<strong>NumPy, pandas, seaborn</strong>)</li>
+                            <li>Essential ML algorithms (<strong>scikit-learn</strong>): regression, classification, clustering</li>
+                            <li>Feature engineering and model selection</li>
+                            <li>Evaluation metrics and baseline deployment practices</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>Titanic survival predictor</li>
+                            <li>Image classifier on small custom dataset</li>
+                            <li>Model selection leaderboard</li>
+                        </ul>
+
+                        <h3>Month 2: End-to-End ML Projects & Experiment Tracking</h3>
+                        <ul>
+                            <li>Model orchestration and pipelines (<strong>Jupyter, scikit-learn Pipelines</strong>)</li>
+                            <li>Experiment management (<strong>MLflow, Weights & Biases basics</strong>)</li>
+                            <li>Data versioning (<strong>DVC</strong>)</li>
+                            <li>Introduction to cloud ML environments (<strong>SageMaker, Vertex AI, AzureML</strong>)</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>ML experiment tracking and auto-logging</li>
+                            <li>Reproducible pipeline for data drift detection</li>
+                        </ul>
+
+                        <h2>Months 3-4: Deep Learning & LLM Foundations</h2>
+                        
+                        <h3>Month 3: Deep Learning and NLP Foundation</h3>
+                        <ul>
+                            <li>Neural networks with <strong>TensorFlow/PyTorch</strong></li>
+                            <li>CNNs, RNNs, Transformers introduction</li>
+                            <li>Core NLP tasks: sentiment, NER, Q&A</li>
+                            <li>Pretrained model fine-tuning (<strong>Hugging Face basics</strong>)</li>
+                            <li>Data pipeline automation</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>Image recognition with transfer learning</li>
+                            <li>Sentiment analysis pipeline with automated deployment</li>
+                            <li>Sequence-to-sequence text generator</li>
+                        </ul>
+
+                        <h3>Month 4: LLM Development, Prompt Engineering, and Applications</h3>
+                        <ul>
+                            <li>LLM architectures (<strong>GPT, Llama2, Mistral, open-source landscapes</strong>)</li>
+                            <li>Hands-on with <strong>Hugging Face/Transformers and LangChain</strong></li>
+                            <li>Prompt engineering best practices</li>
+                            <li>Fine-tuning and evaluation on custom datasets</li>
+                            <li>Use-case builds: retrieval augmented generation (<strong>RAG</strong>), summarization, code/genAI tasks</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>Prompt engineering leaderboard</li>
+                            <li>Custom QA chatbot for documentation</li>
+                            <li>Document search with vector databases (<strong>Pinecone, Weaviate</strong>)</li>
+                        </ul>
+
+                        <h2>Month 5: MLOps & LLMOps Associate-Level Productionization</h2>
+                        
+                        <h3>Weeks 17-18: MLOps Essentials</h3>
+                        <ul>
+                            <li>MLOps life cycle: versioning, CI/CD for models, deployment automation</li>
+                            <li><strong>Kubeflow/Pachyderm</strong> basics, orchestrating reproducible pipelines</li>
+                            <li>Model monitoring, data drift, and feedback loops</li>
+                            <li>ML system security (role-based access, reproducibility, audit logging)</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>CI/CD ML pipeline: automated retraining and redeployment</li>
+                            <li>Model drift dashboard using <strong>Evidently AI</strong></li>
+                        </ul>
+
+                        <h3>Weeks 19-20: LLMOps for Scalable GenAI Deployments</h3>
+                        <ul>
+                            <li>LLMOps lifecycle: data, model, inference, serving at scale</li>
+                            <li>Automated fine-tuning pipelines (with <strong>Hugging Face Hub</strong> and cloud GPU)</li>
+                            <li>Vector DB management and updating</li>
+                            <li>Inference optimization (quantization, distillation)</li>
+                            <li>Advanced monitoring: hallucination detection, usage analytics, privacy</li>
+                        </ul>
+                        <h4>Mini-Projects:</h4>
+                        <ul>
+                            <li>API-first Chatbot with scalable LLM serving</li>
+                            <li>Automated LLM monitoring, alerting, and retraining triggers</li>
+                        </ul>
+
+                        <h2>Month 6: Corporate-Grade Capstone Projects Sprint</h2>
+                        <p>The final month is a hands-on project marathon: ship 12 production-ready, team-based capstones featuring real-world requirements, end-to-end pipelines, and scalable GenAI and MLOps/LLMOps stacks.</p>
+                        
+                        <h3>Capstone Projects Lineup</h3>
+                        <ul>
+                            <li><strong>Multi-Cloud ML Pipeline:</strong> Cloud-agnostic, reproducible ML pipeline on AWS, GCP, or Azure with full CI/CD, automated retraining, and deployment.</li>
+                            <li><strong>LLM-Powered Customer Support Bot:</strong> Build, deploy, monitor, and scale a RAG-based chatbot integrating vector DB (Pinecone/Weaviate), prompt engineering, and monitoring in prod.</li>
+                            <li><strong>Automated Data Drift & Model Monitoring Platform:</strong> Live dashboards and alerting for ML/LLM drift, workflow-triggered retraining.</li>
+                            <li><strong>End-to-End MLOps with Kubeflow:</strong> Pipeline ingestion, training, validation, deployment, and versioning on Kubernetes.</li>
+                            <li><strong>GenAI Content Moderation System:</strong> LLM-based filtering, hallucination detection, safe output auditing, and logging.</li>
+                            <li><strong>Realtime Recommendation System:</strong> Scalable, low-latency recommendations with automated A/B testing and rollback.</li>
+                            <li><strong>LLM CI/CD & LLMOps:</strong> Secure, audited LLM model deployment flow, version tracking, experiment tracking, production-grade serving.</li>
+                            <li><strong>Explainable AI Platform:</strong> Build dashboards for SHAP/LIME explanations, drift, and transparency for ML and LLM predictions.</li>
+                            <li><strong>Secure Model API Gateway:</strong> API gateway with rate limits, RBAC, approval flows for ML/LLM serving in regulated environments.</li>
+                            <li><strong>Human-in-the-Loop AI Feedback System:</strong> Real-world feedback integration to model improvement pipelines for continuous learning.</li>
+                            <li><strong>Serverless ML/LLM Event Pipeline:</strong> Auto-triggered retraining or inference with Lambda, Cloud Functions; scalable, cost-optimized.</li>
+                            <li><strong>Business KPI AI Insights Board:</strong> Combine structured/unstructured reporting via model insights and LLM-generated summaries on a live Grafana/Streamlit dashboard.</li>
+                        </ul>
+
+                        <h2>Program Structure</h2>
+                        <ul>
+                            <li>Every lesson = coding + a hands-on project</li>
+                            <li>Live code reviews, team sprints, and hackathons</li>
+                            <li>Production-grade portfolio—ready to impress any employer</li>
+                        </ul>
+                        
+                        <p>By graduation, students will:</p>
+                        <ul>
+                            <li>Master practical ML/LLM building blocks and deployment tools</li>
+                            <li>Be fluent in production MLOps/LLMOps workflows</li>
+                            <li>Build and present 12 full-scale, corporate-ready projects</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <button class="top-button" onclick="document.getElementById('up_button').scrollIntoView({ behavior: 'smooth' });">
+      ↑
+    </button>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="dashed-line"></div>
+            <nav class="footer-nav-top">
+                <ul>
+                    <li><a href="../blog/blog.html">Blogs</a></li>
+                    <li><a href="../index.html#review">Reviews</a></li>
+                
+                    <li><a href="../about_us.html">About Us</a></li>
+                    <li><a href="contact_us.html">Contact us</a></li>
+                
+                </ul>
+            </nav>
+            <div class="footer-main">
+                <div class="contact-info">
+                    <a href="tel:18003093939"><i class="fa-solid fa-phone"></i> 18003093939</a>
+                    <a href="mailto:hello@kratos.com"><i class="fa-solid fa-envelope"></i> hello@Kratos.com</a>
+                    <a href="https://wa.me/your-whatsapp-number" target="_blank"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram" class="social-icon instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="social-icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube" class="social-icon youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="dashed-line"></div>
+            <div class="footer-bottom">
+                <div class="footer-links-bottom">
+                   <a href="../tearm_condition.html">Terms and Conditions</a>&
+                    <a href="../Privacy_policy.html">Privacy Policy</a>
+                </div>
+                <div class="copyright">
+                    <p>© <span id="current-year"></span> Kratos. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('.search-input');
+            const contentWrappers = document.querySelectorAll('.content-wrapper');
+            
+            // Store original HTML to reset content and remove highlights
+            const originalContent = new Map();
+            contentWrappers.forEach(wrapper => {
+                originalContent.set(wrapper, wrapper.innerHTML);
+            });
+
+            // State variables to track highlights
+            let highlightedElements = [];
+            let currentHighlightIndex = -1;
+
+            const performSearch = () => {
+                const query = searchInput.value.trim();
+                
+                // Clear previous search state
+                highlightedElements.forEach(el => el.classList.remove('active-highlight'));
+                highlightedElements = [];
+                currentHighlightIndex = -1;
+
+                // Restore original content for all cards before starting a new search
+                contentWrappers.forEach(wrapper => {
+                    wrapper.innerHTML = originalContent.get(wrapper);
+                });
+
+                if (query === "") {
+                    // If search is cleared, just show all wrappers and we're done
+                    contentWrappers.forEach(wrapper => {
+                        wrapper.style.display = 'flex';
+                    });
+                    return;
+                }
+
+                const regex = new RegExp(query, 'gi');
+
+                contentWrappers.forEach(wrapper => {
+                    const wrapperText = wrapper.textContent;
+                    const matchFound = wrapperText.toLowerCase().includes(query.toLowerCase());
+
+                    wrapper.style.display = matchFound ? 'flex' : 'none';
+
+                    if (matchFound) {
+                        const textElements = wrapper.querySelectorAll('h1, h2, h3, p, li, strong, u');
+                        textElements.forEach(element => {
+                            element.innerHTML = element.innerHTML.replace(regex, match => `<mark class="search-highlight">${match}</mark>`);
+                        });
+                    }
+                });
+                
+                // After highlighting, collect all the new highlighted elements
+                highlightedElements = document.querySelectorAll('.search-highlight');
+            };
+
+            const goToNextHighlight = () => {
+                if (highlightedElements.length === 0) return;
+
+                // Remove the active class from the previous element
+                if (currentHighlightIndex > -1) {
+                    highlightedElements[currentHighlightIndex].classList.remove('active-highlight');
+                }
+
+                // Move to the next index, cycling back to the start if at the end
+                currentHighlightIndex++;
+                if (currentHighlightIndex >= highlightedElements.length) {
+                    currentHighlightIndex = 0;
+                }
+                
+                const nextElement = highlightedElements[currentHighlightIndex];
+                
+                // Add the active class to the new element and scroll to it
+                nextElement.classList.add('active-highlight');
+                nextElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center', // Aligns the element to the center of the viewport
+                    inline: 'nearest'
+                });
+            };
+
+            if (searchInput && contentWrappers.length > 0) {
+                // Perform search as the user types
+                searchInput.addEventListener('input', performSearch);
+                
+                // Handle Enter key press to cycle through results
+                searchInput.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                        event.preventDefault(); // Prevent form submission
+                        goToNextHighlight();
+                    }
+                });
+            }
+
+            // --- FOOTER YEAR SCRIPT (Added) ---
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Cloud World Institute</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* =================================
+            1. NAVBAR STYLES
+        ================================== */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #000000;
+            border-bottom: 1px solid #2a2a2a;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .logo-image {
+            height: 40px;
+        }
+        .programs-container {
+            position: relative;
+            display: inline-block;
+        }
+        .programs-button {
+            background-color: transparent;
+            border: 1px solid #555;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .programs-button:hover {
+            background-color: #1a1a1a;
+            border-color: #777;
+        }
+        .icon-chevron {
+            transition: transform 0.3s ease;
+        }
+        .programs-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1001;
+            border-radius: 10px;
+            padding: 10px 0;
+            margin-top: 10px;
+            top: 100%;
+            left: 0;
+        }
+        .programs-container.show .programs-dropdown {
+            display: block;
+        }
+        .programs-container.show .icon-chevron {
+            transform: rotate(180deg);
+        }
+        .programs-dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            transition: background-color 0.2s;
+        }
+        .programs-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        .nav-button-cta {
+            background: linear-gradient(to right, #9d64f1, #573ea8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: filter 0.2s ease;
+        }
+        .nav-button-cta:hover {
+            filter: brightness(1.15);
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @media (max-width: 992px) {
+            .nav-links, .nav-button-cta, .programs-button { display: none; }
+            .menu-toggle { display: block; }
+        }
+
+        /* =================================
+            2. ABOUT US PAGE STYLES
+        ================================== */
+        :root {
+            --color-primary: #4A90E2;
+            --color-secondary: #50E3C2;
+            --color-background: #F4F7F6;
+            --color-text-dark: #333333;
+            --color-text-light: #666666;
+            --color-white: #ffffff;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text-dark);
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        /* Animation for elements */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-banner {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: var(--color-white);
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 550px;
+            padding: 60px 8%;
+            overflow: hidden;
+        }
+        .banner-content { max-width: 55%; z-index: 2; }
+        .main-quote { font-family: var(--font-heading); font-size: 48px; font-weight: 700; line-height: 1.3; }
+        .highlight-text { color: var(--color-secondary); display: block; }
+        .description-text { font-size: 18px; line-height: 1.7; max-width: 550px; margin-top: 20px; }
+        .description-text a { color: var(--color-secondary); text-decoration: none; font-weight: 600; }
+        .description-text a:hover { text-decoration: underline; }
+        .banner-image { position: absolute; bottom: 0; right: 5%; width: 500px; height: 100%; z-index: 1; }
+        .banner-image img { width: 100%; height: 100%; object-fit: contain; object-position: bottom right; }
+
+        .section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .section-title { font-family: var(--font-heading); font-size: 36px; text-align: center; margin-bottom: 60px; color: var(--color-text-dark); }
+        .highlight { color: var(--color-primary); }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .feature-card {
+            background: var(--color-white);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .feature-card img { height: 50px; margin-bottom: 20px; }
+        .feature-card h3 { font-family: var(--font-heading); font-size: 18px; color: var(--color-text-dark); }
+
+        .mission-vision-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .mission-vision-content img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            object-fit: cover;
+            height: 350px;
+        }
+        .mission-vision-text h3 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--color-primary);
+        }
+        .mission-vision-text p {
+            line-height: 1.8;
+            color: var(--color-text-light);
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .why-choose-card {
+            background-color: var(--color-white);
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .why-choose-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+        }
+        .why-choose-icon-wrapper {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-shrink: 0;
+        }
+        .icon-bg-1 { background-color: #E3F2FD; }
+        .icon-bg-2 { background-color: #E8F5E9; }
+        .icon-bg-3 { background-color: #FFF3E0; }
+        .why-choose-icon-wrapper img { width: 40px; height: 40px; }
+        .why-choose-card h3 { font-family: var(--font-heading); font-size: 20px; color: var(--color-text-dark); margin-bottom: 15px; }
+        .why-choose-card p { font-size: 15px; color: var(--color-text-light); line-height: 1.6; }
+
+        .testimonial-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            align-items: center;
+            gap: 40px;
+        }
+        .testimonial-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .testimonial-slider-wrapper { position: relative; width: 100%; }
+        .testimonial-cards-container { position: relative; min-height: 320px; width: 100%; overflow: hidden; }
+        .testimonial-card {
+            background-color: #2c3e50;
+            color: var(--color-white);
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0; left: 0;
+            opacity: 0;
+            transform: scale(0.95) translateX(40px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            pointer-events: none;
+        }
+        .testimonial-card.active {
+            opacity: 1;
+            transform: scale(1) translateX(0);
+            z-index: 10;
+            pointer-events: auto;
+        }
+        .review-text { font-size: 1rem; line-height: 1.7; margin: 0 0 25px 0; color: #bdc3c7; min-height: 100px; }
+        .reviewer-info { border-top: 1px solid #34495e; padding-top: 20px; }
+        .name { font-size: 1.1rem; font-weight: 600; margin: 0; color: var(--color-white); }
+        .role { color: var(--color-secondary); margin: 4px 0 0 0; font-size: 0.9rem; font-weight: 600; }
+        .testimonial-dots { display: flex; justify-content: center; gap: 12px; margin-top: 30px; }
+        .testimonial-dots .dot { width: 10px; height: 10px; border-radius: 50%; background-color: #bdc3c7; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; }
+        .testimonial-dots .dot.active { background-color: var(--color-secondary); transform: scale(1.4); }
+
+        @media (max-width: 992px) {
+            .banner-content { max-width: 100%; text-align: center; }
+            .banner-image { display: none; }
+            .main-quote { font-size: 40px; }
+            .mission-vision-container { grid-template-columns: 1fr; }
+            .mission-vision-content:first-of-type { order: 2; } /* Image below text on mobile */
+            .testimonial-container { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+        }
+        @media (max-width: 768px) {
+            .section-title { font-size: 28px; }
+            .why-choose-grid, .features-grid { grid-template-columns: 1fr; }
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+        .dashed-line { border-top: 2px dashed #34495e; margin: 25px 0; }
+        .footer-nav-top ul { list-style: none; padding: 0; margin: 0 auto; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+        .footer-nav-top ul li { position: relative; padding: 0 20px; }
+        .footer-nav-top ul li:not(:last-child)::after { content: ''; position: absolute; right: -7.5px; top: 50%; transform: translateY(-50%); height: 16px; width: 1px; background-color: #34495e; }
+        .footer-nav-top ul li a { color: #ecf0f1; text-decoration: none; font-size: 15px; transition: color 0.3s; }
+        .footer-nav-top ul li a:hover { color: var(--color-secondary); }
+        .footer-main { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; flex-wrap: wrap; gap: 25px; }
+        .contact-info { display: flex; gap: 35px; flex-wrap: wrap; }
+        .contact-info a { color: #ecf0f1; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 15px; transition: color 0.3s; }
+        .contact-info a:hover { color: var(--color-white); }
+        .social-icons { display: flex; gap: 20px; }
+        .social-icon { color: #ffffff; font-size: 24px; transition: color 0.3s ease, transform 0.3s ease; }
+        .social-icon:hover { transform: scale(1.15); }
+        .social-icon.instagram:hover { color: #E1306C; }
+        .social-icon.linkedin:hover { color: #0A66C2; }
+        .social-icon.youtube:hover { color: #FF0000; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #bdc3c7; flex-wrap: wrap; gap: 20px; }
+        .footer-links-bottom a { color: #bdc3c7; text-decoration: none; transition: color 0.3s; }
+        .footer-links-bottom a:hover { color: var(--color-white); }
+        .copyright p { margin: 0; }
+        @media (max-width: 992px) {
+            .footer-main, .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+            .social-icons { margin-top: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-left">
+            <a href="index.html"><img src="https://placehold.co/150x50/000000/FFFFFF?text=Cloud+World" alt="Cloud World Institute Logo" class="logo-image"></a>
+            <div class="programs-container">
+                <button class="programs-button">Programs <i class="fas fa-chevron-down icon-chevron"></i></button>
+                <div class="programs-dropdown">
+                    <a href="#">DevOps</a>
+                    <a href="#">Cloud Technology</a>
+                    <a href="#">Python</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-right">
+            <ul class="nav-links">
+<<<<<<< HEAD
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#demo-classes-section">Demo Classes</a></li>
+                <li><a href="blog/blog.html" target="_self">Blogs</a></li>
+                <li><a href="index.html#review">Reviews</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="../kratos/contact us/contact_us.html">Contact us</a></li>
+
+                </ul>
+            <a href="https://www.youtube.com/@CloudWorld-gm5gz" class="nav-button-cta"  target="_blank">Free Courses</a>
+=======
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <a href="#" class="nav-button-cta">Enroll Now</a>
+>>>>>>> 2d84ca5759cdf7b291e6f6771df5863cd3167510
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation menu"> <i class="fas fa-bars"></i> </button>
+    </nav>
+
+    <header class="hero-banner">
+        <div class="banner-content animate-on-scroll">
+            <h1 class="main-quote">Empowering IT Careers, <span class="highlight-text">Shaping the Future</span></h1>
+            <p class="description-text">At Cloud World Institute, we’re more than an institution—we’re a movement. Dedicated to advancing education and career development, we equip individuals to thrive in the dynamic IT sector with cutting-edge programs in DevOps and Cloud Technology. Your journey to innovation starts here on <a href="#" target="_blank">Online Python Training in Pune | Cloudworld</a>.</p>
+        </div>
+        <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Team collaborating in a modern IT office">
+        </div>
+    </header>
+
+    <main>
+        <section class="section features-section">
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM0QTkwRTIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWNsb2NrIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI5Ij48L2NpcmNsZT48cG9seWxpbmUgcG9pbnRzPSIxMiA2IDEyIDEyIDE2IDE0Ij48L3BvbHlsaW5lPjwvc3ZnPg==" alt="Flexible Classes">
+                    <h3>Flexible Classes</h3>
+                </div>
+                <div class="feature-card animate-on-scroll" style="transition-delay: 0.1s;">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM1MEUzQzIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWdsb2JlIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PGxpbmUgeDE9IjIiIHkxPSIxMiIgeDI9IjIyIiB5Mj0iMTIiPjwvbGluZT48cGF0aCBkPSJNMTIgMiwyIDdjMCA1LjUgNCAxMCAxMCAxMCA1LjUgMCAxMC00LjUgMTAtMTBMMTIgMnoiPjwvcGF0aD48L3N2Zz4=" alt="Online & Offline Mode">
+                    <h3>Online & Offline Mode</h3>
+                </div>
+                <div class="feature-card animate-on-scroll" style="transition-delay: 0.2s;">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNGN0I1MjQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLXVzZXJzIj48cGF0aCBkPSJNMTcgMjFoLTRhNS41IDUuNSAwIDAgMS0xMSAwdi0xYTQgNCAwIDAgMSA0LTRoNG0tNi00YTMgMyAwIDEgMSAwLTYgMyAzIDAgMCAxIDAgNnptMTEtNWExIDEgMCAxIDEgMC0yIDEgMSAwIDAgMSAwIDJ6bTYgNWgtNm0zLTN2NiI+PC9wYXRoPjwvc3ZnPg==" alt="Educator Support">
+                    <h3>Educator Support</h3>
+                </div>
+                <div class="feature-card animate-on-scroll" style="transition-delay: 0.3s;">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNFOTRBNkEiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWJvb2stb3BlbiI+PHBhdGggZD0iTTIgM3YxOGExIDEgMCAwIDAgMSAxaDE2YTEgMSAwIDAgMCAxLTFWM20tOCAwaDRtLTYgOWg4bS04IDRoNCI+PC9wYXRoPjwvc3ZnPg==" alt="Post Course Support">
+                    <h3>Post Course Support</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="section mission-vision-section">
+            <h2 class="section-title animate-on-scroll">Empowering Futures: Our <span class="highlight">Mission</span> & <span class="highlight">Vision</span></h2>
+            <div class="mission-vision-container">
+                <div class="mission-vision-content animate-on-scroll">
+                    <div class="mission-vision-text">
+                        <h3>Our Mission</h3>
+                        <p>At Cloud World, we aim to equip individuals with the skills needed to excel in the ever-changing tech world. Our motto, “We Train, We Grow,” reflects our commitment to helping people achieve their goals and take advantage of vast opportunities in the technology sector. With hands-on training in state-of-the-art facilities, we prepare our students to become skilled professionals ready to make a positive impact in their fields.</p>
+                    </div>
+                </div>
+                <div class="mission-vision-content animate-on-scroll" style="transition-delay: 0.2s;">
+                     <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop" alt="Diverse group of students learning collaboratively">
+                </div>
+            </div>
+             <div class="mission-vision-container" style="margin-top: 60px;">
+                <div class="mission-vision-content animate-on-scroll">
+                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="A team looking towards the future with a cityscape background">
+                </div>
+                <div class="mission-vision-content animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="mission-vision-text">
+                        <h3>Our Vision</h3>
+                        <p>To be a leading global institute for IT education, recognized for creating future-ready professionals who drive innovation and technological advancement worldwide. We envision a world where anyone with passion can access the training they need to build a successful and fulfilling career in technology.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section why-choose-section">
+            <h2 class="section-title animate-on-scroll">Why Choose <span class="highlight">Cloud World</span> Institute?</h2>
+            <div class="why-choose-grid">
+                <div class="why-choose-card animate-on-scroll">
+                    <div class="why-choose-icon-wrapper icon-bg-1"> <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM0QTkwRTIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWdvbiBwb2ludHM9IjIzIDE4IDEgMTggMSAyIDggMiA4IDYiPjwvcG9seWdvbj48cG9seWdvbiBwb2ludHM9IjIgMTQgMTIgMTQgMTIgMjIiPjwvcG9seWdvbj48cG9seWdvbiBwb2ludHM9IjE4IDEwIDIyIDEwIDIyIDIyIj48L3BvbHlnb24+PC9zdmc+" alt="Curriculum Icon"> </div>
+                    <h3>Industry-Relevant Curriculum</h3>
+                    <p>Stay ahead in the IT sector with courses designed to align with current trends and technologies in DevOps, Cloud Computing, and beyond.</p>
+                </div>
+                <div class="why-choose-card animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="why-choose-icon-wrapper icon-bg-2"> <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM1MEUzQzIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTYgMjFsLTYtNm0wIDBsNi02bS02IDZoMjIiPjwvcGF0aD48L3N2Zz4=" alt="Leaders Icon"> </div>
+                    <h3>Learning from Industry Leaders</h3>
+                    <p>Our programs are led by IT experts who bring real-world experience and deep insights, ensuring you receive practical and impactful training.</p>
+                </div>
+                <div class="why-choose-card animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="why-choose-icon-wrapper icon-bg-3"> <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNGN0I1MjQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIzIj48L2NpcmNsZT48cGF0aCBkPSJNMTkuNCA0LjZsLTEuOCAxLjhhOS43IDkuNyAwIDAgMSAwIDEwLjhsMS44IDEuOG0tMTQuOC0xMi40bDEuOCAxLjhhOS43IDkuNyAwIDAgMCAwIDEwLjhsLTEuOCAxLjgiPjwvcGF0aD48L3N2Zz4=" alt="Career Icon"> </div>
+                    <h3>Career Advancement Opportunities</h3>
+                    <p>Leverage our programs to boost your career prospects with certifications, skill-building, and networking opportunities tailored to the evolving IT landscape.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section testimonial-section">
+            <div class="testimonial-container">
+                <div class="testimonial-header animate-on-scroll">
+                    <h2>What Our <span class="highlight">Students</span> Have To Say</h2>
+                    <p class="description-text">Our students' success is a testament to the quality of education and training at Cloud World Institute. Here's what they have to say about their learning journey with us: <a href="#">Online Python Training in Pune | Cloudworld</a></p>
+                </div>
+                <div class="testimonial-slider-wrapper animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="testimonial-cards-container">
+                        <div class="testimonial-card">
+                            <p class="review-text">I joined Cloud World Institute to upskill in Cloud Computing, and it was the best decision. The courses are well-structured, and the trainers provide real-world insights. My career has definitely taken a positive turn.</p>
+                            <div class="reviewer-info">
+                                <p class="name">Ravi Kumar</p><p class="role">Student</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="review-text">The quality of education and guidance at Cloud World Institute is unmatched. I’m grateful for the valuable skills and knowledge I gained, which helped me secure a great job in the IT industry.</p>
+                            <div class="reviewer-info">
+                                <p class="name">Neha Desai</p><p class="role">IT Professional</p>
+                            </div>
+                        </div>
+                         <div class="testimonial-card">
+                            <p class="review-text">Cloud World Institute offers an exceptional learning experience. The DevOps and Cloud Computing courses are top-notch, and the instructors are very knowledgeable. Highly recommended for anyone looking to enhance their IT career.</p>
+                            <div class="reviewer-info">
+                                <p class="name">Amit Sharma</p><p class="role">Designer</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="review-text">The hands-on training and practical approach at Cloud World Institute helped me understand complex concepts easily. The curriculum is up-to-date, and the support for career growth is excellent!</p>
+                            <div class="reviewer-info">
+                                <p class="name">Priya Patel</p><p class="role">Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                        <span class="dot" data-slide="3"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="dashed-line"></div>
+            <div class="footer-nav-top">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Programs</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="dashed-line"></div>
+            <div class="footer-main">
+                <div class="contact-info">
+                    <a href="mailto:info@cloudworld.com"><i class="fas fa-envelope"></i> info@cloudworld.com</a>
+                    <a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 98765 43210</a>
+                    <a href="#" target="_blank"><i class="fas fa-map-marker-alt"></i> Pune, India</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="dashed-line"></div>
+            <div class="footer-bottom">
+                <div class="copyright"> <p>&copy; 2025 Cloud World Institute. All rights reserved.</p> </div>
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar programs dropdown functionality
+        const programsContainer = document.querySelector('.programs-container');
+        const programsButton = document.querySelector('.programs-button');
+        if (programsButton) {
+            programsButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                programsContainer.classList.toggle('show');
+            });
+            document.addEventListener('click', (e) => {
+                if (!programsContainer.contains(e.target)) {
+                    programsContainer.classList.remove('show');
+                }
+            });
+        }
+
+        // Testimonial Slider
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const testimonialDotsContainer = document.querySelector('.testimonial-dots');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            testimonialCards.forEach((card, i) => {
+                card.classList.remove('active');
+                if (i === index) {
+                    card.classList.add('active');
+                }
+            });
+            updateDots(index);
+        }
+
+        function updateDots(index) {
+            if (testimonialDotsContainer) {
+                const dots = testimonialDotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.remove('active');
+                    if (i === index) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % testimonialCards.length;
+            showSlide(currentSlide);
+        }
+        
+        function startSlider() {
+            stopSlider();
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlider() {
+            clearInterval(slideInterval);
+        }
+
+        if (testimonialCards.length > 0) {
+            showSlide(currentSlide);
+            startSlider();
+
+            if (testimonialDotsContainer) {
+                testimonialDotsContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('dot')) {
+                        const slideIndex = parseInt(e.target.dataset.slide);
+                        if (!isNaN(slideIndex)) {
+                            currentSlide = slideIndex;
+                            showSlide(currentSlide);
+                            startSlider(); // Restart interval on manual navigation
+                        }
+                    }
+                });
+            }
+            
+            document.querySelector('.testimonial-slider-wrapper').addEventListener('mouseenter', stopSlider);
+            document.querySelector('.testimonial-slider-wrapper').addEventListener('mouseleave', startSlider);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navRight = document.querySelector('.nav-right');
+        if (menuToggle && navRight) {
+            menuToggle.addEventListener('click', () => {
+                navRight.classList.toggle('active'); // You would need to add CSS for .nav-right.active
+            });
+        }
+    </script>
+</body>
+</html>

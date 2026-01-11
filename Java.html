@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Full Stack Timeline</title>
+    <style>
+    :root {
+        /* UPDATED: New Java-themed color palette */
+        --body-bg: #F4F4F5;          /* Light, clean background */
+        --card-bg: #FFFFFF;          /* Crisp white cards */
+        --heading-color: #2D3748;     /* Professional dark blue-gray for headings */
+        --text-color: #4A5568;        /* Readable gray for descriptions */
+        --accent-color: #F89820;      /* Iconic Java Orange for accents */
+        
+        --line-bg-color: rgba(248, 152, 32, 0.2);
+        --line-fill-color: var(--accent-color);
+        --dot-color: rgba(248, 152, 32, 0.4);
+        --dot-active-color: var(--accent-color);
+        --accent-blue: #007bff; /* Kept for modal, can be updated if needed */
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 80px 20px 40px 20px;
+        background-color: var(--body-bg);
+        color: var(--text-color);
+    }
+    
+    body.modal-open {
+        overflow: hidden;
+    }
+
+    .home-button-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    
+    .back-to-home { 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 6px;
+        padding: 8px 16px; 
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0; 
+        border-radius: 6px; 
+        text-decoration: none; 
+        font-size: 14px; 
+        font-weight: 500;
+        color: #333; 
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .back-to-home:hover { 
+        background-color: #f8f8f8; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    }
+
+    .main-container { max-width: 800px; margin: 0 auto; }
+
+    .header-container { text-align: center; margin-bottom: 20px; }
+    #main-header-text { 
+        font-size: 2.5em; font-weight: 700; 
+        color: var(--heading-color);
+        text-shadow: none;
+    }
+
+    .toggle-switch-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+    .toggle-label {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--text-color); /* Default color changed */
+        user-select: none;
+        transition: color 0.4s ease, font-weight 0.4s ease; /* Added transition */
+    }
+    /* NEW STYLE for the active label */
+    .toggle-label.active {
+        color: var(--accent-color);
+        font-weight: 700;
+    }
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+    .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+    input:checked + .slider {
+        background-color: var(--accent-color);
+    }
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+    
+    .timeline { position: relative; width: 100%; margin: 0 auto; padding: 40px 0; }
+    .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--line-bg-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
+    .timeline::before { content: ''; position: absolute; width: 4px; background-color: var(--line-fill-color); top: 0; left: 50%; margin-left: -2px; border-radius: 2px; height: var(--line-height, 0); transition: height 0.2s ease-out; }
+    
+    .timeline-marker {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        top: var(--marker-position, 0px);
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 3px 15px rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: top 0.2s ease-out;
+        color: var(--accent-color);
+    }
+    .timeline-marker svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .timeline ul { list-style: none; padding: 0; margin: 0; }
+    .timeline-item {
+        padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 50%; }
+    .timeline-item.is-visible { opacity: 1; transform: translateY(0); }
+
+    .timeline-item::after { 
+        content: ''; position: absolute; width: 14px; height: 14px;
+        background-color: var(--dot-color); top: 35px; border-radius: 50%; z-index: 1;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .timeline-item:nth-child(odd)::after { right: -7px; }
+    .timeline-item:nth-child(even)::after { left: -7px; }
+    .timeline-item.is-visible::after { background-color: var(--dot-active-color); transform: scale(1.3); }
+    
+    .timeline-content { 
+        padding: 25px; 
+        background: var(--card-bg);
+        border-radius: 12px; 
+        box-shadow: 0 6px 30px rgba(45, 55, 72, 0.08);
+        position: relative; text-align: left;
+        border: 1px solid #E2E8F0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 45px rgba(45, 55, 72, 0.12);
+    }
+    
+    .content-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .logo-container {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        color: var(--accent-color);
+    }
+    .logo-container svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .timeline-content h3 {
+        margin: 0;
+        font-size: 1.6em;
+        font-weight: 600;
+        color: var(--heading-color);
+    }
+
+    .description { font-size: 1.05em; line-height: 1.6; margin: 0 0 15px 0; color: var(--text-color); }
+    .link-wrapper { text-align: left; margin-top: 20px; }
+    .timeline-link { font-size: 0.95em; font-weight: 600; color: var(--accent-color); text-decoration: none; transition: opacity 0.2s ease; cursor: pointer; }
+    .timeline-link:hover { opacity: 0.8; }
+    
+    .timeline-item .timeline-content > * { opacity: 0; transform: translateY(15px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+    .timeline-item.is-visible .timeline-content > * { opacity: 1; transform: translateY(0); }
+    .timeline-item.is-visible .timeline-content .content-header { transition-delay: 0.2s; }
+    .timeline-item.is-visible .timeline-content .description { transition-delay: 0.3s; }
+    .timeline-item.is-visible .timeline-content .link-wrapper { transition-delay: 0.4s; }
+
+
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0s 0.3s linear; z-index: 1000; }
+    .modal-overlay.visible { opacity: 1; visibility: visible; transition-delay: 0s; }
+    
+    .modal-content { 
+        background-color: white; padding: 30px; border-radius: 12px; 
+        width: 90%; max-width: 500px; 
+        transform: translateY(-30px) scale(0.95);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+        max-height: 85vh;
+    }
+    .modal-overlay.visible .modal-content { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #dee2e6; padding-bottom: 15px; margin-bottom: 20px; }
+    #modal-title { font-size: 1.5em; color: var(--heading-color); margin: 0; }
+    .close-modal { font-size: 1.8em; font-weight: bold; color: #adb5bd; cursor: pointer; line-height: 1; transition: color 0.2s; }
+    .close-modal:hover { color: #495057; }
+    
+    #modal-body { overflow-y: auto; padding-right: 15px; }
+    #modal-body ul { list-style: none; padding: 0; margin: 0; }
+    .modal-accordion-item { background-color: #f7f9fc; border: 1px solid #e9ecef; border-radius: 8px; margin-bottom: 10px; position: relative; padding-left: 25px; overflow: hidden; }
+    .modal-accordion-item::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 6px; background-color: var(--accent-blue); border-radius: 8px 0 0 8px; }
+    .modal-accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 15px 15px 0; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--heading-color); }
+    .modal-accordion-toggle { display: inline-block; width: 8px; height: 8px; border-right: 2px solid var(--heading-color); border-bottom: 2px solid var(--heading-color); transform: rotate(45deg); transition: transform 0.3s ease; }
+    .modal-accordion-item.open .modal-accordion-toggle { transform: rotate(-135deg); }
+    .modal-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 15px 0 0; color: #6c757d; font-size: 0.95rem; line-height: 1.6; }
+    .modal-accordion-item.open .modal-accordion-body { max-height: 200px; padding: 0 15px 15px 0; }
+    
+    #modal-body::-webkit-scrollbar { width: 8px; }
+    #modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+    /* Capstone Section Styles */
+    .capstone-container {
+        padding: 50px 25px;
+        margin-top: 40px;
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(45, 55, 72, 0.1);
+        border: 1px solid #E2E8F0;
+        text-align: left;
+    }
+    .capstone-container h2 {
+        font-size: 2.2em;
+        font-weight: 700;
+        color: var(--heading-color);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .capstone-container .subtitle {
+        font-size: 1.15em;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .capstone-container h3 {
+        font-size: 1.7em;
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-top: 40px;
+        margin-bottom: 25px;
+        border-bottom: 3px solid var(--line-bg-color);
+        padding-bottom: 12px;
+    }
+    .projects-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    .projects-grid li {
+        background-color: var(--body-bg);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid var(--accent-color);
+        font-size: 0.95em;
+        line-height: 1.6;
+        color: var(--text-color);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .projects-grid li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    }
+    .projects-grid li strong {
+        color: var(--heading-color);
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+    }
+    .learning-points {
+        list-style: '✅';
+        padding-left: 25px;
+        margin: 20px 0;
+        color: var(--text-color);
+    }
+    .learning-points li {
+        padding-left: 15px;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
+    .capstone-container > .info-text {
+        font-size: 1.1em;
+        line-height: 1.7;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .final-pitch {
+        margin-top: 40px;
+        padding: 30px;
+        background: linear-gradient(135deg, rgba(248, 152, 32, 0.08), rgba(248, 152, 32, 0.02));
+        border: 2px solid var(--line-bg-color);
+        border-radius: 12px;
+        text-align: center;
+    }
+    .final-pitch p {
+        margin: 0;
+        font-size: 1.1em;
+        line-height: 1.7;
+        color: var(--text-color);
+    }
+    .final-pitch p:first-child {
+        font-weight: 700;
+        color: var(--heading-color);
+        font-size: 1.25em;
+        margin-bottom: 8px;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="home-button-container">
+        <a href="index.html" class="back-to-home"><span>←</span> Back to Home</a>
+    </div>
+
+    <div class="main-container">
+        <div class="header-container">
+            <h1 id="main-header-text">DevOps & SRE</h1>
+        </div>
+        
+        <!-- UPDATED: Labels changed and IDs added for clarity -->
+        <div class="toggle-switch-container">
+            <span id="label-backend" class="toggle-label">Months 1-3</span>
+            <label class="switch">
+                <input type="checkbox" id="mode-toggle">
+                <span class="slider"></span>
+            </label>
+            <span id="label-frontend" class="toggle-label">Months 4-6</span>
+        </div>
+
+        <div id="language-display"></div>
+        
+        <div class="capstone-container">
+            <h2>Your Showstopper Month: 12 Corporate-Level Capstone Projects</h2>
+            <p class="subtitle">End your journey with a hands-on capstone marathon—real projects, real tools, real cloud!</p>
+        
+            <h3>💥 Corporate-Grade Capstone Projects Lineup</h3>
+            <ul class="projects-grid">
+                <li><strong>GitOps-powered Enterprise Platform:</strong> Cloud-native multi-env deployment to EKS with Argo CD, secure automated rollouts from Git to prod.</li>
+                <li><strong>Production Service Mesh with Istio & Kiali:</strong> Deploy secure microservices, visualize traffic and policies with Kiali, enforce mutual TLS and fine-grained policies.</li>
+                <li><strong>Canary & Blue/Green Automated Releases:</strong> Use Argo Rollouts & Istio for zero-downtime updates, automated metrics-triggered rollbacks, instant Slack alerts.</li>
+                <li><strong>Cloud Infrastructure as Code on Steroids:</strong> Terraform all the things: VPC, EKS, databases, IAM – reusable modules, secrets managed securely.</li>
+                <li><strong>Monitoring and Distributed Tracing at Scale:</strong> Full observability pipeline: logs with Loki, traces with Tempo, metrics with Prometheus, visualized in Grafana.</li>
+                <li><strong>Slack-Driven Incident Response (ChatOps):</strong> Integrate Slack alerts with Grafana & Prometheus, automate runbook tasks via chat commands, set up escalation policies.</li>
+                <li><strong>Enterprise-Grade CI/CD Security Pipeline:</strong> Secure every artifact: image scanning, secrets management, end-to-end compliance checks via Jenkins, GitHub Actions, Argo CD.</li>
+                <li><strong>Alloy-Powered Multi-Cloud Telemetry:</strong> Deploy Alloy for unified collection of logs, traces, and metrics from AWS/GCP/Azure, visualize on Grafana.</li>
+                <li><strong>Disaster Recovery & High-Availability Experiments:</strong> Automated cross-region replication, failovers, managed infra with Terraform, automated DR drills.</li>
+                <li><strong>Self-Healing, Auto-Remediating Production Environments:</strong> Monitor with Prometheus/Grafana and automate infrastructure patching, scaling, and recovery using Ansible or Lambda functions as triggers.</li>
+                <li><strong>Serverless Event-Driven App Suite:</strong> CI/CD for AWS Lambda functions, event logging in Loki, tracing with Tempo, real-time Slack notifications.</li>
+                <li><strong>Real-Time Business Metrics and Intelligence:</strong> Gather business KPIs using Alloy from app to infra, live dashboards in Grafana, predictive insights.</li>
+            </ul>
+        
+            <h3>How You'll Learn & Build</h3>
+            <ul class="learning-points">
+                <li>Every class = hands-on, every week = production-grade code.</li>
+                <li>Live reviews, real teamwork, and expert mentorship in every sprint.</li>
+                <li>Every project is portfolio-ready, documented, and demoed.</li>
+            </ul>
+        
+            <p class="info-text">Direct application of SRE and DevOps best practices—so you hit the ground running in any enterprise.</p>
+        
+            <div class="final-pitch">
+                <p>This is not just a course—it's the career accelerator.</p>
+                <p>Students don't just finish—they absolutely stand out in hiring pipelines. Your entry into the world of elite DevOps and SRE starts—and explodes—here.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="topics-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Relevant Topics</h3>
+                <span class="close-modal">×</span>
+            </div>
+            <div id="modal-body"><ul></ul></div>
+        </div>
+    </div>
+
+    <script>
+        const modeToggle = document.getElementById('mode-toggle');
+        const languageDisplay = document.getElementById('language-display');
+        const modal = document.getElementById('topics-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBodyList = document.querySelector('#modal-body ul');
+        const closeModalBtn = document.querySelector('.close-modal');
+        
+        // NEW: Get references to the new labels
+        const backendLabel = document.getElementById('label-backend');
+        const frontendLabel = document.getElementById('label-frontend');
+        
+        // Data object is now split into first and second halves of the course
+        const data = {
+            // This is the SECOND 3 months
+            frontend: [
+                { name: 'Month 4', desc: 'Infrastructure as Code & Automation', linkText: 'Master Databases >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
+                  topics: [
+                    { title: 'Terraform Associate', details: 'HCL modules, zero-downtime rollouts, remote state, DR, cloud-agnostic infra.' },
+                    { title: 'Ansible Automation', details: 'Idempotent config, dynamic inventories, patch management, continuous compliance.' },
+                    { title: 'Mini-Projects', details: 'Multi-cloud IaC portfolio, auto-patcher for production fleets.' }
+                ]},
+                { name: 'Month 5', desc: 'Corporate Observability', linkText: 'Improve Code Quality >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`,
+                  topics: [
+                    { title: 'Prometheus Certified Associate', details: 'PromQL, exporters, advanced alerting, custom dashboards, SLI/SLO tracking.' },
+                    { title: 'Loki, Tempo, Alloy stack', details: 'Centralized logging, distributed tracing, unified telemetry.' },
+                    { title: 'Mini-Projects', details: 'Trace-root cause pipeline, business-metric Grafana boards' }
+                ]},
+                { name: 'Month 6 (Weeks 21-24)', desc: 'Cloud-Native Security & Edge', linkText: 'Improve Code Quality >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>`,
+                  topics: [
+                    { title: 'DevSecOps', details: 'Secure-by-design pipelines, vulnerability scans, secrets vaults, automated audits.' },
+                    { title: 'Serverless & Innovation', details: 'Multi-cloud Lambda, event-driven workflows, auto-scaling, serverless CI/CD.' },
+                    { title: 'Mini-Projects', details: 'Secure serverless CI/CD, event-driven end-to-end workflow.' },   
+                ]}
+            ],
+            // This is the FIRST 3 months
+            backend: [
+                { name: 'Month 1 ', desc: "AWS Cloud Wizardry", linkText: 'Learn the Basics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
+                  topics: [
+                    { title: 'AWS Solutions Architect Associate (SAA)', details: 'Design scalable, resilient and secure cloud architectures: VPC, S3, RDS, IAM, Lambda, CloudFront.' },
+                    { title: 'AWS SysOps Administrator Associate', details: 'Operational automation, CloudWatch, CloudFormation, blue/green deployments, provisioning, security controls.' },
+                    { title: 'Mini-Projects', details: 'Launch auto-scaling apps, real-time monitoring dashboards.' },
+                    
+                ]},
+                { name: 'Month 2', desc: 'Container Engineering.', linkText: 'Explore Spring >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/><path d="M12 2a10 10 0 00-2.93 19.07A10 10 0 0012 2z"/></svg>`,
+                  topics: [
+                    { title: 'Docker Certified Associate', details: 'Multi-stage builds, registries, scanning, networking, Compose, Swarm.' },
+                    { title: 'Kubernetes CKA & CKAD', details: 'Production cluster management, Helm, RBAC, secrets, persistent volumes, application rollout/rollback, chaos engineering.' },
+                    { title: 'Mini-Projects', details: 'Secure microservice pipelines, Kubernetes self-healing apps.' },
+                    
+                ]},
+                { name: 'Month 3', desc: 'DevOps Automation', linkText: 'Understand Builds >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+                  topics: [
+                    { title: 'Jenkins (CI/CD Guru)', details: 'Advanced Pipelines, rollback/promotion flows, integrated security checks.' },
+                    { title: 'GitLab CI / GitHub Actions', details: 'Multi-cloud deploys, dynamic environments, GitOps rollouts, parallel pipelines.' },
+                    { title: 'Mini-Projects', details: 'Multi-cloud deploy pipeline, full Git-driven artifact promotion.' },
+                   
+                ]},
+                
+            ]
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        // NEW FUNCTION to update the active state of labels
+        function updateToggleLabels() {
+            if (modeToggle.checked) {
+                // If checked (ON), show Months 4-6 as active
+                backendLabel.classList.remove('active');
+                frontendLabel.classList.add('active');
+            } else {
+                // If unchecked (OFF), show Months 1-3 as active
+                backendLabel.classList.add('active');
+                frontendLabel.classList.remove('active');
+            }
+        }
+
+        modeToggle.addEventListener('change', () => {
+            if (modeToggle.checked) {
+                createTimeline('frontend');
+            } else {
+                createTimeline('backend');
+            }
+            updateToggleLabels(); // Update labels on change
+        });
+
+        languageDisplay.addEventListener('click', (e) => {
+            const link = e.target.closest('.timeline-link');
+            if (link) {
+                openModal(link.dataset.type, link.dataset.index);
+            }
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        
+        modalBodyList.addEventListener('click', (e) => {
+            const header = e.target.closest('.modal-accordion-header');
+            if (header) {
+                const item = header.parentElement;
+                item.classList.toggle('open');
+            }
+        });
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        function createTimeline(type) {
+            const timelineData = data[type];
+            languageDisplay.innerHTML = ''; 
+            const timelineDiv = document.createElement('div');
+            timelineDiv.className = 'timeline';
+
+            const markerElement = document.createElement('div');
+            markerElement.className = 'timeline-marker';
+            markerElement.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13.1818L9.83333 18L19 7" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            timelineDiv.appendChild(markerElement);
+
+            const listElement = document.createElement('ul');
+            timelineData.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'timeline-item';
+                listItem.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="content-header">
+                            <div class="logo-container">
+                                ${item.logo || ''}
+                            </div>
+                            <h3>${item.name}</h3>
+                        </div>
+                        <p class="description">${item.desc}</p>
+                        <div class="link-wrapper">
+                            <a class="timeline-link" data-type="${type}" data-index="${index}">${item.linkText}</a>
+                        </div>
+                    </div>
+                `;
+                listElement.appendChild(listItem);
+                observer.observe(listItem);
+            });
+            timelineDiv.appendChild(listElement);
+            languageDisplay.appendChild(timelineDiv);
+            
+            handleScrollAnimations(); 
+        }
+
+        function openModal(type, index) {
+            const item = data[type][index];
+            modalTitle.textContent = `Key Topics for ${item.name}`;
+            modalBodyList.innerHTML = '';
+            
+            item.topics.forEach(topic => {
+                const li = document.createElement('li');
+                li.className = 'modal-accordion-item';
+                li.innerHTML = `
+                    <div class="modal-accordion-header">
+                        <span>${topic.title}</span>
+                        <span class="modal-accordion-toggle"></span>
+                    </div>
+                    <div class="modal-accordion-body">
+                        ${topic.details}
+                    </div>
+                `;
+                modalBodyList.appendChild(li);
+            });
+            modal.classList.add('visible');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modal.classList.remove('visible');
+            document.body.classList.remove('modal-open');
+        }
+
+        function handleScrollAnimations() {
+            const timeline = document.querySelector('.timeline');
+            if (!timeline) return;
+            
+            const marker = timeline.querySelector('.timeline-marker');
+            const timelineRect = timeline.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            const startPoint = timelineRect.top + window.scrollY;
+            const endPoint = timelineRect.bottom + window.scrollY - viewportHeight;
+            
+            const scrollY = window.scrollY;
+            
+            let progress = (scrollY - startPoint) / (endPoint - startPoint);
+            progress = Math.max(0, Math.min(1, progress));
+
+            const lineHeight = progress * timelineRect.height;
+            timeline.style.setProperty('--line-height', `${lineHeight}px`);
+            
+            if (marker) {
+                marker.style.setProperty('--marker-position', `${lineHeight}px`);
+            }
+        }
+
+        // Initial load
+        createTimeline('backend');
+        updateToggleLabels(); // Set initial active label
+    </script>
+</body>
+</html
+>

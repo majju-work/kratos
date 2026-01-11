@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Engineer Mastery Roadmap</title>
+    <style>
+    :root {
+        /* UPDATED: New Data Engineering-themed color palette */
+        --body-bg: #F4F4F5;          /* Light, clean background */
+        --card-bg: #FFFFFF;          /* Crisp white cards */
+        --heading-color: #2D3748;     /* Professional dark blue-gray for headings */
+        --text-color: #4A5568;        /* Readable gray for descriptions */
+        --accent-color: #3B82F6;      /* A strong, professional blue for data engineering */
+        
+        --line-bg-color: rgba(59, 130, 246, 0.2);
+        --line-fill-color: var(--accent-color);
+        --dot-color: rgba(59, 130, 246, 0.4);
+        --dot-active-color: var(--accent-color);
+        --accent-blue: #3B82F6; 
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 80px 20px 40px 20px;
+        background-color: var(--body-bg);
+        color: var(--text-color);
+    }
+    
+    body.modal-open {
+        overflow: hidden;
+    }
+
+    .home-button-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    
+    .back-to-home { 
+        display: inline-flex; 
+        align-items: center; 
+        gap: 6px;
+        padding: 8px 16px; 
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0; 
+        border-radius: 6px; 
+        text-decoration: none; 
+        font-size: 14px; 
+        font-weight: 500;
+        color: #333; 
+        transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .back-to-home:hover { 
+        background-color: #f8f8f8; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    }
+
+    .main-container { max-width: 800px; margin: 0 auto; }
+
+    .header-container { text-align: center; margin-bottom: 20px; }
+    #main-header-text { 
+        font-size: 2.5em; font-weight: 700; 
+        color: var(--heading-color);
+        text-shadow: none;
+        line-height: 1.2;
+    }
+    
+    .sub-header-text {
+        font-size: 1.15em;
+        color: var(--text-color);
+        margin-top: 10px;
+        margin-bottom: 20px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    .timeline { position: relative; width: 100%; margin: 0 auto; padding: 40px 0; }
+    .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--line-bg-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; }
+    .timeline::before { content: ''; position: absolute; width: 4px; background-color: var(--line-fill-color); top: 0; left: 50%; margin-left: -2px; border-radius: 2px; height: var(--line-height, 0); transition: height 0.2s ease-out; }
+    
+    .timeline-marker {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        top: var(--marker-position, 0px);
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 3px 15px rgba(0, 0, 0, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: top 0.2s ease-out;
+        color: var(--accent-color);
+    }
+    .timeline-marker svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .timeline ul { list-style: none; padding: 0; margin: 0; }
+    .timeline-item {
+        padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .timeline-item:nth-child(odd) { left: 0; }
+    .timeline-item:nth-child(even) { left: 50%; }
+    .timeline-item.is-visible { opacity: 1; transform: translateY(0); }
+
+    .timeline-item::after { 
+        content: ''; position: absolute; width: 14px; height: 14px;
+        background-color: var(--dot-color); top: 35px; border-radius: 50%; z-index: 1;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .timeline-item:nth-child(odd)::after { right: -7px; }
+    .timeline-item:nth-child(even)::after { left: -7px; }
+    .timeline-item.is-visible::after { background-color: var(--dot-active-color); transform: scale(1.3); }
+    
+    .timeline-content { 
+        padding: 25px; 
+        background: var(--card-bg);
+        border-radius: 12px; 
+        box-shadow: 0 6px 30px rgba(45, 55, 72, 0.08);
+        position: relative; text-align: left;
+        border: 1px solid #E2E8F0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 45px rgba(45, 55, 72, 0.12);
+    }
+    
+    .content-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .logo-container {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        color: var(--accent-color);
+    }
+    .logo-container svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .timeline-content h3 {
+        margin: 0;
+        font-size: 1.6em;
+        font-weight: 600;
+        color: var(--heading-color);
+    }
+
+    .description { font-size: 1.05em; line-height: 1.6; margin: 0 0 15px 0; color: var(--text-color); }
+    .link-wrapper { text-align: left; margin-top: 20px; }
+    .timeline-link { font-size: 0.95em; font-weight: 600; color: var(--accent-color); text-decoration: none; transition: opacity 0.2s ease; cursor: pointer; }
+    .timeline-link:hover { opacity: 0.8; }
+    
+    .timeline-item .timeline-content > * { opacity: 0; transform: translateY(15px); transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+    .timeline-item.is-visible .timeline-content > * { opacity: 1; transform: translateY(0); }
+    .timeline-item.is-visible .timeline-content .content-header { transition-delay: 0.2s; }
+    .timeline-item.is-visible .timeline-content .description { transition-delay: 0.3s; }
+    .timeline-item.is-visible .timeline-content .link-wrapper { transition-delay: 0.4s; }
+
+
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0s 0.3s linear; z-index: 1000; }
+    .modal-overlay.visible { opacity: 1; visibility: visible; transition-delay: 0s; }
+    
+    .modal-content { 
+        background-color: white; padding: 30px; border-radius: 12px; 
+        width: 90%; max-width: 500px; 
+        transform: translateY(-30px) scale(0.95);
+        opacity: 0;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+        max-height: 85vh;
+    }
+    .modal-overlay.visible .modal-content { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #dee2e6; padding-bottom: 15px; margin-bottom: 20px; }
+    #modal-title { font-size: 1.5em; color: var(--heading-color); margin: 0; }
+    .close-modal { font-size: 1.8em; font-weight: bold; color: #adb5bd; cursor: pointer; line-height: 1; transition: color 0.2s; }
+    .close-modal:hover { color: #495057; }
+    
+    #modal-body { overflow-y: auto; padding-right: 15px; }
+    #modal-body ul { list-style: none; padding: 0; margin: 0; }
+    .modal-accordion-item { background-color: #f7f9fc; border: 1px solid #e9ecef; border-radius: 8px; margin-bottom: 10px; position: relative; padding-left: 25px; overflow: hidden; }
+    .modal-accordion-item::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 6px; background-color: var(--accent-blue); border-radius: 8px 0 0 8px; }
+    .modal-accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 15px 15px 0; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--heading-color); }
+    .modal-accordion-toggle { display: inline-block; width: 8px; height: 8px; border-right: 2px solid var(--heading-color); border-bottom: 2px solid var(--heading-color); transform: rotate(45deg); transition: transform 0.3s ease; }
+    .modal-accordion-item.open .modal-accordion-toggle { transform: rotate(-135deg); }
+    .modal-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; padding: 0 15px 0 0; color: #6c757d; font-size: 0.95rem; line-height: 1.6; }
+    .modal-accordion-item.open .modal-accordion-body { max-height: 500px; /* Increased max-height */ padding: 0 15px 15px 0; }
+    
+    #modal-body::-webkit-scrollbar { width: 8px; }
+    #modal-body::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+    #modal-body::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+    /* Specialization Section Styles */
+    .specialization-container {
+        padding: 50px 25px;
+        margin-top: 40px;
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(45, 55, 72, 0.1);
+        border: 1px solid #E2E8F0;
+        text-align: left;
+    }
+    .specialization-container h2 {
+        font-size: 2.2em;
+        font-weight: 700;
+        color: var(--heading-color);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .specialization-container .subtitle {
+        font-size: 1.15em;
+        color: var(--text-color);
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cloud-tracks-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 20px;
+    }
+    .cloud-track-card {
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #e9ecef;
+        border-left: 5px solid var(--accent-color);
+    }
+    .cloud-track-card h3 {
+        font-size: 1.7em;
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    .cloud-track-card h4 {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--accent-color);
+        margin-top: 20px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--line-bg-color);
+        padding-bottom: 5px;
+    }
+    .cloud-track-card ul {
+        list-style: '→';
+        padding-left: 20px;
+        margin: 0;
+    }
+    .cloud-track-card li {
+        margin-bottom: 10px;
+        padding-left: 10px;
+        line-height: 1.6;
+    }
+     .roadmap-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 40px;
+        font-size: 1em;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .roadmap-table th, .roadmap-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #E2E8F0;
+    }
+    .roadmap-table th {
+        background-color: var(--body-bg);
+        font-weight: 600;
+        color: var(--heading-color);
+    }
+    .roadmap-table tr:last-child td {
+        border-bottom: none;
+    }
+    .roadmap-table tr:hover {
+        background-color: #f8f9fa;
+    }
+    .learning-points {
+        list-style: '✅';
+        padding-left: 25px;
+        margin: 20px 0;
+        color: var(--text-color);
+    }
+    .learning-points li {
+        padding-left: 15px;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="home-button-container">
+        <a href="index.html" class="back-to-home"><span>←</span> Back to Home</a>
+    </div>
+
+    <div class="main-container">
+        <div class="header-container">
+            <h1 id="main-header-text">Data Engineer Mastery Roadmap — From Foundations to Cloud King</h1>
+            <p class="sub-header-text">This comprehensive 6-month journey builds rock-solid foundations first, then powers through cloud specialization on AWS, Azure, and GCP, ending with hands-on corporate capstone projects.</p>
+        </div>
+        
+        <div class="header-container">
+            <h2>Pre-Cloud Data Engineering Foundations (Months 1–3)</h2>
+        </div>
+
+        <div id="language-display"></div>
+        
+        <div class="specialization-container">
+            <h2>Cloud Data Engineering Specializations (Months 4–6)</h2>
+            <p class="subtitle">Once foundational skills are mastered, learners specialize in one of the three major clouds with a consistent structure, enabling enterprise expertise and portfolio-ready projects.</p>
+        
+            <div class="cloud-tracks-grid">
+                <!-- AWS Track -->
+                <div class="cloud-track-card">
+                    <h3>AWS Data Engineer Mastery</h3>
+                    <h4>Monthly Focus</h4>
+                    <ul>
+                        <li><b>Month 4:</b> Storage & Ingestion with S3, Glue, RDS, DynamoDB</li>
+                        <li><b>Month 5:</b> Big Data Processing with EMR, Lambda, Kinesis</li>
+                        <li><b>Month 6:</b> Data Warehousing with Redshift, QuickSight dashboards</li>
+                    </ul>
+                    <h4>Capstone Projects</h4>
+                    <ul>
+                        <li>Streaming Analytics Pipeline (Kinesis + Lambda + Redshift)</li>
+                        <li>Secure Data Lake with Glue & Lake Formation</li>
+                        <li>Automated Data Warehouse Management with Redshift</li>
+                        <li>ML-Ready Feature Store for SageMaker Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Azure Track -->
+                <div class="cloud-track-card">
+                    <h3>Azure Data Engineer Mastery</h3>
+                    <h4>Monthly Focus</h4>
+                    <ul>
+                        <li><b>Month 4:</b> Azure Blob, Data Lake Gen 2, Data Factory Pipelines</li>
+                        <li><b>Month 5:</b> Azure Databricks, Stream Analytics, Event Hubs</li>
+                        <li><b>Month 6:</b> Synapse Analytics, Power BI Reporting, Security with Key Vault & Purview</li>
+                    </ul>
+                    <h4>Capstone Projects</h4>
+                    <ul>
+                        <li>Advanced Data Lake Platform with Data Factory & Purview</li>
+                        <li>Real-Time Streaming Pipeline using Event Hubs & Databricks</li>
+                        <li>Enterprise Analytics Hub with Synapse & Power BI</li>
+                        <li>Fully Automated ETL Pipeline with ARM & DevOps</li>
+                    </ul>
+                </div>
+
+                <!-- GCP Track -->
+                <div class="cloud-track-card">
+                    <h3>GCP Data Engineer Mastery</h3>
+                    <h4>Monthly Focus</h4>
+                    <ul>
+                        <li><b>Month 4:</b> BigQuery data warehouse, Cloud SQL, Dataflow pipelines</li>
+                        <li><b>Month 5:</b> Pub/Sub, Dataproc cluster management, Data Studio for dashboards</li>
+                        <li><b>Month 6:</b> Composer (Airflow), Data Catalog, security policies & governance</li>
+                    </ul>
+                    <h4>Capstone Projects</h4>
+                    <ul>
+                        <li>Cloud-Native Data Warehouse with BigQuery & Dataflow</li>
+                        <li>Real-Time Analytics Pipeline on Pub/Sub & Looker Studio</li>
+                        <li>End-to-End Data Lake & Metadata Management using Composer & Catalog</li>
+                        <li>Automated ML Pipeline using BigQuery ML & Vertex AI</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 60px;">Comprehensive Roadmap Table</h2>
+             <table class="roadmap-table">
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Focus</th>
+                        <th>Key Technologies & Tools</th>
+                        <th>Deliverables</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pre-Cloud</td>
+                        <td>Python, SQL, Hadoop, Hive, Spark</td>
+                        <td>Python, pandas, SQL, HDFS, MapReduce, Hive, Spark</td>
+                        <td>Foundational ETL pipelines & big data projects</td>
+                    </tr>
+                     <tr>
+                        <td>Cloud Track 1</td>
+                        <td>AWS Data Engineering</td>
+                        <td>S3, Glue, Lambda, EMR, Kinesis, Redshift</td>
+                        <td>Streaming Analytics, Data Lakes, Warehousing</td>
+                    </tr>
+                     <tr>
+                        <td>Cloud Track 2</td>
+                        <td>Azure Data Engineering</td>
+                        <td>Blob, Data Lake, Data Factory, Databricks, Synapse</td>
+                        <td>Real-Time Pipelines, Data Lakes, BI Dashboards</td>
+                    </tr>
+                     <tr>
+                        <td>Cloud Track 3</td>
+                        <td>GCP Data Engineering</td>
+                        <td>BigQuery, Dataflow, Pub/Sub, Dataproc, Composer</td>
+                        <td>Cloud Warehouse, Streaming Analytics, Metadata mgmt</td>
+                    </tr>
+                     <tr>
+                        <td>Capstone Month</td>
+                        <td>Corporate-Grade Portfolio</td>
+                        <td>All platforms and integrations</td>
+                        <td>4 Major Production-Ready Projects per Cloud Track</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 style="margin-top: 60px;">Why This Roadmap Works</h2>
+             <ul class="learning-points">
+                <li><b>Foundation First:</b> Ensures every student masters core data programming, SQL, and big data before moving to advanced cloud tools.</li>
+                <li><b>Cloud Specialization:</b> Deep dives into each cloud’s unique strengths and ecosystem, enabling enterprise-level skills.</li>
+                <li><b>Hands-On, Project-Driven:</b> Each stage equips learners with mini-projects building to capstone production projects.</li>
+                <li><b>Portfolio-Ready Graduates:</b> Multiple capstone projects per cloud arm graduates with real-world experience to ace job interviews.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="topics-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Relevant Topics</h3>
+                <span class="close-modal">×</span>
+            </div>
+            <div id="modal-body"><ul></ul></div>
+        </div>
+    </div>
+
+    <script>
+        const languageDisplay = document.getElementById('language-display');
+        const modal = document.getElementById('topics-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBodyList = document.querySelector('#modal-body ul');
+        const closeModalBtn = document.querySelector('.close-modal');
+        
+        // UPDATED: Data object with Data Engineering Foundations content
+        const data = {
+            foundations: [
+                { 
+                  name: 'Month 1', 
+                  desc: "Python for Data Engineering", 
+                  linkText: 'View Python Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-1.45-1.45c-.2-.2-.2-.51 0-.71l1.45-1.45c.2-.2.51-.2.71 0l1.45 1.45c.2.2.2.51 0 .71l-1.45 1.45c-.2.2-.51.2-.71 0zm-10 10l-1.45-1.45c-.2-.2-.2-.51 0-.71l1.45-1.45c.2-.2.51-.2.71 0l1.45 1.45c.2.2.2.51 0 .71l-1.45 1.45c-.2.2-.51.2-.71 0zM4 12l-1.45-1.45A.5.5 0 012 10.24l1.45-1.45a.5.5 0 01.71 0L5.61 10.24a.5.5 0 010 .71L4.16 12.4a.5.5 0 01-.71 0z" /><path d="M12 2l1.45 1.45c.2.2.2.51 0 .71L12 5.61a.5.5 0 01-.71 0L9.84 4.16a.5.5 0 010-.71L11.29 2c.2-.2.51-.2.71 0z" /></svg>`,
+                  topics: [
+                    { title: 'Core Python', details: 'Master syntax, control flows, functions, modules, and best practices for data engineering.' },
+                    { title: 'Data Manipulation with Pandas', details: 'Learn to efficiently load, clean, transform, and analyze data.' },
+                    { title: 'File Handling & Database Connectivity', details: 'Work with large CSVs & JSON files and connect to databases using SQLAlchemy & psycopg2.' },
+                    { title: 'Mini-Projects', details: 'Build an ETL script to ingest CSVs into a database and create data cleaning/transformation pipelines.' },
+                  ]
+                },
+                { 
+                  name: 'Month 2', 
+                  desc: 'SQL and Classic Big Data Tools', 
+                  linkText: 'View Big Data Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
+                  topics: [
+                    { title: 'SQL Mastery', details: 'Go deep with SELECT, JOINs, GROUP BY, Window Functions, and CTEs. Learn query optimization and indexing basics.' },
+                    { title: 'Hadoop Ecosystem', details: 'Understand HDFS fundamentals, MapReduce basics, and Hive SQL for big data querying.' },
+                    { title: 'Data Ingestion & Orchestration', details: 'Get an introduction to Sqoop for data import/export and Oozie for workflow scheduling.' },
+                    { title: 'Mini-Projects', details: 'Build batch processing pipelines using Hadoop & Hive and perform data ingestion with Sqoop.' },
+                  ]
+                },
+                { 
+                  name: 'Month 3', 
+                  desc: 'Apache Spark Foundations', 
+                  linkText: 'View Spark Topics >',
+                  logo: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
+                  topics: [
+                    { title: 'Spark Architecture', details: 'Understand RDDs, DataFrames, the DAG scheduler, and distributed data processing.' },
+                    { title: 'Batch & Streaming Pipelines', details: 'Use Spark SQL for batch processing and Structured Streaming for real-time data pipelines.' },
+                    { title: 'Introduction to MLlib', details: 'Explore Spark’s library for scalable machine learning on big data.' },
+                    { title: 'Mini-Projects', details: 'Build a scalable batch ETL pipeline with Spark DataFrames and implement a real-time aggregation pipeline.' },
+                  ]
+                },
+            ]
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        languageDisplay.addEventListener('click', (e) => {
+            const link = e.target.closest('.timeline-link');
+            if (link) {
+                openModal(link.dataset.type, link.dataset.index);
+            }
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        
+        modalBodyList.addEventListener('click', (e) => {
+            const header = e.target.closest('.modal-accordion-header');
+            if (header) {
+                const item = header.parentElement;
+                item.classList.toggle('open');
+            }
+        });
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        function createTimeline(type) {
+            const timelineData = data[type];
+            languageDisplay.innerHTML = ''; 
+            const timelineDiv = document.createElement('div');
+            timelineDiv.className = 'timeline';
+
+            const markerElement = document.createElement('div');
+            markerElement.className = 'timeline-marker';
+            markerElement.innerHTML = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13.1818L9.83333 18L19 7" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            timelineDiv.appendChild(markerElement);
+
+            const listElement = document.createElement('ul');
+            timelineData.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'timeline-item';
+                listItem.innerHTML = `
+                    <div class="timeline-content">
+                        <div class="content-header">
+                            <div class="logo-container">
+                                ${item.logo || ''}
+                            </div>
+                            <h3>${item.name}</h3>
+                        </div>
+                        <p class="description">${item.desc}</p>
+                        <div class="link-wrapper">
+                            <a class="timeline-link" data-type="${type}" data-index="${index}">${item.linkText}</a>
+                        </div>
+                    </div>
+                `;
+                listElement.appendChild(listItem);
+                observer.observe(listItem);
+            });
+            timelineDiv.appendChild(listElement);
+            languageDisplay.appendChild(timelineDiv);
+            
+            handleScrollAnimations(); 
+        }
+
+        function openModal(type, index) {
+            const item = data[type][index];
+            modalTitle.textContent = `Key Topics for ${item.name}`;
+            modalBodyList.innerHTML = '';
+            
+            item.topics.forEach(topic => {
+                const li = document.createElement('li');
+                li.className = 'modal-accordion-item';
+                li.innerHTML = `
+                    <div class="modal-accordion-header">
+                        <span>${topic.title}</span>
+                        <span class="modal-accordion-toggle"></span>
+                    </div>
+                    <div class="modal-accordion-body">
+                        ${topic.details}
+                    </div>
+                `;
+                modalBodyList.appendChild(li);
+            });
+            modal.classList.add('visible');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modal.classList.remove('visible');
+            document.body.classList.remove('modal-open');
+        }
+
+        function handleScrollAnimations() {
+            const timeline = document.querySelector('.timeline');
+            if (!timeline) return;
+            
+            const marker = timeline.querySelector('.timeline-marker');
+            const timelineRect = timeline.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            const startPoint = timelineRect.top + window.scrollY;
+            const endPoint = timelineRect.bottom + window.scrollY - viewportHeight;
+            
+            const scrollY = window.scrollY;
+            
+            let progress = (scrollY - startPoint) / (endPoint - startPoint);
+            progress = Math.max(0, Math.min(1, progress));
+
+            const lineHeight = progress * timelineRect.height;
+            timeline.style.setProperty('--line-height', `${lineHeight}px`);
+            
+            if (marker) {
+                marker.style.setProperty('--marker-position', `${lineHeight}px`);
+            }
+        }
+
+        // Initial load for the foundational timeline
+        createTimeline('foundations');
+    </script>
+</body>
+</html>

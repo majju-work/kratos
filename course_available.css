@@ -1,228 +1,170 @@
-.programs-section {
-    width: 100%;
-    padding: 60px 0;
-}
+       /*===========================================================*/
+        /* Course Available Section Styles                           */
+        /*===========================================================*/
+        .course_available {
+            width: 100%;
+            padding: 100px 0;
+            box-sizing: border-box;
+        }
+        .course_available p.section-subtitle,
+        .course_available h3.section-title {
+            text-align: center;
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
-}
+        .course_available .container {
+            max-width: 1310px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-/* TYPOGRAPHY */
-.section-subtitle {
-    color: #E55353;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    margin-bottom: 8px;
-}
+        /* TYPOGRAPHY */
+        .course_available .section-subtitle {
+            color: #E55353;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
 
-.section-title {
-    color: white;
-    font-size: 40px;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 40px;
-}
+        .course_available .section-title {
+            color: white;
+            font-size: 40px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .course_available .section-title {
+                font-size: 32px;
+            }
+        }
 
-/* TABS NAVIGATION */
-.programs-tabs {
-    border: 1px solid #444;
-    border-radius: 999px;
-    display: inline-flex;
-    padding: 5px;
-    margin-bottom: 50px;
-}
+        /* CAROUSEL WRAPPER -- THIS IS WHERE THE CHANGE IS MADE */
+        .course_available .carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            /* === CHANGE FOR 3-CARD LAYOUT === */
+            max-width: 1130px; /* (3 * 360px card) + (2 * 25px gap) = 1130px */
+            margin: 0 auto;      /* Center the new, smaller container */
+        }
 
-.tab-link {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 25px;
-    border-radius: 999px;
-    font-weight: 500;
-    font-size: 16px;
-    transition: background-color 0.3s, color 0.3s;
-}
+        /* The Viewport clips the track */
+        .course_available .carousel-viewport {
+            width: 100%;
+            overflow: hidden;
+        }
 
-.tab-link.active {
-    background-color: #ffffff;
-    color: #121212;
-}
+        /* The Track holds the cards and scrolls */
+        .course_available .carousel-track {
+            display: flex;
+            gap: 25px;
+            overflow-x: scroll; 
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            cursor: grab;
+            user-select: none;
+        }
+        .course_available .carousel-track.active {
+            cursor: grabbing;
+        }
+        .course_available .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
 
-.tab-link:not(.active):hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
+        /* PROGRAM CARD */
+        .course_available .program-card {
+            flex: 0 0 360px;
+            width: 360px; 
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: left;
+            color: #1C1C1C;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e0e0e0;
+        }
+        
+        /* On smaller screens, allow one card to be shown with some peeking */
+        @media (max-width: 768px) {
+             .course_available .program-card {
+                flex: 0 0 300px;
+                width: 300px;
+             }
+        }
 
-/* CAROUSEL */
-.carousel-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
+        /* ARROWS */
+        .course_available .carousel-arrow {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+        .course_available .carousel-arrow:hover:not(:disabled) {
+            background-color: #000000;
+        }
+        .course_available .carousel-arrow.prev {
+            left: -58px; 
+        }
+        .course_available .carousel-arrow.next {
+            right: -58px; 
+        }
+        .course_available .carousel-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            background-color: #1f1f1f;
+        }
+        
+        @media (max-width: 768px) {
+            .course_available .carousel-container {
+                margin: 0;
+                max-width: none; /* Reset max-width on mobile */
+            }
+            .course_available .carousel-arrow {
+                top: 45%;
+                background-color: rgba(42, 42, 42, 0.8);
+            }
+            .course_available .carousel-arrow.prev { left: 10px; }
+            .course_available .carousel-arrow.next { right: 10px; }
+        }
 
-.carousel-track {
-    display: flex;
-    gap: 25px;
-    overflow: hidden; /* For a real carousel, you'd use JS to handle scrolling */
-    width: 100%;
-}
-
-.carousel-arrow {
-    background-color: #1f1f1f;
-    border: 1px solid #444;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    transition: background-color 0.3s;
-}
-.carousel-arrow:hover {
-    background-color: #333;
-}
-.carousel-arrow.prev {
-    left: -60px;
-}
-.carousel-arrow.next {
-    right: -60px;
-}
-
-/* PROGRAM CARD */
-.program-card {
-    background-color: #ffffff;
-    border: 1px solid #444;
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: left;
-    color: #1C1C1C;
-    flex: 0 0 calc(33.333% - 17px); /* 17px is 2/3 of the 25px gap */
-    display: flex;
-    flex-direction: column;
-}
-
-.card-image-container {
-    position: relative;
-}
-
-.card-image-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.card-tag {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    padding: 5px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 600;
-    color: #1C1C1C;
-}
-
-.tag-orange { background-color: #FCD34D; }
-.tag-yellow { background-color: #FEF08A; }
-.tag-blue { background-color: #A7F3D0; }
-
-.card-content {
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-logos {
-    height: 24px;
-    margin-bottom: 16px;
-    font-weight: 700;
-    font-size: 12px;
-    color: #555;
-    display: flex;
-    align-items: center;
-}
-.logo-edx { font-style: italic; font-size: 18px; margin-right: 8px; }
-.logo-columbia { letter-spacing: 0.5px; }
-.logo-microsoft { font-size: 16px; color: #444; }
-.logo-insead { color: #005C9E; letter-spacing: 1px; }
-
-.card-program-type {
-    font-size: 14px;
-    color: #6B7280;
-    margin: 0 0 4px 0;
-}
-
-.card-title {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 16px 0;
-    line-height: 1.4;
-    flex-grow: 1; /* Pushes info and buttons to the bottom */
-}
-
-.card-info {
-    font-size: 14px;
-    color: #6B7280;
-    margin-bottom: 20px;
-}
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.info-item:first-child {
-    margin-bottom: 8px;
-}
-.card-info svg {
-    stroke: #6B7280;
-}
-
-
-/* CARD BUTTONS */
-.card-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.btn {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.btn-primary {
-    background: linear-gradient(to right, #8B5CF6, #6366F1);
-    color: #ffffff;
-}
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
-.btn-secondary {
-    background-color: #ffffff;
-    color: #1F2937;
-    border: 1px solid #D1D5DB;
-}
-.btn-secondary:hover {
-    background-color: #F9FAFB;
-    border-color: #9CA3AF;
-}
+        /* Unchanged Card-Specific CSS */
+        .course_available .card-image-container { position: relative; }
+        .course_available .card-image-container img { width: 100%; height: 160px; object-fit: cover; display: block; }
+        .course_available .card-tag { position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; color: #1C1C1C; }
+        .course_available .tag-orange { background-color: #FCD34D; }
+        .course_available .tag-yellow { background-color: #FEF08A; }
+        .course_available .tag-blue { background-color: #A7F3D0; }
+        .course_available .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .course_available .card-logos { height: 24px; margin-bottom: 16px; font-weight: 700; font-size: 12px; color: #555; display: flex; align-items: center; }
+        .course_available .logo-columbia { letter-spacing: 0.5px; }
+        .course_available .logo-microsoft { font-size: 16px; color: #444; }
+        .course_available .logo-insead { color: #005C9E; letter-spacing: 1px; }
+        .course_available .logo-caltech, .course_available .logo-wharton, .course_available .logo-mit { font-size: 14px; color: #444; }
+        .course_available .card-program-type { font-size: 14px; color: #6B7280; margin: 0 0 4px 0; }
+        .course_available .card-title { font-size: 18px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.4; flex-grow: 1; min-height: 50px; }
+        .course_available .card-info { font-size: 14px; color: #6B7280; margin-bottom: 20px; }
+        .course_available .info-item { display: flex; align-items: center; gap: 8px; }
+        .course_available .info-item:first-child { margin-bottom: 8px; }
+        .course_available .card-info svg { stroke: #6B7280; }
+        .course_available .card-buttons { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+        .course_available .btn { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid transparent; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .course_available .btn-primary { background: linear-gradient(to right, #8B5CF6, #6366F1); color: #ffffff; }
+        .course_available .btn-primary:hover { opacity: 0.9; }
+        .course_available .btn-secondary { background-color: #ffffff; color: #1F2937; border: 1px solid #D1D5DB; }
+        .course_available .btn-secondary:hover { background-color: #F9FAFB; border-color: #9CA3AF; }
